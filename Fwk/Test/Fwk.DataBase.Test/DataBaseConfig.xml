@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCnnString>
+
+
+
+    <CnnString>
+      <Name>Cnn1</Name>
+      <WindowsAutentification>false</WindowsAutentification>
+      <DataSource>santana\SQLEXPRESS</DataSource>
+      <User>sa</User>
+      <InitialCatalog>PelsoftGastos</InitialCatalog>
+      <Password>as</Password>
+    </CnnString>
+
+  
+</ArrayOfCnnString>

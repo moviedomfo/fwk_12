@@ -1,0 +1,192 @@
+
+-------------------------------- Wrapper  -----------------------------------
+ErrorId = 6000
+
+-------------------------------- Service Manager - Dispatcher  -----------------------------------
+
+ErrorId = 7000 
+Descripcion: No se puede cargar el proveedor de configuracion de Metadata de servicios del framework fwk, verifique si existe la seccion [FwkServiceMetadata] en el archivo de configuracion."
+      te.Class = "Fwk.Configuration.ServiceManagement [static constructor --> ServiceMetadata()]";
+
+ErrorId = 7001
+Descripcion: "El despachador de servicio no se encuentra disponible."
+
+ErrorId = 7002
+Descripcion: "El servicio " + [serviceName] + " no se encuentra configurado."
+			 "El servicio " + [serviceName] + " no se eliminó por no encontrarse configurado.
+			 "El servicio " + [serviceName] + " no se puede ejecutar debido a que esta faltando el assembly [AssemblyName] en el despachador de servicio"
+ErrorId = 7003
+ Descripcion: TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el servicio: ",
+  serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
+  
+ErrorId = 7004
+Descripcion: Error al inicializar la metadata de los servicios  \r\n
+
+ErrorId = 7005
+ Descripcion = wMessage.Append("El despachador de servicio no pudo continuar debido  \r\n");
+                wMessage.Append("a que el nombre del servicio no fue establecido");
+
+ErrorId = 7006
+ Descripcion =  Se ha intentado ejecutar un servicio que está configurado como no disponible.
+Servicio de configuracion
+
+ErrorId = 7007
+Descripcion: Se ha intentado levantar eldespachador de servicios\r\ndetalles del error: Se produce antesdeque cualquierservicio puda ser ejecutado. Puede que no este configurada 
+en web config los AppSettings    <add key="ServiceDispatcherName" value="" />
+    <add key="ServiceDispatcherConnection" value="" />
+
+ErrorId = 7008
+Descripcion: El despachador no puede responder debido a que ocurrieron problemas en la carga de la configuración del dispatcher
+ErrorId = 7009 
+Descripcion: No se puede encontrar la configuracion del despachador de servicio en la base de datos\r\nCadena de conexión : [CONNECTION_STRING_NAME	]
+
+Descripcion: El despachador no puede responder debido a que ocurrieron problemas en la carga de la configuración del dispatcher
+ErrorId = 7100
+ Descripcion =  No tiene permiso para actualizar el archivo 
+Servicio de configuracion
+ErrorId = 7200
+ Descripcion =  Problemas con Fwk.ServiceManagement  al realizar operaciones con la base de datos \r\n"
+
+ErrorId = 7201
+ Descripcion =  No se encuentra configurado el proveedor de metadatos de servicios con el nombre {0} en el despachador de servicios \r\n
+ Descripcion =  No se encuentra configurado un proveedor de metadatos de servicios por defecto en el despachador de servicios \r\n
+ 
+ 
+-------------------------------- Servicio de configuracion  Fwk.Configuration -----------------------------------
+
+ErrorId = 8000
+Descripcion: No se puede cargar el proveedor de configuracion del framework fwk, verifique si existe la seccion [FwkConfigProvider] en el archivo de configuracion."
+
+
+ErrorId = 8004
+Descripcion "Error al cargar el archivo de configuracion de servicios " "Verifique que todos los servicios cuentan con todos los atributos confugurados"
+
+ErrorId = 8005
+Descripcion :El archivo solicitado no es un archivo de configuración válido.
+
+ErrorId = 8006
+Descripcion: No se encuentra el grupo
+
+ErrorId = 8007
+Descripcion: No se encuentra la propiedad 
+
+ErrorId = 8008
+No tiene permiso para actualizar el archivo 
+
+ErrorId = 8010
+Descripcion: Nombre artchivo de configuracion no espesificado en el proveedor de configuracion. Ver archivo .config de la aplicacion
+
+ErrorId = 8011
+Descripcion: El archivo de  configuracion espesificado en el proveedor de configuracion ", provider.BaseConfigFile, " . Ver archivo .config de la aplicacion"
+
+ErrorId = 8012
+Descripcion Errores al intentar eliminar o agregar un archivo de configuracion. Metodo RemoveConfigurationFile
+
+
+
+ErrorId = 8200
+Descripcion: Problemas con Fwk.Configuration al realizar operaciones con la base de datos
+
+
+ErrorId = 8100
+No tiene permiso para actualizar el archivo 
+
+--------------------------------   Fwk.Logging -----------------------------------
+
+ErrorId = 9000
+Descripcion: Debe especificar un nombre de archivo para guardar el log.
+
+ErrorId = 9001
+Descripcion: No se encuentra configurado el evento {0} en la seccion FwkLogin.
+
+
+ErrorId = 9002  Hay problemas al intentar cargar la configuracion FwkLogging. Puede que la seccion FwkLogging o uno de sus atributos se encuentre con nombre incorrectos
+
+
+ErrorId = 9003
+Descripcion: Debe especificar el parametro cnnStringName. para identificar la cadena de conexión.-
+			o Debe especificar cnnStringName en el archivo de configuración
+			
+			
+ErrorId = 9004
+Descripcion: Problemas con Fwk.Logging realizar operaciones con la base de datos
+			
+--------------------------------   Fwk.Exceptions -----------------------------------
+
+
+ErrorId = 6000
+Descripcion: 
+Se produjo una excepcion funcional. El Mensaje de error no se encuentra disponible. \n" + 
+                        "Descripcion Tecnica: " + 
+                        
+FunctionalExceptionEnums.MsgErrorInConfigMannagerNotFount;
+
+
+-------------------------------- 3000  Fwk.Caching -----------------------------------
+
+3000
+
+
+
+--------------------------------   Fwk.Security -----------------------------------
+ErrorId = 4000: SecurityGenericError (Error generico de seguridad)
+There are some problems while trying to eprform some task on security database 
+{0} {1}
+
+
+ErrorId = 4001
+
+	Proveedor no existe
+
+ErrorId = 4002: Role_WithoutRules
+
+	No hay reglas para un determinado rol.-
+
+ErrorId = 4003 :Rule_ProblemGetingData
+
+	Error al intentar obtener los valores de la relgla:
+ErrorId = 4004 : Rule_ProblemGetingAlls
+
+	Error al intentar obtener las reglas
+ErrorId = 4005
+
+ Usuario no existe.-
+ErrorId = 4006
+	El rol tiene usuarios asociados
+
+ErrorId = 4007
+	El usuario Ya Exisate
+	
+ErrorId = 4008
+	No se puede crear el usuario en las membership.-
+ErrorId = 4009	
+ User_NoApproved	El usuario {0} no es un usuario aprobado. Pongase en contacto con su administrador de seguridad.	
+
+ ErrorId = 4010
+
+ RoleExist	Role {0} already exists.
+
+--------------------------------   Fwk.Security Active directory-----------------------------------
+ErrorId = 4103 : AD_GetingDomainsURL_Error
+Error al intentar obtener la lista de dominios desde la base de datos:
+
+ErrorId = 4104 : AD_Impersonation_Error
+Error de impersinalizacion de active directory
+
+ErrorId = 4106 : AD_NotExistDomainsURL
+No existe el dominio solicitado.- La tabla domains url no contiene el Domain Url que se intenta obtener.-
+
+
+--------------------------------   Fwk.Security.Cryptography -----------------------------------
+
+ErrorId = 4400 
+Error al intentar crear SymmetricAlgorithmProvider
+
+ErrorId = 4401
+"La clave de encriptacion ", keyFileName, " no existe"
+o
+"La clave de encriptacion no puede ser nula"
+
+
+ErrorId = 4402
+"Clave de encriptacion no es la correcta " Seguramente cambio el archivo .key de encriptaion

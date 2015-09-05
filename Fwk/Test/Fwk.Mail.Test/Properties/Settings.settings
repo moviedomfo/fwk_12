@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MailAgentTest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HostMail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">172.22.12.32</Value>
+    </Setting>
+    <Setting Name="InboxUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://{0}/WorldClient.dll?view=Main&amp;user={1}&amp;password={2}&amp;Folder=Inbox&amp;FirstUnread=Yes</Value>
+    </Setting>
+    <Setting Name="RefreshTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="UseSSL" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,1371 @@
+
+<ServiceConfigurationCollection>
+  <ServiceConfiguration name="CreateSurveyService">
+
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.CreateSurveyService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.CreateSurvey.req.CreateSurveyRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.CreateSurvey.res.CreateSurveyResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateSurveyService">
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.UpdateSurveyService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.UpdateSurvey.UpdateSurveyRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.UpdateSurvey.UpdateSurveyResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchParamsByTypeService">
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Common.SVC.SearchParamsByTypeService, Test.BackEnd.Common.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.BackEnd.Common.ISVC.SearchParamsByType.req.SearchParamsByTypeRequest, Test.BackEnd.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.BackEnd.Common.ISVC.SearchParamsByType.res.SearchParamsByTypeResponse, Test.BackEnd.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>true</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreatePredeterminateValueService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.CreatePredeterminateValueService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.CreatePredeterminateValue.req.CreatePredeterminateValueRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.CreatePredeterminateValue.res.CreatePredeterminateValueResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllPredeterminateValueService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.SearchAllPredeterminateValueService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.SearchAllPredeterminateValue.req.SearchAllPredeterminateValueRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.SearchAllPredeterminateValue.res.SearchAllPredeterminateValueResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateSurveyResultService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.CreateSurveyResultService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.CreateSurveyResult.CreateSurveyResultRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.CreateSurveyResult.CreateSurveyResultResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRecordSetService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Description>Crea un nuevo RecordSet</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.CreateRecordSetService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.CreateRecordSet.req.CreateRecordSetRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.CreateRecordSet.res.CreateRecordSetResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateCampaingService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Description>Crea una nueva campaña.-</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.CreateCampaingService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.CreateCampaing.Req.CreateCampaingRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.CreateCampaing.Res.CreateCampaingResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetCampaingByIdService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Description>Obtiene una campaña por su identificador.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.GetCampaingByIdService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetCampaingById.Req.GetCampaingByIdRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetCampaingById.Res.GetCampaingByIdResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordSetByIdService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Description>Obtiene un RecordSet a partir de su identificador.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.GetRecordSetByIdService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetRecordSetById.GetRecordSetByIdRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetRecordSetById.GetRecordSetByIdResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllCampaingsAndRecordSetsInfoService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.GetAllCampaingsAndRecordSetsInfoService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetAllCampaingsAndRecordSetsInfo.req.GetAllCampaingsAndRecordSetsInfoRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetAllCampaingsAndRecordSetsInfo.res.GetAllCampaingsAndRecordSetsInfoResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRecordService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.CreateRecordService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.CreateRecord.CreateRecordRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.CreateRecord.CreateRecordResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordActionResultByCampaingIdService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.GetRecordActionResultByCampaingIdService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetRecordActionResultByCampaingId.GetRecordActionResultByCampaingIdReq, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetRecordActionResultByCampaingId.GetRecordActionResultByCampaingIdRes, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchSurveyResultByParamService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.SearchSurveyResultByParamService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.SearchSurveyResult.SearchSurveyResultByParamRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.SearchSurveyResult.SearchSurveyResultByParamResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>true</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetSurveyByParamsService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.GetSurveyByParamsService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.GetSurvey.GetSurveyByParamsRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.GetSurvey.GetSurveyByParamsResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>true</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchSurveyByParamService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.SVC.SearchSurveyByParamService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.SearchSurveyByParam.SearchSurveyByParamRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.SearchSurveyByParam.SearchSurveyByParamResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>true</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllActiveUserAssignmentsService">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-05-14T13:00:45.2971534-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.GetAllActiveUserAssignmentsService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetAllActiveUserAssignments.Req.GetAllActiveUserAssignmentsRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetAllActiveUserAssignments.Res.GetAllActiveUserAssignmentsResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetImportStatusById">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-06-10T10:41:49.134757-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.GetImportStatusById, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetImportStatusById.Req.GetImportStatusByIdRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetImportStatusById.Resp.GetImportStatusByIdResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ImportRecords">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-06-10T10:27:16.7072985-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.ImportRecords, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.ImportRecords.Req.ImportRecordsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.ImportRecords.Resp.ImportRecordsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateCampaingService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-06-12T17:24:59.3731491-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.UpdateCampaingService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.UpdateCampaing.Req.UpdateCampaingRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.UpdateCampaing.Res.UpdateCampaingResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRecordSetsService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-06-17T10:12:42.8523549-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.UpdateRecordSetsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.UpdateRecordSets.UpdateRecordSetsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.UpdateRecordSets.UpdateRecordSetsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteSurveyService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-06-17T16:36:43.9683917-03:00</CreatedDateTime>
+    <Handler>Test.SVC.DeleteSurveyService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.DeleteSurvey.DeleteSurveyRequest, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.DeleteSurvey.DeleteSurveyResponse, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SaveUserRecordSetAssignmentLisModificationsService">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-05-18T18:08:34.8724597-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.SaveUserRecordSetAssignmentLisModificationsService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.SaveUserRecordSetAssignmentListModifications.Req.SaveUserRecordSetAssignmentListModificationsRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.SaveUserRecordSetAssignmentListModifications.Res.SaveUserRecordSetAssignmentListModificationsResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllActiveUsersInfoService">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-06-17T17:30:55.55297-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetAllActiveUsersInfoService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetAllActiveUsersInfo.Req.GetAllActiveUsersInfoRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetAllActiveUsersInfo.Res.GetAllActiveUsersInfoResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRecordSetStateService">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-06-23T15:27:54.8855485-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.RecordSets.UpdateRecordSetStateService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.UpdateRecordSetState.Req.UpdateRecordSetStateRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.UpdateRecordSetState.Resp.UpdateRecordSetStateResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AuthenticateUserService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-06-24T12:35:47.0558685-03:00</CreatedDateTime>
+    <Description>Este servicio permite realizar autenticacion de usuario con seguridad integrada o mixta.- Si la seguridad es mixta no es necesario pasar como parametro el password y hay que establecer el valor WindowsAtentication = true</Description>
+    <Handler>Test.BackEnd.Security.AuthenticateUserService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.AuthenticateUser.AuthenticateUserReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.AuthenticateUser.AuthenticateUserRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAuthorizationRulesService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-06-25T17:19:19.9302428-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetAuthorizationRulesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetAuthorizationRules.GetAuthorizationRulesReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetAuthorizationRules.GetAuthorizationRulesRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserRecordsByRecordSetIdService">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-06-26T15:23:24.9810073-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.GetUserRecordsByRecordSetIdService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetUserRecordsByRecordSetId.Req.GetUserRecordsByRecordSetIdRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetUserRecordsByRecordSetId.Resp.GetUserRecordsByRecordSetIdResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordByParamsService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.SearchRecordByParamsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordByParams.SearchRecordByParamsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordByParams.SearchRecordByParamsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordSetsByParamsService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Description>Buscar Recordsets</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.SearchRecordSetsByParamsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordSetsByParams.SearchRecordSetsByParamsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordSetsByParams.SearchRecordSetsByParamsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AssignNewRecordsService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-05-28T17:20:43.8485432-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.AssignNewRecordsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.AssignNewRecords.AssignNewRecordsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.AssignNewRecords.AssignNewRecordsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRulesCategoryService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-06T16:55:52.9605295-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.CreateRulesCategoryService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.CreateRulesCategory.req.CreateRulesCategoryRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.CreateRulesCategory.res.CreateRulesCategoryResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRulesCategoryService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-06T16:56:30.0987067-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.DeleteRulesCategoryService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.DeleteRulesCategory.req.DeleteRulesCategoryRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.DeleteRulesCategory.res.DeleteRulesCategoryResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRulesCategoryByParamService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-06T16:56:54.9616075-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetRulesCategoryByParamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetRulesCategoryByParam.Req.GetRulesCategoryByParamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetRulesCategoryByParam.Res.GetRulesCategoryByParamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Chaos</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesCategoryService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-13T10:27:44.7281542-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.UpdateRulesCategoryService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.UpdateRulesCategory.req.UpdateRulesCategoryRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.UpdateRulesCategory.res.UpdateRulesCategoryResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordByIdService">
+    
+    <CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.GetRecordByIdService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetRecordById.GetRecordByIdRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetRecordById.GetRecordByIdResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserInfoByName">
+    
+    <CreatedUserName>sbiglia</CreatedUserName>
+    <CreatedDateTime>2009-06-11T09:42:10.2892224-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetUserInfoByName, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetUserInfoByName.Req.GetUserInfoByNameRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetUserInfoByName.Resp.GetUserInfoByNameResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetSurveyForWebService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-07-13T15:43:40.4606997-03:00</CreatedDateTime>
+    <Handler>Test.SVC.GetSurveyForWebService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.GetSurveyForWeb.GetSurveyForWebReq, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.GetSurveyForWeb.GetSurveyForWebRes, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRulesService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-14T16:30:26.6078968-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.CreateRulesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.CreateRules.Req.CreateRulesRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.CreateRules.Res.CreateRulesResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllRulesService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-07-15T15:11:03.481398-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetAllRulesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetAllRules.GetAllRulesReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetAllRules.GetAllRulesRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllRolesService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-07-15T15:11:03.481398-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetAllRolesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetAllRoles.GetAllRolesReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetAllRoles.GetAllRolesRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesWithCategoryService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-17T17:59:14.2598717-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.UpdateRulesWithCategoryService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.UpdateRulesWithCategory.Req.UpdateRulesWithCategoryRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.UpdateRulesWithCategory.Res.UpdateRulesWithCategoryResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-07-21T10:26:44.3151955-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.UpdateRulesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.UpdateRules.UpdateRulesRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.UpdateRules.UpdateRulesResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetTeamByParamService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-28T12:09:44.7064638-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetTeamByParamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetTeamByParam.Req.GetTeamByParamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetTeamByParam.Res.GetTeamByParamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateTeamService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-28T12:10:10.0461588-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.CreateTeamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.CreateTeam.Req.CreateTeamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.CreateTeam.Res.CreateTeamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateUsersService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-08-06T17:07:12.9249876-03:00</CreatedDateTime>
+    <Description>Creación usuarios Service.</Description>
+    <Handler>Test.BackEnd.Security.CreateUsersService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.CreateUsers.CreateUsersRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.CreateUsers.CreateUsersResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteTeamService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-08-21T10:48:32.4792168-03:00</CreatedDateTime>
+    <Description>Servicio que permite eliminar uno o mas equipos.</Description>
+    <Handler>Test.BackEnd.Security.SVC.DeleteTeamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.DeleteTeam.Req.DeleteTeamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.DeleteTeam.Res.DeleteTeamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchUnassignedUsersService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-09-11T17:51:43.3280035-03:00</CreatedDateTime>
+    <Description>Obtiene los usuarios sin jefe.</Description>
+    <Handler>Test.BackEnd.Security.SearchUnassignedUsersService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.SearchUnassignedUsers.SearchUnassignedUsersRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.SearchUnassignedUsers.SearchUnassignedUsersResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ContainsRecordSetAssosiatedService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-06T11:19:50.6975868-03:00</CreatedDateTime>
+    <Handler>Test.SVC.ContainsRecordSetAssosiatedService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.ContainsRecordSetAssosiated.ContainsRecordSetAssosiatedReq, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.ContainsRecordSetAssosiated.ContainsRecordSetAssosiatedRes, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRecordActionResultService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-11-17T08:26:24.23505-03:00</CreatedDateTime>
+    <Description>Servicio que permite eliminar uno o más RecordActionResult.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.DeleteRecordActionResultService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.DeleteRecordActionResult.DeleteRecordActionResultRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.DeleteRecordActionResult.DeleteRecordActionResultResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllUsersService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-19T11:33:05.632228-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.SearchAllUsersService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.SearchAllUsers.SearchAllUsersReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.SearchAllUsers.SearchAllUsersRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllRulesCategoryService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-07-06T16:55:04.1093023-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetAllRulesCategoryService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetAllRulesCategory.req.GetAllRulesCategoryRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetAllRulesCategory.res.GetAllRulesCategoryResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-19T12:20:24.3416725-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetUserService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetUser.GetUserReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetUser.GetUserRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllCampaingWithRecordSetService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-19T16:03:42.5795095-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.GetAllCampaingWithRecordSetService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetAllCampaingWithRecordSet.GetAllCampaingWithRecordSetRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetAllCampaingWithRecordSet.GetAllCampaingWithRecordSetResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateUserService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-21T10:38:45.4634864-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.UpdateUserService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.UpdateUser.UpdateUserReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.UpdateUser.UpdateUserRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAllRecorSetWithSuperiorAndUserAssignedService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2009-11-24T09:41:30.6856408-03:00</CreatedDateTime>
+    <Description />
+    <Handler>Test.BackEnd.Campaing.SVC.GetAllRecorSetWithSuperiorAndUserAssignedService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetAllRecorSetWithSuperiorAndUserAssigned.GetAllRecorSetWithSuperiorAndUserAssignedRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetAllRecorSetWithSuperiorAndUserAssigned.GetAllRecorSetWithSuperiorAndUserAssignedResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateAssignementsUserService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-11-27T15:02:27.99-03:00</CreatedDateTime>
+    <Description>Serivico que permite borrar e insertar usuarios asignados a lotes.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.UpdateAssignementsUserService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.UpdateAssignementsUser.UpdateAssignementsUserRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.UpdateAssignementsUser.UpdateAssignementsUserResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CRUDRecordSetAttributeService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-11-27T15:37:00.6842608-03:00</CreatedDateTime>
+    <Description>Servicio que permite insertar, actualizar y borrar RecorSetAttributes.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.CRUDRecordSetAttributeService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.CRUDRecordSetAttribute.CRUDRecordSetAttributeRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.CRUDRecordSetAttribute.CRUDRecordSetAttributeResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordsByFiltersService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-11-30T11:18:06.8861643-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.SearchRecordsByFiltersService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordsByFilters.Req.SearchRecordsByFiltersRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordsByFilters.Res.SearchRecordsByFiltersResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordsObservationsByParamsService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-11-30T11:18:36.6988551-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.SearchRecordsObservationsByParamsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordsObservationsByParams.SearchRecordsObservationsByParamsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordsObservationsByParams.SearchRecordsObservationsByParamsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRecordsObservationsService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-11-30T12:20:04.5740932-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.UpdateRecordsObservationsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.UpdateRecordsObservations.UpdateRecordsObservationsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.UpdateRecordsObservations.UpdateRecordsObservationsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRecordsObservationsService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-11-30T12:20:19.4172732-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.DeleteRecordsObservationsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.DeleteRecordsObservations.DeleteRecordsObservationsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.DeleteRecordsObservations.DeleteRecordsObservationsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRecordsObservationsService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-11-30T12:20:34.4635704-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.CreateRecordsObservationsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.CreateRecordsObservations.CreateRecordsObservationsRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.CreateRecordsObservations.CreateRecordsObservationsResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordCountService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-11-30T12:55:02.0997237-03:00</CreatedDateTime>
+    <Description>Servicio que permite obtener si hay registros asignados a usuarios.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.GetRecordCountService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetRecordCount.GetRecordCountRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetRecordCount.GetRecordCountResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordValueService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-11-30T15:14:41.8480095-03:00</CreatedDateTime>
+    <Description>Servicio que permite obtener si los atributos tienen valores.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.GetRecordValueService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetRecordValue.GetRecordValueRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetRecordValue.GetRecordValueResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRecordSetService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-01T15:36:37.1574807-03:00</CreatedDateTime>
+    <Description>Servicio que permite eliminar un RecordSet.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.DeleteRecordSetService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.DeleteRecordSet.DeleteRecordSetRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.DeleteRecordSet.DeleteRecordSetResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteCampaignService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-01T15:37:03.8449807-03:00</CreatedDateTime>
+    <Description>Servicio que permite eliminar una campaña.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.DeleteCampaignService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.DeleteCampaign.DeleteCampaignRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.DeleteCampaign.DeleteCampaignResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordSetCountService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-01T16:56:55.7904257-03:00</CreatedDateTime>
+    <Description>Servicio que permite validar si una campaña tiene lotes o no.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.GetRecordSetCountService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetRecordSetCount.GetRecordSetCountRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetRecordSetCount.GetRecordSetCountResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetSurveyWebMenuService">
+    
+    <CreatedUserName>HOliva</CreatedUserName>
+    <CreatedDateTime>2009-12-01T17:03:06.6805556-03:00</CreatedDateTime>
+    <Handler>Test.SVC.GetSurveyWebMenuService, Test.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.ISVC.GetSurveyWebMenu.GetSurveyWebMenuReq, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.ISVC.GetSurveyWebMenu.GetSurveyWebMenuRes, Test.Common.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordActionResultByLevelService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-12-02T17:52:54.753094-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.SearchRecordActionResultByLevelService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.SearchRecordActionResultByLevel.SearchRecordActionResultByLevelRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.SearchRecordActionResultByLevel.SearchRecordActionResultByLevelResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordQuantityService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-03T12:01:22.4888937-03:00</CreatedDateTime>
+    <Description>Servicio que permite obtener la cantidad total de registros del lote junto a algunos datos de la campaña y el lote.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.GetRecordQuantityService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetRecordQuantity.GetRecordQuantityRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetRecordQuantity.GetRecordQuantityResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordsPendingService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-03T14:32:03.7305013-03:00</CreatedDateTime>
+    <Description>Servicio que permite obtener registros que se encuentre con algún estado Pendiente.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.GetRecordsPendingService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetRecordsPending.GetRecordsPendingRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetRecordsPending.GetRecordsPendingResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRecordMassiveClosureService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-04T15:45:05.7850311-03:00</CreatedDateTime>
+    <Description>Servicio que permite asignar masivamente estados a registros.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.UpdateRecordMassiveClosureService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.UpdateRecordMassiveClosure.UpdateRecordMassiveClosureRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.UpdateRecordMassiveClosure.UpdateRecordMassiveClosureResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRoleService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-23T11:46:37.306058-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.CreateRoleService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.CreateRole.CreateRoleReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.CreateRole.CreateRoleRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRoleService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-23T11:47:14.103875-03:00</CreatedDateTime>
+    <Description>se saco la transaccion para que no de error el MDSCT</Description>
+    <Handler>Test.BackEnd.Security.DeleteRoleService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.DeleteRole.DeleteRoleReq, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.DeleteRole.DeleteRoleRes, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordActionResultByParamsService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-12-11T11:22:20.0114249-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.SearchRecordActionResultByParamsService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.SearchRecordActionResultByParams.SearchRecordActionResultByParamsRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.SearchRecordActionResultByParams.SearchRecordActionResultByParamsResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchCampignByParamService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-12-11T11:35:15.7398507-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.SearchCampignByParamService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.SearchCampignByParam.SearchCampignByParamReq, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.SearchCampignByParam.SearchCampignByParamRes, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordsetsByParamsInfoService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-12-11T11:37:09.0138507-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.SearchRecordsetsByParamsInfoService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordsetsByParamsInfo.SearchRecordsetsByParamsInfoReq, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordsetsByParamsInfo.SearchRecordsetsByParamsInfoRes, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordActionResultRecursiveService">
+    
+    <CreatedUserName>hebraida</CreatedUserName>
+    <CreatedDateTime>2009-12-14T16:17:19.9822656-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Campaing.SVC.SearchRecordActionResultRecursiveService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.SearchRecordActionResultRecursive.SearchRecordActionResultRecursiveRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.SearchRecordActionResultRecursive.SearchRecordActionResultRecursiveResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordToReleaseByParamsService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-12-14T11:04:56.3605897-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.SearchRecordToReleaseByParamsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordToReleaseByParams.SearchRecordToReleaseByParamsReq, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordToReleaseByParams.SearchRecordToReleaseByParamsRes, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>Snapshot</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordSetsByParamsAllService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-12-15T09:33:42.0738346-03:00</CreatedDateTime>
+    <Description>Servicio de búsqueda de RecordSets por parametros con campañas, usuarios y encuestas.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.RecordSets.SearchRecordSetsByParamsAllService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordSetsByParamsAll.SearchRecordSetsByParamsAllRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordSetsByParamsAll.SearchRecordSetsByParamsAllResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ReleaseRecordsService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-12-15T20:50:45.1202581-03:00</CreatedDateTime>
+    <Description>[BB-40] Libera registros</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.ReleaseRecordsService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.ReleaseRecords.ReleaseRecordsReq, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.ReleaseRecords.ReleaseRecordsRes, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordsCountService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-12-21T17:21:46.8020084-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.SearchRecordsCountService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordsCount.SearchRecordsCountRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordsCount.SearchRecordsCountResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordSetsRecallOptionsCountService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-23T12:10:53.8104657-03:00</CreatedDateTime>
+    <Description>Servicio que permite contar la cantidad de lotes que tienen determinada opcion de rellamado.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.GetRecordSetsRecallOptionsCountService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.GetRecordSetsRecallOptionsCount.GetRecordSetsRecallOptionsCountRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.GetRecordSetsRecallOptionsCount.GetRecordSetsRecallOptionsCountResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRecordSetRecallOptionsService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2009-12-23T15:26:37.5302429-03:00</CreatedDateTime>
+    <Description>Servicio que permite actualizar las opciones de rellamado en el RecordSet.</Description>
+    <Handler>Test.BackEnd.Campaing.SVC.UpdateRecordSetRecallOptionsService, Test.BackEnd.Campaing.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Campaing.ISVC.UpdateRecordSetRecallOptions.UpdateRecordSetRecallOptionsRequest, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Campaing.ISVC.UpdateRecordSetRecallOptions.UpdateRecordSetRecallOptionsResponse, Test.Common.Campaing.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUnassignedUsersByParamService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-07T12:22:57.5558559-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetUnassignedUsersByParamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetUnassignedUsersByParam.GetUnassignedUsersByParamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetUnassignedUsersByParam.GetUnassignedUsersByParamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetRecordsByRecordSetIdService">
+    
+    <CreatedUserName>HOliva</CreatedUserName>
+    <CreatedDateTime>2010-01-11T10:45:44.1256954-03:00</CreatedDateTime>
+    <Description>Servicio Utilizado en el Reporte de Encuesta plana.(Web)</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.GetRecordsByRecordSetIdService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.GetRecordsByRecordSetId.Req.GetRecordsByRecordSetIdRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.GetRecordsByRecordSetId.Resp.GetRecordsByRecordSetIdResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserAdditionalAttributes_ByParamService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-13T15:00:14.077537-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetUserAdditionalAttributes_ByParamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetUserAdditionalAttributes_ByParam.GetUserAdditionalAttributes_ByParamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetUserAdditionalAttributes_ByParam.GetUserAdditionalAttributes_ByParamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SaveUserAdditionalAttributesService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-14T15:07:58.612115-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.SaveUserAdditionalAttributesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.SaveUserAdditionalAttributes.SaveUserAdditionalAttributesRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.SaveUserAdditionalAttributes.SaveUserAdditionalAttributesResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserAdditionalAttributesValues_ByParamService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-18T16:25:42.3396302-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.GetUserAdditionalAttributesValues_ByParamService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.GetUserAdditionalAttributesValues.GetUserAdditionalAttributesValues_ByParamRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.GetUserAdditionalAttributesValues.GetUserAdditionalAttributesValues_ByParamResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UserAdditionalAttributesValues_Exist_ByUserAttributeIdService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-18T16:25:55.2148774-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.SVC.UserAdditionalAttributesValues_Exist_ByUserAttributeIdService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.UserAdditionalAttributesValues_Exist_ByUserAttributeId.UserAdditionalAttributesValues_Exist_ByUserAttributeIdRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.UserAdditionalAttributesValues_Exist_ByUserAttributeId.UserAdditionalAttributesValues_Exist_ByUserAttributeIdResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SaveUserAdditionalAttributesValuesService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-20T15:12:05.1784906-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.SaveUserAdditionalAttributesValuesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.SaveUserAdditionalAttributesValues.SaveUserAdditionalAttributesValuesRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.SaveUserAdditionalAttributesValues.SaveUserAdditionalAttributesValuesResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateUserAdditionalAttributesValuesService">
+    
+    <CreatedUserName>AAguirre</CreatedUserName>
+    <CreatedDateTime>2010-01-21T10:42:35.7837556-03:00</CreatedDateTime>
+    <Handler>Test.BackEnd.Security.UpdateUserAdditionalAttributesValuesService, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.Security.ISVC.UpdateUserAdditionalAttributesValues.UpdateUserAdditionalAttributesValuesRequest, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.Security.ISVC.UpdateUserAdditionalAttributesValues.UpdateUserAdditionalAttributesValuesResponse, Test.BackEnd.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Required</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordsByPreviousRecordActionResult_InsertRecordsWorkLogBatchService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2010-01-25T10:18:51.5989666-03:00</CreatedDateTime>
+    <Description>Servicio que obtiene el estado anterior de un Record y lo inserta en un WorkLog.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.SearchRecordsByPreviousRecordActionResult_InsertRecordsWorkLogBatchService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordsByPreviousRecordActionResult_InsertRecordsWorkLogBatch.SearchRecordsByPreviousRecordActionResult_InsertRecordsWorkLogBatchRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordsByPreviousRecordActionResult_InsertRecordsWorkLogBatch.SearchRecordsByPreviousRecordActionResult_InsertRecordsWorkLogBatchResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordSetAttributesService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2010-01-25T16:30:42.2946334-03:00</CreatedDateTime>
+    <Description>Busqueda de atributos de un lote.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.RecordSets.SearchRecordSetAttributesService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordSetAttributes.SearchRecordSetAttributesRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordSetAttributes.SearchRecordSetAttributesResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRecordMassiveClosure_InsertWorkLogService">
+    
+    <CreatedUserName>jiguastini</CreatedUserName>
+    <CreatedDateTime>2010-01-26T10:34:01.7633311-03:00</CreatedDateTime>
+    <Description>Servicio que Actualiza masivamente los estados de los records, inserta en el Worklog y actualiza el estado del RecordSet.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.UpdateRecordMassiveClosure_InsertWorkLogService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.UpdateRecordMassiveClosure_InsertWorkLog.UpdateRecordMassiveClosure_InsertWorkLogRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.UpdateRecordMassiveClosure_InsertWorkLog.UpdateRecordMassiveClosure_InsertWorkLogResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRecordsAttributesService">
+    
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2010-01-26T16:35:17.7223497-03:00</CreatedDateTime>
+    <Description>Servicio que busca los registros y sus atributos que cumplen con los criterios de búsqueda recibidos.</Description>
+    <Handler>Test.BackEnd.RecordSet.SVC.Record.SearchRecordsAttributesService, Test.BackEnd.RecordSet.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Test.Common.RecordSet.ISVC.SearchRecordsAttributes.SearchRecordsAttributesRequest, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Test.Common.RecordSet.ISVC.SearchRecordsAttributes.SearchRecordsAttributesResponse, Test.Common.RecordSet.ISVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <Timeout>0</Timeout>
+    <Cacheable>false</Cacheable>
+  </ServiceConfiguration>
+</ServiceConfigurationCollection>

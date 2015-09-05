@@ -1,0 +1,122 @@
+﻿http://www.webprogramacion.com/187/vbnet/cliente-ftp.aspx
+http://www.codeproject.com/KB/IP/ftp.aspx
+
+		 10		   20		 30        40        50   55
+123456789012345678901234567890123456789012345678901234567890
+rwxr-xr-x   5 andrw    video       69632 Jul 17 23:00 .
+drwxr-xr-x  21 andrw    video       69632 Jun  3 14:17 ..
+-rw-r--r--   1 andrw    video        9562 Mar 30  2008 .listing
+-rwxrwxr--   1 andrw    video     3621773 Jan 31  2003 2FOR GOOD - You And Me.MP3
+-rwxrwxr--   1 andrw    video     4033769 Jan 31  2003 ABALLERO - Love Is The Message.MP3
+-rwxrwxr--   1 andrw    video     3708679 Jan 31  2003 ACTIVATE - I Say What I Want.mp3
+-rwxrwxr--   1 andrw    video     3197097 Jan 31  2003 AYLA - Ayla-Part II.mp3
+-rwxrwxr--   1 andrw    video     3249392 Jan 31  2003 BALIBU - Let's Come Together.MP3
+-rwxrwxr--   1 andrw    video     3509183 Jan 31  2003 BLUE SYSTEM - Baby Believe Me.MP3
+-rwxrwxr--   1 andrw    video     3677332 Jan 31  2003 BOOTSY COLLINS feat. MC LYTE - I am leaving.mp3
+-rwxrwxr--   1 andrw    video     5520114 Jan 31  2003 BRODELYNE BOUNCE - Laree A Ride.MP3
+-r-xrwxr--   1 andrw    video     4155478 Jan 31  2003 Billie Ray Martin - You Loving.mp3
+-rwxrwxr--   1 andrw    video     3857378 Jan 31  2003 C-BLOCK - Summertime.MP3
+-rwxrwxr--   1 andrw    video     3593834 Jan 31  2003 C-Block - So Strung Out.MP3
+-rwxrwxr--   1 andrw    video     3681094 Jan 31  2003 CAPPUCCINO - Du Fehlst Mir.MP3
+-rwxrwxr--   1 andrw    video     3757999 Jan 31  2003 CASCADA feat. MIRABELLA - Fotonovela.mp3
+-rwxrwxr--   1 andrw    video     3354250 Jan 31  2003 CLUB UNIQUE - Just The Way It .MP3
+-rwxrwxr--   1 andrw    video     3590815 Jan 31  2003 CLUELESS - My Heart Will Go On.mp3
+-rwxrwxr--   1 andrw    video     3460412 Jan 31  2003 CO. RO fest. LYEN - Run Away.mp3
+-rwxrwxr--   1 andrw    video     3389087 Jan 31  2003 COOL CUP - Please Let Me Know.MP3
+-rwxrwxr--   1 andrw    video     3751311 Jan 31  2003 CYMURAI fest. THEA AUSTIN - Magic touch.mp3
+-rwxrwxr--   1 andrw    video     3460830 Jan 31  2003 DJ Nervous -  Close Your Eyes.MP3
+-rwxrwxr--   1 andrw    video     3561558 Jan 31  2003 DJ Polo & Ice T - Suzy Rose.mp3
+-rwxrwxr--   1 andrw    video     3538373 Jan 31  2003 DJ SAMMY & CARISMA - Golden child.MP3
+-rwxrwxr--   1 andrw    video     3365117 Jan 31  2003 DJ SAMMY feat. CARISMA - Prince of love.MP3
+-rwxrwxr--   1 andrw    video     3331124 Jan 31  2003 DJ THE CROW - Piece Of Mine.MP3
+-rwxrwxr--   1 andrw    video     4354008 Jan 31  2003 DOWN LOW - What Would You Do.MP3
+-rwxrwxr--   1 andrw    video     3297825 Jan 31  2003 DUNE FEATURING VANESSA - Kepp the second.mp3
+-rwxrwxr--   1 andrw    video     3373058 Jan 31  2003 Da Mool - Meet Her At The Love Parade.MP3
+-rwxrwxr--   1 andrw    video     3339203 Jan 31  2003 Dance 2 trance - Power Of American natives '98.mp3
+drwxr-xr-x   2 andrw    video       69632 Jul 16 02:19 Dance2
+drwxr-xr-x   2 andrw    video       69632 Jul 16 02:24 Disko
+-rwxrwxr--   1 andrw    video     3507641 Jan 31  2003 Doctor Delite - Let Music Play.MP3
+-rwxrwxr--   1 andrw    video     3719546 Jan 31  2003 Dolphin's Mind - The Flow.MP3
+-r-xrwxr--   1 andrw    video     3420288 Jan 31  2003 Eurogroove - Move Your Body.mp3
+-r-xrwxr--   1 andrw    video     3394792 Jan 31  2003 FUNCY - Megamix '98.mp3
+-rwxrwxr--   1 andrw    video     4331439 Jan 31  2003 FUTURE MINE - Hipnotic Tango.mp3
+-rwxrwxr--   1 andrw    video     3647210 Jan 31  2003 GARCIA - Bamboleo.MP3
+-rwxrwxr--   1 andrw    video     3720185 Jan 31  2003 GARCIA - Vamonos (Hey Chico, Are you R).MP3
+-rwxrwxr--   1 andrw    video     5087945 Jan 31  2003 GENERAL BASE - I See You.MP3
+-rwxrwxr--   1 andrw    video     3455807 Jan 31  2003 GENERAL BASE - On & On.MP3
+-rwxrwxr--   1 andrw    video     3554034 Jan 31  2003 GOOD VIBES - Survivor.mp3
+-rwxrwxr--   1 andrw    video     3217995 Jan 31  2003 HADDAWAY - Who Do You Love.mp3
+-rwxrwxr--   1 andrw    video     3060843 Jan 31  2003 HERBIE - Right Type Of Mood.mp3
+-rwxrwxr--   1 andrw    video     3758834 Jan 31  2003 JIM SOULIER - Coat Of Many Colours.mp3
+-rwxrwxr--   1 andrw    video     3701574 Jan 31  2003 KIRIMAN - Rainy Night.mp3
+-rwxrwxr--   1 andrw    video     3455814 Jan 31  2003 KOSMONOVA - AYLA.MP3
+-r-xrwxr--   1 andrw    video     3343801 Jan 31  2003 KOSMONOVA versus FIOCCO - Celebrate.mp3
+-rwxrwxr--   1 andrw    video     3532719 Jan 31  2003 Kai Tracid - Your Own Reality.MP3
+-rwxrwxr--   1 andrw    video     3830305 Jan 31  2003 LA BOUCHE - Be My Lover.mp3
+-rwxrwxr--   1 andrw    video     3556960 Jan 31  2003 LIAN ROSS - Fantasy '98.mp3
+-rwxrwxr--   1 andrw    video     3427393 Jan 31  2003 LONA - Bailando.mp3
+-rwxrwxr--   1 andrw    video     1971287 Jan 31  2003 LOS LABOS - Cancion Del Mariachi.MP3
+-rwxrwxr--   1 andrw    video     3465398 Jan 31  2003 LOS SABRAOS - Quiero Verte.MP3
+-rwxrwxr--   1 andrw    video     4294658 Jan 31  2003 Lyte Funkie Ones - Sex U Up The Way You Live  It.mp3
+-rwxrwxr--   1 andrw    video     3809825 Jan 31  2003 MAILS - World-1.MP3
+-rwxrwxr--   1 andrw    video     4781581 Jan 31  2003 MARK 'OH - Tears Don't Lie.mp3
+-rwxrwxr--   1 andrw    video     3546093 Jan 31  2003 MASQUERADE - So, So, So (so Long).mp3
+-rwxrwxr--   1 andrw    video     5232141 Jan 31  2003 MATURA - Disco Band'97.mp3
+-rwxrwxr--   1 andrw    video     3616769 Jan 31  2003 MR - To France.MP3
+-rwxrwxr--   1 andrw    video     3719768 Jan 31  2003 MUSIC INSTRUCTOR - Hymn.MP3
+-rwxrwxr--   1 andrw    video     3728323 Jan 31  2003 Marc Almond - Adored And Explored.mp3
+-rwxrwxr--   1 andrw    video     3535226 Jan 31  2003 Modern A.R.T. - Send Me An Angel.mp3
+-rwxrwxr--   1 andrw    video     3844934 Jan 31  2003 N-AGE - Future Brain.mp3
+-rwxrwxr--   1 andrw    video     4168434 Jan 31  2003 N-TRANCE - Set You Free.mp3
+-rwxrwxr--   1 andrw    video     4271252 Jan 31  2003 NANA - Dreams.mp3
+-rwxrwxr--   1 andrw    video     4117443 Jan 31  2003 NANA - God.mp3
+-rwxrwxr--   1 andrw    video     3482563 Jan 31  2003 NICOLAI - Ready To Flow.MP3
+-r-xrwxr--   1 andrw    video     5747484 Jan 31  2003 NO MERCY - Where Do You Go.mp3
+-rwxrwxr--   1 andrw    video     5727422 Jan 31  2003 Non Eric - Seals.MP3
+-rwxrwxr--   1 andrw    video     3796033 Jan 31  2003 PANDERA - Summer Feeling.mp3
+-rwxrwxr--   1 andrw    video     3060908 Jan 31  2003 PARTI ANIMALS - Aguarius.MP3
+-rwxrwxr--   1 andrw    video     3575768 Jan 31  2003 PART_E - Calebrate.mp3
+-rwxrwxr--   1 andrw    video     3421123 Jan 31  2003 PETTY PAUL - Good Times.mp3
+-rwxrwxr--   1 andrw    video     5383860 Jan 31  2003 PHARAO - World Of Magic.mp3
+-rwxrwxr--   1 andrw    video     3943990 Jan 31  2003 Paty Rayan - You're My Love (my life) '98.mp3
+-rwxrwxr--   1 andrw    video     4592663 Jan 31  2003 Q-CLUB - Rofo's Theme.MP3
+-rwxrwxr--   1 andrw    video     3711605 Jan 31  2003 R.N.G. - Oupen Up Your Mind.mp3
+-rwxrwxr--   1 andrw    video     3885894 Jan 31  2003 RAG ATTACK - Children Of The Revolution.mp3
+-rwxrwxr--   1 andrw    video     3596666 Jan 31  2003 RAPPERS AGAINST RACISM - I want to know what love is.mp3
+-rwxrwxr--   1 andrw    video     5663892 Jan 31  2003 SACH! feat. LA TREC -Sweat.MP3
+-rwxrwxr--   1 andrw    video     3126462 Jan 31  2003 SANDMAN - Holiday.mp3
+drwxr-xr-x   2 andrw    video       69632 Jul  9 12:02 SASH
+-rwxrwxr--   1 andrw    video     4557554 Jan 31  2003 SCOOTER - Foreuer (Keel Me) Runngig.MP3
+-rwxrwxr--   1 andrw    video     3568397 Jan 31  2003 SCOOTER - No Fate.MP3
+-rwxrwxr--   1 andrw    video     3510017 Jan 31  2003 SCOOTER - Rebl Ylo.MP3
+-rwxrwxr--   1 andrw    video     4622338 Jan 31  2003 SCOOTER - Time And Space.mp3
+-r-xrwxr--   1 andrw    video     3773881 Jan 31  2003 SHOT -  Killin'.mp3
+-rwxrwxr--   1 andrw    video     3756327 Jan 31  2003 SNAP - The Power.MP3
+-rwxrwxr--   1 andrw    video     3067530 Jan 31  2003 SOLARIS - Pulstar.mp3
+-r-xrwxr--   1 andrw    video     3332516 Jan 31  2003 SOLID HARMONIE - I Want You To.mp3
+-rwxrwxr--   1 andrw    video     3679004 Jan 31  2003 SPLASH - One More dream.mp3
+-rwxrwxr--   1 andrw    video     3762596 Jan 31  2003 STAR - We're Only Human.mp3
+-rwxrwxr--   1 andrw    video     2700203 Jan 31  2003 STRETCH & VERN - I'm Alive.MP3
+-rwxrwxr--   1 andrw    video     4029599 Jan 31  2003 SUPRISING - Sing Aloga He.MP3
+-rwxrwxr--   1 andrw    video     3450381 Jan 31  2003 SYN-TONIC - Self Control.mp3
+-rwxrwxr--   1 andrw    video     3650165 Jan 31  2003 Sandy - Bad Boy.mp3
+-r-xrwxr--   1 andrw    video     3527285 Jan 31  2003 Scatman John - Scatman's World.mp3
+-rwxrwxr--   1 andrw    video     6793636 Jan 31  2003 Scooter - Back In Time.mp3
+-rwxrwxr--   1 andrw    video     3068366 Jan 31  2003 Solid Harmonie - I'll Be There For You.mp3
+-rwxrwxr--   1 andrw    video     3365953 Jan 31  2003 Solid Harmonie - To Love Once Again.mp3
+-r-xrwxr--   1 andrw    video     3178707 Jan 31  2003 Sweetbox - Anotxer Minute.mp3
+-rwxrwxr--   1 andrw    video     3557138 Jan 31  2003 T-SPOON - Sex On The Beach.MP3
+-rwxrwxr--   1 andrw    video     3623416 Jan 31  2003 T.PARKER - Mighty Quinn.MP3
+-rwxrwxr--   1 andrw    video     3517672 Jan 31  2003 THE BOYS - Shame.mp3
+-rwxrwxr--   1 andrw    video     3592905 Jan 31  2003 THE FREE - Dance The Night Away.mp3
+-rwxrwxr--   1 andrw    video     3789345 Jan 31  2003 THREE-O-MATIC - Hand In Hand.mp3
+-rwxrwxr--   1 andrw    video     3506387 Jan 31  2003 TRANS X - A New Life.mp3
+-rwxrwxr--   1 andrw    video     2907034 Jan 31  2003 U.S.U.R.A. - Open Your Mind'97.MP3
+-rwxrwxr--   1 andrw    video     3684438 Jan 31  2003 U.S.U.R.A. - The Spaceman.mp3
+-rwxrwxr--   1 andrw    video     3662704 Jan 31  2003 ULTIMATE KAOS - Casanova.mp3
+-rwxrwxr--   1 andrw    video     3068366 Jan 31  2003 VALERIE - The Night.mp3
+-rwxrwxr--   1 andrw    video     3043811 Jan 31  2003 VERTIGO - Oxygene.MP3
+-rwxrwxr--   1 andrw    video     3703246 Jan 31  2003 VIVIANE - I Feel Love.MP3
+-rwxrwxr--   1 andrw    video     3477130 Jan 31  2003 WARE KID - Baby I Need Lovin.mp3
+-r-xrwxr--   1 andrw    video     3562394 Jan 31  2003 Zig&Zac - Hands Up! Hand Up!.mp3
+

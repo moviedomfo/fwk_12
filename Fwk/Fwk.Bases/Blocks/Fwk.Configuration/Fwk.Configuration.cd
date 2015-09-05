@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fwk.Configuration.ConfigurationManager">
+    <Position X="1.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAQAAAAAAUAQAAoAIAAEAAgAAAcAAAMAABAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\ConfigurationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Configuration.DatabaseConfigMannager" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAQAAIAAAUIQAAAAAAAAAAgAAAcAAABAABAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\DatabaseConfigMannager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Configuration.ServiceConfigurationManager" Collapsed="true">
+    <Position X="8.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAQAAAAAAUMQAAAAAAAAAAgAAIcAAAAAABAAQA=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\ServiceConfigurationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Configuration.LocalFileConfigurationManager" Collapsed="true">
+    <Position X="9.25" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAQAAAAAAUMQAAAAAAAAAAgAAIcAAAAAABAAQA=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\LocalConfigurationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Configuration.Common.ConfigurationFile" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABABAMCAAEAAAAAAEAAgAAAAAAAgAAxAAAgAAIBQQAQ=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\Fwk.Configuration.Common\ConfigurationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.ConfigSection.ConfigProviderElement" Collapsed="true">
+    <Position X="3.75" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAQAAgAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\config\ConfigProviderElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Fwk.ConfigSection.ConfigProviderType">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Configuration\config\ConfigProviderSection.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

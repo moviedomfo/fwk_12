@@ -1,0 +1,3 @@
+﻿<Event Machine="MATU" User="moviedo" Id="70c34f47-0707-4088-b1e4-874e4f7f5f1f" Type="Information" DateAndTime="2009-04-05T11:26:57.9190072-03:00">
+  <Message>some message</Message>
+</Event>

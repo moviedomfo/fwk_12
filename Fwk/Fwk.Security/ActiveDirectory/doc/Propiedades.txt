@@ -1,0 +1,78 @@
+﻿Properties:
+StringBuilder slist = new StringBuilder();
+            
+            foreach (string s in directoryEntry.Properties.PropertyNames.Cast<string>())
+            {
+                slist.AppendLine(s);
+            }
+
+
+
+objectClass
+
+dn:: Ej: cn=John Doe,dc=example,dc=com
+	dc: denota domain component
+cn :Marcelo Fabian
+	
+
+
+sn
+givenName :: nombre de (entry)
+distinguishedName
+instanceType
+whenCreated
+whenChanged
+displayName
+uSNCreated
+memberOf
+uSNChanged
+name
+objectGUID
+userAccountControl
+badPwdCount
+codePage
+countryCode
+badPasswordTime
+lastLogoff
+lastLogon
+pwdLastSet
+primaryGroupID
+objectSid
+accountExpires
+logonCount
+sAMAccountName
+sAMAccountType
+userPrincipalName
+lockoutTime
+objectCategory
+mSMQSignCertificates
+mSMQDigests
+dSCorePropagationData
+lastLogonTimestamp
+mail
+nTSecurityDescriptor
+
+
+Search and Compare
+The Search operation is used to both search for and read entries. Its parameters are:
+
+baseObject  
+The DN (Distinguished Name) of the entry at which to start the search,scope  
+
+BaseObject (search just the named entry, typically used to read one entry), singleLevel (entries immediately below the base DN), or wholeSubtree (the entire subtree starting at the base DN). 
+filter  
+How to examine each entry in the scope. E.g. 
+(&(objectClass=person)(|(givenName=John)(mail=john*))) - search for persons who either have given name John or an e-mail address starting with john. 
+
+derefAliases  
+Whether and how to follow alias entries (entries which refer to other entries), 
+attributes  
+Which attributes to return in result entries. 
+sizeLimit, timeLimit  
+Max number of entries, and max search time. 
+typesOnly  
+Return attribute types only, not attribute values. 
+The server returns the matching entries and maybe continuation references (in any order), followed by the final result with the result code.
+
+The Compare operation takes a DN, an attribute name and an attribute value, and checks if the named entry contains that attribute with that value.
+

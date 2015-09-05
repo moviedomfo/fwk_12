@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Groups>
+  <!--El Grupo debe llevar el nombre CachingSettings. cada Key lleva el nombre de la BusinessService
+      En value va un XML que equivale a la Clase CacheSettings Serializada Como esta en este ejemplo-->
+  <!--Esto se debe agregar en el front que implementará Caching-->
+  <!--Author: moviedo-->
+  <Group name="CachingSettings">
+    <Key name="BuscarArticulosService" encrypted="False">
+      <Value>
+         <![CDATA[<CacheSettings>
+          <IsCacheable>true</IsCacheable>
+          <Priority>Normal</Priority>
+          <DaysForExpiration>365</DaysForExpiration>
+          <IsPaginable>false</IsPaginable>
+        </CacheSettings>]]>
+      </Value>
+    </Key>
+  </Group>
+</Groups>

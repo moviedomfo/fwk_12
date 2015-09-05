@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Fwk.Exceptions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Fwk.Exceptions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Fwk.Bases" />
+  <xs:complexType name="ServiceError">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Fwk.Bases" base="q1:BaseEntity">
+        <xs:sequence>
+          <xs:element name="_ErrorId" nillable="true" type="xs:string" />
+          <xs:element name="_InnerMessageException" nillable="true" type="xs:string" />
+          <xs:element name="_Message" nillable="true" type="xs:string" />
+          <xs:element name="_Severity" nillable="true" type="xs:string" />
+          <xs:element name="_Source" nillable="true" type="xs:string" />
+          <xs:element name="_StackTrace" nillable="true" type="xs:string" />
+          <xs:element name="_Type" nillable="true" type="xs:string" />
+          <xs:element name="m_Assembly" nillable="true" type="xs:string" />
+          <xs:element name="m_Class" nillable="true" type="xs:string" />
+          <xs:element name="m_Machine" nillable="true" type="xs:string" />
+          <xs:element name="m_Namespace" nillable="true" type="xs:string" />
+          <xs:element name="m_UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceError" nillable="true" type="tns:ServiceError" />
+</xs:schema>

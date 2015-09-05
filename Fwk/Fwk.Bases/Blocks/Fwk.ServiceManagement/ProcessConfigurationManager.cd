@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Fwk.ServiceManagement.XmlServiceConfigurationManager">
+    <Position X="4.25" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIQAAAAAAAAAAAAEAEAAAAAIAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Blocks\Fwk.ServiceManagement\Xml\XmlServiceConfigurationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.ServiceManagement.DatabaseServiceConfigurationManager">
+    <Position X="1" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAIEgAAAAIAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Blocks\Fwk.ServiceManagement\Database\DatabaseServiceConfigurationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Configuration.ConfigurationSection">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

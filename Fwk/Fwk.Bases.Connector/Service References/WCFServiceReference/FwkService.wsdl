@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://schemas.microsoft.com/ws/2005/02/mex/bindings" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FwkService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="tcp_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://schemas.microsoft.com/ws/2005/02/mex/bindings" location="http://localhost:8732/WcfDispatcher/FwkService/?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfDispatcher.Service" />
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Fwk.Bases" />
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Fwk.Exceptions" />
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Fwk.ConfigSection" />
+      <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFwkService_ExecuteService_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteService" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_ExecuteService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_ExecuteServiceBin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceBin" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_ExecuteServiceBin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceBinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetServiceConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetServiceConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetServicesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesList" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetServicesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_RetriveDispatcherInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetriveDispatcherInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_RetriveDispatcherInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetriveDispatcherInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetAllApplicationsId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllApplicationsId" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetAllApplicationsId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllApplicationsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetProviderInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProviderInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_GetProviderInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProviderInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFwkService">
+    <wsdl:operation name="ExecuteService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteService" message="tns:IFwkService_ExecuteService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceResponse" message="tns:IFwkService_ExecuteService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteServiceBin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceBin" message="tns:IFwkService_ExecuteServiceBin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceBinResponse" message="tns:IFwkService_ExecuteServiceBin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/GetServiceConfiguration" message="tns:IFwkService_GetServiceConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/GetServiceConfigurationResponse" message="tns:IFwkService_GetServiceConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/GetServicesList" message="tns:IFwkService_GetServicesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/GetServicesListResponse" message="tns:IFwkService_GetServicesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetriveDispatcherInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/RetriveDispatcherInfo" message="tns:IFwkService_RetriveDispatcherInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/RetriveDispatcherInfoResponse" message="tns:IFwkService_RetriveDispatcherInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllApplicationsId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/GetAllApplicationsId" message="tns:IFwkService_GetAllApplicationsId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/GetAllApplicationsIdResponse" message="tns:IFwkService_GetAllApplicationsId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/GetProviderInfo" message="tns:IFwkService_GetProviderInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/GetProviderInfoResponse" message="tns:IFwkService_GetProviderInfo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tcp" type="tns:IFwkService">
+    <wsp:PolicyReference URI="#tcp_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ExecuteService">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteServiceBin">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteServiceBin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/GetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/GetServicesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetriveDispatcherInfo">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/RetriveDispatcherInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllApplicationsId">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/GetAllApplicationsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/GetProviderInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FwkService">
+    <wsdl:port name="tcp" binding="tns:tcp">
+      <soap12:address location="net.tcp://localhost:8001/FwkService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8001/FwkService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>santana\moviedo</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="web" binding="i0:web">
+      <soap12:address location="http://localhost:8732/WcfDispatcher/FwkService/mex" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8732/WcfDispatcher/FwkService/mex</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

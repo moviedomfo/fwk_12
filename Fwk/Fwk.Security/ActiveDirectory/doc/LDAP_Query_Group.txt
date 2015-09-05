@@ -1,0 +1,43 @@
+﻿Query = (&(objectClass = group))
+
+objectClass = System.Object[]
+cn = Usuarios del monitor de sistema
+description = Los miembros de este grupo tiene acceso remoto para supervisar este equipo
+distinguishedName = CN=Usuarios del monitor de sistema,CN=Builtin,DC=Datacom,DC=org
+instanceType = 4
+whenCreated = 30/03/2004 01:59:41 p.m.
+whenChanged = 11/10/2005 11:48:39 a.m.
+uSNCreated = System.__ComObject
+uSNChanged = System.__ComObject
+name = Usuarios del monitor de sistema
+objectGUID = System.Byte[]
+objectSid = System.Byte[]
+sAMAccountName = Usuarios del monitor de sistema
+sAMAccountType = 536870912
+systemFlags = -1946157056
+groupType = -2147483643
+objectCategory = CN=Group,CN=Schema,CN=Configuration,DC=Datacom,DC=org
+isCriticalSystemObject = True
+dSCorePropagationData = System.Object[]
+nTSecurityDescriptor = System.__ComObject
+
+Query = (&(ObjectClass=group)(sAMAccountName=GS_CalidadTP_R))
+objectClass = System.Object[]
+cn = GS_CalidadTP_R
+member = System.Object[]
+distinguishedName = CN=GS_CalidadTP_R,OU=Avanzados,OU=Analistas,OU=Seguridad,DC=Datacom,DC=org
+instanceType = 4
+whenCreated = 15/02/2007 08:47:45 p.m.
+whenChanged = 05/11/2008 04:28:04 p.m.
+uSNCreated = System.__ComObject
+uSNChanged = System.__ComObject
+name = GS_CalidadTP_R
+objectGUID = System.Byte[]
+objectSid = System.Byte[]
+sAMAccountName = GS_CalidadTP_R
+sAMAccountType = 268435456
+groupType = -2147483646
+objectCategory = CN=Group,CN=Schema,CN=Configuration,DC=Datacom,DC=org
+dSCorePropagationData = System.Object[]
+nTSecurityDescriptor = System.__ComObject
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigFileRegistrys>
+	<!--  
+	name: nombre del archivo 
+	CurrentVersion: versión actual del archivo
+	Available: indica si está disponible o no
+	ForceUpdate: indica si la actualización es obligatorio u opcional
+	TTL: tiempo de vida en segundos del archivo en el ConfigurationHolder (cero: no caduca nunca)
+	Encrypt: indica si el web service encripta el contenido
+	BaseConfigFile: indica si el archivo tiene estructura grupo-propiedad
+	Cacheable: indica si el archivo puede ser almacenado en memoria por el ConfigurationHolder	
+	-->
+  <ConfigFileRegistry name="ConfigurationSample.xml">
+		<CurrentVersion>1.0</CurrentVersion>
+		<Available>true</Available>
+		<ForceUpdate>true</ForceUpdate>
+		<TTL>60</TTL>
+		<Encrypt>false</Encrypt>
+		<BaseConfigFile>true</BaseConfigFile>
+		<Cacheable>true</Cacheable>
+	</ConfigFileRegistry>
+   <ConfigFileRegistry name="ConfigurationManagerRemotingServer.xml">
+		<CurrentVersion>1.0</CurrentVersion>
+		<Available>true</Available>
+		<ForceUpdate>true</ForceUpdate>
+		<TTL>70</TTL>
+		<Encrypt>false</Encrypt>
+		<BaseConfigFile>true</BaseConfigFile>
+		<Cacheable>true</Cacheable>
+	</ConfigFileRegistry>
+
+</ConfigFileRegistrys>

@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ExecuteService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteService_OneWay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceConfigurationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ViewAsXml" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServicesListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetServiceConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceConfiguration" type="tns:ServiceConfiguration" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceConfiguration">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseEntity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CreatedUserName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedDateTime" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Handler" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Request" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Available" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Audit" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionalBehaviour" type="tns:TransactionalBehaviour" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsolationLevel" type="tns:IsolationLevel" />
+              <s:element minOccurs="0" maxOccurs="1" name="ApplicationId" type="s:string" />
+            </s:sequence>
+            <s:attribute name="name" type="s:string" />
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseEntity" abstract="true" />
+      <s:simpleType name="TransactionalBehaviour">
+        <s:restriction base="s:string">
+          <s:enumeration value="Support" />
+          <s:enumeration value="Required" />
+          <s:enumeration value="RequiresNew" />
+          <s:enumeration value="Suppres" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="IsolationLevel">
+        <s:restriction base="s:string">
+          <s:enumeration value="Chaos" />
+          <s:enumeration value="ReadCommitted" />
+          <s:enumeration value="ReadUncommitted" />
+          <s:enumeration value="RepeatableRead" />
+          <s:enumeration value="Serializable" />
+          <s:enumeration value="Snapshot" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SetServiceConfigurationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddServiceConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceConfiguration" type="tns:ServiceConfiguration" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddServiceConfigurationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteServiceConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceConfigurationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllApplicationsId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllApplicationsIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllApplicationsIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProviderInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProviderInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProviderInfoResult" type="tns:MetadataProvider" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MetadataProvider">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseEntity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ApplicationId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConfigProviderType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SecurityProviderName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SourceInfo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RetriveDispatcherInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetriveDispatcherInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetriveDispatcherInfoResult" type="tns:DispatcherInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DispatcherInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseEntity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MetadataProviders" type="tns:ArrayOfMetadataProvider" />
+              <s:element minOccurs="0" maxOccurs="1" name="AppSettings" type="tns:ArrayOfDictionarySetting" />
+              <s:element minOccurs="0" maxOccurs="1" name="CnnStringSettings" type="tns:ArrayOfDictionarySetting" />
+              <s:element minOccurs="0" maxOccurs="1" name="ServiceDispatcherConnection" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ServiceDispatcherName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMetadataProvider">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MetadataProvider" nillable="true" type="tns:MetadataProvider" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDictionarySetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DictionarySetting" nillable="true" type="tns:DictionarySetting" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DictionarySetting">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteService" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteService_OneWaySoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteService_OneWay" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServicesList" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServicesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetServiceConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="SetServiceConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddServiceConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="AddServiceConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllApplicationsIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllApplicationsId" />
+  </wsdl:message>
+  <wsdl:message name="GetAllApplicationsIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllApplicationsIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProviderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProviderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetriveDispatcherInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetriveDispatcherInfo" />
+  </wsdl:message>
+  <wsdl:message name="RetriveDispatcherInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetriveDispatcherInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SingleServiceSoap">
+    <wsdl:operation name="ExecuteService">
+      <wsdl:input message="tns:ExecuteServiceSoapIn" />
+      <wsdl:output message="tns:ExecuteServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteService_OneWay">
+      <wsdl:input message="tns:ExecuteService_OneWaySoapIn" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <wsdl:input message="tns:GetServiceConfigurationSoapIn" />
+      <wsdl:output message="tns:GetServiceConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <wsdl:input message="tns:GetServicesListSoapIn" />
+      <wsdl:output message="tns:GetServicesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetServiceConfiguration">
+      <wsdl:input message="tns:SetServiceConfigurationSoapIn" />
+      <wsdl:output message="tns:SetServiceConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddServiceConfiguration">
+      <wsdl:input message="tns:AddServiceConfigurationSoapIn" />
+      <wsdl:output message="tns:AddServiceConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceConfiguration">
+      <wsdl:input message="tns:DeleteServiceConfigurationSoapIn" />
+      <wsdl:output message="tns:DeleteServiceConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllApplicationsId">
+      <wsdl:input message="tns:GetAllApplicationsIdSoapIn" />
+      <wsdl:output message="tns:GetAllApplicationsIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <wsdl:input message="tns:GetProviderInfoSoapIn" />
+      <wsdl:output message="tns:GetProviderInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetriveDispatcherInfo">
+      <wsdl:input message="tns:RetriveDispatcherInfoSoapIn" />
+      <wsdl:output message="tns:RetriveDispatcherInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SingleServiceSoap" type="tns:SingleServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteService">
+      <soap:operation soapAction="http://tempuri.org/ExecuteService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteService_OneWay">
+      <soap:operation soapAction="http://tempuri.org/ExecuteService_OneWay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <soap:operation soapAction="http://tempuri.org/GetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <soap:operation soapAction="http://tempuri.org/GetServicesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetServiceConfiguration">
+      <soap:operation soapAction="http://tempuri.org/SetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddServiceConfiguration">
+      <soap:operation soapAction="http://tempuri.org/AddServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceConfiguration">
+      <soap:operation soapAction="http://tempuri.org/DeleteServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllApplicationsId">
+      <soap:operation soapAction="http://tempuri.org/GetAllApplicationsId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <soap:operation soapAction="http://tempuri.org/GetProviderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetriveDispatcherInfo">
+      <soap:operation soapAction="http://tempuri.org/RetriveDispatcherInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SingleServiceSoap12" type="tns:SingleServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteService">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteService_OneWay">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteService_OneWay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <soap12:operation soapAction="http://tempuri.org/GetServicesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/SetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/AddServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/DeleteServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllApplicationsId">
+      <soap12:operation soapAction="http://tempuri.org/GetAllApplicationsId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetProviderInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetriveDispatcherInfo">
+      <soap12:operation soapAction="http://tempuri.org/RetriveDispatcherInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SingleService">
+    <wsdl:port name="SingleServiceSoap" binding="tns:SingleServiceSoap">
+      <soap:address location="http://localhost:38091/SingleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SingleServiceSoap12" binding="tns:SingleServiceSoap12">
+      <soap12:address location="http://localhost:38091/SingleService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Seba" targetNamespace="http://tempuri.org/Seba.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/Seba.xsd" xmlns:mstns="http://tempuri.org/Seba.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Param" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RUTCliente" type="xs:string" nillable="true" />
+        <xs:element name="Id" type="xs:int" nillable="true" />
+        <xs:element name="NroPauta" type="xs:int" nillable="true" />
+        <xs:element name="IdFormaPago" type="xs:int" nillable="true" />
+        <xs:element name="IdFormaPagoOriginal" type="xs:int" nillable="true" />
+        <xs:element name="IdMedioPago" type="xs:int" nillable="true" />
+        <xs:element name="IdMedioPagoOriginal" type="xs:int" nillable="true" />
+        <xs:element name="FechaSolicitud" type="xs:dateTime" nillable="true" />
+        <xs:element name="TextoAviso" type="xs:string" nillable="true" />
+        <xs:element name="IdPACFormatoAvisoClasificado" type="xs:int" nillable="true" />
+        <xs:element name="Ordenamiento" type="xs:string" nillable="true" />
+        <xs:element name="CantidadReal" type="xs:int" nillable="true" />
+        <xs:element name="CantidadInformada" type="xs:int" nillable="true" />
+        <xs:element name="IdSujetoCliente" type="xs:int" nillable="true" />
+        <xs:element name="IdSujetoBeneficiario" type="xs:int" nillable="true" />
+        <xs:element name="TarifaFinal" type="xs:double" nillable="true" />
+        <xs:element name="TarifaFinalNeto" type="xs:double" nillable="true" />
+        <xs:element name="TarifaFinalNetoOriginal" type="xs:double" nillable="true" />
+        <xs:element name="TarifaAuditoria" type="xs:double" nillable="true" />
+        <xs:element name="TarifaPalabraInformada" type="xs:double" nillable="true" />
+        <xs:element name="IdMedioOperacional" type="xs:int" nillable="true" />
+        <xs:element name="CodigoMedioOperacional" type="xs:string" nillable="true" />
+        <xs:element name="IdGrupoOperacional" type="xs:int" nillable="true" />
+        <xs:element name="IdPOCanalOperacional" type="xs:int" nillable="true" />
+        <xs:element name="IdPPEstado" type="xs:int" nillable="true" />
+        <xs:element name="IdPPEstadoOriginal" type="xs:int" nillable="true" />
+        <xs:element name="VigenteAdPower" type="xs:boolean" nillable="true" />
+        <xs:element name="EsProcesadoMasivo" type="xs:boolean" nillable="true" />
+        <xs:element name="Vigente" type="xs:boolean" nillable="true" />
+        <xs:element name="Observaciones" type="xs:string" nillable="true" />
+        <xs:element name="UsuarioCreacion" type="xs:string" nillable="true" />
+        <xs:element name="FechaCreacion" type="xs:dateTime" nillable="true" />
+        <xs:element name="UsuarioUltimaModificacion" type="xs:string" nillable="true" />
+        <xs:element name="FechaUltimaModificacion" type="xs:dateTime" nillable="true" />
+        <xs:element name="IdPFMotivoCuentaCorrienteEspecial" type="xs:int" nillable="true" />
+        <xs:element name="IdPFMotivoSinCargo" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="IdContratoComercial" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="FolioContratoComercial" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="IdSubContratoComercial" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="FolioSubContratoComercial" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="IdContratoComercialOriginal" type="xs:int" nillable="true" />
+        <xs:element name="FolioContratoComercialOriginal" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="IdSubContratoComercialOriginal" type="xs:int" nillable="true" />
+        <xs:element name="FolioSubContratoComercialOriginal" type="xs:int" nillable="true">
+        </xs:element>
+        <xs:element name="ArchivoFisico" type="xs:string" nillable="true" />
+        <xs:element name="ArchivoFisicoNoEditable" type="xs:string" nillable="true" />
+        <xs:element name="IdOrigenAviso" type="xs:int" nillable="true" />
+        <xs:element name="ObservacionesCuentaCorrienteEspecial" type="xs:string" nillable="true" />
+        <xs:element name="TarifaValorInformado" type="xs:double" nillable="true" />
+        <xs:element name="RutaArchivoFisico" type="xs:string" nillable="true" />
+        <xs:element name="NombreArchivoLogico" type="xs:string" nillable="true" />
+        <xs:element name="RutaArchivoFisicoNoEditable" type="xs:string" nillable="true" />
+        <xs:element name="NombreArchivoLogicoNoEditable" type="xs:string" nillable="true" />
+        <xs:element name="ValorAnchoAviso" type="xs:double" nillable="true" />
+        <xs:element name="IdAnchoAviso" type="xs:int" nillable="true" />
+        <xs:element name="EsUsuarioAutorizador" type="xs:boolean" minOccurs="0" nillable="true" />
+        <xs:element name="IdTipoComportamientoCanal" type="xs:int" nillable="true" />
+        <xs:element name="IdUnidadMedidaFisica" type="xs:int" nillable="true" />
+        <xs:element name="UnidadEquivalenteConvenio" type="xs:double" nillable="true" />
+        <xs:element name="IdPACTipoComprobanteSolicitado" type="xs:int" nillable="true" />
+        <xs:element name="IdPromocion" type="xs:int" minOccurs="0" nillable="true" />
+        <xs:element name="ObservacionesEstadoRechazado" type="xs:string" nillable="true" />
+        <xs:element name="IdFicha" type="xs:string" nillable="true" />
+        <xs:element name="FechaPrimeraPublicacion" type="xs:dateTime" minOccurs="0" nillable="true" />
+        <xs:element name="EsHorarioBajo" type="xs:boolean" minOccurs="0" nillable="true" />
+        <xs:element name="NroComprobanteBeneficiario" type="xs:int" minOccurs="0" nillable="true" />
+        <xs:element name="IdPACTipoComprobanteBeneficiario" type="xs:int" minOccurs="0" nillable="true" />
+        <xs:element name="IdSujetoAutorizador" type="xs:int" minOccurs="0" nillable="true" />
+        <xs:element name="IdIndicadorCME" type="xs:int" minOccurs="0" nillable="true" />
+        <xs:element name="TelefonoPagador" minOccurs="0" maxOccurs="1" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:int" nillable="true" />
+              <xs:element name="IdOriginal" type="xs:int" minOccurs="0" nillable="true" />
+              <xs:element name="IdEmpresaTelefonica" type="xs:int" minOccurs="0" />
+              <xs:element name="CodigoArea" type="xs:string" minOccurs="0" />
+              <xs:element name="Numero" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Autorizaciones" minOccurs="0" maxOccurs="1" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Autorizacion" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IdAutorizacion" type="xs:int" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reclamo" minOccurs="0" maxOccurs="1" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdReclamo" type="xs:int" nillable="true" />
+              <xs:element name="IdPDCausa" type="xs:int" nillable="true" />
+              <xs:element name="IdPDSubCausa" type="xs:int" nillable="true" />
+              <xs:element name="ComentarioReclamo" type="xs:string" nillable="true" />
+              <xs:element name="IdPACSituacion" type="xs:int" nillable="true" />
+              <xs:element name="ComentarioResolucion" type="xs:string" nillable="true" />
+              <xs:element name="Responsable" type="xs:string" minOccurs="0" nillable="true" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProductosCatalogo" minOccurs="1" nillable="true" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdCLAProductoCatalogoMIX" type="xs:int" minOccurs="0" nillable="true" />
+              <xs:element name="IdPPClaseProducto" type="xs:int" nillable="true" />
+              <xs:element name="ProductoCatalogo" minOccurs="1" nillable="true" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IdProductoCatalogo" type="xs:int" minOccurs="0" nillable="true" />
+                    <xs:element name="IdRubroClasificacion" type="xs:int" minOccurs="0" nillable="true" />
+                    <xs:element name="Orden" type="xs:int" minOccurs="0" nillable="true" />
+                    <xs:element name="IdEdicion" type="xs:int" nillable="true" minOccurs="0" />
+                    <xs:element name="PautaProductoFechas" nillable="true" maxOccurs="1" minOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PautaProductoFecha" nillable="true" maxOccurs="unbounded" minOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Id" type="xs:int" nillable="true" />
+                                <xs:element name="IdPautaProducto" type="xs:int" nillable="true" />
+                                <xs:element name="FechaPublicacion" type="xs:dateTime" nillable="true" />
+                                <xs:element name="TarifaFinal" type="xs:double" nillable="true" />
+                                <xs:element name="TarifaFinalNeto" type="xs:double" nillable="true" />
+                                <xs:element name="TarifaAuditoria" type="xs:double" nillable="true" />
+                                <xs:element name="TarifaPalabrasInformada" type="xs:double" nillable="true" />
+                                <xs:element name="CantidadReal" type="xs:int" nillable="true" />
+                                <xs:element name="FechaComprobante" type="xs:dateTime" nillable="true" />
+                                <xs:element name="IdProducto" type="xs:int" minOccurs="0" nillable="true" />
+                                <xs:element name="NroPedidoVentaSAP" type="xs:string" nillable="true" />
+                                <xs:element name="NroPedidoControlSAP" type="xs:string" nillable="true" />
+                                <xs:element name="NroPedidoNotaCDSAP" type="xs:string" nillable="true" />
+                                <xs:element name="NroPedidoNotaCDControlSAP" type="xs:string" nillable="true" />
+                                <xs:element name="PautaProductoFechaTarifas" minOccurs="0" nillable="true">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="PautaProductoFechaTarifa" minOccurs="0" nillable="true" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="IdPDTipoValorizacion" type="xs:int" nillable="true" />
+                                            <xs:element name="IdPTFTipoTarifa" type="xs:int" nillable="true" />
+                                            <xs:element name="IdPTFTipoValorTarifa" type="xs:int" nillable="true" />
+                                            <xs:element name="Valor" type="xs:double" nillable="true" />
+                                            <xs:element name="IdMValor" type="xs:int" nillable="true" />
+                                            <xs:element name="NombreFactor" type="xs:string" nillable="true" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="EsLineaDestacada" type="xs:boolean" minOccurs="0" nillable="true" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Ficha" minOccurs="0" nillable="true" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdClaProductoCatalogo" type="xs:int" minOccurs="0" nillable="true" />
+              <xs:element name="FechaPublicacion" type="xs:dateTime" minOccurs="0" nillable="true" />
+              <xs:element name="Duracion" type="xs:int" minOccurs="0" nillable="true" />
+              <xs:element name="TarifaFinal" type="xs:double" minOccurs="0" nillable="true" />
+              <xs:element name="TarifaFinalNeto" type="xs:double" minOccurs="0" nillable="true" />
+              <xs:element name="TarifaAuditoria" type="xs:double" minOccurs="0" nillable="true" />
+              <xs:element name="IdProducto" type="xs:int" minOccurs="0" nillable="true" />
+              <xs:element name="CodigoSubEdicionWeb" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="NroPedidoVentaSAP" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="NroPedidoControlSAP" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="TieneFoto" type="xs:boolean" minOccurs="0" nillable="true" />
+              <xs:element name="TarifasFicha" minOccurs="0" nillable="true">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TarifaFicha" minOccurs="0" maxOccurs="unbounded" nillable="true">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="IdPDTipoValorizacion" type="xs:int" nillable="true" />
+                          <xs:element name="IdPTFTipoTarifa" type="xs:int" nillable="true" />
+                          <xs:element name="IdPTFTipoValorTarifa" type="xs:int" nillable="true" />
+                          <xs:element name="Valor" type="xs:double" nillable="true" />
+                          <xs:element name="IdMValor" type="xs:int" nillable="true" />
+                          <xs:element name="NombreFactor" type="xs:string" nillable="true" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TelefonosLlamador" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TelefonoLlamador" minOccurs="0" maxOccurs="unbounded" nillable="true">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Id" type="xs:int" minOccurs="0" nillable="true" />
+                    <xs:element name="CodigoPais" type="xs:string" minOccurs="0" nillable="true" />
+                    <xs:element name="CodigoArea" type="xs:string" minOccurs="0" nillable="true" />
+                    <xs:element name="Numero" type="xs:string" minOccurs="0" nillable="true" />
+                    <xs:element name="EstaBloqueado" type="xs:boolean" minOccurs="0" nillable="true" />
+                    <xs:element name="MedioBloqueo" type="xs:string" minOccurs="0" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FechaHoraUltimoMomentoAprobacion" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="CantidadPublicaciones" type="xs:int" minOccurs="0" />
+        <xs:element name="DescripcionAdPower" type="xs:string" minOccurs="0" nillable="true" />
+        <xs:element name="VersionAdPower" type="xs:int" minOccurs="0" nillable="true" />
+        <xs:element name="LlaveExterna" type="xs:string" minOccurs="0" nillable="true" />
+        <xs:element name="RequiereIdentificarFicha" type="xs:boolean" minOccurs="0" nillable="true" />
+        <xs:element name="DatosIVR" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodigoComercio" type="xs:string" nillable="true" />
+              <xs:element name="CodigoAutorizacion" type="xs:string" nillable="true" />
+              <xs:element name="NumeroCuotas" type="xs:string" nillable="true" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FechaUltimaPublicacion" type="xs:dateTime" nillable="true">
+        </xs:element>
+        <xs:element name="Telefonos" maxOccurs="unbounded" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="A" type="xs:string" />
+              <xs:element name="B" type="xs:string" />
+              <xs:element name="C" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

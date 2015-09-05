@@ -1,0 +1,16 @@
+
+<ServiceConfigurationCollection>
+                              
+  <ServiceConfiguration name="ClearBlockingMarksService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2014-11-04T11:25:07.7055871-03:00</CreatedDateTime>
+    <Handler>Fwk.Blocking.SVC.ClearBlockingMarksService, Fwk.Bases, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Blocking.ISVC.ClearBlockingMarksReq, Fwk.Bases, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Blocking.ISVC.ClearBlockingMarksRes, Fwk.Bases, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+</ServiceConfigurationCollection>

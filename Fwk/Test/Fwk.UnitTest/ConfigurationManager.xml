@@ -1,0 +1,203 @@
+﻿
+<ConfigurationFile>
+  
+  <Encrypted>false</Encrypted>
+  <FileName>ConfigurationManager.xml</FileName>
+  <TTL>0</TTL>
+  <ForceUpdate>false</ForceUpdate>
+  <BaseConfigFile>true</BaseConfigFile>
+  <Groups>
+    <Group name="ValidationExceptionMessage">
+      
+      <Keys>
+        <Key name="NullOrEmptyField" encrypted="false">
+          
+          <Value><![CDATA[El campo {0} no puede estar vacio.]]></Value>
+        </Key>
+        <Key name="MaxLenghtField" encrypted="false">
+          
+          <Value><![CDATA[El campo {0} no puede tener un largo mayor a {1} caracteres.]]></Value>
+        </Key>
+        <Key name="RecordSetsNull" encrypted="false">
+          
+          <Value><![CDATA[El Lote no puede estar vacio]]></Value>
+        </Key>
+        <Key name="CampaingNull" encrypted="false">
+          
+          <Value><![CDATA[La Campaña no puede estar vacio]]></Value>
+        </Key>
+        <Key name="RecordSetByZoneGoalNull" encrypted="false">
+          
+          <Value><![CDATA[El Lote de objetivo por zona no puede estar vacio]]></Value>
+        </Key>
+        <Key name="RecordSetAttributesNull" encrypted="false">
+          
+          <Value><![CDATA[Los atributos del lote no pueden estar vacio]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="FunctionalExceptionMessage">
+      
+      <Keys>
+        <Key name="fecha_desde_mayor_hasta" encrypted="false">
+          
+          <Value><![CDATA[La fecha hasta no puede ser mayor a la fecha desde.]]></Value>
+        </Key>
+        <Key name="RecordNotFound" encrypted="false">
+          
+          <Value><![CDATA[  ]]></Value>
+        </Key>
+        <Key name="LoteDetenidoCaducado" encrypted="false">
+          
+          <Value><![CDATA[El lote seleccionado ha sido detenido o ha caducado, por lo tanto no puede seguir siendo gestionado.]]></Value>
+        </Key>
+        <Key name="LoteObjetivosCumplidos" encrypted="false">
+          
+          <Value><![CDATA[Los objetivos del lote seleccionado han sido cumplidos, por lo tanto no es posible seguir gestionándolo.]]></Value>
+        </Key>
+        <Key name="LoteCampainFreeForAll" encrypted="false">
+          
+          <Value><![CDATA[El lote pertenece a una campaña en la cual el agente puede gestionar cualquier registro, por lo tanto no existen registros para asignar.]]></Value>
+        </Key>
+        <Key name="LoteRegistrosPendientes" encrypted="false">
+          
+          <Value><![CDATA[No se pueden asignar registros nuevos. Su cantidad de registros pendientes es igual al limite de {0}, cierre algunos para poder obtener nuevos.]]></Value>
+        </Key>
+        <Key name="LoteLimiteRegistrosPropios" encrypted="false">
+          
+          <Value><![CDATA[No se pueden asignar registros nuevos. Usted aun posee {0}, para obtener nuevos registros no debe poseer ninguno.]]></Value>
+        </Key>
+        <Key name="LoteMaxRegistrosNuevos" encrypted="false">
+          
+          <Value><![CDATA[No se pueden asignar registros nuevos. Usted ya posee el máximo de registros nuevos permitidos ({0}).]]></Value>
+        </Key>
+        <Key name="LoteMaxRegistrosPendientes" encrypted="false">
+          
+          <Value><![CDATA[No se pueden asignar registros nuevos. Su cantidad de registros pendientes excede el limite de {0}, cierre algunos para poder obtener nuevos.]]></Value>
+        </Key>
+        <Key name="LoteSinRegistrosNuevos" encrypted="false">
+          
+          <Value><![CDATA[No hay registros nuevos para asignar.]]></Value>
+        </Key>
+        <Key name="ImportarEstructuraIncorrecta" encrypted="false">
+          
+          <Value><![CDATA[]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="ApplicationMenu">
+      
+      <Keys>
+        <Key name="Main" encrypted="false"> 
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\main.xml]]></Value>
+        </Key>
+        <Key name="CampaingMainToolBar" encrypted="false">
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\CampaingMainToolBar.xml]]></Value>
+        </Key>
+        <Key name="SecurityUserToolbar" encrypted="false">
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\SecurityUserToolbar.xml]]></Value>
+        </Key>
+        <Key name="SecurityRulesToolbar" encrypted="false">
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\SecurityRulesToolbar.xml]]></Value>
+        </Key>
+        <Key name="SecurityRolesToolbar" encrypted="false">
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\SecurityRolesToolbar.xml]]></Value>
+        </Key>
+        <Key name="SurveyMainToolBar" encrypted="false">
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\SurveyMainToolBar.xml]]></Value>
+        </Key>
+        <Key name="SecurityGroupsToolbar" encrypted="false">
+          
+          <Value><![CDATA[D:\Projects\Pelsoft\Piloto_1\SecurityGroupsToolbar.xml]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="BlockingModel">
+      
+      <Keys>
+        <Key name="ConnectionString" encrypted="false">
+          
+          <Value><![CDATA[Initial Catalog = BLOCKING;Data Source=CORRSF71DES01;User ID= sa ;Password= instsql2005]]></Value>
+        </Key>
+        <Key name="PerformBlocking" encrypted="false">
+          
+          <Value><![CDATA[true]]></Value>
+        </Key>
+        <Key name="RetryCount" encrypted="false">
+          
+          <Value><![CDATA[1]]></Value>
+        </Key>
+        <Key name="LotesTTL" encrypted="false">
+          
+          <Value><![CDATA[1]]></Value>
+        </Key>
+        <Key name="SurveyTTL" encrypted="false">
+          
+          <Value><![CDATA[1]]></Value>
+        </Key>
+        <Key name="pepe" encrypted="false">
+          
+          <Value><![CDATA[c:\fioles]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="SurveyPreview">
+      
+      <Keys>
+        <Key name="Url" encrypted="false">
+          
+          <Value><![CDATA[http://corrsf71des01:8075/Forms/RecordSetMannager/RecordAndSurveyResultsPreview.aspx]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="BigBangWeb">
+      
+      <Keys>
+        <Key name="GlobalPendingsHourRange" encrypted="false">
+          
+          <Value><![CDATA[2]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="ImportFileExceptionMessage">
+      
+      <Keys>
+        <Key name="ImportarSeparadorIncorrecto" encrypted="false">
+          
+          <Value><![CDATA[El caracter de separación de columnas no es válido]]></Value>
+        </Key>
+        <Key name="ImportarColumnaInvalida" encrypted="false">
+          
+          <Value><![CDATA[El nombre de las columnas no es correcto]]></Value>
+        </Key>
+        <Key name="ImportarAtributosSinRelacion" encrypted="false">
+          
+          <Value><![CDATA[Se debe relacionar al menos una columna del archivo de origen a un atributo para poder realizar la importación]]></Value>
+        </Key>
+        <Key name="ImportarOrigenInvalido" encrypted="false">
+          
+          <Value><![CDATA[El origen de datos es invalido]]></Value>
+        </Key>
+        <Key name="ImportarGrillaSinColumna" encrypted="false">
+          
+          <Value><![CDATA[Se debe agregar al menos una columna a la grilla]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="FunctionalExceptionWeb">
+      
+      <Keys>
+        <Key name="RecordSetAssignedNotFoundForUser" encrypted="false">
+          
+          <Value><![CDATA[No se han encontrado registros asignados para el usuario actual.]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+  </Groups>
+</ConfigurationFile>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Fwk.ConfigSection" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Fwk.ConfigSection" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Fwk.Bases" />
+  <xs:complexType name="DispatcherInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Fwk.Bases" base="q1:BaseEntity">
+        <xs:sequence>
+          <xs:element name="_x003C_AppSettings_x003E_k__BackingField" nillable="true" type="tns:ArrayOfDictionarySetting" />
+          <xs:element name="_x003C_CnnStringSettings_x003E_k__BackingField" nillable="true" type="tns:ArrayOfDictionarySetting" />
+          <xs:element name="_x003C_MachineIp_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_MetadataProviders_x003E_k__BackingField" nillable="true" type="tns:ArrayOfMetadataProvider" />
+          <xs:element name="_x003C_ServiceDispatcherConnection_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_ServiceDispatcherName_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DispatcherInfo" nillable="true" type="tns:DispatcherInfo" />
+  <xs:complexType name="ArrayOfDictionarySetting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DictionarySetting" nillable="true" type="tns:DictionarySetting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDictionarySetting" nillable="true" type="tns:ArrayOfDictionarySetting" />
+  <xs:complexType name="DictionarySetting">
+    <xs:sequence>
+      <xs:element name="_x003C_Key_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Value_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DictionarySetting" nillable="true" type="tns:DictionarySetting" />
+  <xs:complexType name="ArrayOfMetadataProvider">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetadataProvider" nillable="true" type="tns:MetadataProvider" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetadataProvider" nillable="true" type="tns:ArrayOfMetadataProvider" />
+  <xs:complexType name="MetadataProvider">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Fwk.Bases" base="q2:BaseEntity">
+        <xs:sequence>
+          <xs:element name="_ApplicationId" nillable="true" type="xs:string" />
+          <xs:element name="_ConfigProviderType" nillable="true" type="xs:string" />
+          <xs:element name="_DefaultCulture" nillable="true" type="xs:string" />
+          <xs:element name="_Name" nillable="true" type="xs:string" />
+          <xs:element name="_SecurityProviderName" nillable="true" type="xs:string" />
+          <xs:element name="_SourceInfo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MetadataProvider" nillable="true" type="tns:MetadataProvider" />
+</xs:schema>

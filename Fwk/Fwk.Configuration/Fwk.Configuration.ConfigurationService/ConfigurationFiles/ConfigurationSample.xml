@@ -1,0 +1,21 @@
+<Groups>
+  <Group name="NombreGrupo_Uno">
+    <Keys>
+    <Key name="NombrePropiedad_Uno"><Value><![CDATA[ValorPropiedad_Uno]]>
+      
+    </Value>
+    </Key>
+      <Key name="NombrePropiedad_Dos">
+      <Value><![CDATA[ValorPropiedad_Dos]]>
+      
+    </Value>
+      </Key>
+    </Keys>
+      </Group>
+  <Group name="NombreGrupo_Dos">
+    <Keys>
+      <Key name="NombrePropiedad_Uno">
+      <Value><![CDATA[ValorPropiedad_Uno]]></Value></Key>
+    </Keys>
+    </Group>
+</Groups>

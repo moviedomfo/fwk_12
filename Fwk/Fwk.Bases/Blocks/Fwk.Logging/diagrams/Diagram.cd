@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fwk.Logging.Event">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAoDAgAAAgACAAAEAAABACAAAFAAAAAAAIAAIAQEAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Logging.Logger">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+<<<<<<< .mine
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+=======
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+>>>>>>> .r669
+    <TypeIdentifier>
+      <HashCode>AAAAGAAAAIAAAQAAAEAAABAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Logging.Targets.Target">
+    <Position X="5.5" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAQAAQAEAQFABAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\targets\Target.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Fwk.Logging.Targets.DatabaseTarget" Collapsed="true">
+    <Position X="3.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAgAAAAAAAAAAiAAAAACAGAAEAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\targets\DatabaseTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Logging.Targets.FileTarget" Collapsed="true">
+    <Position X="5.5" Y="3.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\targets\FileTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Logging.Targets.WindowsEventTarget" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\targets\WindowsEventTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fwk.Logging.Targets.XmlTarget" Collapsed="true">
+    <Position X="9" Y="3.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAEAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\targets\XmlTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+<<<<<<< .mine
+  <Class Name="Fwk.Logging.StaticLogger">
+    <Position X="4.75" Y="4.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+=======
+  <Class Name="Fwk.Logging.StaticLogger">
+    <Position X="2.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+>>>>>>> .r669
+    <TypeIdentifier>
+      <HashCode>AAAACAIAAAAAABAAAEAAAAAAAAoAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\StaticLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Fwk.Logging.EventType">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAIAAAQAAAAAAABAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\EventType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fwk.Logging.Targets.TargetType">
+    <Position X="3.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAEAAAAAAAAAAAAAAAAAEAAAAAAAAAAEBAAA=</HashCode>
+      <FileName>Blocks\Fwk.Logging\targets\TargetType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

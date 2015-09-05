@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RuleProvider">
+  <DataContextMoniker Name="/RuleProviderDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6a75dff0-2c08-41a3-9488-1a07015c4607" absoluteBounds="4.375, 2.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RuleProviderDataContext/aspnet_Application" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e3d4137-b30a-4b6b-b506-6daa36e30577" absoluteBounds="4.3900000000000006, 2.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44541aca-14ba-4560-815f-5e04fcd54553" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RuleProviderDataContext/aspnet_RulesCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b980e0f-60a7-4253-9e59-1fa768c689c7" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8f9a700-a89f-4ffc-bca2-7ccb5c3b52f9" absoluteBounds="0.5, 1.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RuleProviderDataContext/aspnet_Rule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44723afc-3d54-4804-a36e-c2ee6fb5afa6" absoluteBounds="0.515, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c8f4745b-b20a-407a-9fc4-e231488ac27f" absoluteBounds="3.25, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RuleProviderDataContext/aspnet_RulesInCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf648509-c71e-4215-935d-dfbeb28e594a" absoluteBounds="3.2649999999999997, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db89fd1f-1309-4fd9-880f-dd24f3310226" absoluteBounds="1, 1.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RuleProviderDataContext/aspnet_Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c2c7785-799e-421b-93a5-e69ab9f5ae7c" absoluteBounds="1.0150000000000001, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

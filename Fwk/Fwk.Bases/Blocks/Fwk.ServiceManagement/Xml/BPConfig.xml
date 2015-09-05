@@ -1,0 +1,66 @@
+<?xml version ="1.0"?>
+<BPConfig>
+	<Services>
+		<!--Nombre del servicio.-->
+		<Service Name="">
+			<!--
+			Descripción del servicio.
+			-->
+			<Description></Description>
+			
+			<!--
+			Nombre del assembly y fullname de la clase de servicio.
+			-->
+			<Handler></Handler>
+			
+			<!--
+			Nombre del assembly y fullname de la clase de request.
+			-->
+			<Request></Request>
+			
+			<!--
+			Nombre del assembly y fullname de la clase de response.
+			-->
+			<Response></Response>
+			
+			<!--
+			Indica si el servicio está disponible para ser ejecutado.
+			Valores posibles: true / false.
+			-->
+			<Available></Available>
+			
+			<!--
+			Indica si la ejecución del servicio debe ser auditada o no. 
+			Valores posibles: true / false.
+			-->
+			<Audit></Audit>
+			
+			<!--
+			Define el comportamiento transaccional del servicio raíz.
+			*Support: Si hay una transacción en curso, se hace uso de dicho ámbito. En caso contrario no transacciona.
+			*Required: el servicio transacciona. Si hay un ámbito transaccional ya abierto, utiliza el existente, en caso contrario crea una nueva transaccion.
+			*RequiresNew: Siempre se crea una nueva transacción.
+			*Suppres: no transacciona, todas las operaciones se hacen sin estar en un ámbito transaccional. 
+			-->
+      <TransactionalBehaviour></TransactionalBehaviour>
+
+      <!--
+			Especifica el nivel de aislamiento de la transacción.
+			
+			*Chaos: los cambios pendientes de transacciones más aisladas no puede ser sobreescritos.
+			*ReadCommitted: los datos volátites no puede ser leidos durante la transacción, pero pueden ser modificados.
+			*ReadUncommitted: los datos volátines pueden ser leidos y modificados durante la transacción.
+			*RepeatableRead: los datos volátiles pueden ser leidos pero no modificados durante la transación. Nuevos datos pueden ser creados.
+			*Serializable: los datos volátiles pueden ser leidos pero no modificados, y no es posible crear nuevos datos durante la transacción.
+			*Snapshot: los datos volátiles pueden ser leidos. Antes de modificarse datos,  se verifica que otra transacción los haya cambiado luego de haber sido leidos. Si los datos se actualizaron, se levanta un error.
+			-->
+      <IsolationLevel></IsolationLevel>
+
+      <!--
+			Tiempo en segundos de duración de la transacción.
+			-->
+			<Timeout></Timeout>
+		</Service>
+		
+	</Services>
+</BPConfig>

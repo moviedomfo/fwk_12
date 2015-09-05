@@ -1,0 +1,251 @@
+﻿
+<ConfigurationFile>
+  <EntityState>Unchanged</EntityState>
+  <Encrypted>false</Encrypted>
+  <FileName>ConfigurationManager.xml</FileName>
+  <TTL>0</TTL>
+  <ForceUpdate>false</ForceUpdate>
+  <BaseConfigFile>true</BaseConfigFile>
+  <Groups>
+    <Group name="ValidationExceptionMessage">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="NullOrEmptyField" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Configuración. [á ó í   -]]></Value>
+        </Key>
+        <Key name="MaxLenghtField" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[á ó í  ]]></Value>
+        </Key>
+        <Key name="RecordSetsNull" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El Lote no puede estar vacio {0}, {1}]]></Value>
+        </Key>
+        <Key name="CampaingNull" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[La Campaña no puede estar vacio]]></Value>
+        </Key>
+        <Key name="RecordSetByZoneGoalNull" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El Lote de objetivo por zona no puede estar vacio]]></Value>
+        </Key>
+        <Key name="RecordSetAttributesNull" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Los atributos del lote no pueden estar vacio]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="FunctionalExceptionMessage">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="fecha_desde_mayor_hasta" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Configuración]]></Value>
+        </Key>
+        <Key name="RecordNotFound" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No existe el lote {0}.]]></Value>
+        </Key>
+        <Key name="LoteDetenidoCaducado" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El lote seleccionado ha sido detenido o ha caducado, por lo tanto no puede seguir siendo gestionado.]]></Value>
+        </Key>
+        <Key name="LoteObjetivosCumplidos" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Los objetivos del lote seleccionado han sido cumplidos, por lo tanto no es posible seguir gestionándolo.]]></Value>
+        </Key>
+        <Key name="LoteCampainFreeForAll" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El lote pertenece a una campaña en la cual el agente puede gestionar cualquier registro, por lo tanto no existen registros para asignar.]]></Value>
+        </Key>
+        <Key name="LoteRegistrosPendientes" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No se pueden asignar registros nuevos. Su cantidad de registros pendientes es igual al limite de {0}, cierre algunos para poder obtener nuevos.]]></Value>
+        </Key>
+        <Key name="LoteLimiteRegistrosPropios" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No se pueden asignar registros nuevos. Usted aun posee {0}, para obtener nuevos registros no debe poseer ninguno.]]></Value>
+        </Key>
+        <Key name="LoteMaxRegistrosNuevos" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No se pueden asignar registros nuevos. Usted ya posee el máximo de registros nuevos permitidos ({0}).]]></Value>
+        </Key>
+        <Key name="LoteMaxRegistrosPendientes" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No se pueden asignar registros nuevos. Su cantidad de registros pendientes excede el limite de {0}, cierre algunos para poder obtener nuevos.]]></Value>
+        </Key>
+        <Key name="LoteSinRegistrosNuevos" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No hay registros nuevos para asignar.]]></Value>
+        </Key>
+        <Key name="ImportarEstructuraIncorrecta" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="ApplicationMenu">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="Main" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\main.xml]]></Value>
+        </Key>
+        <Key name="CampaingMainToolBar" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\CampaingMainToolBar.xml]]></Value>
+        </Key>
+        <Key name="SecurityUserToolbar" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\SecurityUserToolbar.xml]]></Value>
+        </Key>
+        <Key name="SecurityRulesToolbar" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\SecurityRulesToolbar.xml]]></Value>
+        </Key>
+        <Key name="SecurityRolesToolbar" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\SecurityRolesToolbar.xml]]></Value>
+        </Key>
+        <Key name="SurveyMainToolBar" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\SurveyMainToolBar.xml]]></Value>
+        </Key>
+        <Key name="SecurityGroupsToolbar" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\SecurityGroupsToolbar.xml]]></Value>
+        </Key>
+        <Key name="QuestionSurveyMenu" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[\\pc1\pelsoft\ApplicationMenu\QuestionSurveyMenu.xml]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="BlockingModel">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="ConnectionString" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Initial Catalog=FwkBlocking;Data Source=pc1;User ID=pelsoft ;Password=B1gB4ng+01]]></Value>
+        </Key>
+        <Key name="PerformBlocking" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[true]]></Value>
+        </Key>
+        <Key name="RetryCount" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[1]]></Value>
+        </Key>
+        <Key name="LotesTTL" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[1]]></Value>
+        </Key>
+        <Key name="SurveyTTL" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[1]]></Value>
+        </Key>
+        <Key name="RecordsTTL" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[30]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="SurveyPreview">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="Url" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[http://pc1:8076/Forms/RecordSetMannager/RecordAndSurveyResultsPreview.aspx]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="pelsoftWeb">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="GlobalPendingsHourRange" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[8]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="ImportFileExceptionMessage">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="ImportarSeparadorIncorrecto" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El caracter de separación de columnas no es válido]]></Value>
+        </Key>
+        <Key name="ImportarColumnaInvalida" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El nombre de las columnas no es correcto]]></Value>
+        </Key>
+        <Key name="ImportarAtributosSinRelacion" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Se debe relacionar al menos una columna del archivo de origen a un atributo para poder realizar la importación]]></Value>
+        </Key>
+        <Key name="ImportarOrigenInvalido" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[El origen de datos es invalido]]></Value>
+        </Key>
+        <Key name="ImportarGrillaSinColumna" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[Se debe agregar al menos una columna a la grilla]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="FunctionalExceptionWeb">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="RecordSetAssignedNotFoundForUser" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[No se han encontrado registros asignados para el usuario actual.]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="Campaing">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="MaxRecords" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[2147483647]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="SurveyReports">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="Url" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[http://pc1:8076/Forms/Reports/encuestasDEVEX.aspx]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="ApplicationValues">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="ProductName" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[pelsoft - Desarrollo]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+    <Group name="AuthenticationMode">
+      <EntityState>Unchanged</EntityState>
+      <Keys>
+        <Key name="Autenticación de Windows" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[true]]></Value>
+        </Key>
+        <Key name="Autenticación Mixta" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[true]]></Value>
+        </Key>
+        <Key name="Autenticación Huella Digital" encrypted="false">
+          <EntityState>Unchanged</EntityState>
+          <Value><![CDATA[false]]></Value>
+        </Key>
+      </Keys>
+    </Group>
+  </Groups>
+</ConfigurationFile>

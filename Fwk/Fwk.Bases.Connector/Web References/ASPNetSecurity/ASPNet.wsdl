@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ExecuteService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pServiceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceConfigurationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ViewAsXml" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServicesListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServicesListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProviderInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="providerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProviderInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProviderInfoResult" type="tns:MetadataProvider" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MetadataProvider">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseEntity">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ApplicationId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ConfigProviderType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SecurityProviderName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SourceInfo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseEntity" abstract="true" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExecuteServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteService" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServicesList" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServicesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProviderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProviderInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ASPNetSoap">
+    <wsdl:operation name="ExecuteService">
+      <wsdl:input message="tns:ExecuteServiceSoapIn" />
+      <wsdl:output message="tns:ExecuteServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <wsdl:input message="tns:GetServiceConfigurationSoapIn" />
+      <wsdl:output message="tns:GetServiceConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <wsdl:input message="tns:GetServicesListSoapIn" />
+      <wsdl:output message="tns:GetServicesListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <wsdl:input message="tns:GetProviderInfoSoapIn" />
+      <wsdl:output message="tns:GetProviderInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ASPNetSoap" type="tns:ASPNetSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteService">
+      <soap:operation soapAction="http://tempuri.org/ExecuteService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <soap:operation soapAction="http://tempuri.org/GetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <soap:operation soapAction="http://tempuri.org/GetServicesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <soap:operation soapAction="http://tempuri.org/GetProviderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ASPNetSoap12" type="tns:ASPNetSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteService">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicesList">
+      <soap12:operation soapAction="http://tempuri.org/GetServicesList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetProviderInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ASPNet">
+    <wsdl:port name="ASPNetSoap" binding="tns:ASPNetSoap">
+      <soap:address location="http://localhost:14538/ASPNet.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ASPNetSoap12" binding="tns:ASPNetSoap12">
+      <soap12:address location="http://localhost:14538/ASPNet.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Fwk.Bases.Connector.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WebServiceDispatcherUrl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/WebServiceDispatcher/SingleService.asmx</Value>
+    </Setting>
+    <Setting Name="Fwk_Bases_Connector_singleservice_SingleService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:38091/SingleService.asmx</Value>
+    </Setting>
+    <Setting Name="Fwk_Bases_Connector_ASPNetSecurity_ASPNet" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:14538/ASPNet.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

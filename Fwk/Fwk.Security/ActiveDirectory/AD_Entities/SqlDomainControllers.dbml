@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="GestionCuentas_Logs" Class="SqlDomainControllersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.DomainControllers" Member="DomainControllers">
+    <Type Name="DomainControllers">
+      <Column Name="DCId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DomainId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DCHostName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="DCIp" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

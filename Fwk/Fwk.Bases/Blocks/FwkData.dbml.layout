@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.875" name="ConfigData">
+  <DataContextMoniker Name="/FwkDatacontext" />
+  <nestedChildShapes>
+    <classShape Id="9e4dcaae-765d-4e24-95ef-62ef166524de" isExpanded="false" absoluteBounds="6.125, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/FwkDatacontext/fwk_Log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="196ec015-7537-49fb-9113-4fd8cab4cc0f" absoluteBounds="6.1400000000000006, 1.085, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e2c46e0-268b-4116-bf6b-f4dba787d40c" absoluteBounds="0.75, 4.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/FwkDatacontext/fwk_ConfigManager" />
+      <nestedChildShapes>
+        <elementListCompartment Id="278a67e2-33c5-41fd-8ef4-7c32357dab44" absoluteBounds="0.76500000000000012, 4.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abd2be7d-a948-4952-a8d9-e078c69acecd" absoluteBounds="4, 3.625, 2.5, 3.1170068359375">
+      <DataClassMoniker Name="/FwkDatacontext/fwk_ServiceAudit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c58f983-20b9-4ff3-8a17-1e4a235d2488" absoluteBounds="4.015, 4.085, 2.4699999999999998, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="023a79b1-aa28-48df-b307-ba9750057985" absoluteBounds="1.875, 7.125, 2, 2.5401025390625">
+      <DataClassMoniker Name="/FwkDatacontext/fwk_ServiceDispatcher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b31ed4c5-6861-4206-806c-546d94e3854f" absoluteBounds="1.8900000000000001, 7.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c3152c5-57a2-4e16-a4c7-33a8d89ecd7b" absoluteBounds="1.375, 1.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FwkDatacontext/fwk_Param" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d933f913-cc40-4f1d-9240-d596b5dc5b14" absoluteBounds="1.3900000000000001, 1.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.08423076923077 : 3.40549967447917); (2.08423076923077 : 3.65549967447917); (2.67961538461538 : 3.65549967447917); (2.67961538461538 : 3.40549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FwkDatacontext/fwk_Param/fwk_Param_fwk_Param" />
+      <nodes>
+        <classShapeMoniker Id="4c3152c5-57a2-4e16-a4c7-33a8d89ecd7b" />
+        <classShapeMoniker Id="4c3152c5-57a2-4e16-a4c7-33a8d89ecd7b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

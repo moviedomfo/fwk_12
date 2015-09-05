@@ -1,0 +1,2 @@
+installutil Fwk.Configuration.ConfigurationProvider.exe
+pause

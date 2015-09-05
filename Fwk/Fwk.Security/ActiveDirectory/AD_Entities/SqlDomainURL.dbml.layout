@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SqlDomainURL">
+  <DataContextMoniker Name="/SqlDomainURLDataContext" />
+  <nestedChildShapes>
+    <classShape Id="87348cca-b7e1-4250-a50e-288201241479" absoluteBounds="4, 2.25, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/SqlDomainURLDataContext/DomainsUrl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0afa589e-3e3a-437c-b840-fd1573071220" absoluteBounds="4.015, 2.71, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.7079043738732 : 4.16788981119792); (4.7079043738732 : 4.41788981119792); (5.30600494165665 : 4.41788981119792); (5.30600494165665 : 4.16788981119792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SqlDomainURLDataContext/DomainsUrl/DomainsUrl_DomainsUrl" />
+      <nodes>
+        <classShapeMoniker Id="87348cca-b7e1-4250-a50e-288201241479" />
+        <classShapeMoniker Id="87348cca-b7e1-4250-a50e-288201241479" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

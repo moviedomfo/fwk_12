@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FacturaBE" targetNamespace="http://tempuri.org/FacturaBE.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/FacturaBE.xsd" xmlns:mstns="http://tempuri.org/FacturaBE.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FacturaBE" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NumeroCliente" type="xs:int" nillable="true" />
+        <xs:element name="NombreCliente" type="xs:string" nillable="true" />
+        <xs:element name="FechaFactura" type="xs:dateTime" nillable="true" />
+        <xs:element name="ItemCollectionsBE" nillable="true" maxOccurs="1" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemBE" nillable="true" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Descripcion" type="xs:string" nillable="true" />
+                    <xs:element name="Cantidad" type="xs:int" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

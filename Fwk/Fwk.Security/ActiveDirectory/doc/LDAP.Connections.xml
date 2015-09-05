@@ -1,0 +1,14 @@
+﻿<root>
+<LDAP_nt01_Datacom>LDAP://PC1.alcoDatacom.com.ar/OU=Datacom,dc=alcoDatacom,dc=com,dc=ar</LDAP_nt01_Datacom>
+<LDAP_mx02_Datacom>LDAP://Corba362mx02.alcoDatacom.com.ar/OU=Datacom,dc=alcoDatacom,dc=com,dc=ar</LDAP_mx02_Datacom>
+<LDAP_nt01_DatacomSab>LDAP://Pc1.alcoDatacom.com.ar/OU=Datacom Sabattini,dc=alcoDatacom,dc=com,dc=ar</LDAP_nt01_DatacomSab>
+<LDAP_mx02_DatacomSab>LDAP://Corba362mx02.alcoDatacom.com.ar/OU,dc=alcoDatacom,dc=com,dc=ar</LDAP_mx02_DatacomSab>
+<LDAP_nt13_alco>LDAP://CORRSF71NT13.Datacom.org/DC=Datacom,DC=org</LDAP_nt13_alco>
+
+	<LDAP_mx02_DatacomSab>	LDAP://172.22.12.142:389/DC=Pelsoft,DC=ar</LDAP_mx02_DatacomSab>
+	<usuarios>
+		<Usuario>pruebadesarrollo Prueba+456</Usuario>
+
+	</usuarios>
+</root>
+

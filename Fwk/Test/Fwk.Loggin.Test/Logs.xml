@@ -1,0 +1,193 @@
+﻿<Logs>
+  <Log id="db8e51dd-b1d9-4aeb-877a-39ccf48f214b" dateTime="2009-04-04 16:29:37.4640" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="db2e162a-8817-4f19-a12f-b4133e00ddb4" dateTime="2009-04-04 16:29:37.5550" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="eafd8cb0-8139-4fd9-b571-1dea02454435" dateTime="2009-04-04 16:29:44.7080" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="c27b9bd4-3e5d-4405-b2ea-f6fd175f4b17" dateTime="2009-04-04 16:30:23.8960" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="8327464c-abb4-48eb-af08-5499c51b5210" dateTime="2009-04-04 16:30:24.1490" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="cb4315f0-0daf-4c32-bf04-502bf869dd0d" dateTime="2009-04-04 16:30:24.3520" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="93cf9209-f474-46e1-988d-7a3c9a1a6045" dateTime="2009-04-04 16:30:24.5110" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message><![CDATA[The requested database tarifador is not defined in configuration.]]></Message>
+  </Log>
+  <Log id="34e27e02-8b46-4a24-8404-69c79a46deda" dateTime="2009-04-04 20:30:06.4550" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="e2211815-39e5-4dc6-8df0-08579d3df09a" dateTime="2009-04-04 20:30:29.8790" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="f3dfa12e-ec5d-4f6a-993a-02f939d11009" dateTime="2009-04-04 20:30:29.8950" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="7239c1ea-c43e-4073-89ec-b4505de10712" dateTime="2009-04-04 20:30:33.6980" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="ac46f792-8ce5-436f-952f-eb3558d0ef3b" dateTime="2009-04-04 20:30:33.9470" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="80fe0347-df47-4b5d-8841-f5b26b02f47f" dateTime="2009-04-04 20:46:37.3920" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="5fcf1488-d8f6-4f7e-861b-ddd02245785a" dateTime="2009-04-04 20:46:57.3330" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="4706031e-9cd9-463f-9a16-e82751d4b0a3" dateTime="2009-04-04 20:46:57.3630" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="acef2f52-2ee7-4d8e-a004-e8705d3da2ca" dateTime="2009-04-04 20:47:08.8540" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="15a26e28-d513-4b96-8018-0d4f37669130" dateTime="2009-04-04 20:47:10.7300" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="d63a1189-00d6-4137-b96d-7a3a4e65e1fb" dateTime="2009-04-04 20:47:12.2470" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="05e29373-6e90-4c42-b4a7-46bdf295731a" dateTime="2009-04-04 20:47:16.6520" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="d2c98b3b-da2b-47f4-ae33-661b42f5cf5a" dateTime="2009-04-04 20:47:17.6310" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="2be65a66-6297-48c8-9f28-04d115c84221" dateTime="2009-04-04 20:47:28.2470" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="70e91b39-4c54-4c17-a02b-dfa57d1cb36a" dateTime="2009-04-04 20:47:31.9510" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="2478d912-46a5-44e8-b6aa-93e3f163823d" dateTime="2009-04-04 20:48:26.4060" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+  <Log id="e4e2d248-5be0-4474-acf9-cd7f3aa99e29" dateTime="2009-04-04 20:48:29.8220" type="ERROR" source="ActionLine.AVAYA.CDR.Deamon" user="moviedo" machine="MATU">
+    <Message>
+      <![CDATA[Se ha producido un error al crear el controlador de sección de configuración para dataConfiguration: No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040) (C:\Projects\ActionLine.AVAYA.CDR.Service\CDRServices_WCF\ActionLine.AVAYA.CDR.Host.Test\bin\Debug\ActionLine.AVAYA.CDR.Host.Test.vshost.exe.Config line 6)Source: 
+System.Configuration
+
+Message: 
+No se puede cargar el archivo o ensamblado 'Microsoft.Practices.EnterpriseLibrary.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=007581b20a1814fc' ni una de sus dependencias. La definición del manifiesto del ensamblado no coincide con la referencia al ensamblado. (Excepción de HRESULT: 0x80131040)
+]]>
+    </Message>
+  </Log>
+</Logs>

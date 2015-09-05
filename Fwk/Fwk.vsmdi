@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="Metadata" id="fc384600-b3cc-4ce2-a921-268e10a10c6d" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <TestLinks>
+      <TestLink id="290037c2-9f32-8b26-14c2-2c48788dc567" name="DataServiceConfigurationManager" storage="test\fwk.unittest\bin\debug\fwk.unittest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="5a7c6fe3-b4e2-a9c7-e150-81689088b825" name="ImportToDB" storage="test\fwk.unittest\bin\debug\fwk.unittest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="03b26ce9-1ae9-f254-7f7f-456a40f73ce6" name="XmlServiceConfigurationManager" storage="test\fwk.unittest\bin\debug\fwk.unittest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="2f6bae81-7598-26b8-edd0-d1950eed2750" name="CheckProvider" storage="test\fwk.unittest\bin\debug\fwk.unittest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="91c8c9c4-5367-90fe-93d5-52d1a831faaa" name="UpdateAppConfig" storage="test\fwk.unittest\bin\debug\fwk.unittest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="48eb237c-af66-323a-b9a3-b8b053554782" name="Init_FwkServiceMetadata_Section" storage="test\fwk.unittest\bin\debug\fwk.unittest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+</TestLists>
