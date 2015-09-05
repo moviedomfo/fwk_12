@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E882C6F7-0C02-4014-B5E0-BEFD20756C07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fwk.Bases.FrontEnd</RootNamespace>
+    <AssemblyName>Fwk.Bases.FrontEnd</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>fwk.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Fwk.Bases.FrontEnd/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fwk.Bases, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.Connector, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\Framework\Fwk.Bases.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ProductConfiguration\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Classes\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FwkBaseControl.cs">
+    </Compile>
+    <Compile Include="Controls\Combo\FwkAutoComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Combo\FwkFlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Combo\FwkFlatComboBox.designer.cs">
+      <DependentUpon>FwkFlatComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\FlatBoxEventArgs.cs" />
+    <Compile Include="Controls\Connectors\FormConnector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Connectors\FormConnector.designer.cs">
+      <DependentUpon>FormConnector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataGridComparer.cs" />
+    <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataPickerDataGridViewCell.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\DataGridViewSorted\SortedDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewCalendarColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewEntityColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkMaskedTextColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkGenericDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkGenericDataGridView.Designer.cs">
+      <DependentUpon>FwkGenericDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkGridViewCellStyle.cs" />
+    <Compile Include="Controls\MessageViewer\FrmMsgBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FrmMsgBase.Designer.cs">
+      <DependentUpon>FrmMsgBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkExceptionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkExceptionView.Designer.cs">
+      <DependentUpon>FwkExceptionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkExceptionViewComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkExceptionViewComponent.Designer.cs">
+      <DependentUpon>FwkExceptionViewComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkMessageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkMessageView.Designer.cs">
+      <DependentUpon>FwkMessageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkMessageViewComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageViewer\FwkMessageViewComponent.Designer.cs">
+      <DependentUpon>FwkMessageViewComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TexBox\FwkFlatTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TexBox\FwkFlatTextBox.Designer.cs">
+      <DependentUpon>FwkFlatTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TexBox\FwkNumericTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TexBox\FwkNumericTextBox.Designer.cs">
+      <DependentUpon>FwkNumericTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\ComboPropertiesEditorClass\ComboProperties.cs" />
+    <Compile Include="Design\ComboPropertiesEditorClass\FwkComboPropertiesEditor.cs" />
+    <Compile Include="Design\GridCellSyle\FwkCellStyleGreenFlat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkCellStyleGreenFlat.Designer.cs">
+      <DependentUpon>FwkCellStyleGreenFlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkCellStyleLightBlueFlat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkCellStyleLightBlueFlat.Designer.cs">
+      <DependentUpon>FwkCellStyleLightBlueFlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkCellStyleMarronFlat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkCellStyleMarronFlat.Designer.cs">
+      <DependentUpon>FwkCellStyleMarronFlat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkDataGridViewCellStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\FwkDataGridViewCellStyle.Designer.cs">
+      <DependentUpon>FwkDataGridViewCellStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\GridCellSyle\IFwkCellStyle.cs" />
+    <Compile Include="Design\GridPropertiesEditorClass\Client.cs" />
+    <Compile Include="Design\GridPropertiesEditorClass\FwkGridStyleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Design\GridPropertiesEditorClass\FwkGridStyleControl.designer.cs">
+      <DependentUpon>FwkGridStyleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\GridPropertiesEditorClass\FwkGridStyleEditor.cs" />
+    <Compile Include="Design\GridPropertiesEditorClass\FwkGridStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\GridPropertiesEditorClass\FwkGridStyleForm.Designer.cs">
+      <DependentUpon>FwkGridStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagesResource.Designer.cs">
+      <DependentUpon>ImagesResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Classes\FwkUserControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\FwkUserControlBase.Designer.cs">
+      <DependentUpon>FwkUserControlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="fwk.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Combo\FwkAutoComboBox.resx">
+      <DependentUpon>FwkAutoComboBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Combo\FwkFlatComboBox.resx">
+      <DependentUpon>FwkFlatComboBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Connectors\FormConnector.resx">
+      <DependentUpon>FormConnector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FwkGrid\DataGridViewSorted\SortedDataGridView.resx">
+      <DependentUpon>SortedDataGridView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FwkGrid\FwkGenericDataGridView.resx">
+      <DependentUpon>FwkGenericDataGridView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageViewer\FwkExceptionView.resx">
+      <DependentUpon>FwkExceptionView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MessageViewer\FwkMessageView.resx">
+      <DependentUpon>FwkMessageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TexBox\FwkNumericTextBox.resx">
+      <DependentUpon>FwkNumericTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cal_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CompareValidator.ico" />
+    <Content Include="Resources\CustomValidator.ico" />
+    <Content Include="Resources\ImportXMLHS.bmp" />
+    <Content Include="Resources\InsertTabControlHS.BMP" />
+    <Content Include="Resources\MonthlyViewHS.bmp" />
+    <Content Include="Resources\RangeValidator.ico" />
+    <Content Include="Resources\RegularExpressionValidator.ico" />
+    <Content Include="Resources\RequiredFieldValidator.ico" />
+    <Content Include="Resources\ShowGridlines2HS.bmp" />
+    <Content Include="Resources\ShowGridlinesHS.bmp" />
+    <Content Include="Resources\StopHS.bmp" />
+    <Content Include="Resources\tools_large.png" />
+    <Content Include="Resources\tools_small.png" />
+    <None Include="Resources\Warning_16.png" />
+    <None Include="Resources\srch_32.png" />
+    <None Include="Resources\srch_24.png" />
+    <None Include="Resources\srch_16.png" />
+    <None Include="Resources\sinfo_32.png" />
+    <None Include="Resources\sinfo_24.png" />
+    <None Include="Resources\sinfo_16.png" />
+    <None Include="Resources\save_32.png" />
+    <None Include="Resources\save_24.png" />
+    <None Include="Resources\save_16.png" />
+    <None Include="Resources\savas_32.png" />
+    <None Include="Resources\savas_24.png" />
+    <None Include="Resources\savas_16.png" />
+    <None Include="Resources\ref_32.png" />
+    <None Include="Resources\ref_24.png" />
+    <None Include="Resources\ref_16.png" />
+    <None Include="Resources\prntpv_32.png" />
+    <None Include="Resources\prntpv_24.png" />
+    <None Include="Resources\prntpv_16.png" />
+    <None Include="Resources\opened.ico" />
+    <None Include="Resources\news_sticky.gif" />
+    <None Include="Resources\news_question.gif" />
+    <None Include="Resources\misc3.ico" />
+    <None Include="Resources\misc2.ico" />
+    <None Include="Resources\misc1.ico" />
+    <None Include="Resources\MinImage.bmp" />
+    <None Include="Resources\messageInfo_24.png" />
+    <None Include="Resources\MaxImage.bmp" />
+    <None Include="Resources\mail_32.png" />
+    <None Include="Resources\mail_24.png" />
+    <None Include="Resources\mail_16.png" />
+    <None Include="Resources\locked.ico" />
+    <None Include="Resources\langicon.gif" />
+    <None Include="Resources\install.ico" />
+    <None Include="Resources\impt_32.png" />
+    <None Include="Resources\impt_24.png" />
+    <None Include="Resources\impt_161.png" />
+    <None Include="Resources\impt_16.png" />
+    <None Include="Resources\import.ico" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\help_32.png" />
+    <None Include="Resources\help_24.png" />
+    <None Include="Resources\help_16.png" />
+    <None Include="Resources\help.ico" />
+    <None Include="Resources\hd1.ico" />
+    <None Include="Resources\hd.ico" />
+    <None Include="Resources\fwk_error.ICO" />
+    <None Include="Resources\fwk_delete_16x.ico" />
+    <None Include="Resources\fulltrash.ico" />
+    <None Include="Resources\copy_16.png" />
+    <None Include="Resources\Control_NumericUpDown.bmp" />
+    <None Include="Resources\Control_ListBox.bmp" />
+    <None Include="Resources\Control_DomainUpDown.bmp" />
+    <None Include="Resources\Control_DateTimePicker.bmp" />
+    <EmbeddedResource Include="Classes\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\FwkUserControlBase.resx">
+      <DependentUpon>FwkUserControlBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\GridCellSyle\FwkCellStyleGreenFlat.resx">
+      <DependentUpon>FwkCellStyleGreenFlat.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\GridCellSyle\FwkCellStyleLightBlueFlat.resx">
+      <DependentUpon>FwkCellStyleLightBlueFlat.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\GridCellSyle\FwkCellStyleMarronFlat.resx">
+      <DependentUpon>FwkCellStyleMarronFlat.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\GridCellSyle\FwkDataGridViewCellStyle.resx">
+      <DependentUpon>FwkDataGridViewCellStyle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\GridPropertiesEditorClass\FwkGridStyleControl.resx">
+      <DependentUpon>FwkGridStyleControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\GridPropertiesEditorClass\FwkGridStyleForm.resx">
+      <DependentUpon>FwkGridStyleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagesResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImagesResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Control_ComboBox.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*"  "$(SolutionDir)..\Libraries\Framework\$(TargetName).*" &gt;&gt; nul
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

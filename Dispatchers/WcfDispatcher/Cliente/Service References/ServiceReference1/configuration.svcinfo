@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.NetTcpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;tcp&quot; /&gt;" bindingType="netTcpBinding" name="tcp" />
+    <binding digest="System.ServiceModel.Configuration.WSHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;web&quot;&gt;&lt;security mode=&quot;None&quot; /&gt;&lt;/Data&gt;" bindingType="wsHttpBinding" name="web" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;net.tcp://localhost:8001/FwkService&quot; binding=&quot;netTcpBinding&quot; bindingConfiguration=&quot;tcp&quot; contract=&quot;ServiceReference1.IFwkService&quot; name=&quot;tcp&quot;&gt;&lt;identity&gt;&lt;userPrincipalName value=&quot;santana\moviedo&quot; /&gt;&lt;/identity&gt;&lt;/Data&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;net.tcp://localhost:8001/FwkService&quot; binding=&quot;netTcpBinding&quot; bindingConfiguration=&quot;tcp&quot; contract=&quot;ServiceReference1.IFwkService&quot; name=&quot;tcp&quot;&gt;&lt;identity&gt;&lt;userPrincipalName value=&quot;santana\moviedo&quot; /&gt;&lt;/identity&gt;&lt;/Data&gt;" contractName="ServiceReference1.IFwkService" name="tcp" />
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://localhost:8732/WcfDispatcher/FwkService/mex&quot; binding=&quot;wsHttpBinding&quot; bindingConfiguration=&quot;web&quot; contract=&quot;ServiceReference1.IFwkService&quot; name=&quot;web&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://localhost:8732/WcfDispatcher/FwkService/mex&quot; binding=&quot;wsHttpBinding&quot; bindingConfiguration=&quot;web&quot; contract=&quot;ServiceReference1.IFwkService&quot; name=&quot;web&quot; /&gt;" contractName="ServiceReference1.IFwkService" name="web" />
+  </endpoints>
+</configurationSnapshot>

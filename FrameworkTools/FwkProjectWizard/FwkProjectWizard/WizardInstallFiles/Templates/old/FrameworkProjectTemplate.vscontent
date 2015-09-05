@@ -1,0 +1,21 @@
+
+<VSContent xmlns="http://schemas.microsoft.com/developer/vscontent/2005"> 
+    <Content>
+        <FileName>BusinessComponentsProject.zip</FileName>
+		    <FileName>BusinessEntitiesProject.zip</FileName>
+		    <FileName>InterfaceServicesProject.zip</FileName>
+		    <FileName>BusinessServicesProject.zip</FileName>
+		    <FileName>DataAccessComponentsProject.zip</FileName>
+        <DisplayName>Fwk Project Template para Arquitectura Simple</DisplayName>
+        <Description>Set de Project Template para Arquitectura </Description>
+        <FileContentType>VSTemplate</FileContentType>
+        <ContentVersion>1.0</ContentVersion>
+		<Attributes>
+            <Attribute name="ProjectType" value="Visual C#"/>
+            <Attribute name="ProjectSubType" value="Fwk projects template "/>
+            <Attribute name="TemplateType" value="Project"/>
+        </Attributes>
+
+    </Content>
+	 
+</VSContent>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MappingTypes>
+
+
+      <MappingType sqlname="varchar" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] [Type]([Length]) [Direction]" patternprefixtype ="sz"/>
+      <MappingType sqlname="nvarchar" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] [Type]([Length]) [Direction]" patternprefixtype ="sz"/>
+      <MappingType sqlname="text" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] varchar(8000) [Direction]" patternprefixtype ="sz" />
+      <MappingType sqlname="ntext" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] varchar(8000) [Direction]" patternprefixtype ="sz" />
+      <MappingType sqlname="uniqueidentifier" cshrarptype="Guid" nullabletoken="?" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] VARCHAR(36) [Direction]" patternprefixtype ="sz" />
+      <MappingType sqlname="nchar" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] nchar([Length]) [Direction]" patternprefixtype ="sz"/>
+      <MappingType sqlname="char" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] char([Length]) [Direction]" patternprefixtype ="sz" />
+		<MappingType sqlname="sysname" cshrarptype="System.String" nullabletoken="" dbtype="System.Data.DbType.String" targetschematype ="string" parameterpattern="[Name] char([Length]) [Direction]" patternprefixtype ="sz" />
+		
+		<MappingType sqlname="bit" cshrarptype="System.Boolean" nullabletoken="?" dbtype="System.Data.DbType.Boolean" targetschematype ="boolean" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="b"/>
+		<MappingType sqlname="datetime" cshrarptype="System.DateTime" nullabletoken="?" dbtype="System.Data.DbType.DateTime" targetschematype ="dateTime" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="dt"/>
+		<MappingType sqlname="smalldatetime" cshrarptype="System.DateTime" nullabletoken="?" dbtype="System.Data.DbType.DateTime" targetschematype ="dateTime" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="dt"/>
+
+
+		<MappingType sqlname="real" cshrarptype="System.Int32" nullabletoken="?" dbtype="System.Data.DbType.Int32" targetschematype ="double" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="r"/>
+		<MappingType sqlname="numeric" cshrarptype="System.Int32" nullabletoken="?" dbtype="System.Data.DbType.Int32" targetschematype ="decimal" parameterpattern="[Name] [Type]([Precision],[Scale]) [Direction]" patternprefixtype ="d"/>
+		<MappingType sqlname="bigint" cshrarptype="System.Int32" nullabletoken="?" dbtype="System.Data.DbType.Int32" targetschematype ="int"  parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="i"/>
+		<MappingType sqlname="smallint" cshrarptype="System.Int32" nullabletoken="?" dbtype="System.Data.DbType.Int32" targetschematype ="int"  parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="i"/>
+		<MappingType sqlname="int" cshrarptype="System.Int32" nullabletoken="?" dbtype="System.Data.DbType.Int32" targetschematype ="int"  parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="i"/>
+		<MappingType sqlname="tinyint" cshrarptype="System.Int32" nullabletoken="" dbtype="System.Data.DbType.Int32" targetschematype ="int" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="i"/>  
+  
+		<MappingType sqlname="decimal" cshrarptype="System.Decimal" nullabletoken="?" dbtype="System.Data.DbType.Decimal" targetschematype ="decimal" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="d"/>
+		<MappingType sqlname="float" cshrarptype="System.Double" nullabletoken="?" dbtype="System.Data.DbType.Double" targetschematype ="float" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="f"/>
+		<MappingType sqlname="double" cshrarptype="System.Double" nullabletoken="?" dbtype="System.Data.DbType.Double" targetschematype ="dounble" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="d"/>
+		<MappingType sqlname="money" cshrarptype="System.Double" nullabletoken="?" dbtype="System.Data.DbType.Double" targetschematype ="double" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="d"/>
+		<MappingType sqlname="smallmoney" cshrarptype="System.Double" nullabletoken="?" dbtype="System.Data.DbType.Double" targetschematype ="double" parameterpattern="[Name] [Type] [Direction]" patternprefixtype ="d"/>
+
+		<MappingType sqlname="image" cshrarptype="System.Byte[]" nullabletoken="" dbtype="System.Data.DbType.Binary" targetschematype ="base64Binary" parameterpattern="[Name] [Type]([Length])" patternprefixtype ="obj"/>
+		<MappingType sqlname="binary" cshrarptype="System.Byte[]" nullabletoken="" dbtype="System.Data.DbType.Binary" targetschematype ="base64Binary" parameterpattern="[Name] [Type]([Length])" patternprefixtype ="obj"/>
+		<MappingType sqlname="varbinary" cshrarptype="System.Byte[]" nullabletoken="" dbtype="System.Data.DbType.Binary" targetschematype ="base64Binary" parameterpattern="[Name] [Type]([Length])" patternprefixtype ="obj"/>
+
+
+	</MappingTypes>
+
+

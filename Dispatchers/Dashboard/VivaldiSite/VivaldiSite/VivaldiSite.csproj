@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8458BD39-A7B7-4E02-8A4A-D04EEF9FFE38}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VivaldiSite</RootNamespace>
+    <AssemblyName>VivaldiSite</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\libs\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CommentExtractor">
+      <HintPath>..\libs\CommentExtractor.dll</HintPath>
+    </Reference>
+    <Reference Include="CSharpBinding">
+      <HintPath>..\libs\CSharpBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="CSSFriendly">
+      <HintPath>..\libs\CSSFriendly.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases">
+      <HintPath>..\libs\Fwk.Bases.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.Connector">
+      <HintPath>..\libs\Fwk.Bases.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.Connector.XmlSerializers">
+      <HintPath>..\libs\Fwk.Bases.Connector.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Security">
+      <HintPath>..\libs\Fwk.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Security, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Microsoft.Practices.EnterpriseLibrary.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Microsoft.VisualStudio.DebuggerVisualizers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="disp_init.aspx" />
+    <Content Include="disp_list.aspx" />
+    <Content Include="disp_main.aspx" />
+    <Content Include="disp_main_services.aspx" />
+    <Content Include="disp_main_service_admin.aspx" />
+    <Content Include="disp_new.aspx" />
+    <Content Include="disp_singin.aspx" />
+    <Content Include="Email_contactenos.htm" />
+    <Content Include="ErrorMessageViewer.aspx" />
+    <Content Include="img\ActualizarPerfilBig.gif" />
+    <Content Include="img\ActualizarPerfilSmall.gif" />
+    <Content Include="img\administrator_add_32.png" />
+    <Content Include="img\architexture_01.jpg" />
+    <Content Include="img\arrow-back_24.png" />
+    <Content Include="img\bgr_box.png" />
+    <Content Include="img\bulletgreen01.png" />
+    <Content Include="img\cal_16.png" />
+    <Content Include="img\collapce_16.png" />
+    <Content Include="img\config-check-list.jpg" />
+    <Content Include="img\confirm_16.png" />
+    <Content Include="img\corner_blue_left.png" />
+    <Content Include="img\corner_blue_right.png" />
+    <Content Include="img\corner_inset_left.png" />
+    <Content Include="img\corner_inset_right.png" />
+    <Content Include="img\corner_left.png" />
+    <Content Include="img\corner_right.png" />
+    <Content Include="img\Delete_16.png" />
+    <Content Include="img\dot.gif" />
+    <Content Include="img\edit.png" />
+    <Content Include="img\enf\advanced.png" />
+    <Content Include="img\enf\btn_check_off_pressed %282%29.png" />
+    <Content Include="img\enf\migracion.jpg" />
+    <Content Include="img\exclamation_16.png" />
+    <Content Include="img\Exclamation_red.png" />
+    <Content Include="img\Expand_16.png" />
+    <Content Include="img\fondo_cont_box.gif" />
+    <Content Include="img\Forward_16.bmp" />
+    <Content Include="img\iconError.png" />
+    <Content Include="img\icono_mas_titulos.gif" />
+    <Content Include="img\Information_16.png" />
+    <Content Include="img\Information_24.png" />
+    <Content Include="img\Information_32.png" />
+    <Content Include="img\login.jpg" />
+    <Content Include="img\menu_right.png" />
+    <Content Include="img\new-disp.jpg" />
+    <Content Include="img\new_16.png" />
+    <Content Include="img\pelsoft_logo_1.png" />
+    <Content Include="img\pelsoft_logo_2.png" />
+    <Content Include="img\Private.png" />
+    <Content Include="img\remov_16.png" />
+    <Content Include="img\search.png" />
+    <Content Include="img\security-locked_16.png" />
+    <Content Include="img\security-locked_24.png" />
+    <Content Include="img\security-unlocked_16.png" />
+    <Content Include="img\security-unlocked_24.png" />
+    <Content Include="img\send_16.png" />
+    <Content Include="img\square_clock_16.png" />
+    <Content Include="img\submit.gif" />
+    <Content Include="img\testing.jpg" />
+    <Content Include="img\tilde_guion-griz.png" />
+    <Content Include="img\trash_16.png" />
+    <Content Include="img\trash_24.png" />
+    <Content Include="img\vineta_cuad.png" />
+    <Content Include="img\vineta_star.png" />
+    <Content Include="img\viñeta_red_circle.png" />
+    <Content Include="img\viñeta_row.png" />
+    <Content Include="img\Warning.png" />
+    <Content Include="img\webaccess.jpg" />
+    <Content Include="img\website.jpg" />
+    <Content Include="img\winsvc.jpg" />
+    <Content Include="menu\main_menu_2.ascx" />
+    <Content Include="menu\VMenu_Admin.ascx" />
+    <Content Include="Scripts\fwkhelper.js" />
+    <Content Include="Scripts\jquery.quicksearch.js" />
+    <Content Include="Scripts\jquery_1.5.js" />
+    <Content Include="Security\ChangePwd.aspx" />
+    <Content Include="Security\Email_Forgot_Password.html" />
+    <Content Include="Security\Email_RegistrationReq_ToHealth32.htm" />
+    <Content Include="Security\Email_UserRegistrationRequest.htm" />
+    <Content Include="Security\Email_UserRegistration_Autorized.htm" />
+    <Content Include="Security\Login.aspx" />
+    <Content Include="Security\Logingreg.aspx" />
+    <Content Include="Security\NotAuthorizedUser.aspx" />
+    <Content Include="Security\PasswordResset.aspx" />
+    <Content Include="Styles\992_16_5_5.css" />
+    <Content Include="Styles\Common.css" />
+    <Content Include="Styles\Grd960.css" />
+    <Content Include="Styles\Menu.css" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Styles\sf_grid.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\table-images\back.png" />
+    <Content Include="Styles\table-images\blurry.jpg" />
+    <Content Include="Styles\table-images\botleft.png" />
+    <Content Include="Styles\table-images\botright.png" />
+    <Content Include="Styles\table-images\gradback.png" />
+    <Content Include="Styles\table-images\gradhead.png" />
+    <Content Include="Styles\table-images\gradhover.png" />
+    <Content Include="Styles\table-images\header.jpg" />
+    <Content Include="Styles\table-images\left.png" />
+    <Content Include="Styles\table-images\pattern-head.png" />
+    <Content Include="Styles\table-images\pattern.gif" />
+    <Content Include="Styles\table-images\pattern.png" />
+    <Content Include="Styles\table-images\patternb-head.png" />
+    <Content Include="Styles\table-images\patternb.png" />
+    <Content Include="Styles\table-images\right.png" />
+    <Content Include="Styles\tables.css" />
+    <Content Include="service\wcf_service.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\Common.cs" />
+    <Compile Include="Clases\DataCoreDAC.cs" />
+    <Compile Include="Clases\Helper.cs" />
+    <Compile Include="Clases\SessionProxy.cs" />
+    <Compile Include="Clases\wcf_service.svc.cs" />
+    <Compile Include="disp_list.aspx.cs">
+      <DependentUpon>disp_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="disp_list.aspx.designer.cs">
+      <DependentUpon>disp_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="disp_main.aspx.cs">
+      <DependentUpon>disp_main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="disp_main.aspx.designer.cs">
+      <DependentUpon>disp_main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="disp_main_services.aspx.cs">
+      <DependentUpon>disp_main_services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="disp_main_services.aspx.designer.cs">
+      <DependentUpon>disp_main_services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="disp_main_service_admin.aspx.cs">
+      <DependentUpon>disp_main_service_admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="disp_main_service_admin.aspx.designer.cs">
+      <DependentUpon>disp_main_service_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="disp_new.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>disp_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="disp_new.aspx.designer.cs">
+      <DependentUpon>disp_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="disp_singin.aspx.cs">
+      <DependentUpon>disp_singin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="disp_singin.aspx.designer.cs">
+      <DependentUpon>disp_singin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorMessageViewer.aspx.cs">
+      <DependentUpon>ErrorMessageViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorMessageViewer.aspx.designer.cs">
+      <DependentUpon>ErrorMessageViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="menu\main_menu_2.ascx.cs">
+      <DependentUpon>main_menu_2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menu\main_menu_2.ascx.designer.cs">
+      <DependentUpon>main_menu_2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="menu\VMenu_Admin.ascx.cs">
+      <DependentUpon>VMenu_Admin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menu\VMenu_Admin.ascx.designer.cs">
+      <DependentUpon>VMenu_Admin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\ChangePwd.aspx.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\ChangePwd.aspx.designer.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Logingreg.aspx.cs">
+      <DependentUpon>Logingreg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\Logingreg.aspx.designer.cs">
+      <DependentUpon>Logingreg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\NotAuthorizedUser.aspx.cs">
+      <DependentUpon>NotAuthorizedUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\NotAuthorizedUser.aspx.designer.cs">
+      <DependentUpon>NotAuthorizedUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\PasswordResset.aspx.cs">
+      <DependentUpon>PasswordResset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\PasswordResset.aspx.designer.cs">
+      <DependentUpon>PasswordResset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site2c.master.cs">
+      <DependentUpon>Site2c.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2c.master.designer.cs">
+      <DependentUpon>Site2c.master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Browsers\CSSFriendlyAdapters.browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site2c.master" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>18596</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

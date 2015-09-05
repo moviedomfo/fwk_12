@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35C67E35-70D2-4AF0-A937-977CCFAB4346}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fwk.ServiceManagement.Tools.Win32</RootNamespace>
+    <AssemblyName>Fwk.ServiceManagement</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <StartupObject>Fwk.ServiceManagement.Tools.Win32.Program</StartupObject>
+    <ApplicationIcon>Data_Dataset.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>98EBB4D31B510B030568B5B52F14DBE3C7E16270</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Fwk.ServiceManagement.Tools.Win32_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\corrsf71bi01\bigbang\Tools\ServiceManagement\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\corrsf71bi01\bigbang\Tools\ServiceManagement\</InstallUrl>
+    <MinimumRequiredVersion>1.0.0.4</MinimumRequiredVersion>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fwk.Bases">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.Connector">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.FrontEnd">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.DataBase">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.DataBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Security">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheObject.cs" />
+    <Compile Include="cnnstring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cnnstring.Designer.cs">
+      <DependentUpon>cnnstring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="ctrlService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlService.Designer.cs">
+      <DependentUpon>ctrlService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAssemblyExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssemblyExplorer.Designer.cs">
+      <DependentUpon>frmAssemblyExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCreateProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateProvider.Designer.cs">
+      <DependentUpon>frmCreateProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEdit.Designer.cs">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExport2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExport2.Designer.cs">
+      <DependentUpon>frmExport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExport1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExport1.Designer.cs">
+      <DependentUpon>frmExport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageProviders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageProviders.Designer.cs">
+      <DependentUpon>frmManageProviders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServices.Designer.cs">
+      <DependentUpon>frmServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cnnstring.resx">
+      <DependentUpon>cnnstring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlService.resx">
+      <DependentUpon>ctrlService.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAssemblyExplorer.resx">
+      <DependentUpon>frmAssemblyExplorer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateProvider.resx">
+      <DependentUpon>frmCreateProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExport2.resx">
+      <DependentUpon>frmExport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExport1.resx">
+      <DependentUpon>frmExport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageProviders.resx">
+      <DependentUpon>frmManageProviders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServices.resx">
+      <DependentUpon>frmServices.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="provider.resx">
+      <DependentUpon>provider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCBServiceGrid.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UCBServiceGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="provider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="provider.Designer.cs">
+      <DependentUpon>provider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Providers.cs" />
+    <Compile Include="UCBServiceGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCBServiceGrid.Designer.cs">
+      <DependentUpon>UCBServiceGrid.cs</DependentUpon>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\DataSources\Fwk.Bases.ServiceConfigurationCollection.datasource" />
+    <None Include="Properties\DataSources\Fwk.ServiceManagement.ServiceConfiguration.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data_Dataset.ico" />
+    <None Include="Resources\prntpv_16.png" />
+    <None Include="Resources\EditService.ico" />
+    <None Include="Resources\AddService.ico" />
+    <None Include="Resources\langicon.gif" />
+    <None Include="Resources\Untitled %28215%291.ico" />
+    <None Include="Resources\Untitled %28217%291.ico" />
+    <None Include="Resources\Untitled %28216%291.ico" />
+    <None Include="Resources\Delete1.Ico" />
+    <None Include="Resources\PreviousPageHS.png" />
+    <None Include="Resources\PageUpHS.png" />
+    <None Include="Resources\DocumentHS.png" />
+    <None Include="Resources\AddTableHS.png" />
+    <None Include="Resources\Untitled %28217%29.ico" />
+    <None Include="Resources\Untitled %28216%29.ico" />
+    <None Include="Resources\Untitled %28215%29.ico" />
+    <None Include="Resources\Refresh.ico" />
+    <None Include="Resources\Delete.Ico" />
+    <None Include="Resources\4.ICO" />
+    <None Include="Resources\mostrar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.VisualStudio.DebuggerVisualizers">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

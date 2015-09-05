@@ -1,0 +1,39 @@
+<Configuration>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:Fwk.BusinessFacades.SimpleFacade">
+      <Item value="GetServiceConfiguration" priority="0" />
+      <Item value="GetServicesList" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <EditorManager>
+    <RecentFiles>
+      <File id="DDEC3C17-29C4-42F8-A2E1-88381A170136/f:Web.Config" caret="2244" scrollPosition="0|15" />
+      <File id="DDEC3C17-29C4-42F8-A2E1-88381A170136/d:App_Code/f:SingleService.cs" caret="1124" scrollPosition="0|24" />
+      <File id="UNDEFINED_UNIQUE_NAME_Miscellaneous Files/f:ExceptionHelper.cs" caret="797" scrollPosition="0|12" />
+      <File id="UNDEFINED_UNIQUE_NAME_Miscellaneous Files/f:TechnicalException.cs" caret="3163" scrollPosition="0|111" />
+      <File id="UNDEFINED_UNIQUE_NAME_Miscellaneous Files/f:SingleService.cs" caret="1124" scrollPosition="0|25" />
+      <File id="UNDEFINED_UNIQUE_NAME_Miscellaneous Files/f:FacadeHelper.cs" caret="9483" scrollPosition="0|181" />
+      <File id="UNDEFINED_UNIQUE_NAME_Miscellaneous Files/f:SimpleFacade.cs" caret="4600" scrollPosition="0|22" />
+      <File id="UNDEFINED_UNIQUE_NAME_Miscellaneous Files/f:ServiceCalls.cs" caret="6335" scrollPosition="0|151" />
+    </RecentFiles>
+  </EditorManager>
+  <FileStructureView>
+    <AutoScrollToSource>False</AutoScrollToSource>
+    <TrackCaretLocation>False</TrackCaretLocation>
+  </FileStructureView>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <ReFormatCode>
+    <ReorderMembers>False</ReorderMembers>
+    <OptimizeUsings>False</OptimizeUsings>
+    <RemoveRedundantThis>False</RemoveRedundantThis>
+    <ShortenReferences>False</ShortenReferences>
+  </ReFormatCode>
+  <SharedSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </SharedSolutionDisabledTemplatesManager>
+  <UserSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </UserSolutionDisabledTemplatesManager>
+</Configuration>

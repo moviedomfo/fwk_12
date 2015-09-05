@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D0CE8EE7-A49D-415F-A631-49846851EDA5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConfigurationApp</RootNamespace>
+    <AssemblyName>ConfigurationApp</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <ApplicationIcon>DIARY00B.ICO</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>EEC61322099B950A032B3CA952C322600BDF0D26</ManifestCertificateThumbprint>
+    <ManifestKeyFile>ConfigurationApp_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\Corrsf71bi01\BigBang\Tools\ConfigurationApp\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\Corrsf71bi01\BigBang\Tools\ConfigurationApp\</InstallUrl>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fwk.Bases">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.FrontEnd, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.DataBase">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.DataBase.dll</HintPath>
+    </Reference>
+    <Reference Include="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig\AppConfigControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppConfig\ConfigurationManagerConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppConfig\DataConfigControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppConfig\SecctionsAndGroupsConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppConfig\ServiceMannagerConfig.cs" />
+    <Compile Include="AppConfig\TreeNodeConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppConfig\WrapperConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="AppConfig.old\AppConfigControl.cs.old" />
+    <None Include="AppConfig.old\ConfigurationManagerConfig.cs.old" />
+    <None Include="AppConfig.old\DataConfigControl.cs.old" />
+    <None Include="AppConfig.old\SecctionsAndGroupsConfig.cs.old" />
+    <None Include="AppConfig.old\TreeNodeConfig.cs.old" />
+    <None Include="AppConfig.old\WrapperConfig.cs.old" />
+    <Compile Include="Class\CnnString.cs" />
+    <Compile Include="Class\ConfigManagerSettings.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\TemplateProvider.cs" />
+    <Compile Include="ConfigManager\ConfigManagerControl.cs" />
+    <Compile Include="Export\cnnstring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export\cnnstring.Designer.cs">
+      <DependentUpon>cnnstring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export\frmCreateProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\frmCreateProvider.Designer.cs">
+      <DependentUpon>frmCreateProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export\frmExport1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\frmExport1.Designer.cs">
+      <DependentUpon>frmExport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export\provider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export\provider.Designer.cs">
+      <DependentUpon>provider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export\UCBServiceGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Export\UCBServiceGrid.Designer.cs">
+      <DependentUpon>UCBServiceGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\dockPanelConfigManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\dockPanelConfigManager.Designer.cs">
+      <DependentUpon>dockPanelConfigManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmExportXmlToBd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExportXmlToBd.Designer.cs">
+      <DependentUpon>frmExportXmlToBd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNewGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewGroup.Designer.cs">
+      <DependentUpon>frmNewGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UCKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UCKey.Designer.cs">
+      <DependentUpon>UCKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControlBase.Designer.cs">
+      <DependentUpon>UserControlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IsolatedStorage\Storage.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Export\cnnstring.resx">
+      <DependentUpon>cnnstring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\frmCreateProvider.resx">
+      <DependentUpon>frmCreateProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\frmExport1.resx">
+      <DependentUpon>frmExport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\provider.resx">
+      <DependentUpon>provider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\UCBServiceGrid.resx">
+      <DependentUpon>UCBServiceGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\dockPanelConfigManager.resx">
+      <DependentUpon>dockPanelConfigManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmExportXmlToBd.resx">
+      <DependentUpon>frmExportXmlToBd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UCKey.resx">
+      <DependentUpon>UCKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControlBase.resx">
+      <DependentUpon>UserControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewKey.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Forms\frmNewKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewKey.Designer.cs">
+      <DependentUpon>frmNewKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSpace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save16x16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.Ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseAdded.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseConflict.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseDeleted.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseInSubVersion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseLocked.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseModified.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\news_info.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test\ConfigurationManager_01 - Copy.xml" />
+    <Content Include="Test\ConfigurationManager_01.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Test\ConfigurationManager_02.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\DataSources\Fwk.Bases.Blocks.Fwk.Configuration.config.fwk_ConfigMannager.datasource" />
+    <None Include="Properties\DataSources\Fwk.Configuration.Common.Key.datasource" />
+    <None Include="Resources\Web_WebConfig.ico" />
+    <None Include="Resources\WinXPSetV4 Icon 60.ico" />
+    <None Include="Resources\89.ICO" />
+    <None Include="Resources\91.ICO" />
+    <Content Include="DIARY00B.ICO" />
+    <None Include="Resources\save_as_small.png" />
+    <None Include="Resources\save_small.png" />
+    <None Include="Resources\documents_large.png" />
+    <None Include="Resources\documents_small.png" />
+    <None Include="Resources\open_folder_large.png" />
+    <None Include="Resources\open_folder_small.png" />
+    <None Include="Resources\foldr_16.png" />
+    <None Include="Resources\foldr_24.png" />
+    <None Include="Resources\foldr_32.png" />
+    <None Include="Resources\zoomi_16.png" />
+    <None Include="Resources\zoomo_16.png" />
+    <None Include="Resources\save_as_large.png" />
+    <None Include="Resources\save_large.png" />
+    <None Include="Resources\file_add_16.png" />
+    <None Include="Resources\file_del_16.png" />
+    <None Include="Resources\prntpv_16.png" />
+    <None Include="Resources\mostrar.gif" />
+    <None Include="Resources\import_16.png" />
+    <Content Include="Templates.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

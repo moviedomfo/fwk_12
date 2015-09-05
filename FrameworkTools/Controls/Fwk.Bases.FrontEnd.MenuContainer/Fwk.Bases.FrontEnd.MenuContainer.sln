@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Bases.FrontEnd.MenuContainer", "Fwk.Bases.FrontEnd.MenuContainer\Fwk.Bases.FrontEnd.MenuContainer.csproj", "{AAD29C0A-CC9B-455A-A344-98EFA62BCC56}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAD29C0A-CC9B-455A-A344-98EFA62BCC56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD29C0A-CC9B-455A-A344-98EFA62BCC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD29C0A-CC9B-455A-A344-98EFA62BCC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD29C0A-CC9B-455A-A344-98EFA62BCC56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

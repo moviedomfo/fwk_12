@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeDoc>
+	<Class name='DockList'>
+		<ClassDef>
+			<summary>Maintains a list of nested docking <see cref="Fwk.Controls.Win32.DockPane" /> objects.</summary>
+			<remarks>
+				<include file='Interfaces.xml' path='//Interface[@name="IDockListContainer"]/InterfaceDef/remarks/*' />
+			</remarks>
+			<seealso cref="Fwk.Controls.Win32.DockPane">DockPane Class</seealso>
+		</ClassDef>
+		<Property name="DisplayingList">
+			<summary>Gets the associated <b>DisplayingDockList</b> object.</summary>
+			<value>A <see cref="Fwk.Controls.Win32.DisplayingDockList" /> object which associates with this <B>DockList</B> object.</value>
+		</Property>
+		<Property name="Container">
+			<summary>Gets the container which owns this <see cref='Fwk.Controls.Win32.DockList' /> object.</summary>
+			<value>A <see cref='Fwk.Controls.Win32.IDockListContainer' /> which contains this <see cref='Fwk.Controls.Win32.DockList' /> object.</value>
+			<seealso cref='Fwk.Controls.Win32.DisplayingDockList'>DisplayingDockList Class</seealso>
+		</Property>
+		<Property name="DockState">
+			<summary>Gets the docking state from the <see cref="Fwk.Controls.Win32.DisplayingDockList.Container" />.</summary>
+			<include file='Interfaces.xml' path='//Interface[@name="IDockListContainer"]/Property[@name="DockState"]/value' />
+		</Property>
+		<Property name="IsFloat">
+			<summary>Determines whether the the <see cref="Fwk.Controls.Win32.DisplayingDockList.Container" /> is floating.</summary>
+			<include file='Interfaces.xml' path='//Interface[@name="IDockListContainer"]/Property[@name="IsFloat"]/value' />
+		</Property>
+		<Property name="Item">
+			<summary>
+				<para>Gets a <see cref="Fwk.Controls.Win32.DockPane" /> at the specified index.</para>
+				<para>In C#, this property is the indexer for the <see cref="Fwk.Controls.Win32.DockList" /> class.</para>
+			</summary>
+			<param name="index">
+			The zero-based <see cref="Fwk.Controls.Win32.DockPane" /> to get.
+		</param>
+			<value>
+			The <see cref="Fwk.Controls.Win32.DockPane" /> at the specified index.
+		</value>
+		</Property>
+		<Method name="Contains(DockPane)">
+			<summary>
+			Determines whether a <see cref="Fwk.Controls.Win32.DockPane" /> is in the
+			<see cref="Fwk.Controls.Win32.DockList" />.
+		</summary>
+			<param name="pane">
+			The <see cref="Fwk.Controls.Win32.DockPane" /> to locate in
+			<see cref="Fwk.Controls.Win32.DockList" />.
+		</param>
+			<returns>
+			<b>true</b> if <paramref name="pane" /> is found in the
+			<see cref="Fwk.Controls.Win32.DockList" />;
+			otherwise, <b>false</b>.
+		</returns>
+		</Method>
+		<Method name="IndexOf(DockPane)">
+			<summary>
+			Searches for the specified <see cref="Fwk.Controls.Win32.DockPane" />
+			and returns the zero-based index within the entire
+			<see cref="Fwk.Controls.Win32.DockList" />.
+		</summary>
+			<param name="pane">
+			The <see cref="Fwk.Controls.Win32.DockPane" />
+			to locate in the <see cref="Fwk.Controls.Win32.DockList" />
+		</param>
+			<returns>
+			The zero-based index of <paramref name="pane" /> within the entire
+			<see cref="Fwk.Controls.Win32.DockList" />, if found;
+			otherwise, -1.
+		</returns>
+		</Method>
+		<Method name="GetDefaultPrevPane(DockPane)">
+			<summary>
+			Gets the default <see cref="Fwk.Controls.Win32.DockPane" />
+			in this	<see cref="Fwk.Controls.Win32.DockList" /> to dock inside.
+		</summary>
+			<param name="pane">
+			The <see cref="Fwk.Controls.Win32.DockPane" />
+			to add to this <see cref="Fwk.Controls.Win32.DockList" />.
+		</param>
+			<returns>
+			The default <see cref="Fwk.Controls.Win32.DockPane" /> for <paramref name="pane" /> to dock inside,
+			<b>null</b> if this	<see cref="Fwk.Controls.Win32.DockList" /> is empty.
+		</returns>
+		</Method>
+	</Class>
+</CodeDoc>

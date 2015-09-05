@@ -1,0 +1,145 @@
+﻿*{ margin: 0; padding: 0;}
+
+body
+{
+	background:#526074 url("../../img/bgr_box.jpg") repeat scroll -1703px 0 transparent;
+	background-color: #D6D9DB; /*background-color: #333333; */ /*background-image: url("../../images/port/background_2.jpg");*/
+	background-position: center top; /*  background-repeat: repeat;*/
+	background-attachment: scroll;
+	height: 100%;
+	padding: 0px;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	
+}
+
+#home_wrap
+{
+    height:500px;
+    width:850px;
+    margin-top:20px;}
+#home_wrap_image
+{
+   margin: 5px;
+
+    }
+
+
+        
+#master_preheader
+{
+    background-color: #808080;
+    color: White;
+    height: 10px;
+    padding-top:5px;
+    padding-bottom: 5px; /*background-image: -moz-linear-gradient(0deg, #002D2D 10px,#002D2D, #FF0000); 
+    background-image: -webkit-gradient(radial, center top, center bottom, from(#FF0000), to(#002D2D));
+   filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=4,startColorStr=#FF0000,endColorStr=#002D2D);*/
+}
+	
+/*headers*/
+#master_header
+{
+    background-position: center center;
+    background-image: url('../../Images/port/banner.jpg');
+  
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-color: #2B2B24;
+    height: 110px;
+    border-style: solid;
+    border-width: 1px;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+ }
+/*titulo principal*/
+#master_header_tittle
+{
+    font-size: 16px;
+    font-weight:bold;
+    padding: 10px 10px 0px 10px;
+    margin: 0px;
+    color: White;
+    float:left;	
+}
+
+#master_header_tittle p:hover
+{
+    color: #CCCCCC;
+    font-weight: bold;
+}
+#master_header_searcher{   float:right;   margin-top:65px; }
+    
+    
+/*columns*/
+#master_wrap{background-color:White;  margin-top:10px;}
+
+#master_leftcol{float:left;margin:5px 0px 5px 0; padding: 3px;}
+
+#master_center_right_wrap
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF #FFFFFF #C0C0C0 #C0C0C0;
+    height: 100%;
+}
+#master_centercol
+{
+    margin: 0px 0px 5px 0;
+    padding: 3px;
+    float: left;
+}
+.center_content_Holder_wrap
+{
+    margin:0;
+    border-style: none solid none solid;
+    border-width: 1px;
+    border-color: #B3B3B3;
+    padding:0;
+    min-height:800px;
+}
+#master_rightcol
+{
+    float:right; 
+    margin-left:-10px;
+    margin-top: 5px ;
+    margin-bottom: 5px ;
+    margin-right:0px;
+    padding:3px;
+}
+
+
+
+#master_logging{float:left;margin-top: 13px;text-decoration:none;font-size :14px}
+
+.master_logging_status_asp
+{
+	color: #FFFFFF;
+	font-weight: normal;
+	text-decoration: none;
+	
+}
+.master_logging_status_asp_spam{    color: #CCCCCC;    font-weight: bold;    text-decoration: none;}
+
+#pannel_separator{height:30px;}
+/*Redondeo estandar para toda caja contenedora*/
+.box_roun_shadow{ border-radius: 5px;-ms-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px;-webkit-border-radius: 5px;-moz-box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.6);-webkit-box-shadow:  0px 0px 6px 6px rgba(0,0,0,0.6);box-shadow: 0px 2px 6px 6px rgba(0,0,0,0.6);}
+/*objetos varios*/  
+.searhLeftBox 
+
+{
+      background-color : #3B1112;
+	height:50px;
+    margin: 10px;
+    padding: 0px;
+    border: 1px solid #CCCCCC;
+ }
+.searhLeftBox h1
+{
+    padding: 0px;
+    margin-top: 3px;
+    color: #CCCCCC;
+    font-size: 11px;
+   line-height: 11px;
+}
+.searhLeftBox_txt{margin:2px;}

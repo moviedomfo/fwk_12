@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Templates>
+  <Template name="AppConfi">
+    <FileEnvelope>
+      <![CDATA[
+
+<configuration>
+	<configSections>
+		<sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+	</configSections>
+	<applicationSettings>
+
+	</applicationSettings>
+</configuration>
+
+			  
+	  ]]>
+    </FileEnvelope>
+
+    <ConfigurationConfigSectionsName><![CDATA[Fwk.Configuration.Properties.Settings]]></ConfigurationConfigSectionsName>
+    <WrapperConfigSectionsName><![CDATA[Fwk.Bases.Connector.Properties.Settings]]></WrapperConfigSectionsName>
+	  <BasesConfigSectionsName><![CDATA[Fwk.Bases.Properties.Settings]]></BasesConfigSectionsName>
+    <WrapperType.ConfigSectionsName><![CDATA[Fwk.Bases.FrontEnd.Properties.Settings]]></WrapperType.ConfigSectionsName>
+	  <BusinessFacadeConfigSectionName><![CDATA[Fwk.ServiceManagement.Properties.Settings]]></BusinessFacadeConfigSectionName>
+    <WebConfig.XmlNamespaceManager><![CDATA[http://schemas.microsoft.com/.NetConfiguration/v2.0]]></WebConfig.XmlNamespaceManager>
+
+    <DatabaseServiceConfigurationManager>
+      <![CDATA[Fwk.ServiceManagement.DatabaseServiceConfigurationManager, Fwk.ServiceManagement]]>
+    </DatabaseServiceConfigurationManager>
+    <XmlServiceConfigurationManager>
+      <![CDATA[Fwk.ServiceManagement.XmlServiceConfigurationManager, Fwk.ServiceManagement]]>
+    </XmlServiceConfigurationManager>
+  </Template>
+
+  <Template name="ConfigurationManager">
+    <FileEnvelope>
+      <![CDATA[
+          <Groups> </Groups>
+	      ]]>
+    </FileEnvelope>
+    <GroupNode>
+      <![CDATA[
+        <Group name="[GroupName]">
+        </Group>
+        ]]>
+    </GroupNode>
+    <KeyNode>
+      <![CDATA[
+        <Key name="KeyName" encrypted="False">
+			      <Value></Value>
+        </Key>
+        ]]>
+    </KeyNode>
+  </Template>
+
+
+  <Template name="StandarsDataConfiguration">
+
+    <ConfigSectionAssembly>
+      <![CDATA[Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings, Microsoft.Practices.EnterpriseLibrary.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null]]>
+    </ConfigSectionAssembly>
+
+    <WindowsAutCnnString><![CDATA[Initial Catalog = [DatabaseName];Data Source=[ServerName];Integrated Security=True;]]></WindowsAutCnnString>
+    <SQLWindowsAutCnnString><![CDATA[Initial Catalog = [DatabaseName];Data Source=[ServerName];User ID= [User] ;Password= [Password]]]></SQLWindowsAutCnnString>
+  </Template>
+  <Template name="SettingsSections">
+    <BusinessFacadeSettings>
+      <![CDATA[
+      <Fwk.ServiceManagement.Properties.Settings>
+			  <setting name="ServiceConfigurationManagerType" serializeAs="String">
+				  <value>[ServiceConfigurationManagerType]</value>
+            
+			  </setting>
+           <setting name="ConfigurationFilePath" serializeAs="String">
+                <value>BPConfig.xml</value>
+            </setting>
+            <setting name="ConnectionName" serializeAs="String">
+                <value>BPConfig</value>
+            </setting>
+		  </Fwk.ServiceManagement.Properties.Settings>
+      ]]>
+    </BusinessFacadeSettings>
+
+	  <Fwk.Bases.ApplicationSettings>
+		  <![CDATA[
+		  <Fwk.Bases.Properties.Settings>
+			  <setting name="Wrapper" serializeAs="String">
+				  <value>Fwk.FrontEnd.ServiceIntefaceWrappers.WebServiceWrapper, Fwk.FrontEnd.ServiceIntefaceWrappers</value>
+			  </setting>
+			  <setting name="WebServiceDispatcherUrl" serializeAs="String">
+				  <value>http://localhost/WebServiceDispatcher/SingleService.asmx</value>
+			  </setting>
+			  	<setting name="DispatcherRemotingConfigFilePath" serializeAs="String">
+				    <value>c:\RemotingConfigFile.config</value>
+			    </setting>
+				<setting name="Wrapper" serializeAs="String">
+						<value>Fwk.Bases.Connector.[WrapperName], Fwk.Bases.Connector</value>
+                  </setting>
+		  </Fwk.Bases.Properties.Settings>
+		   ]]>
+	  </Fwk.Bases.ApplicationSettings>
+    <ConfigurationApplicationSettings>
+      <![CDATA[
+		  <Fwk.Configuration.Properties.Settings>
+			    <setting name="BaseConfigFile" serializeAs="String">
+				    <value/>
+			    </setting>
+			    <setting name="RemotingConfigFile" serializeAs="String">
+				    <value/>
+			    </setting>
+			    <setting name="IsLocal" serializeAs="String">
+				    <value>True</value>
+			    </setting>
+			
+				
+	     </Fwk.Configuration.Properties.Settings>
+	  
+	  ]]>
+    </ConfigurationApplicationSettings>
+
+   
+  </Template>
+  <Template name="AssemblySections">
+    <dataConfiguration>
+      <![CDATA[Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings, Microsoft.Practices.EnterpriseLibrary.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null]]>
+    </dataConfiguration>
+    <cachingConfiguration>
+      <![CDATA[Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.CacheManagerSettings, Microsoft.Practices.EnterpriseLibrary.Caching, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null]]>
+    </cachingConfiguration>
+	  
+  </Template>
+</Templates>

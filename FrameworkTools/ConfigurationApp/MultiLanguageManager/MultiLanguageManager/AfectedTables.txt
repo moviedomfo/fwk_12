@@ -1,0 +1,8 @@
+﻿ParamCampaings (Campaings)
+Campaings (Campaings)
+RecordActionResult (Campaings)
+
+SP:
+ParamCampaing_s_ByRef
+
+RecordActionResult_s_ByCampaingId

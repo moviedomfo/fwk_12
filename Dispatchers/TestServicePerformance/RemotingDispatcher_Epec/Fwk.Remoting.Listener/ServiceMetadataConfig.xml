@@ -1,0 +1,16 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by pepe (pelsoft) -->
+<ServiceConfigurationCollection>
+	<ServiceConfiguration name="SearchSalesOrderDetailService">
+		<EntityState>Unchanged</EntityState>
+		<CreatedDateTime>0001-01-01T00:00:00</CreatedDateTime>   
+		<Handler>back.BackEnd.SVC.SearchSalesOrderDetailService, back.BackEnd.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+ 		<Request>back.Common.ISVC.SearchSalesOrderDetail.SearchSalesOrderDetailReq, back.BackEnd.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+		<Response>back.Common.ISVC.SearchSalesOrderDetail.SearchSalesOrderDetailRes, back.BackEnd.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+		<Available>true</Available>
+		<Audit>false</Audit>
+		<TransactionalBehaviour>Suppres</TransactionalBehaviour>
+		<IsolationLevel>ReadCommitted</IsolationLevel>
+		<Timeout>0</Timeout>
+		<Cacheable>false</Cacheable>
+	</ServiceConfiguration>
+</ServiceConfigurationCollection>

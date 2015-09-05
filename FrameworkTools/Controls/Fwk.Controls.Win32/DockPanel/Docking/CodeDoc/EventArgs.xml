@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<CodeDoc>
+	<Class name="DockContentEventArgs">
+		<ClassDef>
+			<summary>Provides data for <see cref="Fwk.Controls.Win32.DockPanel.ContentAdded"/> and 
+			<see cref="Fwk.Controls.Win32.DockPanel.ContentRemoved"/> events.</summary>
+		</ClassDef>
+		<Constructor name="(IDockContent)">
+			<summary>Initializes a new instance of <see cref="Fwk.Controls.Win32.DockContentEventArgs"/> class.</summary>
+			<param name="content">The <see cref="Fwk.Controls.Win32.IDockContent"/> object.</param>
+		</Constructor>
+		<Property name="Content">
+			<summary>Gets the <see cref="Fwk.Controls.Win32.IDockContent"/> object.</summary>
+			<value>The <see cref="Fwk.Controls.Win32.IDockContent"/> object.</value>
+		</Property>
+	</Class>
+</CodeDoc>

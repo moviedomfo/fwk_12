@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3C782BA-178E-4235-A3BA-8C11DEBB6BEE}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Fwk.Controls.Win32</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Fwk.Controls.Win32</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/Fwk.Controls.Win32/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;FRAMEWORK_VER_2x</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;FRAMEWORK_VER_2x</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=4.4.2.9744, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.Core, Version=2.1.0.2429, Culture=neutral, PublicKeyToken=f829da5c02be14ee, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\ICSharpCode.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BraceFoldingStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DockPanel\Components\DragForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Components\MdiClientController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Controls\InertButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHidePane.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHidePaneCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideStateCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideStripVS2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideTab.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideTabCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideTabVS2005.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\AutoHideWindowSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DisplayingDockList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockAreasEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockContentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockContentHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockIndicator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockOutline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockOutlineBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneCaptionBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneCaptionVS2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPanelExtender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPanelPersist.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneStripVS2005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneTab.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneTabCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockPaneTabVS2005.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockWindowCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DockWindowSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DragHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DragHandlerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\DummyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\EventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\FloatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\FloatWindowCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\Interfaces.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\Measures.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\NestedDockingStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\SplitterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Docking\SplitterOutline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Helpers\DrawHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Helpers\Localization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Helpers\LocalWindowsHook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Helpers\ResourceHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Helpers\Win32Helper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PropertyWrapper\PropertyWraperControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyWrapper\PropertyWraperControl.Designer.cs">
+      <DependentUpon>PropertyWraperControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyWrapper\PropertyWrapper.cs" />
+    <Compile Include="DockPanel\Win32\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Win32\Gdi32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Win32\Kernel32.cs" />
+    <Compile Include="DockPanel\Win32\Structs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockPanel\Win32\User32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextCodeEditor\TextCodeControlEventsArgs.cs" />
+    <Compile Include="TextCodeEditor\TextCodeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TextCodeEditor\TextCodeEditor.Designer.cs">
+      <DependentUpon>TextCodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextCodeEditor\TextCodeEditorHost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TextCodeEditor\TextCodeEditorHost.Designer.cs">
+      <DependentUpon>TextCodeEditorHost.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PropertyWrapper\PropertyWraperControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PropertyWraperControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.Bottom.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.Fill.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.HotSpot.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.HotSpotIndex.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.Left.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.Right.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PaneDiamond.Top.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelBottom.Active.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelBottom.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelFill.Active.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelFill.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelLeft.Active.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelLeft.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelRight.Active.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelRight.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelTop.Active.bmp" />
+    <EmbeddedResource Include="Resources\DockIndicator.PanelTop.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneCaption.AutoHideNo.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneCaption.AutoHideYes.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneCaption.CloseDisabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneCaption.CloseEnabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPanel.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneStrip.CloseDisabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneStrip.CloseEnabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneStrip.ScrollLeftDisabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneStrip.ScrollLeftEnabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneStrip.ScrollRightDisabled.bmp" />
+    <EmbeddedResource Include="Resources\DockPaneStrip.ScrollRightEnabled.bmp" />
+    <EmbeddedResource Include="Resources\MdiClientController.bmp" />
+    <EmbeddedResource Include="Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextCodeEditor\TextCodeEditor.resx">
+      <DependentUpon>TextCodeEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="DockPanel\Controls\CodeDoc\InertButton.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\AutoHidePane.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\AutoHidePaneCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\AutoHideStripBase.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\AutoHideStripVS2005.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\AutoHideTab.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\AutoHideTabCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DisplayingDockList.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockContent.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockContentCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockContentHandler.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockList.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPane.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneCaptionBase.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneCaptionVS2005.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPanel.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPanelExtender.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneStripBase.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneStripVS2005.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneTab.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockPaneTabCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockWindow.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\DockWindowCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\Enums.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\EventArgs.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\FloatWindow.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\FloatWindowCollection.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\Interfaces.xml" />
+    <Content Include="DockPanel\Docking\CodeDoc\NestedDockingStatus.xml" />
+    <EmbeddedResource Include="TextCodeEditor\TextCodeEditorHost.resx">
+      <DependentUpon>TextCodeEditorHost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomHighlighting.xshd" />
+    <None Include="TextCodeEditor\data\modes\ASPX.xshd" />
+    <None Include="TextCodeEditor\data\modes\BAT-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\C64CSharp.xshd" />
+    <None Include="TextCodeEditor\data\modes\CPP-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\CSharp-Mode-VSEnh.xshd.alternateMode" />
+    <None Include="TextCodeEditor\data\modes\CSharp-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\Default-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\HTML-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\Java-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\JavaScript-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\Mode.xsd" />
+    <None Include="TextCodeEditor\data\modes\Mode.xsx">
+      <DependentUpon>Mode.xsd</DependentUpon>
+    </None>
+    <None Include="TextCodeEditor\data\modes\PHP-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\Tex-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\VBNET-Mode.xshd" />
+    <None Include="TextCodeEditor\data\modes\vssver.scc" />
+    <None Include="TextCodeEditor\data\modes\XML-Mode.xshd" />
+    <None Include="xshd\ASPX.xshd" />
+    <None Include="xshd\Boo.xshd" />
+    <None Include="xshd\Coco-Mode.xshd" />
+    <None Include="xshd\CPP-Mode.xshd" />
+    <None Include="xshd\CSharp-Mode.xshd" />
+    <None Include="xshd\CSS-Mode.xshd" />
+    <None Include="xshd\HTML-Mode.xshd" />
+    <None Include="xshd\Java-Mode.xshd" />
+    <None Include="xshd\JavaScript-Mode.xshd" />
+    <None Include="xshd\MarkDown-Mode.xshd" />
+    <None Include="xshd\ModeV1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xshd\ModeV2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="xshd\Patch-Mode.xshd" />
+    <None Include="xshd\PHP-Mode.xshd" />
+    <None Include="xshd\PowerShell.xshd" />
+    <None Include="xshd\Tex-Mode.xshd" />
+    <None Include="xshd\VBNET-Mode.xshd" />
+    <None Include="xshd\XML-Mode.xshd" />
+    <None Include="xshd\XmlDoc.xshd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*"  "$(SolutionDir)..\..\..\Libraries\Framework\$(TargetName).*" &gt;&gt; nul</PostBuildEvent>
+  </PropertyGroup>
+</Project>

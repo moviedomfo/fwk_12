@@ -1,0 +1,394 @@
+<ConfigurationFile>
+<Groups>
+ 
+  <Group name="SDX21">
+    <Keys>
+    <Key name="DefaultDiasFechaDesdeHistorial" encrypted="false">
+      <Value>180</Value>
+    </Key>
+    
+    <Key name="SVCTarificacion_ValorUnidadEquevalenteConvenio" encrypted="false">
+      <Value>10</Value>
+    </Key>
+   
+    <Key name="Path_ArchivosTemporales" encrypted="false">
+      <Value>C:\TEMP</Value>
+    </Key>
+   
+    <Key name="Calendario_CantidadDias" encrypted="false">
+      <Value>554</Value>
+    </Key>
+   
+    <Key name="Calendario_MesInicial" encrypted="false">
+      <Value>0</Value>
+    </Key>
+   
+    <Key name="FormatosArchivoEditable" encrypted="false">
+      <Value>EPS</Value>
+    </Key>
+   
+    <Key name="FormatosArchivoNoEditable" encrypted="false">
+      <Value>JPG</Value>
+    </Key>
+   
+    <Key name="Ingresador_PermiteRutPorDefecto" encrypted="false">
+      <Value>false</Value>
+    </Key>
+   
+    <Key name="NombreArchivoPautaIncompleta" encrypted="false">
+      <Value>PautaIncompleta</Value>
+    </Key>
+   
+    <Key name="FormatoFechaHoraArchivoPautaIncompleta" encrypted="false">
+      <Value>yyyy-MM-dd+HH-mm-ss</Value>
+    </Key>
+   
+    <Key name="DefaultMinDiasPublicacionProdCat" encrypted="false">
+      <Value>1</Value>
+    </Key>
+
+    </Keys>
+  </Group>
+ 
+  <Group name="ClientMessages">
+    <Keys>
+    <Key name="nohayproductos_error" encrypted="false">
+      <Value>Debe agregar productos a la solicitud de venta.</Value>
+    </Key>
+   
+    <Key name="contrato_comercial_obligatorio" encrypted="false">
+      <Value>Debe seleccionar un contrato comercial.</Value>
+    </Key>
+   
+    <Key name="fecha_reserva_error" encrypted="false">
+     
+      <Value>
+        La fecha seleccionada no se corresponde con las Fechas Reservadas.
+      </Value>
+    </Key>
+   
+    <Key name="linea_sin_sublinea" encrypted="false">
+     
+      <Value>
+        No existen sublineas asociadas a la linea seleccionada.
+      </Value>
+    </Key>
+   
+    <Key name="fecha_desde_mayor_hasta" encrypted="false">
+     
+      <Value>
+        La fecha hasta no puede ser mayor a la fecha desde.
+      </Value>
+    </Key>
+   
+    <Key name="solicitudinexistente_error" encrypted="false">
+      <Value>La solicitud seleccionada es inexistente.</Value>
+    </Key>
+   
+    <Key name="volumen_venta_mayor" encrypted="false">
+     
+      <Value>
+        El valor volumen de venta no puede ser superior al 50 % del concedido.
+      </Value>
+    </Key>
+   
+    <Key name="valores_error" encrypted="false">
+     
+      <Value>
+        Solo puede ingresar porcentaje o valor descuento/recargo, no ambos.
+      </Value>
+    </Key>
+   
+    <Key name="Sumatoria_ordencompra" encrypted="false">
+     
+      <Value>
+        El valor total de la/s Orden/es de Compra ingresado no es igual al valor Neto de Venta.
+      </Value>
+    </Key>
+   
+    <Key name="exige_ordencompra" encrypted="false">
+     
+      <Value>
+        La orden de compra es obligatoria. El Cliente lo exige.
+      </Value>
+    </Key>
+   
+    <Key name="error_medioventa" encrypted="false">
+      <Value> Debe seleccionar un Medio de Venta Valido. </Value>
+    </Key>
+   
+    <Key name="nropublicaciones_error" encrypted="false">
+     
+      <Value>
+        El nro. publicaciones debe ser igual a la cantidad de fechas de publicacion ingresadas.
+      </Value>
+    </Key>
+   
+    <Key name="crear_error" encrypted="false">
+     
+      <Value>
+        Faltan ingresar datos obligatorios o existen errores en la carga de datos.
+      </Value>
+    </Key>
+   
+    <Key name="saldo_insuficiente" encrypted="false">
+     
+      <Value>
+        El saldo del Contrato Comercial seleccionado es insuficiente.
+      </Value>
+    </Key>
+   
+    <Key name="sin_elementos_para_valorizar" encrypted="false">
+      <Value>No hay elementos para Valorizar.</Value>
+    </Key>
+   
+    <Key name="no_hay_solicitudes_sucursal" encrypted="false">
+      <Value>La sucursal seleccionada no posee solicitudes.</Value>
+    </Key>
+   
+    <Key name="no_hay_solicitudes_cliente" encrypted="false">
+      <Value>El cliente seleccionado no posee solicitudes.</Value>
+    </Key>
+   
+    <Key name="descuento_mayor_valor_error" encrypted="false">
+     
+      <Value>
+        El valor Descuento no puede ser mayor al valor Neto de Venta.
+      </Value>
+    </Key>
+   
+    <Key name="error_proximafechapublicacion" encrypted="false">
+     
+      <Value>
+        No hay proxima fecha de publicacion para el año en curso.
+      </Value>
+    </Key>
+   
+    <Key name="centimetro_fuera_de_rango" encrypted="false">
+     
+      <Value>
+        El valor ingresado en centimetros esta fuera de rango.
+      </Value>
+    </Key>
+   
+    <Key name="columna_fuera_de_rango" encrypted="false">
+     
+      <Value>
+        El valor ingresado en columnas esta fuera de rango.
+      </Value>
+    </Key>
+   
+    <Key name="sublinea_sin_edicion" encrypted="false">
+     
+      <Value>
+        No existe ninguna edicion asociada a la sublinea seleccionada.
+      </Value>
+    </Key>
+   
+    <Key name="valor_minimo_error" encrypted="false">
+      <Value> El valor ingresado es mayor al maximo. </Value>
+    </Key>
+   
+    <Key name="valor_maximo_error" encrypted="false">
+      <Value> El valor ingresado es menor al minimo. </Value>
+    </Key>
+   
+    <Key name="edicionporidsublinea_error" encrypted="false">
+      <Value>No existen ediciones para la sublinea cargada.</Value>
+    </Key>
+   
+    <Key name="no_hay_items" encrypted="false">
+      <Value>No se encontraron registros.</Value>
+    </Key>
+   
+    <Key name="subedicionversion_error" encrypted="false">
+     
+      <Value>
+        No se puede cambiar de subedicion version cuando existen registros cargados.
+      </Value>
+    </Key>
+   
+    <Key name="combinacion_subedicionversion_error" encrypted="false">
+     
+      <Value>
+        La combinacion seleccionada ya ha sido ingresada.
+      </Value>
+    </Key>
+   
+    <Key name="seleccione_paridad" encrypted="false">
+      <Value> Debe seleccionar una paridad. </Value>
+    </Key>
+   
+    <Key name="valor_incorrecto" encrypted="false">
+      <Value>El valor ingresado no es valido.</Value>
+    </Key>
+   
+    <Key name="contrato_no_existe" encrypted="false">
+      <Value> El contrato comercial no existe. </Value>
+    </Key>
+   
+    <Key name="fecha_hasta_incorrecta" encrypted="false">
+      <Value>La fecha Hasta no es correcta.</Value>
+    </Key>
+   
+    <Key name="valorrequerido_desde_error" encrypted="false">
+      <Value>La fecha Desde es obligatoria.</Value>
+    </Key>
+   
+    <Key name="identificar_cliente" encrypted="false">
+      <Value>Debe identificar un Cliente.</Value>
+    </Key>
+   
+    <Key name="implementacion" encrypted="false">
+      <Value>Esta accion no esta implementada.</Value>
+    </Key>
+   
+    <Key name="TechExceptionMsg" encrypted="false">
+     
+      <Value>
+        Ha ocurrido un error. Por favor comuniquese con la mesa de ayuda. Muchas gracias.
+      </Value>
+    </Key>
+   
+    <Key name="conveniorequerido_error" encrypted="false">
+      <Value>Debe ingresar un Convenio existente.</Value>
+    </Key>
+   
+    <Key name="rutrequerido_error" encrypted="false">
+      <Value>Debe ingresar un Rut existente.</Value>
+    </Key>
+   
+    <Key name="rutincorrecto_error" encrypted="false">
+      <Value>El Rut ingresado es incorrecto.</Value>
+    </Key>
+   
+    <Key name="valorrequerido_error" encrypted="false">
+      <Value>La especificacion del campo es obligatoria.</Value>
+    </Key>
+   
+    <Key name="noexistenregistros_error" encrypted="false">
+      <Value>La busqueda no retorno ningun resultado.</Value>
+    </Key>
+   
+    <Key name="seleccione_opcion" encrypted="false">
+      <Value>Debe seleccionar una opcion.</Value>
+    </Key>
+   
+    <Key name="seleccione_valor" encrypted="false">
+      <Value>Debe seleccionar un valor.</Value>
+    </Key>
+   
+    <Key name="ingrese_valor" encrypted="false">
+      <Value>Debe ingresar un valor.</Value>
+    </Key>
+   
+    <Key name="medioventa_ingresado" encrypted="false">
+      <Value>El Medio de Venta ya ha sido ingresado.</Value>
+    </Key>
+   
+   
+    <Key name="valor_invalido" encrypted="false">
+      <Value>Debe ingresar un valor valido.</Value>
+    </Key>
+   
+    <Key name="numero_mayor" encrypted="false">
+      <Value>El numero ingresado debe ser mayor a</Value>
+    </Key>
+   
+    <Key name="ingrese_centimetros" encrypted="false">
+      <Value>Debe ingresar un valor para los centimetros.</Value>
+    </Key>
+   
+    <Key name="no_existen_contratos" encrypted="false">
+      <Value>No existen Contratos para el Cliente.</Value>
+    </Key>
+   
+    <Key name="ingrese_columnas" encrypted="false">
+      <Value>Debe ingresar un valor para las columnas.</Value>
+    </Key>
+   
+    <Key name="rango_invalido" encrypted="false">
+     
+      <Value>
+        El rango de fechas no coincide con el del Contrato Comercial.
+      </Value>
+    </Key>
+   
+    <Key name="autocompletar_responsable" encrypted="false">
+     
+      <Value>
+        No existen Responsables Internos que comiencen con el texto ingesado.
+      </Value>
+    </Key>
+   
+    <Key name="autocompletar" encrypted="false">
+      <Value>No existe {} que comience con el texto ingesado.</Value>
+    </Key>
+   
+    <Key name="no_exiten_medios_de_solicitud" encrypted="false">
+      <Value>No existen Medios de Solicitud de Reserva.</Value>
+    </Key>
+   
+    <Key name="codigo_incorrecto" encrypted="false">
+      <Value>El codigo ingresado no es valido.</Value>
+    </Key>
+   
+    <Key name="registro_grilla_obligatorio" encrypted="false">
+      <Value>Debe ingresar un registro en la grilla.</Value>
+    </Key>
+   
+    <Key name="caracteres_invalidos_Valor_Repetido_0" encrypted="false">
+     
+      <Value>
+        En el texto ingresado hay caracteres no permitidos.
+      </Value>
+    </Key>
+   
+    <Key name="aceptar_error" encrypted="false">
+     
+      <Value>
+        Existen campos obligatorios no cargados o con caracteres no permitidos.
+      </Value>
+    </Key>
+   
+    <Key name="campo_obligatorio" encrypted="false">
+      <Value>La especificacion del campo es obligatoria.</Value>
+    </Key>
+   
+    <Key name="error_proximafechapublicacion_Valor_Repetido_0" encrypted="false">
+     
+      <Value>
+        No hay proxima fecha de publicacion para el año en curso.
+      </Value>
+    </Key>
+   
+    <Key name="centimetro_fuera_de_rango_Valor_Repetido_0" encrypted="false">
+     
+      <Value>
+        El valor ingresado en centimetros esta fuera de rango.
+      </Value>
+    </Key>
+   
+    <Key name="columna_fuera_de_rango_Valor_Repetido_0" encrypted="false">
+     
+      <Value>
+        El valor ingresado en columnas esta fuera de rango.
+      </Value>
+    </Key>
+   
+    <Key name="contrato_no_especificado_imprimir" encrypted="false">
+     
+      <Value>
+        Debe especificar los datos del contrato a imprimir.
+      </Value>
+    </Key>
+   
+    <Key name="cantidad_contratos_no_valida_imprimir" encrypted="false">
+      <Value>La cantidad de contratos a imprimir no es valida.</Value>
+    </Key>
+    </Keys>
+  </Group>
+
+</Groups>
+
+</ConfigurationFile>

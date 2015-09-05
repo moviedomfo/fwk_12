@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeDoc>
+	<Class name="DockPaneCollection">
+		<ClassDef>
+			<summary>Provides methods to manage a collection of <see cref="Fwk.Controls.Win32.DockPane" /> objects.</summary>
+		</ClassDef>
+		<Property name="Item">
+			<summary>
+			<para>Gets a <see cref="Fwk.Controls.Win32.DockPane" /> at the specified index.</para>
+			<para>In C#, this property is the indexer for the <see cref="Fwk.Controls.Win32.DockPaneCollection" /> class.</para>
+			</summary>
+		</Property>
+		<Method name="Contains(DockPane)">
+			<summary>
+			Determines whether a <see cref="Fwk.Controls.Win32.DockPane" /> is in the
+			<see cref="Fwk.Controls.Win32.DockPaneCollection" />.
+		</summary>
+			<param name="pane">
+			The <see cref="Fwk.Controls.Win32.DockPane" /> to locate in
+			<see cref="Fwk.Controls.Win32.DockPaneCollection" />.
+		</param>
+			<returns>
+			<b>true</b> if <paramref name="pane" /> is found in the
+			<see cref="Fwk.Controls.Win32.DockPaneCollection" />;
+			otherwise, <b>false</b>.
+		</returns>
+		</Method>
+		<Method name="IndexOf(DockPane)">
+			<summary>
+			Searches for the specified <see cref="Fwk.Controls.Win32.DockPane" />
+			and returns the zero-based index within the entire
+			<see cref="Fwk.Controls.Win32.DockPaneCollection" />.
+		</summary>
+			<param name="pane">
+			The <see cref="Fwk.Controls.Win32.DockPane" />
+			to locate in the <see cref="Fwk.Controls.Win32.DockPaneCollection" />
+		</param>
+			<returns>
+			The zero-based index of <paramref name="pane" /> within the entire
+			<see cref="Fwk.Controls.Win32.DockPaneCollection" />, if found;
+			otherwise, -1.
+		</returns>
+		</Method>
+	</Class>
+</CodeDoc>

@@ -1,0 +1,10 @@
+
+<ArrayOfCnnString>
+  <CnnString>
+    <WindowsAutentification>false</WindowsAutentification>
+    <DataSource>sqlcnn</DataSource>
+    <User>sa</User>
+    <InitialCatalog></InitialCatalog>
+    <Password></Password>
+  </CnnString>
+</ArrayOfCnnString>

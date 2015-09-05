@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AAD29C0A-CC9B-455A-A344-98EFA62BCC56}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fwk.Bases.FrontEnd.MenuContainer</RootNamespace>
+    <AssemblyName>Fwk.Bases.FrontEnd.MenuContainer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v10.2, Version=10.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      
+    </Reference>
+    <Reference Include="Fwk.AssemblyExplorer, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.AssemblyExplorer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.FrontEnd, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.FrontEnd.UserControls, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.UserControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.HelperFunctions, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.HelperFunctions.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Xml, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EncuestaMenu\frmEditEncuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncuestaMenu\frmEditEncuesta.Designer.cs">
+      <DependentUpon>frmEditEncuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestaMenu\frmTestMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncuestaMenu\frmTestMenu.Designer.cs">
+      <DependentUpon>frmTestMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestaMenu\MenuItemEditorEncuesta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EncuestaMenu\MenuItemEditorEncuesta.Designer.cs">
+      <DependentUpon>MenuItemEditorEncuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestaMenu\MenuItemEncuesta.cs" />
+    <Compile Include="EncuestaMenu\TreeListEngineDevExpress.cs" />
+    <Compile Include="EncuestaMenuTest\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncuestaMenuTest\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestaMenu\TreeListMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EncuestaMenu\TreeListMenuControl.Designer.cs">
+      <DependentUpon>TreeListMenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\frmEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\frmEdit.Designer.cs">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\frmImageSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\frmImageSelector.Designer.cs">
+      <DependentUpon>frmImageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAssemblyExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssemblyExplorer.Designer.cs">
+      <DependentUpon>frmAssemblyExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncuestaMenu\frmMainDevExpress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncuestaMenu\frmMainDevExpress.Designer.cs">
+      <DependentUpon>frmMainDevExpress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="StandatTreeviewMenuMenu\Menuitem.cs" />
+    <Compile Include="StandatTreeviewMenuMenu\MenuItemEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\MenuItemEditor.Designer.cs">
+      <DependentUpon>MenuItemEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EncuestaMenu\frmEditEncuesta.resx">
+      <DependentUpon>frmEditEncuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncuestaMenu\frmTestMenu.resx">
+      <DependentUpon>frmTestMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncuestaMenu\MenuItemEditorEncuesta.resx">
+      <DependentUpon>MenuItemEditorEncuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncuestaMenuTest\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncuestaMenu\TreeListMenuControl.resx">
+      <DependentUpon>TreeListMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StandatTreeviewMenuMenu\frmEdit.resx">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StandatTreeviewMenuMenu\frmImageSelector.resx">
+      <DependentUpon>frmImageSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StandatTreeviewMenuMenu\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAssemblyExplorer.resx">
+      <DependentUpon>frmAssemblyExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncuestaMenu\frmMainDevExpress.resx">
+      <DependentUpon>frmMainDevExpress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StandatTreeviewMenuMenu\MenuItemEditor.resx">
+      <DependentUpon>MenuItemEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="StandatTreeviewMenuMenu\TreeViewEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseAdded.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UDDI Server Search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_answer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_cancel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_delete_16x.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_error.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_find.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_Refresh1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseAdded1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\DataSources\Fwk.Bases.FrontEnd.MenuContainer.EncuestaMenu.MenuItemEncuesta.datasource" />
+    <None Include="Properties\DataSources\MenuItemList.datasource" />
+    <None Include="Resources\EditInformationHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EncuestaMenu\samplemenu.xml" />
+    <None Include="Resources\folder_new.png" />
+    <None Include="Resources\TortoiseAdded2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

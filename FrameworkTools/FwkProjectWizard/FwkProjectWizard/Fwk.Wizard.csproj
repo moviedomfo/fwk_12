@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6202AF25-F843-44F3-8136-6F2472BB7555}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fwk.Wizard</RootNamespace>
+    <AssemblyName>Fwk.Wizard</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>FrameworkProjectWizard.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SmoEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper.cs" />
+    <Compile Include="IWizards\SimpleArchitectWizard.cs" />
+    <Compile Include="IWizards\wizDACItem.cs" />
+    <Compile Include="IWizards\wizEntityItem.cs" />
+    <Compile Include="IWizards\wizProjects.cs" />
+    <Compile Include="IWizards\wizServiceItem.cs" />
+    <Compile Include="IWizards\wizStoreProcedures.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizControls\ctrlNewService.resx">
+      <DependentUpon>ctrlNewService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizControls\ctrlTreeViewTables.resx">
+      <DependentUpon>ctrlTreeViewTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizControls\wizBase.resx">
+      <DependentUpon>wizBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizControls\wizDBSelect.resx">
+      <DependentUpon>wizDBSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizControls\wizTablesTreeSelector.resx">
+      <DependentUpon>wizTablesTreeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmBackeçEndProjects.resx">
+      <DependentUpon>frmBackeçEndProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmWizBase.resx">
+      <DependentUpon>frmWizBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmWizDAC_1.resx">
+      <DependentUpon>frmWizDAC_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmWizDAC_2.resx">
+      <DependentUpon>frmWizDAC_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmWizEntity_1.resx">
+      <DependentUpon>frmWizEntity_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmWizEntity_2.resx">
+      <DependentUpon>frmWizEntity_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wizForms\frmWizService.resx">
+      <DependentUpon>frmWizService.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="WizardInstallFiles\gacutil.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WizardInstallFiles\Install.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="WizardInstallFiles\Templates\old\BusinessComponentsProject.zip" />
+    <None Include="WizardInstallFiles\Templates\old\BusinessEntitiesProject.zip" />
+    <None Include="WizardInstallFiles\Templates\old\BusinessServicesProject.zip" />
+    <None Include="WizardInstallFiles\Templates\old\DataAccessComponentsProject.zip" />
+    <None Include="WizardInstallFiles\Templates\old\FrameworkProjectTemplate.vscontent" />
+    <None Include="WizardInstallFiles\Templates\old\InterfaceServicesProject.zip" />
+    <None Include="WizardInstallFiles\Templates\Projects\FwkProjectsTemplate.zip" />
+    <None Include="WizardInstallFiles\UnInstall.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Storage.cs" />
+    <Compile Include="TreeViewHelper.cs" />
+    <Compile Include="wizControls\CnnString.cs" />
+    <Compile Include="wizControls\ctrlNewService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wizControls\ctrlNewService.Designer.cs">
+      <DependentUpon>ctrlNewService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizControls\ctrlTreeViewTables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wizControls\ctrlTreeViewTables.Designer.cs">
+      <DependentUpon>ctrlTreeViewTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizControls\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wizControls\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizControls\wizBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wizControls\wizBase.Designer.cs">
+      <DependentUpon>wizBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizControls\wizDBSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wizControls\wizDBSelect.Designer.cs">
+      <DependentUpon>wizDBSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizControls\wizTablesTreeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wizControls\wizTablesTreeSelector.Designer.cs">
+      <DependentUpon>wizTablesTreeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmBackeçEndProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmBackeçEndProjects.Designer.cs">
+      <DependentUpon>frmBackeçEndProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmWizBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmWizBase.Designer.cs">
+      <DependentUpon>frmWizBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmWizDAC_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmWizDAC_1.Designer.cs">
+      <DependentUpon>frmWizDAC_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmWizDAC_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmWizDAC_2.Designer.cs">
+      <DependentUpon>frmWizDAC_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmWizEntity_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmWizEntity_1.Designer.cs">
+      <DependentUpon>frmWizEntity_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmWizEntity_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmWizEntity_2.Designer.cs">
+      <DependentUpon>frmWizEntity_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizForms\frmWizService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wizForms\frmWizService.Designer.cs">
+      <DependentUpon>frmWizService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wizGenerators\CommonConstants.cs" />
+    <Compile Include="wizGenerators\FwkGeneratorHelper.cs" />
+    <Compile Include="wizGenerators\GenDAC.cs" />
+    <Compile Include="wizGenerators\GenEntity.cs" />
+    <Compile Include="wizGenerators\GenSVCr.cs" />
+    <Compile Include="wizGenerators\Template.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FrameworkProjectWizard.snk" />
+    <None Include="Resources\applications_32.png" />
+    <None Include="WizardInstallFiles\Templates\Items\dac\dac.zip" />
+    <None Include="WizardInstallFiles\Templates\Items\entity\entity.zip" />
+    <None Include="WizardInstallFiles\Templates\Items\service\service.zip" />
+    <None Include="WizardInstallFiles\Templates\template_installer.vsi" />
+    <Content Include="tt\DAC.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tt\Entity.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tt\Isvc.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tt\MappingType.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tt\Svc.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tt\Templates.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WizardInstallFiles\Docs\GenerarTemplate.txt" />
+    <Content Include="WizardInstallFiles\Docs\Readme.txt" />
+    <Content Include="WizardInstallFiles\gacutil.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

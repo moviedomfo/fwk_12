@@ -1,0 +1,22 @@
+<ConfigurationFile>
+<Groups>
+	
+	<Group name="ExcepcionesConteoPalabra">
+		<Keys>
+			<Key name="Excepcion1" encrypted="false">
+				<Value><![CDATA[ ]]></Value>
+			</Key>
+			<Key name="Excepcion2" encrypted="false">
+				<Value><![CDATA[/]]></Value>
+			</Key>
+			<Key name="Excepcion3" encrypted="false">
+				<Value><![CDATA[.]]></Value>
+			</Key>
+			<Key name="Excepcion4" encrypted="false">
+				<Value><![CDATA[\]]></Value>
+			</Key>
+		</Keys>
+	</Group>
+	
+</Groups>
+</ConfigurationFile>

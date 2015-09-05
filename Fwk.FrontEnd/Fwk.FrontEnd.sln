@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1CD02773-7FEF-4163-AE10-09C57E0AF717}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Bases.FrontEnd", "Fwk.Bases.FrontEnd\Fwk.Bases.FrontEnd.csproj", "{E882C6F7-0C02-4014-B5E0-BEFD20756C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Bases.FrontEnd.UserControls.Test", "Fwk.Bases.FrontEnd.UserControls.Test\Fwk.Bases.FrontEnd.UserControls.Test.csproj", "{F962CCFA-C0E3-4DD0-8239-DA034049FD38}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E882C6F7-0C02-4014-B5E0-BEFD20756C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E882C6F7-0C02-4014-B5E0-BEFD20756C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E882C6F7-0C02-4014-B5E0-BEFD20756C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E882C6F7-0C02-4014-B5E0-BEFD20756C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F962CCFA-C0E3-4DD0-8239-DA034049FD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F962CCFA-C0E3-4DD0-8239-DA034049FD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F962CCFA-C0E3-4DD0-8239-DA034049FD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F962CCFA-C0E3-4DD0-8239-DA034049FD38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F962CCFA-C0E3-4DD0-8239-DA034049FD38} = {1CD02773-7FEF-4163-AE10-09C57E0AF717}
+	EndGlobalSection
+EndGlobal

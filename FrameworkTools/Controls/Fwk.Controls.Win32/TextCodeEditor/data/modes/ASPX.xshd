@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<SyntaxDefinition name = "ASP3/XHTML" extensions = ".asp">
+	<Environment>
+		<Default      color = "Black" bgcolor="White"/>		
+		<VRuler       color = "Blue"/>		
+		<Selection    bgcolor = "LightBlue"/>		
+		<Cursor       color = "DarkBlue"/>		
+		<LineNumbers  color = "#FF5D5D5D" bgcolor = "WhiteSmoke"/>
+		<InvalidLines color = "Red"/>
+		<EOLMarkers   color = "#E0E0E5"/>
+		<SpaceMarkers color = "#E0E0E5"/>
+		<TabMarkers   color = "#E0E0E5"/>
+		<CaretMarker  color = "Yellow"/>
+		<BookMarks    color = "Black" bgcolor = "#FF408080"/>	
+		<FoldLine     color = "#808080" bgcolor="Black"/>	
+		<FoldMarker   color = "#808080" bgcolor="White"/>	
+	</Environment>		
+	<Digits name = "Digits" bold = "false" italic = "false" color = "Black"/>		
+
+	<RuleSets>
+		<RuleSet ignorecase = "false">		
+			<Delimiters>&lt;&gt; 	</Delimiters>						
+			<Span name = "ASPCode" rule = "ASP"  bold = "false" italic = "false" color = "Green" bgcolor = "#E7E2D3" stopateol = "false">				
+				<Begin>&lt;%</Begin>			
+				<End>%&gt;</End>		
+			</Span>				
+			
+			<Span name= "HTMLCode" rule = "HTML" bold = "false" italic = "false" color = "Blue" stopateol = "false">			
+				<Begin>&lt;</Begin>			
+				<End>&gt;</End>		
+			</Span>			
+			
+		</RuleSet>		
+		
+		<RuleSet name="ASP" ignorecase = "false">		
+			<Span name = "COMMENT" bold = "false" italic = "true" color = "SlateGray" stopateol = "true">	        
+				<Begin>'</Begin>	    
+				</Span>			
+		</RuleSet>		
+		
+		<RuleSet name="HTML" ignorecase = "false">	
+		</RuleSet>
+	</RuleSets>
+</SyntaxDefinition>

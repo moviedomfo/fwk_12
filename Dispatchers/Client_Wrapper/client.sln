@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "client\Client.csproj", "{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "back", "back\back.csproj", "{7070D9B9-65D3-433E-A504-E9C30952F973}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,233 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ConfigurationApp.Common;
+
+namespace ConfigurationApp.old
+{
+    internal class DataConfigControl
+    {
+        /// <summary>
+        /// Agrega una seccion para conexiónes a baes de datos atravez de 
+        /// Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings
+        /// </summary>
+        /// <param name="pTreeNodeFile"></param>
+        /// <param name="pDoc"></param>
+        internal static void AddConfigSection(TreeNode pTreeNodeFile, ContextMenuStrip menu)
+        {
+            Boolean wExist = false;
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument wDoc = (XmlDocument)wDictionary["XmlDocument"];
+            String configSections = TemplateProvider.GetStandarsDataConfigurationValue("ConfigSection");
+
+            String connectionStringsSection = TemplateProvider.GetStandarsDataConfigurationValue("connectionStringsSection");
+
+            if (!SectionsAndGroupsConfig.SectionConfigExist(wDoc, TemplateProvider.GetStandarsDataConfigurationValue("ConfigSectionName")))
+            {
+                SectionsAndGroupsConfig.AddSectionToConfigSections(pTreeNodeFile, wDoc, configSections);
+            }
+            else
+            { wExist = true; }
+            if (!wExist)
+            {
+                if (!SectionsAndGroupsConfig.SectionExist(wDoc, TemplateProvider.GetStandarsDataConfigurationValue("connectionStringsSectionName")))
+                {
+                    SectionsAndGroupsConfig.AddSectionNodeToConfiguration(pTreeNodeFile, wDoc, connectionStringsSection);
+                }
+                else
+                { wExist = true; }
+            }
+            if (!wExist)
+            {
+                TreeNodeConfig.GenerateDataBaseNode(pTreeNodeFile, menu);
+            }
+        }
+
+
+        /// <summary>
+        /// Crea una cnn string en la seccion connectionStrings
+        /// </summary>
+        /// <param name="pTreeNodeFile">Tree view</param>
+        /// <param name="menu">Menu contextual especifico para nodos de conexión</param>
+        internal static void AddCnnStringDefault(TreeNode pTreeNodeFile, ContextMenuStrip menu)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument pDoc = (XmlDocument)wDictionary["XmlDocument"];
+
+            CnnString wCnnString = new CnnString();
+            wCnnString.Name = "ConnectionString";
+            wCnnString.DataSource = "(local)";
+            wCnnString.InitialCatalog = "DataBase";
+            wCnnString.WindowsAutentification = true;
+
+            AddSectionNodeToCnnStringSections( pDoc, wCnnString);
+            int wIndex = 0;
+            Helper.TreeNodeExist(pTreeNodeFile, "Data base configuration", out wIndex);
+            TreeNodeConfig.GenerateCnnStringNode(pTreeNodeFile.Nodes[wIndex], wCnnString, menu);
+        }
+
+        /// <summary>
+        /// Crea una cnn string en la seccion connectionStrings
+        /// </summary>
+        /// <param name="pTreeNodeFile">Tree view</param>
+        /// <param name="menu">Menu contextual especifico para nodos de conexión</param>
+        internal static void CreateCnnString(TreeNode pTreeNodeFile, CnnString pCnnString, ContextMenuStrip menu)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument pDoc = (XmlDocument)wDictionary["XmlDocument"];
+
+            AddSectionNodeToCnnStringSections( pDoc, pCnnString);
+            int wIndex = 0;
+            Helper.TreeNodeExist(pTreeNodeFile, "Data base configuration", out wIndex);
+            
+            TreeNodeConfig.GenerateCnnStringNode(pTreeNodeFile.Nodes[wIndex], pCnnString, menu);
+        }
+        /// <summary>
+        /// Agrega un nuevo nodo de connection string en el XmlDocument del archivo   
+        /// </summary>
+        /// <param name="pDoc">XmlDocument </param>
+        /// <param name="pCnnString"></param>
+        internal static void AddSectionNodeToCnnStringSections( XmlDocument pDoc, CnnString pCnnString)
+        {
+            XmlNode wSectionGroupXmlNode = SectionsAndGroupsConfig.Get_ConnectionStrings(pDoc);
+
+            XmlNode wXmlNodeAdd = Fwk.Xml.Node.NodeCreateAndAdd(wSectionGroupXmlNode, "add");
+
+            //<add name="CnnA" connectionString="DBTest=Database;Server=(local)\SQLEXPRESS;Integrated Security=SSPI;" providerName="System.Data.SqlClient"/>
+            Fwk.Xml.NodeAttribute.AttributeCreateAndSet(pDoc, wXmlNodeAdd, "name", pCnnString.Name);
+            Fwk.Xml.NodeAttribute.AttributeCreateAndSet(pDoc, wXmlNodeAdd, "connectionString", pCnnString.ToString());
+            Fwk.Xml.NodeAttribute.AttributeCreateAndSet(pDoc, wXmlNodeAdd, "providerName", "System.Data.SqlClient");
+
+        }
+
+        internal static void ChangeCnnString(TreeNode pTreeNodeFile, TreeNode pTreeNodeCnnString, String pOldName)
+        {
+            CnnString wCnnString = (CnnString)pTreeNodeCnnString.Tag;
+            ChangeCnnString(pTreeNodeFile, wCnnString, pOldName);
+        }
+
+        /// <summary>
+        /// Cambia el valor de una cadena de conexión:
+        /// </summary>
+        /// <param name="pTreeNodeFile">Nodo con el contenido del archivo App.config</param>
+        /// <param name="pCnnString">Clase <see cref="CnnString"/> del tag del node cadena de conexión </param>
+        /// <param name="pOldName">Nombre anterior de la cadena de conexión. 
+        /// Este valor es util solo en el caso de que el nobre alla cambiado por el usuario </param>
+        /// <Author>Marcelo Oviedo</Author> 
+        private static void ChangeCnnString(TreeNode pTreeNodeFile, CnnString pCnnString, String pOldName)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+            // /configuration/connectionStrings/add/@name
+            XmlNode wXmlNodeConnectionString =  SectionsAndGroupsConfig.Get_ConnectionStringsByName(doc, pOldName);
+            Fwk.Xml.NodeAttribute.AttributeSet(wXmlNodeConnectionString, "name", pCnnString.Name);
+
+
+            Fwk.Xml.NodeAttribute.AttributeSet(wXmlNodeConnectionString, "connectionString", pCnnString.ToString());
+        }
+
+
+
+
+        /// <summary>
+        /// Carga los nodos connectionStrings que estan en el xml del archivo y  lo mapea al tree view
+        /// </summary>
+        /// <param name="tvNodeRoot"></param>
+        /// <param name="wtvNodeFile"></param>
+        /// <param name="pDoc"></param>
+        /// <param name="menuDataBaseNode"></param>
+        /// <param name="menuCnnString"></param>
+        internal static void LoadConnections(TreeNode tvNodeRoot, TreeNode wtvNodeFile, XmlDocument pDoc, ContextMenuStrip menuDataBaseNode, ContextMenuStrip menuCnnString)
+        {
+            XmlNode wSectionGroupXmlNode = SectionsAndGroupsConfig.Get_ConnectionStrings(pDoc);
+
+            if (wSectionGroupXmlNode == null) return;
+            
+            TreeNode wDataBaseNode = TreeNodeConfig.GenerateDataBaseNode(wtvNodeFile, menuDataBaseNode);
+
+            foreach (XmlNode cnn in wSectionGroupXmlNode.ChildNodes)
+            {
+                CnnString wCnnString = GetCnnStringFromConnectionString(cnn);
+                TreeNodeConfig.GenerateCnnStringNode(wDataBaseNode, wCnnString, menuCnnString);
+
+            }
+        }
+
+        /// <summary>
+        /// Descompone una cadena de conexión y genera una clase <see cref="CnnString"/>
+        /// </summary>
+        /// <param name="cnn"></param>
+        /// <returns></returns>
+        private static CnnString GetCnnStringFromConnectionString(XmlNode cnn)
+        {
+
+            String wConnectionString  = Fwk.Xml.NodeAttribute.AttributeGet(cnn, "connectionString");
+            
+            String  wName = Fwk.Xml.NodeAttribute.AttributeGet(cnn, "name");
+            
+            CnnString wCnnString  = new CnnString(wName,wConnectionString);
+
+            return wCnnString;
+        }
+
+
+
+        /// <summary>
+        /// Cambia el valor de una cadena de conexión:
+        /// </summary>
+        /// <param name="pTreeNodeFile">Nodo con el contenido del archivo App.config</param>
+        /// <param name="pCnnString">Clase <see cref="CnnString"/> del tag del node cadena de conexión </param>
+        /// <param name="pNewName">Nombre nuevo de la cadena de conexión. 
+        /// Este valor es util solo en el caso de que el nobre alla cambiado por el usuario </param>
+        /// <Author>Marcelo Oviedo</Author> 
+        internal static void RemoveCnnString(TreeNode pCnnTreeNode)
+        {
+            TreeNode wTreeNodeFile = pCnnTreeNode.Parent.Parent;
+
+            ListDictionary wDictionary = (ListDictionary)wTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+
+            CnnString wCnnString = (CnnString)pCnnTreeNode.Tag;
+            // /configuration/connectionStrings/add/@name
+            // doc.SelectSingleNode(@"/configuration/connectionStrings/add[@name='" + wCnnString.Name + "']");
+            XmlNode wConnectionStringXmlNode = SectionsAndGroupsConfig.Get_ConnectionStringsByName(doc, wCnnString.Name);
+            XmlNode wParentConnectionStringXmlNode = wConnectionStringXmlNode.ParentNode;
+            //Elimino el nodo conexion del xml
+            wParentConnectionStringXmlNode.RemoveChild(wConnectionStringXmlNode);
+            //Elimino el nodo conexion del tree view
+            pCnnTreeNode.Remove();
+        }
+
+        /// <summary>
+        /// Elimina el nodo data access que contiene las cadenas de conexión
+        /// </summary>
+        /// <param name="pDataAccessNode">Nodo data access</param>
+        /// <Author>Marcelo Oviedo</Author> 
+        internal static void RemoveDataAccess(TreeNode pDataAccessNode)
+        {
+            TreeNode wTreeNodeFile = pDataAccessNode.Parent;
+
+            ListDictionary wDictionary = (ListDictionary)wTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+            XmlNode wConnectionStringsXmlNode = SectionsAndGroupsConfig.Get_ConnectionStrings(doc);
+            XmlNode wParentConnectionStringXmlNode = wConnectionStringsXmlNode.ParentNode;
+            //Elimino el nodo conexion del xml
+            wParentConnectionStringXmlNode.RemoveChild(wConnectionStringsXmlNode);
+
+            wConnectionStringsXmlNode = SectionsAndGroupsConfig.Get_configSections_setctionByName(doc, "dataConfiguration");
+            wParentConnectionStringXmlNode = wConnectionStringsXmlNode.ParentNode;
+            wParentConnectionStringXmlNode.RemoveChild(wConnectionStringsXmlNode);
+            //Elimino el nodo conexion del tree view
+            pDataAccessNode.Remove();
+        }
+
+    }
+}

@@ -1,0 +1,6 @@
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>D:\Projects\fwk\trunk\src\Libraries\;D:\Projects\fwk\trunk\src\Libraries\Framework</ReferencePath>
+  </PropertyGroup>
+</Project>

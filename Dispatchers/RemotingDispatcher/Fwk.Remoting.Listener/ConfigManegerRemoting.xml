@@ -1,0 +1,15 @@
+<Groups>
+	<Group name="Config">
+		<Key name="RemotingConfig" encrypted="False">
+			<Value><![CDATA[RemotingHost.config]]></Value>
+		</Key>
+	</Group>
+	<Group name="RutasDeUso">
+		<Key name="ServerCliba" encrypted="False">
+			<Value><![CDATA[c:\]]></Value>
+		</Key>
+		<Key name="ServerClibaImagenes" encrypted="False">
+			<Value><![CDATA[d:\images]]></Value>
+		</Key>
+	</Group>
+</Groups>

@@ -1,0 +1,49 @@
+﻿<VSTemplate 
+	Version="2.0" 
+	Type="ProjectGroup"
+	xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>BackEnd Fwk solution </Name>
+		<Description>This template will create a backend solution with all needed referenses to fwk framework and wizard recipes</Description>
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>90</SortOrder>
+		<Icon>SampleSolution.ico</Icon>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>Fwk.GuidPkSolution</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectCollection>
+      <SolutionFolder Name="Frontend" >
+        <ProjectTemplateLink ProjectName="$ProjectName$">Projects\Frontend\Frontend.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+
+      <SolutionFolder Name="Backend">
+        <ProjectTemplateLink ProjectName="$ProjectName$.BE">Projects\Entities\BE.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$ProjectName$.Backend">Projects\Backend\Backend.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+
+
+    </ProjectCollection>
+
+    <CustomParameters>
+      <CustomParameter Name="$BEProjectName$" Value="$BEProjectName$"/>
+      <CustomParameter Name="$BackendProjectName$" Value="$BackendProjectName$"/>
+    </CustomParameters>
+    
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0"
+              Recipe="CreateSolution">
+			<References>
+        
+     
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

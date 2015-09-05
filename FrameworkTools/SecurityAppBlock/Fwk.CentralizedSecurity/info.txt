@@ -1,0 +1,14 @@
+﻿To encrypt credentials for <identity> 
+
+
+http://msdn.microsoft.com/en-us/library/ff648667.aspx
+
+
+
+Using programmatic Impersonation from an ASP.NET Page
+http://www.west-wind.com/weblog/posts/2005/Feb/24/Using-programmatic-Impersonation-from-an-ASPNET-Page
+
+Cómo utilizar la utilidad de ASP.NET para cifrar credenciales y 
+cadenas de conexión de estado de sesión
+
+http://support.microsoft.com/kb/329290

@@ -1,0 +1,39 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>Business entity component project</Name>
+		<Description>This project contains entities model BE </Description>
+		<Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4547" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>20</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>$safeprojectname$.BE</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="BE.csproj" ReplaceParameters="true">
+	<ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
+	<ProjectItem ReplaceParameters="true" TargetFileName="Common.cs">Common.cs</ProjectItem>
+	<ProjectItem ReplaceParameters="true" TargetFileName="Enums.cs">Enums.cs</ProjectItem>
+  <ProjectItem ReplaceParameters="false" TargetFileName="EntityFwkGen.tt">EntityFwkGen.tt</ProjectItem>
+  <ProjectItem ReplaceParameters="false" TargetFileName="EntityFwkGen_helper.tt">EntityFwkGen_helper.tt</ProjectItem>
+
+	</Project>
+    
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0">
+			<References>
+
+
+       
+          
+       
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

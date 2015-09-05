@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ConfigurationApp.Common;
+
+namespace ConfigurationApp.old
+{
+    internal class ConfigurationManagerConfig
+    {
+        /// <summary>
+        /// Agrega una seccion para Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings dentro 
+        /// de <configSections>
+        /// </summary>
+        /// <param name="pTreeNodeFile"></param>
+        internal static void AddCnnStringSection(TreeNode pTreeNodeFile,ContextMenuStrip pContextMenuStripSection)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+
+            if (SectionsAndGroupsConfig.ApplicationSettingExist(doc, TemplateProvider.GetAppConfigValue("ConfigurationConfigSectionsName")))
+            {
+                MessageBox.Show("This seccion already exist", "Information", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
+
+            String configSections = TemplateProvider.GetAppConfigValue("ConfigurationConfigSections");
+            String applicationSettings = TemplateProvider.GetAppConfigValue("ConfigurationApplicationSettings");
+
+            SectionsAndGroupsConfig.AddSectionAndSettingsToSectionGroupAndAppSeting(pTreeNodeFile, doc, configSections, applicationSettings,pContextMenuStripSection);
+
+        }
+
+        private static void AddCnnStringSectionInConfigSections()
+        {
+
+        }
+
+        ///// <summary>
+        ///// Elimina la configuracion del Wrapper existente
+        ///// </summary>
+        ///// <param name="pTreeNodeFile">TreeNode que reprecenta un archivo de configuracion</param>
+        //internal static void Remove(TreeNode pTreeNodeFile)
+        //{
+        //    ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+        //    XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+        //    wDictionary["Saved"] = false;
+
+        //    String wConfigSectionsName = TemplateProvider.GetAppConfigValue("ConfigurationConfigSectionsName");
+        //    TreeNodeConfig.RemoveSection(pTreeNodeFile, wConfigSectionsName);
+
+        //    //Elimina sectionGroup/section/@name
+        //    XmlNode node = SecctionsAndGroupsConfig.Get_configSections_sectionGroup_setctionByName(doc, wConfigSectionsName);  
+        //    XmlNode xmlNodeAppSettingsOrGroups = SecctionsAndGroupsConfig.Get_SectionGroup(doc);
+        //    xmlNodeAppSettingsOrGroups.RemoveChild(node);
+           
+
+        //    //Elimina AppSettings
+        //    node = SecctionsAndGroupsConfig.Get_ApplicationSettingsByName(doc, wConfigSectionsName); 
+        //    xmlNodeAppSettingsOrGroups = SecctionsAndGroupsConfig.Get_ApplicationSettings(doc); 
+        //    xmlNodeAppSettingsOrGroups.RemoveChild(node);
+
+        //}
+    }
+}

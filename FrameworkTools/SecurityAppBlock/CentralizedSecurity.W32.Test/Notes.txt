@@ -1,0 +1,4 @@
+﻿WCF test
+http://localhost:5978/CoreSecurity.svc?wsdl
+
+IIS Web Service http://corrsf71des01/Allus.WCFCentralizedSecurity/CoreSecurity.asmx?

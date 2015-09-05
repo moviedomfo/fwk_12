@@ -1,0 +1,239 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ConfigurationApp.Common;
+
+namespace ConfigurationApp.old
+{
+    class WrapperConfig
+    {
+        /// <summary>
+        /// Agrega una seccion para Fwk Wrapper
+        /// Los valores que el Wrapper asume
+        /// </summary>
+        /// <param name="pTreeNodeFile">Node a nivel de archivo</param>
+        /// <param name="pContextMenuStripSection">Menu contextual de todos los nodos sections</param>
+        internal static void AddWebServiceWrapperSection(TreeNode pTreeNodeFile,ContextMenuStrip pContextMenuStripSection)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+            if (SomeWrapperExist(doc))
+            {
+                MessageBox.Show("The wrapper configuration section already exist", "Information", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
+            ///Elimino Cualquier configuracion del wrapper exitente
+            Remove(pTreeNodeFile);
+
+            String configSections = TemplateProvider.GetAppConfigValue("WrapperConfigSections");
+            String applicationSettings = TemplateProvider.GetAppConfigValue("WebServiceWrapperApplicationSettings");
+            SectionsAndGroupsConfig.AddSectionAndSettingsToSectionGroupAndAppSeting(pTreeNodeFile, doc, configSections, applicationSettings, pContextMenuStripSection);
+
+            if (!SectionsAndGroupsConfig.ApplicationSettingExist(doc, TemplateProvider.GetAppConfigValue("WrapperType.ConfigSectionsName")))
+            {
+                AddFrmBaseSection(pTreeNodeFile, WrapperType.WebService, pContextMenuStripSection);
+            }
+        }
+
+
+        /// <summary>
+        /// Agrega una seccion para Fwk Wrapper
+        /// Los valores que el Wrapper asume
+        /// </summary>
+        /// <param name="pTreeNodeFile">Node a nivel de archivo</param>
+        /// <param name="pContextMenuStripSection">Menu contextual de todos los nodos sections</param>
+        internal static void AddRemotingWrapperSection(TreeNode pTreeNodeFile,ContextMenuStrip pContextMenuStripSection)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+            if (SomeWrapperExist(doc))
+            {
+                MessageBox.Show("The wrapper configuration section already exist", "Information", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
+
+            ///Elimino Cualquier configuracion del wrapper exitente
+            Remove(pTreeNodeFile);
+
+
+            String configSections = TemplateProvider.GetAppConfigValue("WrapperConfigSections");
+            String applicationSettings = TemplateProvider.GetAppConfigValue("RemotingWrapperApplicationSettings");
+            SectionsAndGroupsConfig.AddSectionAndSettingsToSectionGroupAndAppSeting(pTreeNodeFile, doc, configSections, applicationSettings, pContextMenuStripSection);
+
+            if (!SectionsAndGroupsConfig.ApplicationSettingExist(doc, TemplateProvider.GetAppConfigValue("WrapperType.ConfigSectionsName")))
+            {
+                AddFrmBaseSection(pTreeNodeFile, WrapperType.Remoting, pContextMenuStripSection);
+            }
+        }
+
+        /// <summary>
+        /// Agrega una seccion para Fwk Wrapper
+        /// Los valores que el Wrapper asume
+        /// </summary>
+        /// <param name="pTreeNodeFile">Node a nivel de archivo</param>
+        /// <param name="pContextMenuStripSection">Menu contextual de todos los nodos sections</param>
+        internal static void AddLocalWrapperSection(TreeNode pTreeNodeFile, ContextMenuStrip pContextMenuStripSection)
+        {
+            ListDictionary wDictionary = (ListDictionary) pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument) wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+            if (SomeWrapperExist(doc) )
+            {
+                MessageBox.Show("The wrapper configuration section already exist", "Information", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
+            ///Elimino Cualquier configuracion del wrapper exitente
+            Remove(pTreeNodeFile);
+
+            String configSections = TemplateProvider.GetAppConfigServerValue("BusinessFacadeConfigSection");
+
+            ///Agrega la configuracion de la BusinessFacade
+            String applicationSettings =
+                TemplateProvider.GetAppConfigServerValue("BusinessFacadeSettings").Replace(
+                    "[ServiceConfigurationManagerType]",
+                    TemplateProvider.GetAppConfigServerValue("XmlServiceConfigurationManager"));
+
+            SectionsAndGroupsConfig.AddSectionAndSettingsToSectionGroupAndAppSeting(pTreeNodeFile, doc, configSections,
+                                                                                     applicationSettings,
+                                                                                     pContextMenuStripSection);
+        }
+
+
+        /// <summary>
+        /// Agrega configuracion de Front Base "Bases.FrontEnd.ConfigSections"
+        /// Esta configuracion permite determinar el tipo de Wrapper se utiliza
+        /// </summary>
+        /// <param name="pTreeNodeFile"></param>
+        /// <param name="pWrapperType"></param>
+        /// <param name="pContextMenuStripSection"></param>
+        private static void AddFrmBaseSection(TreeNode pTreeNodeFile, WrapperType pWrapperType, ContextMenuStrip pContextMenuStripSection)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+
+            String configSections = TemplateProvider.GetAppConfigValue("WrapperType.ConfigSections");
+
+            String wWrapperName = Enum.GetName(typeof(WrapperType), pWrapperType);
+
+            String applicationSettings = TemplateProvider.GetAppConfigValue("WrapperType.ApplicationSettings").Replace("[WrapperName]", wWrapperName);
+
+            SectionsAndGroupsConfig.AddSectionAndSettingsToSectionGroupAndAppSeting(pTreeNodeFile, doc, configSections, applicationSettings, pContextMenuStripSection);
+        }
+     
+
+        /// <summary>
+        /// Elimina la configuracion del Wrapper existente
+        /// </summary>
+        /// <param name="pTreeNodeFile">TreeNode que reprecenta un archivo de configuracion</param>
+        internal static void Remove(TreeNode pTreeNodeFile)
+        {
+            String wConfigSectionsName = String.Empty;
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+            XmlNode node = null;
+            XmlNode wSectionGroupXmlNode =  SectionsAndGroupsConfig.Get_SectionGroup(doc);
+            XmlNode wApplicationSettingXmlNode =  SectionsAndGroupsConfig.Get_ApplicationSettings(doc);
+
+            #region [WrapperConfigSectionsName]
+            wConfigSectionsName = TemplateProvider.GetAppConfigValue("WrapperConfigSectionsName");
+            if (SectionsAndGroupsConfig.SectionInSectionGroupsExist(doc,wConfigSectionsName))
+            {
+               
+                TreeNodeConfig.RemoveSection(pTreeNodeFile, wConfigSectionsName);
+
+                //Elimina sectionGroup/section/@name
+                node = SectionsAndGroupsConfig.Get_configSections_sectionGroup_setctionByName(doc, wConfigSectionsName);
+                wSectionGroupXmlNode.RemoveChild(node);
+            }
+
+            //Elimina configuration/applicationSettings/[WrapperConfigSectionsName] si existe
+            if (SectionsAndGroupsConfig.ApplicationSettingExist(doc,wConfigSectionsName))
+            {
+                //Elimina AppSettings
+                //node = doc.SelectSingleNode(@"/configuration/applicationSettings/" + wConfigSectionsName);
+                node = SectionsAndGroupsConfig.Get_ApplicationSettingsByName(doc, wConfigSectionsName);
+
+                wApplicationSettingXmlNode.RemoveChild(node);
+            }
+            #endregion
+
+            #region [BusinessFacadeSettingsName]
+            wConfigSectionsName = TemplateProvider.GetAppConfigValue("BusinessFacadeSettingsName");
+            ///Para el caso de que tengo un wrapper local pre configurado
+            if (SectionsAndGroupsConfig.SectionInSectionGroupsExist(doc,wConfigSectionsName))
+            {
+                TreeNodeConfig.RemoveSection(pTreeNodeFile, wConfigSectionsName);
+
+                //Elimina sectionGroup/section/@name
+                //XmlNode node =  doc.SelectSingleNode(@"/configuration/configSections/sectionGroup/section[@name='" + wConfigSectionsName + "']");
+                node = SectionsAndGroupsConfig.Get_configSections_sectionGroup_setctionByName(doc, wConfigSectionsName);
+                
+                wSectionGroupXmlNode.RemoveChild(node);
+            }
+
+            //Elimina configuration/applicationSettings/[BusinessFacadeSettingsName] si existe
+            if (SectionsAndGroupsConfig.ApplicationSettingExist(doc, wConfigSectionsName))
+            {
+                //Elimina AppSettings
+                //node = doc.SelectSingleNode(@"/configuration/applicationSettings/" + wConfigSectionsName);
+                node = SectionsAndGroupsConfig.Get_ApplicationSettingsByName(doc, wConfigSectionsName);
+
+                wApplicationSettingXmlNode.RemoveChild(node);
+            }
+
+            
+            #endregion
+
+            #region [WrapperType.ConfigSectionsName]
+            wConfigSectionsName = TemplateProvider.GetAppConfigValue("WrapperType.ConfigSectionsName");
+            if (SectionsAndGroupsConfig.SectionInSectionGroupsExist(doc, wConfigSectionsName))
+            {
+                TreeNodeConfig.RemoveSection(pTreeNodeFile, wConfigSectionsName);
+                //Elimina sectionGroup/section/@name
+                node = SectionsAndGroupsConfig.Get_configSections_sectionGroup_setctionByName(doc, wConfigSectionsName);
+                wSectionGroupXmlNode.RemoveChild(node);
+            }
+
+            //Elimina configuration/applicationSettings/[BusinessFacadeSettingsName] si existe
+            if (SectionsAndGroupsConfig.ApplicationSettingExist(doc, wConfigSectionsName))
+            {
+                //Elimina AppSettings
+                //node = doc.SelectSingleNode(@"/configuration/applicationSettings/" + wConfigSectionsName);
+                node = SectionsAndGroupsConfig.Get_ApplicationSettingsByName(doc, wConfigSectionsName);
+
+                wApplicationSettingXmlNode.RemoveChild(node);
+            }
+            #endregion
+        }
+
+        static Boolean SomeWrapperExist(XmlDocument pDoc)
+        {
+            if (SectionsAndGroupsConfig.ApplicationSettingExist(pDoc,
+                                                                TemplateProvider.GetAppConfigValue(
+                                                                    "WrapperConfigSectionsName"))
+               ||
+               SectionsAndGroupsConfig.ApplicationSettingExist(pDoc,
+                                                                TemplateProvider.GetAppConfigValue(
+                                                                    "BusinessFacadeSettingsName")))
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+}

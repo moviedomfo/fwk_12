@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CheckersAssemlist>
+	<CheckersAssem>
+		<Assembly>AppChecker.core.Check_DoNetFramework,AppChecker.core</Assembly>
+		<Enabled>false</Enabled>
+	</CheckersAssem>
+</CheckersAssemlist>

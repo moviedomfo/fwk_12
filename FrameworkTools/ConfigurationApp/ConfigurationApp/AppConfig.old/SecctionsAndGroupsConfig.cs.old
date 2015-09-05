@@ -1,0 +1,614 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using ConfigurationApp.Common;
+
+namespace ConfigurationApp.old
+{
+   internal  class SectionsAndGroupsConfig
+   {
+
+       
+
+        /// <summary>
+        /// Elimina una determinada configuracion
+        /// </summary>
+        /// <param name="pTreeNodeFile">TreeNode que reprecenta un archivo de configuracion</param>
+       internal static void RemoveSectionGruouAndAppSettings_Section(TreeNode pTreeNodeFile, string pSectionsName)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+
+
+            TreeNodeConfig.RemoveSection(pTreeNodeFile, pSectionsName);
+
+            //Elimina sectionGroup/section/@name
+            XmlNode node = SectionsAndGroupsConfig.Get_configSections_sectionGroup_setctionByName(doc, pSectionsName);
+            XmlNode xmlNodeAppSettingsOrGroups = SectionsAndGroupsConfig.Get_SectionGroup(doc);
+            xmlNodeAppSettingsOrGroups.RemoveChild(node);
+
+
+            //Elimina AppSettings
+            node = SectionsAndGroupsConfig.Get_ApplicationSettingsByName(doc, pSectionsName);
+            xmlNodeAppSettingsOrGroups = SectionsAndGroupsConfig.Get_ApplicationSettings(doc);
+            xmlNodeAppSettingsOrGroups.RemoveChild(node);
+
+        }
+
+  
+
+       /// <summary>
+       /// Inserta elementos (Section y setting) en los :
+       /// sectionGroup --> pTreeNodeFile.Nodes[0] y 
+       /// applicationSettings --> pTreeNodeFile.Nodes[1]
+       /// </summary>
+       /// <param name="pTreeNodeFile"></param>
+       /// <param name="pDoc"></param>
+       /// <param name="pConfigSections"></param>
+       /// <param name="pApplicationSettings"></param>
+       /// <param name="pContextMenuStripSection">Menu contextual de todos los nodos sections</param>
+       /// <Author>Marcelo Oviedo</Author>   
+       internal static void AddSectionAndSettingsToSectionGroupAndAppSeting(TreeNode pTreeNodeFile,
+           XmlDocument pDoc, String pConfigSections, String pApplicationSettings, ContextMenuStrip pContextMenuStripSection)
+       {
+           //sectionGroup --> pTreeNodeFile.Nodes[0]
+           AddSectionToSectionGroupGroup(pTreeNodeFile, pDoc, pConfigSections, pContextMenuStripSection);
+
+           //applicationSettings --> pTreeNodeFile.Nodes[1]
+           AddApplicationSettings(pTreeNodeFile, pDoc, pApplicationSettings);
+       }
+
+        /// <summary>
+        /// Cambia el valor de un Setting:
+        /// /configuration/applicationSettings/setting [name] . Value
+        /// </summary>
+        /// <param name="pTreeNodeFile">Nodo con el contenido del archivo App.config</param>
+        /// <param name="pApplicationName">Reprecenta un nodo de un applicationSettings </param>
+        /// <param name="pSettingName">Nombre del setting a cambiar</param>
+        /// <param name="pValue">Nuevo valor</param>
+        /// <Author>Marcelo Oviedo</Author> 
+        internal static void ChangeSettingValue(TreeNode pTreeNodeFile, String pApplicationName, String pSettingName, String pValue)
+        {
+            ListDictionary wDictionary = (ListDictionary)pTreeNodeFile.Tag;
+            XmlDocument doc = (XmlDocument)wDictionary["XmlDocument"];
+            wDictionary["Saved"] = false;
+            //EJ:@"/configuration/applicationSettings/ConfigurationApp.Properties.Settings/setting"
+            XmlNode wXmlNodeSetting = Get_SettingByNameByApplicationSettingName(doc, pApplicationName,pSettingName);
+
+            XmlNode wxmlValue = Get_XmlNodeValue(wXmlNodeSetting);
+            wxmlValue.InnerXml = pValue;
+
+        }
+    
+
+        #region [private]
+
+        /// <summary>
+        /// Agrega una seccion a un sectionGroup --> pTreeNodeFile.Nodes[0] tanto al documento como al TreeView
+       /// </summary>
+       /// <param name="pTreeNodeFile"></param>
+       /// <param name="pDoc"></param>
+       /// <param name="pConfigSections"></param>
+       /// <Author>Marcelo Oviedo</Author> 
+       private static void AddSectionToSectionGroupGroup(TreeNode pTreeNodeFile, XmlDocument pDoc, String pConfigSections, ContextMenuStrip pContextMenuStripSection)
+       {
+           //sectionGroup --> pTreeNodeFile.Nodes[0]
+           XmlNode wSectionGroupXmlNode = Get_SectionGroup(pDoc);
+           
+               
+           if (wSectionGroupXmlNode == null)
+           {
+               throw new Exception("El archivo " + pTreeNodeFile.Text + " no contien una seccion sectionGroup");
+           }
+           Fwk.Xml.Node.NodeCreateAndAddFromString(wSectionGroupXmlNode, pConfigSections);
+
+           pTreeNodeFile.Nodes[0].Nodes.Clear();
+           TreeNodeConfig.GenerateTreeNodeSectionInSectionGroup(pTreeNodeFile.Parent, pTreeNodeFile.Nodes[0],
+                                                                wSectionGroupXmlNode, pContextMenuStripSection);
+       }
+
+       /// <summary>
+       /// Agrega applicationSettings --> pTreeNodeFile.Nodes[1] tanto al documento como al TreeView
+       /// </summary>
+       /// <param name="pTreeNodeFile"></param>
+       /// <param name="pDoc"></param>
+       /// <param name="pApplicationSettings"></param>
+       /// <Author>Marcelo Oviedo</Author> 
+       private static void AddApplicationSettings(TreeNode pTreeNodeFile, XmlDocument pDoc, String pApplicationSettings)
+       {
+           XmlNode wApplicationSettingsXmlNode = Get_ApplicationSettings(pDoc);
+           if (wApplicationSettingsXmlNode == null)
+           {
+               throw new Exception("El archivo " + pTreeNodeFile .Text + " no contien una seccion ApplicationSettings");
+           }
+
+           Fwk.Xml.Node.NodeCreateAndAddFromString(wApplicationSettingsXmlNode, pApplicationSettings);
+
+           pTreeNodeFile.Nodes[1].Nodes.Clear();
+           TreeNodeConfig.GenerateTreeNodeSectionInApplicationSettings(pTreeNodeFile.Parent, pTreeNodeFile.Nodes[1],
+                                                                        wApplicationSettingsXmlNode);
+
+       }
+
+
+       #endregion
+
+
+       #region [ConfigSection]
+
+
+       /// <summary>
+       /// Determina si existe o no una determinada section en  configSections  
+       /// Por ejemplo dataConfiguration, cachingConfiguration, etc.
+       /// </summary>
+       /// <param name="doc">XmlDocument con el xml del App.Config</param>
+       /// <param name="pSectionConfigName">Nombre de configuracion de la seccion EJ: dataConfiguration </param>
+       /// <returns>Boolean</returns>
+       internal static bool SectionConfigExist(XmlDocument doc, String pSectionConfigName)
+       {
+           //XmlNode wXmlNodeSetting = doc.SelectSingleNode(@"/configuration/configSections/section[@name='" + pSectionConfigName + "']");
+           XmlNode wXmlNodeSetting = Get_configSections_setctionByName(doc, pSectionConfigName);
+           if (wXmlNodeSetting == null)
+               return false;
+           else
+               return true;
+
+       }
+       /// <summary>
+       /// Determina si existe o no una  section en  configuration  
+       /// Por ejemplo connectionStrings.
+       /// </summary>
+       /// <param name="doc">XmlDocument con el xml del App.Config</param>
+       /// <param name="pSectionName">Nombre  de la seccion EJ: connectionStrings </param>
+       /// <returns>Boolean</returns>
+       internal static bool SectionExist(XmlDocument doc, String pSectionName)
+       {
+           XmlNode wXmlNodeSetting = doc.SelectSingleNode(@"/configuration/" + pSectionName);
+           if (wXmlNodeSetting == null)
+               return false;
+           else
+               return true;
+
+       }
+
+
+
+       /// <summary>
+       /// Agrega una seccion a configSections --> pTreeNodeFile.Nodes[0] tanto al documento como al TreeView
+       /// </summary>
+       /// <param name="pTreeNodeFile"></param>
+       /// <param name="pDoc"></param>
+       /// <param name="pSectionConfigName"></param>
+       /// <Author>Marcelo Oviedo</Author> 
+       internal  static void AddSectionToConfigSections(TreeNode pTreeNodeFile, XmlDocument pDoc, String pSectionConfigName)
+       {
+           XmlNode wSectionGroupXmlNode = Get_configSections(pDoc);// pDoc.SelectSingleNode(@"/configuration/configSections");
+           Fwk.Xml.Node.NodeCreateAndAddFromString(wSectionGroupXmlNode, pSectionConfigName);
+
+           
+       }
+
+       /// <summary>
+       /// Agrega una seccion a configSections --> pTreeNodeFile tanto al documento como al TreeView
+       /// </summary>
+       /// <param name="pTreeNodeFile"></param>
+       /// <param name="pDoc"></param>
+       /// <param name="pSectionName"></param>
+       /// <Author>Marcelo Oviedo</Author> 
+       internal static void AddSectionNodeToConfiguration(TreeNode pTreeNodeFile, XmlDocument pDoc, String pSectionName)
+       {
+           XmlNode wSectionGroupXmlNode = Get_configuration(pDoc);
+           Fwk.Xml.Node.NodeCreateAndAddFromString(wSectionGroupXmlNode, pSectionName);
+
+                                                        
+       }
+       #endregion
+
+       #region Gets
+
+    
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="pDoc"></param>
+       /// <param name="pApplicationName"></param>
+       /// <param name="pSettingName"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_SettingByNameByApplicationSettingName(XmlDocument pDoc, String pApplicationName, String pSettingName)
+       {
+           XmlNode xmlSetting =
+               pDoc.SelectSingleNode(@"/configuration/applicationSettings/" + pApplicationName + @"/setting[@name='" +
+                                     pSettingName + "']");
+
+           if (xmlSetting == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               string miEspacio = pDoc.DocumentElement.NamespaceURI;
+               nsManager.AddNamespace("x", miEspacio);
+
+
+               xmlSetting = pDoc.SelectSingleNode(
+                   @"//x:configuration/x:applicationSettings/x:" + pApplicationName + "/x:setting[@name='" +
+                   pSettingName + "']", nsManager);
+
+               if (xmlSetting == null)
+                   xmlSetting =
+                       pDoc.SelectSingleNode(
+                           @"//x:configuration/x:applicationSettings/" + pApplicationName + "/setting[@name='" +
+                           pSettingName + "']", nsManager);
+
+               if (xmlSetting == null)
+                   xmlSetting =
+                       pDoc.SelectSingleNode(
+                           @"//x:configuration/applicationSettings/" + pApplicationName + "/setting[@name='" +
+                           pSettingName + "']", nsManager);
+           }
+
+
+           return xmlSetting;
+       }
+
+       /// <summary>
+       /// Obtiene una seccion (dentro de /configuration/configSections/[@name=) por nombre
+       /// </summary>
+       /// <param name="pDoc"></param>
+       /// <param name="pSectionConfigName"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_configSections_setctionByName(XmlDocument pDoc, String pSectionConfigName)
+       {
+
+           XmlNode wXmlNodeSetting = pDoc.SelectSingleNode(@"/configuration/configSections/section[@name='" + pSectionConfigName + "']");
+
+           if (wXmlNodeSetting == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               string miEspacio = pDoc.DocumentElement.NamespaceURI;
+               nsManager.AddNamespace("x", miEspacio);
+
+               wXmlNodeSetting =
+                   pDoc.SelectSingleNode(
+                       @"//x:configuration/x:configSections/x:section[@name='" + pSectionConfigName + "']", nsManager);
+               if (wXmlNodeSetting == null)
+                   wXmlNodeSetting =
+                       pDoc.SelectSingleNode(
+                           @"//x:configuration/x:configSections/section[@name='" + pSectionConfigName + "']", nsManager);
+           }
+
+           return wXmlNodeSetting;
+       }
+
+       /// <summary>
+       /// Obtiene una seccion (dentro de /configuration/configSections/sectionGroup) por nombre
+       /// </summary>
+       /// <param name="pDoc"></param>
+       /// <param name="pSectionConfigName"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_configSections_sectionGroup_setctionByName(XmlDocument pDoc, String pSectionConfigName)
+       {
+           XmlNode wXmlNodeSetting =
+               pDoc.SelectSingleNode(@"/configuration/configSections/sectionGroup/section[@name='" + pSectionConfigName +
+                                     "']");
+
+           if (wXmlNodeSetting == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               string miEspacio = pDoc.DocumentElement.NamespaceURI;
+               nsManager.AddNamespace("x", miEspacio);
+
+               wXmlNodeSetting =
+                   pDoc.SelectSingleNode(
+                       @"//x:configuration/x:configSections/x:sectionGroup/section[@name='" + pSectionConfigName + "']",
+                       nsManager);
+
+               if (wXmlNodeSetting == null)
+                   wXmlNodeSetting =
+                       pDoc.SelectSingleNode(
+                           @"//x:configuration/x:configSections/x:sectionGroup/x:section[@name='" + pSectionConfigName +
+                           "']", nsManager);
+           }
+
+           return wXmlNodeSetting;
+       }
+
+       /// <summary>
+       /// Obtiene configuration  @"/configuration
+       /// </summary>
+       /// <param name="doc"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_configuration(XmlDocument pDoc)
+        {
+            XmlNode wXmlNodeSectionGroup = pDoc.SelectSingleNode(@"/configuration");
+
+            if (wXmlNodeSectionGroup == null)
+            {
+                XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+                string miEspacio = pDoc.DocumentElement.NamespaceURI; 
+                nsManager.AddNamespace("x", miEspacio);
+
+                wXmlNodeSectionGroup = pDoc.SelectSingleNode(@"//x:configuration", nsManager);
+            }
+            return wXmlNodeSectionGroup;
+        }
+
+       /// <summary>
+       /// Obtiene sectionGroup
+       /// </summary>
+       /// <param name="doc"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_SectionGroup(XmlDocument pDoc)
+       {
+           XmlNode wXmlNodeSectionGroup = pDoc.SelectSingleNode("/configuration/configSections/sectionGroup"); ;
+
+           if (wXmlNodeSectionGroup == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               string miEspacio = pDoc.DocumentElement.NamespaceURI;
+                   // TemplateProvider.GetAppConfigValue("WebConfig.XmlNamespaceManager");// "http://schemas.microsoft.com/.NetConfiguration/v2.0";
+               nsManager.AddNamespace("x", miEspacio);
+
+               wXmlNodeSectionGroup = pDoc.SelectSingleNode(@"//x:configSections/x:sectionGroup", nsManager);
+           }
+
+           return wXmlNodeSectionGroup;
+       }
+
+       /// <summary>
+       /// Obtiene configSections "/configuration/configSections"
+       /// 
+       /// </summary>
+       /// <param name="doc"></param>
+       /// <param name="pName"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_configSections(XmlDocument doc)
+       {
+           XmlNode wXmlNodeSectionGroup = doc.SelectSingleNode(@"/configuration/configSections"); ;
+           if (wXmlNodeSectionGroup == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(doc.NameTable);
+               nsManager.AddNamespace("x", doc.DocumentElement.NamespaceURI);
+
+               wXmlNodeSectionGroup =
+                   doc.SelectSingleNode(@"//x:configuration/x:configSections", nsManager);
+           }
+
+           return wXmlNodeSectionGroup;
+       }
+       /// <summary>
+       /// Obtiene applicationSettings "/configuration/applicationSettings"
+       /// </summary>
+       /// <param name="doc"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_ApplicationSettings(XmlDocument pDoc)
+       {
+           XmlNode wXmlNodeSectionGroup = pDoc.SelectSingleNode(@"/configuration/applicationSettings");
+
+           if (wXmlNodeSectionGroup == null)
+           {
+
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               string miEspacio = pDoc.DocumentElement.NamespaceURI;
+               nsManager.AddNamespace("x", miEspacio);
+               wXmlNodeSectionGroup = pDoc.SelectSingleNode(@"//x:configuration/x:applicationSettings", nsManager);
+               if (wXmlNodeSectionGroup == null)
+               wXmlNodeSectionGroup = pDoc.SelectSingleNode(@"//x:configuration/applicationSettings", nsManager);
+
+           }
+           return wXmlNodeSectionGroup;
+       }
+
+       /// <summary>
+       /// Obtiene applicationSettings + Nombre
+       /// </summary>
+       /// <param name="doc"></param>
+       /// <param name="pName"></param>
+       /// <returns></returns>
+       internal static XmlNode Get_ApplicationSettingsByName(XmlDocument doc, String pName)
+       {
+           XmlNode wXmlNodeSectionGroup = doc.SelectSingleNode(@"/configuration/applicationSettings/" + pName); ;
+           if (wXmlNodeSectionGroup == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(doc.NameTable);
+               string miEspacio = doc.DocumentElement.NamespaceURI;
+               nsManager.AddNamespace("x", miEspacio);
+
+               wXmlNodeSectionGroup =
+                   doc.SelectSingleNode(@"//x:configuration/x:applicationSettings/x:" + pName, nsManager);
+               if (wXmlNodeSectionGroup == null)
+
+                   wXmlNodeSectionGroup =
+                       doc.SelectSingleNode(@"//x:configuration/x:applicationSettings/" + pName, nsManager);
+               if (wXmlNodeSectionGroup == null)
+                   wXmlNodeSectionGroup =
+                       doc.SelectSingleNode(@"//x:configuration/applicationSettings/" + pName, nsManager);
+           }
+
+           return wXmlNodeSectionGroup;
+       }
+
+
+       /// <summary>
+       /// Obtiene el value de un Setting
+       /// </summary>
+       /// <param name="doc">XmlDocument</param>
+       /// <param name="pSettings">XmlNode</param>
+       /// <returns></returns>
+       internal static string Get_Value(XmlNode pSettings)
+       {
+           return Get_XmlNodeValue(pSettings).InnerXml;
+          
+       }
+
+       /// <summary>
+       /// Obtiene el nodo value de un nodo Settings
+       /// </summary>
+       /// <param name="pSettings">XmlNode setting</param>
+       /// <returns></returns>
+       internal static XmlNode Get_XmlNodeValue(XmlNode pSettings)
+       {
+           XmlNode wxmlValue = pSettings.SelectSingleNode("value");
+
+           if (wxmlValue == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pSettings.OwnerDocument.NameTable);
+               string miEspacio = pSettings.OwnerDocument.DocumentElement.NamespaceURI;
+               nsManager.AddNamespace("x", miEspacio);
+               wxmlValue = pSettings.SelectSingleNode(@"//x:value", nsManager);
+           }
+
+           return wxmlValue;
+       }
+       /// <summary>
+       /// Obtiene la seccion connectionStrings
+       /// </summary>
+       /// <param name="doc">XmlDocument</param>
+       /// <returns></returns>
+       internal static XmlNode Get_ConnectionStrings(XmlDocument pDoc)
+       {
+           XmlNode wSectionGroupXmlNode = pDoc.SelectSingleNode(@"/configuration/connectionStrings");
+           if (wSectionGroupXmlNode == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               nsManager.AddNamespace("x", pDoc.DocumentElement.NamespaceURI);
+
+               wSectionGroupXmlNode = pDoc.SelectSingleNode(@"//x:configuration/x:connectionStrings", nsManager);
+
+               if (wSectionGroupXmlNode == null)
+                   wSectionGroupXmlNode = pDoc.SelectSingleNode(@"//x:configuration/connectionStrings", nsManager);
+           }
+           return wSectionGroupXmlNode;
+       }
+
+       /// <summary>
+       /// Obtiene la seccion connectionStrings
+       /// </summary>
+       /// <param name="doc">XmlDocument</param>
+       /// <returns></returns>
+       internal static XmlNode Get_ConnectionStringsByName(XmlDocument pDoc,String pName)
+       {
+           XmlNode wSectionGroupXmlNode = pDoc.SelectSingleNode(@"/configuration/connectionStrings/add[@name='" + pName + "']");
+           if (wSectionGroupXmlNode == null)
+           {
+               XmlNamespaceManager nsManager = new XmlNamespaceManager(pDoc.NameTable);
+               nsManager.AddNamespace("x", pDoc.DocumentElement.NamespaceURI);
+
+               wSectionGroupXmlNode =
+                   pDoc.SelectSingleNode(@"//x:configuration/x:connectionStrings/x:add[@name='" + pName + "']",
+                                         nsManager);
+               if (wSectionGroupXmlNode == null)
+                   wSectionGroupXmlNode =
+                       pDoc.SelectSingleNode(@"//x:configuration/x:connectionStrings/add[@name='" + pName + "']",
+                                             nsManager);
+               if (wSectionGroupXmlNode == null)
+                   wSectionGroupXmlNode =
+                       pDoc.SelectSingleNode(@"//x:configuration/connectionStrings/add[@name='" + pName + "']",
+                                             nsManager);
+           }
+           return wSectionGroupXmlNode;
+       }
+
+       #endregion
+
+       #region Checks
+
+       internal static bool CheIsValidSettings(XmlNode wSettings)
+       {
+           if (wSettings.Attributes == null) return false;
+           if(wSettings.Attributes["name"] == null)return false;
+
+
+           return true;
+       }
+
+       /// <summary>
+       /// Valida si la seccion de configuracion es una seccion valida para configurar por la herramienta
+       /// </summary>
+       /// <param name="wSettings"></param>
+       /// <returns></returns>
+       internal static bool CheIsValidSection(String wSectionName)
+       {
+
+           return TemplateProvider.AppConfigContainsKey(wSectionName.Trim());
+       }
+
+       
+       #endregion
+       #region Validar existencia de nodos
+       /// <summary>
+       /// Determina si existe o no un applicationSetting  determinada
+       /// </summary>
+       /// <param name="doc">XmlDocument con el xml del App.Config</param>
+       /// <param name="pApplicationName">Nombre del applicationSetting a buscar</param>
+       /// <returns>Boolean</returns>
+       internal static bool ApplicationSettingExist(XmlDocument doc, String pApplicationName)
+       {
+           XmlNode wXmlNodeSetting = Get_ApplicationSettingsByName(doc, pApplicationName);
+
+           if (wXmlNodeSetting == null)
+               return false;
+           else
+               return true;
+       }
+
+
+       /// <summary>
+       /// Determina si existe o no un section  en configSections/sectionGroups
+       /// </summary>
+       /// <param name="doc">XmlDocument con el xml del App.Config o Web.config</param>
+       /// <param name="pSectionName">Nombre de la seccion a buscar</param>
+       /// <returns>Boolean</returns>
+       internal static bool SectionInSectionGroupsExist(XmlDocument doc, String pSectionName)
+       {
+           XmlNode wXmlNodeSetting = Get_configSections_sectionGroup_setctionByName(doc, pSectionName);
+
+           if (wXmlNodeSetting == null)
+               return false;
+           else
+               return true;
+       }
+
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="pDoc"></param>
+       /// <param name="pFileName"></param>
+       internal static void ValidateAppConfigConsistence(XmlDocument pDoc, string pFileName)
+       {
+
+           XmlNode wAuxNode = Get_configuration(pDoc);
+           if (wAuxNode == null)
+           {
+               throw new Exception("El archivo " + pFileName + " no es un archivo de configuracion bien formado");
+           }
+           wAuxNode = Get_configSections(pDoc);
+           if (wAuxNode == null)
+           {
+               throw new Exception("El archivo " + pFileName + " no es un archivo de configuracion bien formado");
+           }
+
+            wAuxNode = Get_SectionGroup(pDoc);
+           if (wAuxNode == null)
+           {
+               throw new Exception("El archivo " + pFileName + " no contien una seccion SectionGroup");
+           }
+
+           
+
+           wAuxNode = Get_ApplicationSettings(pDoc);
+           if (wAuxNode == null)
+           {
+               throw new Exception("El archivo " + pFileName + " no contien una seccion SectionGroup");
+           }
+           wAuxNode = Get_ApplicationSettings(pDoc);
+           if (wAuxNode == null)
+           {
+               throw new Exception("El archivo " + pFileName + " no contien una seccion ApplicationSettings");
+           }
+       }
+
+       #endregion
+   }
+}

@@ -1,0 +1,34 @@
+﻿<#+
+
+private Microsoft.SqlServer.Management.Smo.Table GetTable (string tableName, string cnnString,string databaseName)
+{
+    Microsoft.SqlServer.Management.Smo.Table table = new Microsoft.SqlServer.Management.Smo.Table(GetDatabase(cnnString,databaseName), tableName);
+   	table.Refresh();
+	return table;
+}
+
+private Microsoft.SqlServer.Management.Smo.Database GetDatabase(string cnnString,string databaseName)
+{
+	System.Data.SqlClient.SqlConnection sqlConnection =    new System.Data.SqlClient.SqlConnection(cnnString);
+
+    //build a "serverConnection" with the information of the "sqlConnection"
+    Microsoft.SqlServer.Management.Common.ServerConnection serverConnection =  new Microsoft.SqlServer.Management.Common.ServerConnection(sqlConnection);
+	
+	Microsoft.SqlServer.Management.Smo.Server wServer = new Microsoft.SqlServer.Management.Smo.Server(serverConnection);
+    Microsoft.SqlServer.Management.Smo.Database db = new Microsoft.SqlServer.Management.Smo.Database(wServer, databaseName);
+                 
+	return  db; 
+}
+						
+private string GetCSharpType(Microsoft.SqlServer.Management.Smo.Column column)
+{
+	//	return Fwk.Guidance.Core.FwkGeneratorHelper.GetCSharpType(column);
+	return Fwk.Guidance.Core.FwkGenerator.GetCSharpType(column.DataType.Name.ToUpper());
+}
+
+private string GetNullable(Microsoft.SqlServer.Management.Smo.Column column)
+{
+	return Fwk.Guidance.Core.FwkGenerator.GetNullable(column.DataType.Name.ToUpper());
+}
+
+#>

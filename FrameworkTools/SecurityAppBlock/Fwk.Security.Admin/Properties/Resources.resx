@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddUserRoleMessage" xml:space="preserve">
+    <value>Role {1} added for user {0}.</value>
+    <comment>.
+ Parameters: 0 - username (string), 1 - role (string) </comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="impt_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\impt_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Close_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Close_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MinImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MinImage.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apply_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apply_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="admin_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\admin_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="srch_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\srch_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserProfileMessage" xml:space="preserve">
+    <value>The following profile has been read for "{0}"
+  {1}
+</value>
+    <comment>.
+ Parameters: 0 - user (string), 1 - profile (string) </comment>
+  </data>
+  <data name="dbs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dbs.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteUserErrorMessage" xml:space="preserve">
+    <value>Please select a user name.</value>
+  </data>
+  <data name="cancel_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_apply_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_apply_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteUserMessage" xml:space="preserve">
+    <value>User {0} deleted.</value>
+    <comment>.
+ Parameters: 0 - username (string) </comment>
+  </data>
+  <data name="roles_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roles_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fwk_delete_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fwk_delete_16x.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sitebuild_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sitebuild_icon.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_edit_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_edit_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_cancel_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_cancel_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copy_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save as_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mail_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mail_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InvalidCredentialsMessage" xml:space="preserve">
+    <value>Failed to authenticate user {0}. Either the username does not exist in database or the provided password is not correct</value>
+    <comment>.
+ Parameters: 0 - username (string) </comment>
+  </data>
+  <data name="file_del_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_del_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_find_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_find_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProfileStringMessage" xml:space="preserve">
+    <value>First Name: {0}
+  Last Name: {1}
+  Preferred Theme: {2}</value>
+    <comment>.
+ Parameters: 0 - firstName (string), 1 - lastName (string), 2 - theme (ProfileTheme) </comment>
+  </data>
+  <data name="Thumbs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thumbs.db;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_177" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\177.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exclamation_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CloseImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CloseImage.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_cancel_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_cancel_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AuthorizationRuleNotFoundMsg" xml:space="preserve">
+    <value>Authorization rule {0} not found in configuration.</value>
+  </data>
+  <data name="save_as_2_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_2_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RetrieveIdentityMessage" xml:space="preserve">
+    <value>The identity with the following information was retrieved using the token
+	Name: {0}
+	Authorization Type: {1}</value>
+    <comment>.
+ Parameters: 0 - name (string), 1 - authType (string) </comment>
+  </data>
+  <data name="application_list_add_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_list_add_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="collapseVertical_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\collapseVertical_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExpireTokenMessage" xml:space="preserve">
+    <value>Token was expired.</value>
+  </data>
+  <data name="file_find_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_find_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="collapseVertical_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\collapseVertical_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help__Alt_2__16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help (Alt 2)_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_de_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_de_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="db" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\db.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Expand_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Expand_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ValidCredentialsMessage" xml:space="preserve">
+    <value>Successfully authenticated user {0}</value>
+    <comment>.
+ Parameters: 0 - username (string) </comment>
+  </data>
+  <data name="note_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\note_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="admin_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\admin_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RuleUpdatedMessage" xml:space="preserve">
+    <value>The rule {0} was successfully updated</value>
+  </data>
+  <data name="Cancel_2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_2_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Button_ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_ok.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExpiredTokenErrorMessage" xml:space="preserve">
+    <value>Failed to retrieve the identity. The supplied token is expired.</value>
+  </data>
+  <data name="folder_new_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder_new_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_edit_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_edit_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IdentityMessage" xml:space="preserve">
+    <value>Identity: {0}</value>
+    <comment>.
+ Parameters: 0 - user (string) </comment>
+  </data>
+  <data name="ulock_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ulock_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trash_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash_16.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copy_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="expandVertical_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expandVertical_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_find_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_find_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RuleCreatedMessage" xml:space="preserve">
+    <value>The rule {0} created.-</value>
+  </data>
+  <data name="Help__Alt_2__32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help (Alt 2)_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CreateTokenMessage" xml:space="preserve">
+    <value>The identity was added to the cache and can be retrieved using the token {0}</value>
+    <comment>.
+ Parameters: 0 - value (string) </comment>
+  </data>
+  <data name="Cancel_2_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_2_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_new_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_new_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fwk_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fwk_Refresh.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mail_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mail_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trash_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash_32.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exclamation_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trash_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash_24.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IdentityRoleMessage" xml:space="preserve">
+    <value>Username: {0}
+Role: {1}</value>
+    <comment>.
+ Parameters: 0 - identity (string), 1 - role (string) </comment>
+  </data>
+  <data name="expandVertical_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expandVertical_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_apply_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_apply_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_2_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_2_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Connection_Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Connection Check.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="error_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CreateUserTitleMessage" xml:space="preserve">
+    <value>Create a new user</value>
+    <comment> For localizers and UE (These comments will be seen in LocStudio)</comment>
+  </data>
+  <data name="information_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_2_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_2_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Close_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Close_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_del_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_del_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_edit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PDF_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PDF_16x16.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trash_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help__Alt_2__24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help (Alt 2)_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_177Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\177Left.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Explorer_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Explorer-16x16.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserRoleMessage" xml:space="preserve">
+    <value> Member of role {0}: {1}</value>
+    <comment>.
+ Parameters: 0 - role (string), 1 - result (string) </comment>
+  </data>
+  <data name="file_add_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_add_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_cancel_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_cancel_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RuleResultTrueMessage" xml:space="preserve">
+    <value>Rule: {0}
+Result: user is authorized</value>
+    <comment>.
+ Parameters: 0 - rule (string) </comment>
+  </data>
+  <data name="Close_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Close_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RetrieveIdentityErrorMessage" xml:space="preserve">
+    <value>Cannot retrieve identity because the token doesn't exist.</value>
+  </data>
+  <data name="folder_new_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder_new_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="access_control_ok_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\access_control_ok_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copy_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Connection_Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Connection Error.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QuickStartErrorTitle" xml:space="preserve">
+    <value>Application Error</value>
+  </data>
+  <data name="admin_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\admin_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProfileUpdatedMessage" xml:space="preserve">
+    <value>The profile has been saved for "{0}"
+</value>
+    <comment>.
+ Parameters: 0 - user (string) </comment>
+  </data>
+  <data name="MaxImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaxImage.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exclamation_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QuickStartErrorMessage" xml:space="preserve">
+    <value>There are some problems while trying to use the Security Quick Start, please check the following error messages: 
+
+{0}
+
+This QuickStart requires a database configured with the ASP.NET services schema. Please make sure the database has been initialized using the aspnet_regsql.exe script, and that the QuickStart's app.config file contains the correct database connection string.</value>
+  </data>
+  <data name="ProfileNotFoundMessage" xml:space="preserve">
+    <value>Unable to find a profile for current user. You can create a profile by using the "Write profile information about a user" button.</value>
+  </data>
+  <data name="AddUserRoleErrorMessage" xml:space="preserve">
+    <value>Please select a user name and select or enter a role.</value>
+  </data>
+  <data name="AzManResultMessage" xml:space="preserve">
+    <value>Task: {0}
+Result: {1}</value>
+    <comment>.
+ Parameters: 0 - task (string), 1 - result (string) </comment>
+  </data>
+  <data name="file_edit_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apply_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apply_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RuleResultFalseMessage" xml:space="preserve">
+    <value>Rule: {0}
+Result: user is not authorized</value>
+    <comment>.
+ Parameters: 0 - rule (string) </comment>
+  </data>
+  <data name="search_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteUserRoleErrorMessage" xml:space="preserve">
+    <value>Please select a user name and a role.</value>
+  </data>
+  <data name="UserCreatedMessage" xml:space="preserve">
+    <value>User {0} created.</value>
+    <comment>.
+ Parameters: 0 - username (string) </comment>
+  </data>
+  <data name="mail_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mail_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_del_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_del_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteUserRoleMessage" xml:space="preserve">
+    <value>Role {1} deleted for user {0}.</value>
+    <comment>.
+ Parameters: 0 - username (string), 1 - role (string) </comment>
+  </data>
+  <data name="ulock_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ulock_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="page_excel_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\page_excel_16x16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="collapce_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\collapce_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="html_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\html_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_find_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_find_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="CreateTokenRequiresIdentityMessage" xml:space="preserve">
+    <value>Cannot create a token for non-authenticated user. This scenario requires running the "Authenticate user using credentials" scenario first</value>
+  </data>
+  <data name="ulock_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ulock_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckingRolesMessage" xml:space="preserve">
+    <value>Checking roles for "{0}"</value>
+    <comment>.
+ Parameters: 0 - user (string) </comment>
+  </data>
+  <data name="NullIdentityMessage" xml:space="preserve">
+    <value>You should authenticate a user first.</value>
+  </data>
+  <data name="information_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_new_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_new_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_add_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_add_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Connection_Warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Connection Warning.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mail_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mail_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExpireTokenErrorMessage" xml:space="preserve">
+    <value>Cannot expire token because it couldn't be created.</value>
+  </data>
+  <data name="map_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_2_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_2_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copy_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AuthenticateTitleMessage" xml:space="preserve">
+    <value>Authenticate user</value>
+  </data>
+  <data name="apply_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apply_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file_cancel_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file_cancel_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="error_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IdentityRoleErrorMessage" xml:space="preserve">
+    <value>Please enter a user name and select a role and a rule.</value>
+  </data>
+  <data name="cancel_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save_as_2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_as_2_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="error_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel-16x16.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folder_new_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder_new_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Users" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Users.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="srch_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\srch_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exclamation_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RolCreatedMessage" xml:space="preserve">
+    <value>Role {0} created.</value>
+    <comment>.
+ Parameters: 0 - role name (string)</comment>
+  </data>
+  <data name="Folder 2 Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Folder 2 Down.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

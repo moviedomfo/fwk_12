@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TemplateDocument>
+
+  
+<Template name="Property">
+<Content>	<![CDATA[#region [[Property_Name]]
+	public [TYPENAME][NullToken] [Property_Name]
+	{
+		get { return _[Property_Name]; }
+		set { _[Property_Name] = value;}
+	}
+	#endregion]]>
+</Content>
+</Template>
+  
+  <Template name="Property_Binary">
+    <Content>    <![CDATA[#region [[Property_Name]]
+   [System.Xml.Serialization.XmlElementAttribute("[Property_Name]",DataType = "[SCHEMATYPENAME]")]
+   public Byte[][NullToken] [Property_Name]
+    {
+      get { return _[Property_Name]; }
+      set { _[Property_Name] = value;  }
+    }
+     #endregion]]>
+    </Content>
+  </Template>
+  
+  <Template name="ParameterSummary">
+    <Content><![CDATA[///<param name="p[MethodParameterName]">[ParameterName]</param>]]></Content>
+  </Template>
+  <Template name="ParameterInput">
+    <Content>     <![CDATA[[ConditionalString]
+         wDataBase.AddInParameter(wCmd, "[ParameterName]", [ParameterType], [ParameterValue]);]]>
+    </Content>
+  </Template>
+  <Template name="ParameterOutput">
+    <Content>     <![CDATA[/// [ParameterName]
+          wDataBase.AddOutParameter(wCmd, "[ParameterName]", [ParameterType], [ParameterLength]);]]>
+    </Content>
+  </Template>
+  
+  <Template name="InsertReturn">
+    <Content>
+      <![CDATA[
+				p[EntityName].[Property_Name] = ([TYPENAME]) wDataBase.GetParameterValue(wCmd, "[Property_Name]");]]>
+    </Content>
+  </Template>
+  <Template name="SearchReturn">
+    <Content>
+      <![CDATA[
+		
+         using (IDataReader reader = wDataBase.ExecuteReader(wCmd))
+         {
+           while (reader.Read())
+           {
+             w[EntityName] = new [EntityName]();
+                        
+             //Perform your mapping code here
+
+             w[EntityName]List.Add(p[EntityName]);
+            }
+         }
+
+         return w[EntityName]List;]]>
+    </Content>
+  </Template>
+  <Template name="EntityAnListDeclaration">
+    <Content>
+      <![CDATA[
+      [EntityName]List w[EntityName]List	= new [EntityName]List();
+      [EntityName] w[EntityName];
+      ]]>
+    </Content>
+  </Template>
+  
+  <Template name="SPParameterBatchBit">
+    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+           [Batch_NULL_Question]
+               wBatchCommandText.Append(w[EntityName].[Property_Name]  == true ? "1":"0");
+           wBatchCommandText.Append( ",");
+        ]]>
+    </Content>
+  </Template>
+  <Template name="SPParameterBatchDateTime">
+    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+          [Batch_NULL_Question]
+              wBatchCommandText.Append(string.Concat("'", w[EntityName].[Property_Name].Value.ToString("yyy-MM-dd H:mm:ss"),"'"));
+          wBatchCommandText.Append( ",");
+]]>
+    </Content>
+  </Template>
+  <Template name="SPParameterBatchBinary">
+    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+          [Batch_NULL_Question]
+             wBatchCommandText.Append(string.Concat("'" , w[EntityName].[Property_Name] , "'"));
+          wBatchCommandText.Append( ",");
+]]>
+    </Content>
+  </Template>
+  <Template name="SPParameterBatchInteger">
+    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+         [Batch_NULL_Question]
+            wBatchCommandText.Append(w[EntityName].[Property_Name]);
+         wBatchCommandText.Append( ",");
+]]>
+    </Content>
+  </Template>
+  <Template name="SPParameterBatchDecimal">
+    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+        [Batch_NULL_Question]
+                wBatchCommandText.Append(w[EntityName].[Property_Name].ToString().Replace(",","."));
+        wBatchCommandText.Append( ",");
+]]>
+    </Content>
+  </Template>
+  <Template name="SPParameterBatchString">
+    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+        [Batch_NULL_Question]
+            wBatchCommandText.Append(string.Concat("'" , w[EntityName].[Property_Name] , "'"));
+        wBatchCommandText.Append( ",");
+]]>
+    </Content>
+  </Template>
+    <Template name="Batch_NULL_Question">
+      <Content><![CDATA[ if (w[EntityName].[Property_Name] == null) wBatchCommandText.Append("NULL");
+         else
+]]>
+      </Content>
+  </Template>
+  <Template name="Batch_NULL_Question_string">
+    <Content>
+      <![CDATA[ if (String.IsNullOrEmty(w[EntityName].[Property_Name])) wBatchCommandText.Append("NULL");
+         else
+]]>
+    </Content>
+  </Template>
+  
+  <Template name="ConditionalString">
+    <Content>
+      <![CDATA[if(!string.IsNullOrEmpty(p[EntityName].[ParameterName]))]]>
+    </Content>
+  </Template>
+  <Template name="MethodBatch">
+    <Content>
+      <![CDATA[		
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="[EntityName]List">p[EntityName]List</param>
+    /// <Date>[CreationDate]</Date>
+    /// <Author>[Author]</Author>
+    public static  void [MethodName]Batch([EntityName]List p[EntityName]List)
+    {
+      Database wDatabase = null;
+      DbCommand wCmd = null;
+			StringBuilder wBatchCommandText ;
+      try
+      {    
+       wDatabase = DatabaseFactory.CreateDatabase("CnnStringKey");
+       wBatchCommandText = new StringBuilder();
+       #region --[Seteo de Parametros]--
+       
+        foreach ([EntityName] w[EntityName] in p[EntityName]List)
+        {
+         [Parameters]
+		 		}
+        
+       #endregion
+
+        wCmd = wDatabase.GetSqlStringCommand(wBatchCommandText.ToString());
+        wCmd.CommandType = CommandType.Text;
+
+        if (wBatchCommandText.Length > 0)
+        {
+            wDatabase.ExecuteNonQuery(wCmd);
+        }
+      
+        
+      }
+       catch (Exception ex)
+      {
+        throw Fwk.Exceptions.ExceptionHelper.ProcessException(ex);
+      }
+      
+    }
+]]>
+    </Content>
+  </Template>
+  <Template name="Method">
+    <Content>
+      <![CDATA[		
+    /// <summary>
+    /// [MethodName]
+    /// </summary>
+    [SummaryParams]
+    /// <returns>[RetType]</returns>
+    /// <Date>[CreationDate]</Date>
+    /// <Author>[Author]</Author>
+    public static  [RetType] [MethodName]([ParamArgs])
+    {
+      Database wDataBase = null;
+      DbCommand wCmd = null;
+      [Declarations]
+      try
+      {                                              
+	    wDataBase = DatabaseFactory.CreateDatabase("CnnStringKey");
+	    wCmd = wDataBase.GetStoredProcCommand("[StoredProcedureName]");
+        [Parameters]
+        [Return]				
+      }
+       catch (Exception ex)
+      {
+        throw Fwk.Exceptions.ExceptionHelper.ProcessException(ex);
+      }
+     
+    }
+]]>
+    </Content>
+  </Template>
+
+   
+      <Template name="SP_Common">
+       
+        <Content>
+          <![CDATA[
+	      <DROP>
+      					
+	      SET QUOTED_IDENTIFIER ON
+	      GO
+	      SET ANSI_NULLS ON
+	      GO
+	             --------------------------------------------------------------------------------------------
+	              -- Author     :		 [Author]
+	              -- Date       :	   [CreationDate]
+	              -- Description: 	 [Description]
+	              --------------------------------------------------------------------------------------------
+	      CREATE PROCEDURE [StoredProcedureName]
+      	
+	      [Parameters]
+      	
+	      AS
+      					
+      					
+	      [ProcedureBody]
+      					
+	      GO	
+	]]>
+        </Content>
+      </Template>
+      <Template name="SP_Insert">
+      
+        <Content>
+          <![CDATA[
+         
+          INSERT INTO [TableName]
+          (
+          [Fields]
+          )
+          VALUES
+          (
+          [Values]
+          )
+            [ReturnAutogenerated]
+]]>
+        </Content>
+      </Template>
+      <Template name="SP_Update">
+        
+        <Content>
+          <![CDATA[
+      UPDATE [TableName]
+      SET 
+      [SetStatements]
+      WHERE [WhereClause]
+				]]>
+        </Content>
+      </Template>
+      <Template name="SP_Delete">
+      
+        <Content>
+          <![CDATA[
+          DELETE FROM [TableName]
+          WHERE [WhereClause]]]>
+        </Content>
+      </Template>
+      
+      
+      
+      <Template name="SP_SearchByParam">
+      
+        <Content>
+          <![CDATA[
+         
+          SELECT
+          [SelectList]
+          FROM [TableName]
+          WHERE [WhereClause]
+]]>
+        </Content>
+      </Template>
+      <Template name="SP_Search_TypeBit">
+        <Content>
+          <![CDATA[
+      -- <NOMBRE_CAMPO> = TYPE Bit
+
+	      IF (<NOMBRE_PARAMETRO_CAMPO> IS NOT NULL)
+         BEGIN
+				      SET @sql = @sql + ' AND <NOMBRE_CAMPO>  =  <NOMBRE_PARAMETRO_CAMPO> '
+	      END	
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_Search_TypeDateTime">
+        <Content>
+          <![CDATA[
+						  -- <NOMBRE_CAMPO> = TYPE [TYPENAME]
+           
+				           -- IF (<NOMBRE_PARAMETRO_CAMPO_DESDE> IS NOT NULL AND <NOMBRE_PARAMETRO_CAMPO_DESDE> <> '' AND 
+				             --   <NOMBRE_PARAMETRO_CAMPO_HASTA> IS NOT NULL AND <NOMBRE_PARAMETRO_CAMPO_HASTA> <> '')
+                  --BEGIN	
+					          --  SET @sql = @sql + ' AND (<NOMBRE_CAMPO> >= <NOMBRE_PARAMETRO_CAMPO_DESDE> AND <NOMBRE_CAMPO> <= <NOMBRE_PARAMETRO_CAMPO_HASTA>)'
+                  --END
+			        -- <NOMBRE_CAMPO> = TYPE [TYPENAME]
+               IF (<NOMBRE_PARAMETRO_CAMPO> IS NOT NULL)
+                BEGIN
+			            SET @sql = @sql + ' AND <NOMBRE_CAMPO>  =   <NOMBRE_PARAMETRO_CAMPO> ' 
+                END
+		           
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_Search_TypeNText">
+        <Content>
+          <![CDATA[
+				-- <NOMBRE_CAMPO> = TYPE [TYPENAME]
+        IF (<NOMBRE_PARAMETRO_CAMPO> IS NOT NULL)
+          BEGIN
+			      SET @sql = @sql + ' AND <NOMBRE_CAMPO>  LIKE   <NOMBRE_PARAMETRO_CAMPO> ' 
+          END
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_Search_TypeNumeric">
+        <Content>
+          <![CDATA[
+				-- <NOMBRE_CAMPO> = TYPE [TYPENAME]
+            IF (<NOMBRE_PARAMETRO_CAMPO> IS NOT NULL)
+            BEGIN
+			        SET @sql = @sql + ' AND <NOMBRE_CAMPO> =  <NOMBRE_PARAMETRO_CAMPO> '
+            END
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_Search_TypeVarChar">
+        <Content>
+          <![CDATA[
+				-- <NOMBRE_CAMPO> = TYPE [TYPENAME]
+             IF (<NOMBRE_PARAMETRO_CAMPO> IS NOT NULL)
+             BEGIN
+			        SET @sql = @sql + ' AND <NOMBRE_CAMPO>  LIKE  <NOMBRE_PARAMETRO_CAMPO> '
+             END
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_DropStoreSQL2000">
+        <Content>
+          <![CDATA[
+					if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[StoredProcedureName]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+					drop procedure [StoredProcedureName]
+					GO
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_DropStoreSQL2005">
+        <Content>
+          <![CDATA[
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[StoredProcedureName]') AND type in (N'P', N'PC'))
+	    DROP PROCEDURE [StoredProcedureName]
+	    GO
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_Search_DefinicionGlobal">
+        <Content>
+          <![CDATA[
+					<DROP>
+
+        --------------------------------------------------------------------------------------------
+        -- Autor:		[Author]
+        -- Creacion:		[CreationDate]
+        -- Descripcion: 	Realiza una busqueda por parametros de la tabla [TableName]
+        --------------------------------------------------------------------------------------------
+        -- Operadores posibles de usar:
+        --
+        -- <> | > | >= | < | <= | = | %_ | _% | %% | []
+        --
+        --------------------------------------------------------------------------------------------
+        CREATE PROCEDURE [StoredProcedureName]
+	        -- Lista de Parámetros
+	        @OrdenDeRegistros 					    VARCHAR(100) = null,
+        <PARAMETROS>
+
+        AS
+        BEGIN
+	        SET NOCOUNT ON
+	        SET DATEFORMAT DMY
+
+	        ----------------------------------------
+	        -- Definimos Variables
+	        ----------------------------------------
+	        DECLARE @sql        nvarchar(4000)
+	        DECLARE @parametros nvarchar(4000)
+
+	        SET @sql = N' SELECT * FROM [TableName] <WITH_NO_LOCK> WHERE 1 = 1 '
+
+        <CAMPOS>
+	        IF (@OrdenDeRegistros IS NOT NULL AND @OrdenDeRegistros <> '')
+	        BEGIN
+		        SET @sql = @sql + ' ORDER BY ' + @OrdenDeRegistros
+	        END
+
+	        SELECT @parametros = '<PARAMETROS_TIPO>'
+
+	        EXEC sp_executesql @sql, @parametros, <PARAMETROS_SOLO>
+        END
+
+					]]>
+        </Content>
+      </Template>
+      <Template name="SP_OutputIdentitySet">
+        <Content>
+          <![CDATA[
+				
+	        Set [OutputVariable] = @@Identity
+					]]>
+        </Content>
+      </Template>
+   
+    
+    
+
+</TemplateDocument>

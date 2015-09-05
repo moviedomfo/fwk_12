@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Autenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutenticateResult" type="tns:LoogonUserResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoogonUserResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogResult" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Autenticated" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="User_Exist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_ExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="User_ExistResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrive_User_ByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrive_User_ByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrive_User_ByNameResult" type="tns:ActiveDirectoryUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActiveDirectoryUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserAccountControl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginNameWithDomain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Retrive_User_Groups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrive_User_GroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrive_User_GroupsResult" type="tns:ArrayOfActiveDirectoryGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfActiveDirectoryGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActiveDirectoryGroup" nillable="true" type="tns:ActiveDirectoryGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActiveDirectoryGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistinguishedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OU" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Retrive_Group_Users">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrive_Group_UsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrive_Group_UsersResult" type="tns:ArrayOfActiveDirectoryUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfActiveDirectoryUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActiveDirectoryUser" nillable="true" type="tns:ActiveDirectoryUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Retrive_Groups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrive_GroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrive_GroupsResult" type="tns:ArrayOfActiveDirectoryGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrive_DomainsUrl">
+        <s:complexType />
+      </s:element>
+      <s:element name="Retrive_DomainsUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrive_DomainsUrlResult" type="tns:ArrayOfDomainsUrl" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDomainsUrl">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DomainsUrl" nillable="true" type="tns:DomainsUrl" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DomainsUrl">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LDAPPath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainDN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="User_Reset_Password">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_Reset_PasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="User_Reset_PasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_SetActivation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="disabled" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_SetActivationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="User_SetActivationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_Unlock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_UnlockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="User_UnlockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_Lock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User_LockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="User_LockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AutenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Autenticate" />
+  </wsdl:message>
+  <wsdl:message name="AutenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AutenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_ExistSoapIn">
+    <wsdl:part name="parameters" element="tns:User_Exist" />
+  </wsdl:message>
+  <wsdl:message name="User_ExistSoapOut">
+    <wsdl:part name="parameters" element="tns:User_ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_User_ByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrive_User_ByName" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_User_ByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrive_User_ByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_User_GroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrive_User_Groups" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_User_GroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrive_User_GroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_Group_UsersSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrive_Group_Users" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_Group_UsersSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrive_Group_UsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_GroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrive_Groups" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_GroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrive_GroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_DomainsUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrive_DomainsUrl" />
+  </wsdl:message>
+  <wsdl:message name="Retrive_DomainsUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrive_DomainsUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_Reset_PasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:User_Reset_Password" />
+  </wsdl:message>
+  <wsdl:message name="User_Reset_PasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:User_Reset_PasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_SetActivationSoapIn">
+    <wsdl:part name="parameters" element="tns:User_SetActivation" />
+  </wsdl:message>
+  <wsdl:message name="User_SetActivationSoapOut">
+    <wsdl:part name="parameters" element="tns:User_SetActivationResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_UnlockSoapIn">
+    <wsdl:part name="parameters" element="tns:User_Unlock" />
+  </wsdl:message>
+  <wsdl:message name="User_UnlockSoapOut">
+    <wsdl:part name="parameters" element="tns:User_UnlockResponse" />
+  </wsdl:message>
+  <wsdl:message name="User_LockSoapIn">
+    <wsdl:part name="parameters" element="tns:User_Lock" />
+  </wsdl:message>
+  <wsdl:message name="User_LockSoapOut">
+    <wsdl:part name="parameters" element="tns:User_LockResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ActiveDirectorySoap">
+    <wsdl:operation name="Autenticate">
+      <wsdl:input message="tns:AutenticateSoapIn" />
+      <wsdl:output message="tns:AutenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Exist">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica si existe un usuario en un dominio</wsdl:documentation>
+      <wsdl:input message="tns:User_ExistSoapIn" />
+      <wsdl:output message="tns:User_ExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_User_ByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un usuarios por nombre</wsdl:documentation>
+      <wsdl:input message="tns:Retrive_User_ByNameSoapIn" />
+      <wsdl:output message="tns:Retrive_User_ByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_User_Groups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos los gripos de un determinado Usuario</wsdl:documentation>
+      <wsdl:input message="tns:Retrive_User_GroupsSoapIn" />
+      <wsdl:output message="tns:Retrive_User_GroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_Group_Users">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos los usuarios de un determinado Grupo</wsdl:documentation>
+      <wsdl:input message="tns:Retrive_Group_UsersSoapIn" />
+      <wsdl:output message="tns:Retrive_Group_UsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_Groups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos los grupos de un determinado dominio</wsdl:documentation>
+      <wsdl:input message="tns:Retrive_GroupsSoapIn" />
+      <wsdl:output message="tns:Retrive_GroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_DomainsUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna informacion sobre dominios de la empresa</wsdl:documentation>
+      <wsdl:input message="tns:Retrive_DomainsUrlSoapIn" />
+      <wsdl:output message="tns:Retrive_DomainsUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Reset_Password">
+      <wsdl:input message="tns:User_Reset_PasswordSoapIn" />
+      <wsdl:output message="tns:User_Reset_PasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_SetActivation">
+      <wsdl:input message="tns:User_SetActivationSoapIn" />
+      <wsdl:output message="tns:User_SetActivationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Unlock">
+      <wsdl:input message="tns:User_UnlockSoapIn" />
+      <wsdl:output message="tns:User_UnlockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Lock">
+      <wsdl:input message="tns:User_LockSoapIn" />
+      <wsdl:output message="tns:User_LockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo solo para test.</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActiveDirectorySoap" type="tns:ActiveDirectorySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Autenticate">
+      <soap:operation soapAction="http://tempuri.org/Autenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Exist">
+      <soap:operation soapAction="http://tempuri.org/User_Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_User_ByName">
+      <soap:operation soapAction="http://tempuri.org/Retrive_User_ByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_User_Groups">
+      <soap:operation soapAction="http://tempuri.org/Retrive_User_Groups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_Group_Users">
+      <soap:operation soapAction="http://tempuri.org/Retrive_Group_Users" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_Groups">
+      <soap:operation soapAction="http://tempuri.org/Retrive_Groups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_DomainsUrl">
+      <soap:operation soapAction="http://tempuri.org/Retrive_DomainsUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Reset_Password">
+      <soap:operation soapAction="http://tempuri.org/User_Reset_Password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_SetActivation">
+      <soap:operation soapAction="http://tempuri.org/User_SetActivation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Unlock">
+      <soap:operation soapAction="http://tempuri.org/User_Unlock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Lock">
+      <soap:operation soapAction="http://tempuri.org/User_Lock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ActiveDirectorySoap12" type="tns:ActiveDirectorySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Autenticate">
+      <soap12:operation soapAction="http://tempuri.org/Autenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Exist">
+      <soap12:operation soapAction="http://tempuri.org/User_Exist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_User_ByName">
+      <soap12:operation soapAction="http://tempuri.org/Retrive_User_ByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_User_Groups">
+      <soap12:operation soapAction="http://tempuri.org/Retrive_User_Groups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_Group_Users">
+      <soap12:operation soapAction="http://tempuri.org/Retrive_Group_Users" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_Groups">
+      <soap12:operation soapAction="http://tempuri.org/Retrive_Groups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrive_DomainsUrl">
+      <soap12:operation soapAction="http://tempuri.org/Retrive_DomainsUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Reset_Password">
+      <soap12:operation soapAction="http://tempuri.org/User_Reset_Password" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_SetActivation">
+      <soap12:operation soapAction="http://tempuri.org/User_SetActivation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Unlock">
+      <soap12:operation soapAction="http://tempuri.org/User_Unlock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Lock">
+      <soap12:operation soapAction="http://tempuri.org/User_Lock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActiveDirectory">
+    <wsdl:port name="ActiveDirectorySoap" binding="tns:ActiveDirectorySoap">
+      <soap:address location="http://localhost:14538/ActiveDirectory.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ActiveDirectorySoap12" binding="tns:ActiveDirectorySoap12">
+      <soap12:address location="http://localhost:14538/ActiveDirectory.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

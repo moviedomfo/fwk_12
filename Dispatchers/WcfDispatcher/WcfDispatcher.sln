@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfDispatcher.Service", "WcfDispatcher\WcfDispatcher.Service.csproj", "{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfDispatcher_Host", "WcfDispatcher_Host\WcfDispatcher_Host.csproj", "{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfDispatcherSvc", "WcfDispatcherSvc\WcfDispatcherSvc.csproj", "{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D89860D7-EE1C-47C2-81E3-B8C2D2801C46}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}.Release|x86.ActiveCfg = Release|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|x86.ActiveCfg = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|x86.Build.0 = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Release|Any CPU.ActiveCfg = Release|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Release|x86.ActiveCfg = Release|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
