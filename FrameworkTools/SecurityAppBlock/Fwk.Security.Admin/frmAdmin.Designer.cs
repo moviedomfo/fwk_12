@@ -378,6 +378,8 @@ namespace Fwk.Security.Admin
             this.lblCnnString.BackColor = System.Drawing.Color.White;
             this.lblCnnString.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCnnString.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lblCnnString.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCnnString.Location = new System.Drawing.Point(457, 99);
             this.lblCnnString.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCnnString.Name = "lblCnnString";
             this.lblCnnString.Size = new System.Drawing.Size(71, 17);
