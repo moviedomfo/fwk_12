@@ -9,7 +9,7 @@ namespace Fwk.HelperFunctions
 	/// </summary>
 	/// <Date>2006-04-18T00:00:00</Date>
 	/// <Author>moviedo</Author>
-	public class EMailFunctions 
+	public class EMailFunctions
 	{
 		#region --[SendMail]--
 

@@ -30,7 +30,7 @@ namespace Fwk.Security.Admin
             InitializeComponent();
             try
             {
-                Provider = System.Web.Security.Membership.Provider;
+                Provider = Membership.Provider;
             }
             catch(System.Configuration.Provider.ProviderException ex)
                 {
@@ -93,13 +93,14 @@ namespace Fwk.Security.Admin
             {
 
                 this.Cursor = Cursors.WaitCursor;
-                frmAdmin.Provider = System.Web.Security.Membership.Providers[cmbProviders.Text];
-
+                frmAdmin.Provider = Membership.Providers[cmbProviders.Text];
+                RoleProvider wRoleProvider =  FwkMembership.GetRoleProvider(cmbProviders.Text);
                 string cnnString = FwkMembership.GetProvider_ConnectionString(frmAdmin.Provider.Name);
                 Fwk.DataBase.CnnString cnn = new DataBase.CnnString("", cnnString);
 
                 lblServer.Text = cnn.DataSource;
                 lblDatabase.Text = cnn.InitialCatalog;
+                lblCnnString.Text = cnn.ToString();
                 if (!onInit)
                 {
                     DataBase.Metadata m = new DataBase.Metadata(cnn);

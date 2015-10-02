@@ -59,6 +59,7 @@ namespace Fwk.Security.Admin
             this.lblDatabase = new System.Windows.Forms.Label();
             this.lblConnectionStatus = new System.Windows.Forms.Label();
             this.btnRefreshConnection = new DevExpress.XtraEditors.SimpleButton();
+            this.lblCnnString = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -333,6 +334,7 @@ namespace Fwk.Security.Admin
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 23;
             this.label3.Text = "Database";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblDatabase
             // 
@@ -363,18 +365,31 @@ namespace Fwk.Security.Admin
             // btnRefreshConnection
             // 
             this.btnRefreshConnection.Image = global::Fwk.Security.Admin.Properties.Resources.Connection_Warning;
-            this.btnRefreshConnection.Location = new System.Drawing.Point(289, 42);
+            this.btnRefreshConnection.Location = new System.Drawing.Point(413, 12);
             this.btnRefreshConnection.Name = "btnRefreshConnection";
-            this.btnRefreshConnection.Size = new System.Drawing.Size(131, 44);
+            this.btnRefreshConnection.Size = new System.Drawing.Size(154, 31);
             this.btnRefreshConnection.TabIndex = 26;
             this.btnRefreshConnection.Text = "Try connect";
             this.btnRefreshConnection.Click += new System.EventHandler(this.btnRefreshConnection_Click);
+            // 
+            // lblCnnString
+            // 
+            this.lblCnnString.AutoSize = true;
+            this.lblCnnString.BackColor = System.Drawing.Color.White;
+            this.lblCnnString.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCnnString.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lblCnnString.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCnnString.Name = "lblCnnString";
+            this.lblCnnString.Size = new System.Drawing.Size(71, 17);
+            this.lblCnnString.TabIndex = 27;
+            this.lblCnnString.Text = "Cnn string";
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1313, 801);
+            this.Controls.Add(this.lblCnnString);
             this.Controls.Add(this.btnRefreshConnection);
             this.Controls.Add(this.lblConnectionStatus);
             this.Controls.Add(this.lblDatabase);
@@ -432,6 +447,7 @@ namespace Fwk.Security.Admin
         private System.Windows.Forms.Label lblConnectionStatus;
         private Controls.UserAdmin userAdmin1;
         private DevExpress.XtraEditors.SimpleButton btnRefreshConnection;
+        private System.Windows.Forms.Label lblCnnString;
     }
 }
 

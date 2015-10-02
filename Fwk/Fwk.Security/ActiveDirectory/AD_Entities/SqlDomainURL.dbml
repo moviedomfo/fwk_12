@@ -1,13 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="GestionCuentas_Logs" Class="SqlDomainURLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=corrsf71des01;Initial Catalog=GestionCuentas_Logs;Integrated Security=True" SettingsObjectName="Fwk.Security.Properties.Settings" SettingsPropertyName="GestionCuentas_LogsConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="seguridad" Class="SqlDomainURLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CORRSF71BD01;Initial Catalog=seguridad;Persist Security Info=True;User ID=ReseteadorWeb" SettingsObjectName="Fwk.Security.Properties.Settings" SettingsPropertyName="seguridadConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DomainsUrl" Member="DomainsUrls">
     <Type Name="DomainsUrl">
       <Column Name="DomainID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DomainName" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
       <Column Name="LDAPPath" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Usr" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Pwd" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Usr" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Pwd" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="DomainDN" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
       <Column Name="SiteName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="DomainsUrl_DomainsUrl" Member="DomainsUrl2" ThisKey="DomainID" OtherKey="DomainID" Type="DomainsUrl" Cardinality="One" />

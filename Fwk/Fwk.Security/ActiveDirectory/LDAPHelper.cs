@@ -73,7 +73,7 @@ namespace Fwk.Security.ActiveDirectory
             //LoadControllersFromDatabase( pConnString);
 
 
-            _DomainUrlInfo = DomainsUrl_Get(System.Configuration.ConfigurationManager.ConnectionStrings[connStringName].ConnectionString, domainName);// _DomainUrlInfoList.First<DomainUrlInfo>(p => p.DomainName == domainName);
+            _DomainUrlInfo = DomainsUrl_Get_FromSp(connStringName, domainName);// _DomainUrlInfoList.First<DomainUrlInfo>(p => p.DomainName == domainName);
             if (_DomainUrlInfo == null)
             {
                 throw new Fwk.Exceptions.TechnicalException("No se encontró la información del dominio especificado");

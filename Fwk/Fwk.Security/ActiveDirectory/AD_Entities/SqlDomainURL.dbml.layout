@@ -2,17 +2,17 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SqlDomainURL">
   <DataContextMoniker Name="/SqlDomainURLDataContext" />
   <nestedChildShapes>
-    <classShape Id="87348cca-b7e1-4250-a50e-288201241479" absoluteBounds="4, 2.25, 2, 1.9178898111979166">
+    <classShape Id="ecd5a5ca-82f2-45ff-ad2e-72c925ad6cf5" absoluteBounds="0.875, 2.625, 2, 2.1554996744791666">
       <DataClassMoniker Name="/SqlDomainURLDataContext/DomainsUrl" />
       <nestedChildShapes>
-        <elementListCompartment Id="0afa589e-3e3a-437c-b840-fd1573071220" absoluteBounds="4.015, 2.71, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4b0733ca-b119-49cd-be60-784096213987" absoluteBounds="0.89, 3.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.7079043738732 : 4.16788981119792); (4.7079043738732 : 4.41788981119792); (5.30600494165665 : 4.41788981119792); (5.30600494165665 : 4.16788981119792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.58423076923077 : 4.78049967447917); (1.58423076923077 : 5.03049967447917); (2.17961538461538 : 5.03049967447917); (2.17961538461538 : 4.78049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SqlDomainURLDataContext/DomainsUrl/DomainsUrl_DomainsUrl" />
       <nodes>
-        <classShapeMoniker Id="87348cca-b7e1-4250-a50e-288201241479" />
-        <classShapeMoniker Id="87348cca-b7e1-4250-a50e-288201241479" />
+        <classShapeMoniker Id="ecd5a5ca-82f2-45ff-ad2e-72c925ad6cf5" />
+        <classShapeMoniker Id="ecd5a5ca-82f2-45ff-ad2e-72c925ad6cf5" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

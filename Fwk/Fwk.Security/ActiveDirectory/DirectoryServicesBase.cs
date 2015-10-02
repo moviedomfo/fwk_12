@@ -185,23 +185,23 @@ namespace Fwk.Security.ActiveDirectory
         /// <returns>Lista de DomainsUrl</returns>
         public static List<DomainUrlInfo> DomainsUrl_GetList2(string cnnString)
         {
+            DomainUrlInfo wDomainUrlInfo = null;
+            List<DomainUrlInfo> wDomainUrlInfoList = new List<DomainUrlInfo>();
             try
             {
                 using (SqlDomainURLDataContext dc = new SqlDomainURLDataContext(cnnString))
                 {
-                    IEnumerable<DomainUrlInfo> list = from s in dc.DomainsUrls
-                                                      select
-                                                          new DomainUrlInfo
-                                                          {
-                                                              DomainName = s.DomainName,
-                                                              LDAPPath = s.LDAPPath,
-                                                              Usr = s.Usr,
-                                                              Pwd = s.Pwd,
-                                                              Id = s.DomainID,
-                                                              SiteName = s.SiteName,
-                                                              DomainDN = s.DomainDN
-                                                          };
-                    return list.ToList<DomainUrlInfo>();
+                    IEnumerable<DomainUrlInfo> liste = from s in dc.DomainsUrls
+                                                select new DomainUrlInfo
+                                                    {
+                                                        DomainName = s.DomainName,
+                                                        LDAPPath = s.LDAPPath,
+                                                        Id = s.DomainID,
+                                                        SiteName = s.SiteName,
+                                                        DomainDN = s.DomainDN
+                                                    };
+
+                    return liste.ToList<DomainUrlInfo>();
                 }
             }
             catch (Exception ex)
@@ -218,36 +218,36 @@ namespace Fwk.Security.ActiveDirectory
         /// <param name="cnnString"></param>
         /// <param name="domainName"></param>
         /// <returns></returns>
-        public static DomainUrlInfo DomainsUrl_Get(string cnnString, string domainName)
-        {
-            try
-            {
-                using (SqlDomainURLDataContext dc = new SqlDomainURLDataContext(cnnString))
-                {
-                    IEnumerable<DomainUrlInfo> list = from s in dc.DomainsUrls
-                                                      where (domainName.Equals(string.Empty) || s.DomainName.Equals(domainName.Trim()))// si domainName en empty no filtra por este
-                                                      select
-                                                          new DomainUrlInfo
-                                                          {
-                                                              DomainName = s.DomainName,
-                                                              LDAPPath = s.LDAPPath,
-                                                              Usr = s.Usr,
-                                                              Pwd = s.Pwd,
-                                                              Id = s.DomainID,
-                                                              SiteName = s.SiteName,
-                                                              DomainDN = s.DomainDN
-                                                          };
-                    return list.FirstOrDefault<DomainUrlInfo>();
-                }
-            }
-            catch (Exception ex)
-            {
-                Fwk.Exceptions.TechnicalException te = new Fwk.Exceptions.TechnicalException("Error al intentar obtener la lista de dominios desde la base de datos: ", ex);
-                LDAPHelper.SetError(te);
-                te.ErrorId = "15004";
-                throw te;
-            }
-        }
+        //public static DomainUrlInfo DomainsUrl_Get(string cnnString, string domainName)
+        //{
+        //    try
+        //    {
+        //        using (SqlDomainURLDataContext dc = new SqlDomainURLDataContext(cnnString))
+        //        {
+        //            IEnumerable<DomainUrlInfo> list = from s in dc.DomainsUrls
+        //                                              where (domainName.Equals(string.Empty) || s.DomainName.Equals(domainName.Trim()))// si domainName en empty no filtra por este
+        //                                              select
+        //                                                  new DomainUrlInfo
+        //                                                  {
+        //                                                      DomainName = s.DomainName,
+        //                                                      LDAPPath = s.LDAPPath,
+        //                                                      Usr = s.Usr,
+        //                                                      Pwd = s.Pwd,
+        //                                                      Id = s.DomainID,
+        //                                                      SiteName = s.SiteName,
+        //                                                      DomainDN = s.DomainDN
+        //                                                  };
+        //            return list.FirstOrDefault<DomainUrlInfo>();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Fwk.Exceptions.TechnicalException te = new Fwk.Exceptions.TechnicalException("Error al intentar obtener la lista de dominios desde la base de datos: ", ex);
+        //        LDAPHelper.SetError(te);
+        //        te.ErrorId = "15004";
+        //        throw te;
+        //    }
+        //}
 
         /// <summary>
         /// Retorna DolmainUrl por medio de un sp usp_GetDomainsUrl_ByDomainName que lee de bd encriptada
@@ -259,15 +259,15 @@ namespace Fwk.Security.ActiveDirectory
         {
             String wApplicationId = String.Empty;
             Database dataBase = null;
-            DbCommand wCmd = null;
+            DbCommand cmd = null;
             DomainUrlInfo wDomainUrlInfo = null;
             try
             {
                 dataBase = DatabaseFactory.CreateDatabase(cnnStringName);
-               DbCommand cmd = dataBase.GetStoredProcCommand("dbo.usp_GetDomainsUrl_ByDomainName");
+                 cmd = dataBase.GetStoredProcCommand("dbo.usp_GetDomainsUrl_ByDomainName");
 
                 // ApplicationName
-                dataBase.AddInParameter(wCmd, "pDomainName", System.Data.DbType.String, domainName);
+                 dataBase.AddInParameter(cmd, "pDomainName", System.Data.DbType.String, domainName);
 
 
 
@@ -278,7 +278,9 @@ namespace Fwk.Security.ActiveDirectory
                         wDomainUrlInfo = new DomainUrlInfo();
                         wDomainUrlInfo.DomainDN = dr["DomainDN"].ToString();
                         wDomainUrlInfo.DomainName = dr["DomainName"].ToString();
+              
                         wDomainUrlInfo.LDAPPath = dr["LDAPPath"].ToString();
+                         
                         wDomainUrlInfo.Pwd = dr["Pwd"].ToString();
                         wDomainUrlInfo.SiteName = dr["SiteName"].ToString();
                         wDomainUrlInfo.Usr = dr["Usr"].ToString();

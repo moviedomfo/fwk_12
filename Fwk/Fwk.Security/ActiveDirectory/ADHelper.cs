@@ -62,7 +62,7 @@ namespace Fwk.Security.ActiveDirectory
         private void Init(string domainName, string cnnStringName,bool performWindowsContextImpersonalization)
         {
 
-            DomainUrlInfo domainUrlInfo = DomainsUrl_Get(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString, domainName);
+            DomainUrlInfo domainUrlInfo = DomainsUrl_Get_FromSp(cnnStringName, domainName);
 
             if (domainUrlInfo == null)
                 throw new Fwk.Exceptions.TechnicalException("No se encontró la información del dominio especificado");
