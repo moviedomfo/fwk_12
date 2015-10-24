@@ -1,0 +1,315 @@
+
+<ServiceConfigurationCollection>
+  <ServiceConfiguration name="GetFwkConfigurationService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2012-01-26T16:35:17.7223497-03:00</CreatedDateTime>
+    <Description />
+    <Handler>Fwk.Configuration.SVC.GetFwkConfigurationService, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Configuration.ISVC.GetFwkConfigurationReq, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Configuration.ISVC.GetFwkConfigurationRes, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchParamsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-04-29T12:42:51.6027596-03:00</CreatedDateTime>
+    <Handler>Fwk.Params.Svc.SearchParamsService, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Params.Isvc.SearchParams.SearchParamsReq, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Params.Isvc.SearchParams.SearchParamsRes, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId>Framework</ApplicationId>
+  </ServiceConfiguration>
+ 
+  <ServiceConfiguration name="ValidateUserExistService">
+    <CreatedUserName>pelsoft</CreatedUserName>
+    <CreatedDateTime>2012-04-06T12:35:47.0558685-03:00</CreatedDateTime>
+    <Description>Este servicio permite realizar validación de si un usuario existe en una base de datos ASPNetMembership</Description>
+    <Handler>Fwk.Security.SVC.ValidateUserExistService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.ValidateUserExist.ValidateUserExistReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.ValidateUserExist.ValidateUserExistRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:37:17.4190292-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateRulesCategory.CreateRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateRulesCategory.CreateRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRoleService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:37:26.66897-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.DeleteRoleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.DeleteRole.DeleteRoleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.DeleteRole.DeleteRoleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:37:39.7001366-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.UpdateRulesService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.UpdateRules.UpdateRulesReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.UpdateRules.UpdateRulesRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserInfoByParamsService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:38:36.4185236-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.GetUserInfoByParamsService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.GetUserInfoByParams.GetUserInfoByParamsReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.GetUserInfoByParams.GetUserInfoByParamsRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:38:43.5903527-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllRulesCategory.SearchAllRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllRulesCategory.SearchAllRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:39:13.230788-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.UpdateRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.UpdateRulesCategory.UpdateRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.UpdateRulesCategory.UpdateRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllRulesService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:39:28.9494374-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllRulesService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllRules.SearchAllRulesReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllRules.SearchAllRulesRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:39:39.2462465-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.DeleteRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.DeleteRulesCategory.DeleteRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.DeleteRulesCategory.DeleteRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AssignRolesToUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:02.2617242-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.AssignRolesToUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.AssignRolesToUser.AssignRolesToUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.AssignRolesToUser.AssignRolesToUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllUsersService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:16.824131-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllUsersService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllUsers.SearchAllUsersReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllUsers.SearchAllUsersRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRolesForUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:23.3397143-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchRolesForUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchRolesForUser.SearchRolesForUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchRolesForUser.SearchRolesForUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRoleService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:29.6990486-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateRoleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateRole.CreateRoleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateRole.CreateRoleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:38.0583701-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.UpdateUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.UpdateUser.UpdateUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.UpdateUser.UpdateUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ResetUserPasswordService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-21T10:38:45.4634864-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.ResetUserPasswordService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.ResetUserPassword.ResetUserPasswordReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.ResetUserPassword.ResetUserPasswordRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRulesCategoryByParamService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:45.6676964-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchRulesCategoryByParamService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchRulesCategoryByParam.SearchRulesCategoryByParamReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchRulesCategoryByParam.SearchRulesCategoryByParamRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RemoveUserFromRoleService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:52.5270275-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.RemoveUserFromRoleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.RemoveUserFromRole.RemoveUserFromRoleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.RemoveUserFromRole.RemoveUserFromRoleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AuthenticateUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:00.9800984-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.AuthenticateUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.AuthenticateUser.AuthenticateUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.AuthenticateUser.AuthenticateUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:07.2613082-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateUsers.CreateUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateUsers.CreateUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllRolesService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:25.9799384-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllRolesService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllRoles.SearchAllRolesReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllRoles.SearchAllRolesRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchDomainsUrlsService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:36.9017435-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchDomainsUrlsService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchDomainsUrls.SearchDomainsUrlsRequest, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchDomainsUrls.SearchDomainsUrlsResponse, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRuleService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2013-07-29T09:29:13.2634374-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateRuleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateRules.CreateRuleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateRules.CreateRuleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId>Framework</ApplicationId>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteParametroService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2013-07-29T09:29:58.2980132-03:00</CreatedDateTime>
+    <Handler>Fwk.Params.Svc.DeleteParametroService, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Params.Isvc.DeleteParam.DeleteParamReq, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Params.Isvc.DeleteParam.DeleteParamRes, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId>Framework</ApplicationId>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateParametroService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2013-07-29T09:30:07.961566-03:00</CreatedDateTime>
+    <Handler>Fwk.Params.Svc.CreateParametroService, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Params.Isvc.CreateParam.CreateParamReq, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Params.Isvc.CreateParam.CreateParamRes, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId>Framework</ApplicationId>
+  </ServiceConfiguration>
+</ServiceConfigurationCollection>

@@ -204,7 +204,7 @@
             this.btnDecrypt.TabIndex = 19;
             this.btnDecrypt.Text = "Decrypt text";
             this.btnDecrypt.UseVisualStyleBackColor = true;
-            this.btnDecrypt.Click += new System.EventHandler(this.button1_Click);
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // label10
             // 

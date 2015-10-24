@@ -19,8 +19,7 @@ namespace Fwk.Cryptography.Test
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-
-            //txtOut.Text = SymetricCypherFactory.Cypher(txtIn.Text);
+            txtOut.Text = SymetricCypherFactory.Cypher().Encrypt(txtIn.Text);
         }
 
         private void txtOut_TextChanged(object sender, EventArgs e)
@@ -28,12 +27,11 @@ namespace Fwk.Cryptography.Test
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            
-            
+        
 
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            txtDecryptedText.Text = SymetricCypherFactory.Cypher().Dencrypt(txtOut.Text);
         }
     }
 }
