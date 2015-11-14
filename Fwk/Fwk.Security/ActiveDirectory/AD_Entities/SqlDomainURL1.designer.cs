@@ -35,11 +35,11 @@ namespace Fwk.Security.ActiveDirectory.AD_Entities
     partial void DeleteDomainsUrl(DomainsUrl instance);
     #endregion
 		
-		public SqlDomainURLDataContext() : 
-				base(global::Fwk.Security.Properties.Settings.Default.seguridadConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
+        //public SqlDomainURLDataContext() : 
+        //        base(global::Fwk.Security.Properties.Settings.Default.seguridadConnectionString, mappingSource)
+        //{
+        //    OnCreated();
+        //}
 		
 		public SqlDomainURLDataContext(string connection) : 
 				base(connection, mappingSource)
