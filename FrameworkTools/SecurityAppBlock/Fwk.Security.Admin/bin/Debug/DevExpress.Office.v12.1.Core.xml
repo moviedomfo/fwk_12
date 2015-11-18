@@ -1,0 +1,1624 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Office.v12.1.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.XtraRichEdit.DocumentLayoutUnit">
+
+            <summary>
+                <para>Lists measurement units used for the document layout.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentLayoutUnit.Document">
+            <summary>
+                <para>Specifies documents (one three-hundredths of an inch) as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel">
+            <summary>
+                <para>Specifies pixels as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentLayoutUnit.Twip">
+            <summary>
+                <para>Specifies twips (1,440 twips equal one inch, and 567 twips equal one centimeter) as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Import.IImporterOptions">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Office.Import.IImporterOptions.SourceUri">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Export.IExporterOptions">
+
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Office.Export.IExporterOptions.TargetUri">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="T:DevExpress.Office.Utils.Units">
+
+            <summary>
+                <para>Helper class with static methods used for unit conversion.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.CentimetersToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from centimeters to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> centimeter value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.CentimetersToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from centimeters to twips. Returns the converted measurement as a <see cref="T:System.Single"/>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> value measured in centimeters to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToCentimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to centimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to centimeters.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToEmu(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to EMUs (English Metric Unit).
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in documents.
+
+            </param>
+            <returns>An integer that is the value in EMUs.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfInch(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from documents to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> values in documents to be converted to hundredths of an inch.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfInch(System.Int32)">
+            <summary>
+                <para>ACVConverts a measurement from documents to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfMillimeter(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToHundredthsOfMillimeter(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from documents to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in documents to be converted to hundredths of a millimeter.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToInchesF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to inches. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to inches.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToMillimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to millimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to millimeters.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPicasF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to picas. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to picas.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from documents to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Point"/> with values in documents, to be converted to pixels.
+
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.RectangleF,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from documents to pixels.
+
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in documents, to be converted to pixels.
+
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		 A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts rectangle coordinates from documents to pixels.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.RectangleF"/> structure with values in documents, to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure composed of four floating-point numbers that represent the location and size of a rectangle.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="val">
+		 [To be supplied] 
+            </param>
+            <param name="dpiX">
+		 [To be supplied] 
+            </param>
+            <param name="dpiY">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPixelsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to pixels. Returns the converted measurement as a <see cref="T:System.Double"/>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Double"/> centimeters value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Double"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPoints(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to points. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to points.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> documents value to be converted to points.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToPointsFRound(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to points and rounds the result. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> documents value to be converted to points.
+
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Drawing.RectangleF)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.RectangleF"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwips(System.Drawing.Rectangle)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> value measured in documents to be converted to twips.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.DocumentsToTwipsL(System.Int64)">
+            <summary>
+                <para>Converts measurements from 64-bit signed integers to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Int64"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Int64"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to documents.
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in EMUs.
+
+            </param>
+            <returns>An integer that is the value in documents.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.EmuToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from EMUs (English Metric Unit) to twips.
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in EMUs.
+
+            </param>
+            <returns>An integer that is the value in twips.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from hundredths of an inch to documents.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of an inch to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of an inch to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of an inch value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from hundredths of an inch to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of an inch to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfInchToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of an inch to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of an inch value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of millimeter value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to documents.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToDocumentsRound(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to documents and rounds them to the nearest whole value.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of a millimeter value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		The dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of millimeter value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.HundredthsOfMillimeterToTwipsRound(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from hundredths of a millimeter to twips and rounds them to the whole number nearest to the twip value.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.InchesToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> inches value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.InchesToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> inches value to be converted to points.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.InchesToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> inches value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> millimeters value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToPoints(System.Int32)">
+            <summary>
+                <para>Converts a measurement from millimeters to points. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Integer</b> millimeters value to be converted to points.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		A <b>Single</b> value in millimeters to be converted to points.
+
+            </param>
+            <returns>A <b>Single</b> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.MillimetersToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> millimeters value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PicasToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from picas to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> picas value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PicasToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from picas to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> picas value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to documents.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> structure in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.RectangleF,System.Single,System.Single)">
+            <summary>
+                <para>Converts rectangle coordinates from pixels to documents.
+</para>
+            </summary>
+            <param name="rect">
+		A <see cref="T:System.Drawing.RectangleF"/> structure with values in pixels, to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure composed of four floating-point numbers that represent the location and size of a rectangle.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from pixels to documents.
+</para>
+            </summary>
+            <param name="rect">
+		The <see cref="T:System.Drawing.Rectangle"/> with measurements in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 [To be supplied] 
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Double,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocuments(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from pixels to documents.
+</para>
+            </summary>
+            <param name="point">
+		The <see cref="T:System.Drawing.Point"/> to be converted from pixels to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocumentsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToDocumentsRound(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to documents and rounds them to the nearest whole number.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> structure in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfInch(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of an inch.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfInch(System.Drawing.Size,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to hundredths of an inch.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfMillimeter(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to hundredths of a millimeter. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of a millimeter.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToHundredthsOfMillimeter(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to hundredths of a millimeter.
+
+            </param>
+            <param name="dpiX">
+		A dpi value to be used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value to be used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToPoints(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to points.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToPointsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to points.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwips(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from pixels to twips.
+</para>
+            </summary>
+            <param name="rect">
+		The <see cref="T:System.Drawing.Rectangle"/> with measurements in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		 [To be supplied] 
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwips(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to twips.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to twips.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwips(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of a millimeter,
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwipsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwipsL(System.Int64,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to twips. Returns the converted measurement as an <b>Int64</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b><see cref="T:System.Int64"/></b> pixels value to be converted to twips.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>An <b><see cref="T:System.Int64"/></b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PixelsToTwipsRound(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to twips and rounds their values to the nearest whole number.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to twips.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type to be used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from points to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> points value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from points to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> points value to be converted to documents.
+
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from points to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Integer</b> points value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.PointsToTwipsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from points to twips. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> points value to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToCentimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to centimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to centimeters.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocumentF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> twips value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from twips to documents.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.Size"/> structure with values in twips to be converted to documents.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Drawing.RectangleF)">
+            <summary>
+                <para>Converts rectangle coordinates from twips to documents.
+</para>
+            </summary>
+            <param name="val">
+		A <see cref="T:System.Drawing.RectangleF"/> structure with values in twips, to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.RectangleF"/> structure composed of four floating-point numbers that represent the location and size of a rectangle.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocuments(System.Drawing.Rectangle)">
+            <summary>
+                <para>Converts a rectangle from documents to twips.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in twips, to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToDocumentsL(System.Int64)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as an <b>Int64</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Int64"/> twips value to be converted to documents.
+
+            </param>
+            <returns>An <see cref="T:System.Int64"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToEmu(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to EMUs (English Metric Unit).
+</para>
+            </summary>
+            <param name="val">
+		An integer that is the value in twips.
+
+            </param>
+            <returns>An integer that is the value in EMUs.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToHundredthsOfInch(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> twips value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToHundredthsOfInch(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements in the Size structure from twips to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> values in twips to be converted to hundredths of an inch.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToHundredthsOfMillimeter(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from twips to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in twips to be converted to hundredths of a millimeter.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToInchesF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to inches. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to inches.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToMillimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to millimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <see cref="T:System.Single"/> twips value to be converted to millimeters.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from twips to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Point"/> with values in twips, to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from twips to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in twips, to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="val">
+		 [To be supplied] 
+            </param>
+            <param name="dpiX">
+		 [To be supplied] 
+            </param>
+            <param name="dpiY">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixelsF(System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to pixels. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value of the <see cref="T:System.Single"/> type used for conversion.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPixelsL(System.Int64,System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to pixels. Returns the converted measurement as an <b>Int64</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Int64"/> twips value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		The <see cref="T:System.Int64"/> twips value to be converted to pixels.
+
+
+            </param>
+            <returns>An <see cref="T:System.Int64"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to points.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Office.Utils.Units.TwipsToPointsFRound(System.Single)">
+            <summary>
+                <para>Converts a measurement from twips to points and rounds the result. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Single"/> twips value to be converted to points.
+
+            </param>
+            <returns>A <see cref="T:System.Single"/> value.
+</returns>
+
+
+        </member>
+    </members>
+</doc>

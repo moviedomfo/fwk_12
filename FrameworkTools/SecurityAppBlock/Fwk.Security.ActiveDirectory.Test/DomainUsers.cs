@@ -17,7 +17,7 @@ namespace Fwk.Security.ActiveDirectory.Test
     public partial class DomainUsers : UserControl
     {
 
-        ADHelper _ADHelper;
+        ADWrapper _ADHelper;
         public event ObjectDomainChangeHandler ObjectDomainChangeEvent;
         public event ObjectDomainDoubleClickHandler ObjectDomainDoubleClickEvent;
         void OnObjectDomainChange()

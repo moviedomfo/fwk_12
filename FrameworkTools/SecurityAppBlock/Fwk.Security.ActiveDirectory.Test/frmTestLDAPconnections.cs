@@ -13,7 +13,7 @@ namespace Fwk.Security.ActiveDirectory.Test
 {
     public partial class frmTestLDAPconnections : Form
     {
-        ADHelper _ADHelper;
+        ADWrapper _ADHelper;
         public frmTestLDAPconnections()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text = string.Empty;
             try
             {
-                _ADHelper = new ADHelper(txtPath.Text, txtLoginName.Text, txtPassword.Text);
+                _ADHelper = new ADWrapper(txtPath.Text, txtLoginName.Text, txtPassword.Text);
                 lstDomains.DataSource = _ADHelper.Domain_GetList1();
 
                
@@ -45,7 +45,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text =  string.Empty;
             try
             {
-                _ADHelper = new ADHelper(txtPath2.Text, txtLoginName.Text, txtPassword.Text);
+                _ADHelper = new ADWrapper(txtPath2.Text, txtLoginName.Text, txtPassword.Text);
                 lstDomains.DataSource = _ADHelper.Domain_GetList1();
                 label4.Text = _ADHelper.LDAPPath;
             }
@@ -60,7 +60,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text = string.Empty;
             try
             {
-                _ADHelper = new ADHelper(txtPath3.Text, txtLoginName.Text, txtPassword.Text);
+                _ADHelper = new ADWrapper(txtPath3.Text, txtLoginName.Text, txtPassword.Text);
                 lstDomains.DataSource = _ADHelper.Domain_GetList1();
                 label4.Text = _ADHelper.LDAPPath;
             }

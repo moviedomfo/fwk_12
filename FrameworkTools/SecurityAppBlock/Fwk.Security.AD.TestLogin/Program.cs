@@ -15,7 +15,7 @@ namespace Fwk.Security.AD.TestLogin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmResset());
+            Application.Run(new frmDinamic());
         }
     }
 }

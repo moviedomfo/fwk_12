@@ -502,7 +502,6 @@
     <None Include="Resources\apply_24.png" />
     <None Include="Resources\apply_16.png" />
     <None Include="App_CacheSetting.config" />
-    <None Include="Resources\Thumbs.db" />
     <None Include="Resources\User %28Alt 2%29.png" />
     <None Include="Resources\User.png" />
     <None Include="Resources\Users.png" />

@@ -20,7 +20,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         void Connect()
         {
             ///172.22.12.110
-            ADHelper _ADHelper = new ADHelper("LDAP://PC1.Pelsoft.es/DC=Pelsoft,DC=ar", "moviedo", "xxxxxx");
+            ADWrapper _ADHelper = new ADWrapper("LDAP://PC1.Pelsoft.es/DC=Pelsoft,DC=ar", "moviedo", "xxxxxx");
 
             _ADHelper.User_Get_ByName("moviedo");
 
@@ -31,7 +31,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         private void btnSearchInDomain_Click(object sender, EventArgs e)
         {
 
-            StringCollection str = Fwk.Security.ActiveDirectory.ADHelper.Domain_GetList();
+            StringCollection str = Fwk.Security.ActiveDirectory.ADWrapper.Domain_GetList();
             Connect();
         }
     }

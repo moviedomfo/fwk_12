@@ -9,9 +9,9 @@ namespace Fwk.Security.ActiveDirectory.Test
     {
         //static Fwk.Bases.SingletonFactory<ADHelper> factory = null;
 
-        static ADHelper _ADHelper;
+        static ADWrapper _ADHelper;
 
-        internal static ADHelper ADHelper
+        internal static ADWrapper ADHelper
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         internal static void LoadDomain(string domainName)
         {
 
-            _ADHelper = new ADHelper(domainName, "SqlServices");
+            _ADHelper = new ADWrapper(domainName, "SqlServices");
 
         }
     }

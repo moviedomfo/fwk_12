@@ -14,19 +14,25 @@ using System.Reflection;
 using Fwk.Security.Properties;
 namespace Fwk.Security.ActiveDirectory
 {
-
+    public class ImpersonateLogin
+    {
+        public string user{get;set;}
+        public string password { get; set; }
+        public string domain{get;set;}
+        public string ldap{get;set;}
+    }
     /// <summary>
     /// Wrapper de Active Directory con funcionalidades para interactuar contra un controlador de dominio .-
     /// 
     /// </summary>
-    public class ADHelper : DirectoryServicesBase, IDirectoryService,IDisposable
+    public class ADWrapper : DirectoryServicesBase, IDirectoryService,IDisposable
     {  Impersonation objImp ; 
          
         #region Constructors
         /// <summary>
         /// 
         /// </summary>
-         ~ADHelper()
+         ~ADWrapper()
         {
             UnImpersonateWindowsContext();
         }
@@ -35,9 +41,23 @@ namespace Fwk.Security.ActiveDirectory
          /// 
          /// </summary>
          /// <param name="domainName"></param>
+         /// <param name="impersonateLogin">Impersobaliza con windows context impersonation.    usando usuario y clave LDAP</param>
+         public ADWrapper(string domainName,  ImpersonateLogin impersonateLogin)
+         {
+
+             _LDAPPath = impersonateLogin.ldap;
+             _LDAPUser = impersonateLogin.user;
+             _LDAPPassword = impersonateLogin.password;
+             _LDAPDomainName = impersonateLogin.domain;
+             Init_withoutdatabase(domainName,  true);
+         }
+		 /// <summary>
+		 /// 
+         /// </summary>
+         /// <param name="domainName"></param>
          /// <param name="cnnStringName"></param>
          /// <param name="performWindowsContextImpersonalization"></param>
-         public ADHelper(string domainName, string cnnStringName, bool performWindowsContextImpersonalization)
+         public ADWrapper(string domainName, string cnnStringName, bool performWindowsContextImpersonalization)
          {
              Init(domainName, cnnStringName,performWindowsContextImpersonalization);
          }
@@ -52,16 +72,50 @@ namespace Fwk.Security.ActiveDirectory
         /// </summary>
         /// <param name="domainName"></param>
         /// <param name="cnnStringName"></param>
-        public ADHelper(string domainName, string cnnStringName)
+        public ADWrapper(string domainName, string cnnStringName)
         {
 
             Init(domainName, cnnStringName,false);
 
         }
 
-        private void Init(string domainName, string cnnStringName,bool performWindowsContextImpersonalization)
+        /// <summary>
+        /// Inicializa sin ir a la bd para buscar los datos de usuario reseteador 
+        /// _LDAPPath, _LDAPUser, _LDAPPassword deben previamente estar cargados 
+        /// </summary>
+        /// <param name="domainName"></param>
+        /// <param name="performWindowsContextImpersonalization"></param>
+        private void Init_withoutdatabase(string domainName, bool performWindowsContextImpersonalization)
         {
 
+
+            if (performWindowsContextImpersonalization)
+                ImpersonateWindowsContext();
+
+            try
+            {
+                _directoryEntrySearchRoot = new DirectoryEntry(_LDAPPath, _LDAPUser, _LDAPPassword, AuthenticationTypes.Secure);
+
+                _LDAPDomain = GetValue(GetProperty(_directoryEntrySearchRoot, ADProperties.DISTINGUISHEDNAME), "DC");
+            }
+            catch (TechnicalException e)// Cuando el usuario no existe o clave erronea
+            {
+                Exception te1 = ProcessActiveDirectoryException(e);
+                TechnicalException te = new TechnicalException(string.Format(Resource.AD_Impersonation_Error, te1.Message), te1.InnerException);
+                ExceptionHelper.SetTechnicalException<ADWrapper>(te);
+                te.ErrorId = "4103";
+                throw te;
+            }
+        }
+
+        /// <summary>
+        /// Inicializa buscando la info de cada dominio en la bd
+        /// </summary>
+        /// <param name="domainName"></param>
+        /// <param name="cnnStringName"></param>
+        /// <param name="performWindowsContextImpersonalization"></param>
+        private void Init(string domainName, string cnnStringName,bool performWindowsContextImpersonalization)
+        {
             DomainUrlInfo domainUrlInfo = DomainsUrl_Get_FromSp(cnnStringName, domainName);
 
             if (domainUrlInfo == null)
@@ -73,7 +127,6 @@ namespace Fwk.Security.ActiveDirectory
             _LDAPDomainName = domainName;
             domainUrlInfo = null;
             
-
             if (performWindowsContextImpersonalization)
                 ImpersonateWindowsContext();
             
@@ -87,7 +140,7 @@ namespace Fwk.Security.ActiveDirectory
             {
                 Exception te1 = ProcessActiveDirectoryException(e);
                 TechnicalException te = new TechnicalException(string.Format(Resource.AD_Impersonation_Error, te1.Message), te1.InnerException);
-                ExceptionHelper.SetTechnicalException<ADHelper>(te);
+                ExceptionHelper.SetTechnicalException<ADWrapper>(te);
                 te.ErrorId = "4103";
                 throw te;
             }
@@ -96,10 +149,10 @@ namespace Fwk.Security.ActiveDirectory
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="path">Domain path Ej </param>
+        /// <param name="path">Domain path Ej "LDAP\"</param>
         /// <param name="user">AD admin user</param>
         /// <param name="pwd">password de un usuario con pivilegios suficiente</param>
-        public ADHelper(string path, string user, string pwd)
+        public ADWrapper(string path, string user, string pwd)
         {
             _LDAPPath = path;
             _LDAPUser = FilterOutDomain(user);
@@ -115,7 +168,7 @@ namespace Fwk.Security.ActiveDirectory
             {
                 Exception te1 = ProcessActiveDirectoryException(e);
                 TechnicalException te = new TechnicalException(string.Format(Resource.AD_Impersonation_Error, te1.Message), te1.InnerException);
-                ExceptionHelper.SetTechnicalException<ADHelper>(te);
+                ExceptionHelper.SetTechnicalException<ADWrapper>(te);
                 te.ErrorId = "4103";
                 throw te;
             }
@@ -135,7 +188,7 @@ namespace Fwk.Security.ActiveDirectory
         internal static SearchResult User_Get_Result(string userName, DirectoryEntry root)
         {
             DirectorySearcher deSearch = new DirectorySearcher(root);
-            deSearch.Filter = "(&(objectClass=user)(sAMAccountName=" + ADHelper.FilterOutDomain(userName) + "))";
+            deSearch.Filter = "(&(objectClass=user)(sAMAccountName=" + ADWrapper.FilterOutDomain(userName) + "))";
             deSearch.SearchScope = System.DirectoryServices.SearchScope.Subtree;
             SearchResult rs = deSearch.FindOne();
             deSearch.Dispose();
@@ -165,7 +218,7 @@ namespace Fwk.Security.ActiveDirectory
             }
 
             //PasswordExpired
-            if (ADHelper.GetProperty(result, ADProperties.PWDLASTSET) == "0")
+            if (ADWrapper.GetProperty(result, ADProperties.PWDLASTSET) == "0")
             {
                 loginResult = LoginResult.ERROR_PASSWORD_MUST_CHANGE;
                 return null;
@@ -182,7 +235,7 @@ namespace Fwk.Security.ActiveDirectory
             //Intenta obtener una propiedad para determinar si el usuario se logueo con clave correcta o no.-
             try
             {
-                int userAccountControl = Convert.ToInt32(ADHelper.GetProperty(userDirectoryEntry, ADProperties.USERACCOUNTCONTROL));
+                int userAccountControl = Convert.ToInt32(ADWrapper.GetProperty(userDirectoryEntry, ADProperties.USERACCOUNTCONTROL));
             }
             catch (TechnicalException te)
             {
@@ -495,8 +548,17 @@ namespace Fwk.Security.ActiveDirectory
             {
 
                 userDirectoryEntry = this.User_Get(userName);
-
+                if (userDirectoryEntry == null)
+                {
+                    StringBuilder strErr = new StringBuilder();
+                    strErr.AppendLine(string.Format(Fwk.Security.Properties.Resource.User_NotExist, userName));
+                    strErr.AppendLine(String.Concat("Error Code:", LoginResult.LOGIN_USER_DOESNT_EXIST));
+                    Fwk.Exceptions.TechnicalException te = new Fwk.Exceptions.TechnicalException(strErr.ToString());
+                    ExceptionHelper.SetTechnicalException<ADWrapper>(te);
+                    throw te;
+                }
                 userDirectoryEntry.Invoke("SetPassword", new object[] { password });
+                
                 if (unlockAccount) userDirectoryEntry.Properties["LockOutTime"].Value = 0;
 
                 userDirectoryEntry.Properties["pwdLastSet"].Value = 0;// -1;//must be changed at the next logon.
@@ -829,7 +891,7 @@ namespace Fwk.Security.ActiveDirectory
         {
 
             //Convierte UserAccountControl a la operacion logica
-            int userAccountControl = Convert.ToInt32(ADHelper.GetProperty(de, ADProperties.USERACCOUNTCONTROL));
+            int userAccountControl = Convert.ToInt32(ADWrapper.GetProperty(de, ADProperties.USERACCOUNTCONTROL));
 
             int userAccountControl_Disabled = Convert.ToInt32(ADAccountOptions.UF_ACCOUNTDISABLE);
             int flagExists = userAccountControl & userAccountControl_Disabled;
@@ -858,7 +920,7 @@ namespace Fwk.Security.ActiveDirectory
         public static bool User_IsAccountLockout(DirectoryEntry de)
         {
             //Convierte UserAccountControl a la operacion logica
-            int userAccountControl = Convert.ToInt32(ADHelper.GetProperty(de, ADProperties.USERACCOUNTCONTROL));
+            int userAccountControl = Convert.ToInt32(ADWrapper.GetProperty(de, ADProperties.USERACCOUNTCONTROL));
             int flag = userAccountControl & Convert.ToInt32(ADAccountOptions.UF_LOCKOUT);
             //int flag2 = 528 & Convert.ToInt32(ADAccountOptions.UF_LOCKOUT); -- solo para test
             //if (flag == 0)
@@ -1060,7 +1122,7 @@ namespace Fwk.Security.ActiveDirectory
        internal static Exception ProcessActiveDirectoryException(Exception ex)
         {
             Fwk.Exceptions.TechnicalException te = new Fwk.Exceptions.TechnicalException(ex.Message, ex);
-            ExceptionHelper.SetTechnicalException<ADHelper>(te);
+            ExceptionHelper.SetTechnicalException<ADWrapper>(te);
             switch (ex.GetType().FullName)
             {
                 case "System.Runtime.InteropServices.COMException"://((System.Runtime.InteropServices.COMException)(ex)) "El servidor no es operacional.\r\n"
@@ -1143,11 +1205,11 @@ namespace Fwk.Security.ActiveDirectory
             return slist.ToString();
         }
 
-          /// <summary>
-          /// 
-          /// </summary>
-          /// <param name="memberOf"></param>
-          /// <returns></returns>
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="memberOf"></param>
+       /// <returns></returns>
         public static List<string> GetGroupFromMemberOf(string memberOf)
         {
             int i = 0;

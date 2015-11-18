@@ -93,7 +93,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         internal void Initialize(string path, string user, string pwd)
         {
 
-            StaticAD.ADHelper = new ADHelper(path, user, pwd);
+            StaticAD.ADHelper = new ADWrapper(path, user, pwd);
         }
     }
 }

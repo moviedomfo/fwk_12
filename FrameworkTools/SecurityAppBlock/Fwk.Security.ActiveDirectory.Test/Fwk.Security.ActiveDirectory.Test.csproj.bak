@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F34E7964-2942-4129-9236-4F0B1A4F953E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fwk.Security.ActiveDirectory.Test</RootNamespace>
+    <AssemblyName>Fwk.Security.ActiveDirectory.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fwk.Bases, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Bases.FrontEnd, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DomainUsers.Designer.cs">
+      <DependentUpon>DomainUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestGroups.Designer.cs">
+      <DependentUpon>frmTestGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestLDAPconnections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestLDAPconnections.Designer.cs">
+      <DependentUpon>frmTestLDAPconnections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestLogin.Designer.cs">
+      <DependentUpon>frmTestLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserDetails.Designer.cs">
+      <DependentUpon>frmUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DomainGoups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DomainGoups.Designer.cs">
+      <DependentUpon>DomainGoups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaticAD.cs" />
+    <Compile Include="UserPropertiesUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserPropertiesUpdate.Designer.cs">
+      <DependentUpon>UserPropertiesUpdate.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sitebuild_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled %28142%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SecurityAppBlock.Common.RolList.datasource" />
+    <None Include="Properties\DataSources\SecurityAppBlock.Common.UserByApp.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DomainUsers.resx">
+      <DependentUpon>DomainUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestGroups.resx">
+      <DependentUpon>frmTestGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestLDAPconnections.resx">
+      <DependentUpon>frmTestLDAPconnections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestLogin.resx">
+      <DependentUpon>frmTestLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserDetails.resx">
+      <DependentUpon>frmUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DomainGoups.resx">
+      <DependentUpon>DomainGoups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPropertiesUpdate.resx">
+      <DependentUpon>UserPropertiesUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_find.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TortoiseAdded.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UDDI Server Search 16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fwk_Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UDDI Server Search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\161.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataBase.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Fwk.Security.ActiveDirectory.ADUser.datasource" />
+    <None Include="Properties\DataSources\Fwk.Security.Common.FwkIdentity.datasource" />
+    <None Include="Properties\DataSources\Fwk.Security.Common.ObjectDomainGroup.datasource" />
+    <None Include="Resources\DeleteXP.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\srch_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\System.DirectoryServices.ActiveDirectory.GlobalCatalogCollection.datasource" />
+    <None Include="Resources\contacts_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fwk\Fwk.Security\Fwk.Security.csproj">
+      <Project>{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}</Project>
+      <Name>Fwk.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

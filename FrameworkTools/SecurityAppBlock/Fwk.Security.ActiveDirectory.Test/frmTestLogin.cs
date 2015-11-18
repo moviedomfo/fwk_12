@@ -27,7 +27,7 @@ namespace Fwk.Security.ActiveDirectory.Test
 
         private void frmTestLogin_Load(object sender, EventArgs e)
         {
-            cmbAllDomains.DataSource = ADHelper.Domain_GetList();
+            cmbAllDomains.DataSource = ADWrapper.Domain_GetList();
             cmbAllDomains.SelectedIndex = 0;
         }
 

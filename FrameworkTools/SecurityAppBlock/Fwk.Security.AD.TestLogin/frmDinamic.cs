@@ -26,7 +26,7 @@ namespace Fwk.Security.AD.TestLogin
             init();
         }
 
-        private void btnCheck_Click(object sender, EventArgs e)
+        private void btnAutenticate_Click(object sender, EventArgs e)
         {
 
             lblCheckResult.Clear();
@@ -36,7 +36,7 @@ namespace Fwk.Security.AD.TestLogin
                 if (SetAD(false))
                 {
                     TechnicalException logError = null;
-                    //lblCheckResult.Text = _ADHelper.User_CheckLogin(txtLoginName.Text, txtPassword.Text).ToString();
+                    
                     lblCheckResult.Text = _ADHelper.User_Logon(txtLoginName.Text, txtPassword.Text, out logError).ToString();
 
                     if (logError != null)
@@ -75,7 +75,7 @@ namespace Fwk.Security.AD.TestLogin
 
             try
             {
-                urls = ADHelper.DomainsUrl_GetList("testActiveDirectory");//@"Data Source=SANTANA\SQLEXPRESS;Initial Catalog=Logs;Integrated Security=True");
+                urls = ADWrapper.DomainsUrl_GetList("testActiveDirectory");//@"Data Source=SANTANA\SQLEXPRESS;Initial Catalog=Logs;Integrated Security=True");
                 domainUrlInfoBindingSource.DataSource = urls;
                 cmbDomains.SelectedIndex = 1;
 
@@ -84,7 +84,7 @@ namespace Fwk.Security.AD.TestLogin
             catch (Exception ex)
             {
                 lblCheckResult.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
-                btnCheck.Enabled = false;
+                btnAutenticate.Enabled = false;
             }
           
 

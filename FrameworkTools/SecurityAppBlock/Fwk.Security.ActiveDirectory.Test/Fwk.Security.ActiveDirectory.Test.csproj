@@ -111,6 +111,12 @@
     <Compile Include="DomainUsers.Designer.cs">
       <DependentUpon>DomainUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResetPassword.Designer.cs">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DomainUsers.resx">
       <DependentUpon>DomainUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResetPassword.resx">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>

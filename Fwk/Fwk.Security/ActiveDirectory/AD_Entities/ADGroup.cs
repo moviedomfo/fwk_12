@@ -141,18 +141,18 @@ namespace Fwk.Security.ActiveDirectory
 
             String domainAddress;
           
-            String userPrincipalName = ADHelper.GetProperty(directoryGroup, ADProperties.USERPRINCIPALNAME);
+            String userPrincipalName = ADWrapper.GetProperty(directoryGroup, ADProperties.USERPRINCIPALNAME);
 
        
-            _Name = ADHelper.GetProperty(directoryGroup, ADProperties.NAME);
+            _Name = ADWrapper.GetProperty(directoryGroup, ADProperties.NAME);
 
-            _DistinguishedName = ADHelper.GetProperty(directoryGroup, ADProperties.DISTINGUISHEDNAME);
+            _DistinguishedName = ADWrapper.GetProperty(directoryGroup, ADProperties.DISTINGUISHEDNAME);
 
-            _Description = ADHelper.GetProperty(directoryGroup, ADProperties.DESCRIPTION);
+            _Description = ADWrapper.GetProperty(directoryGroup, ADProperties.DESCRIPTION);
 
-            _FirstName = ADHelper.GetProperty(directoryGroup, ADProperties.LOGINNAME);
-            _Category = ADHelper.GetProperty(directoryGroup, ADProperties.OBJECTCATEGORY);
-            _CN = ADHelper.GetProperty(directoryGroup, ADProperties.CONTAINERNAME);
+            _FirstName = ADWrapper.GetProperty(directoryGroup, ADProperties.LOGINNAME);
+            _Category = ADWrapper.GetProperty(directoryGroup, ADProperties.OBJECTCATEGORY);
+            _CN = ADWrapper.GetProperty(directoryGroup, ADProperties.CONTAINERNAME);
             if (!string.IsNullOrEmpty(userPrincipalName))
             {
                 domainAddress = userPrincipalName.Split('@')[1];

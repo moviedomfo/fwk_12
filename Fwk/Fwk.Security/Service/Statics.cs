@@ -11,10 +11,10 @@ namespace Fwk.Security
     internal static class StaticsValues
     {
         private static List<DomainUrlInfo> _DomainUrlList;
-        private static Dictionary<string ,ADHelper> _ADHelperDictionary ;
+        private static Dictionary<string ,ADWrapper> _ADHelperDictionary ;
         static StaticsValues()
         {
-            _ADHelperDictionary = new   Dictionary<string,ADHelper>();
+            _ADHelperDictionary = new   Dictionary<string,ADWrapper>();
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Fwk.Security
         {
             if (_DomainUrlList == null)
             {
-                _DomainUrlList = Fwk.Security.ActiveDirectory.ADHelper.DomainsUrl_GetList(string.Empty);
+                _DomainUrlList = Fwk.Security.ActiveDirectory.ADWrapper.DomainsUrl_GetList(string.Empty);
             }
 
             DomainUrlInfo wDomainUrlInfo = _DomainUrlList.Find(p => p.DomainName.Equals(domainName, StringComparison.InvariantCultureIgnoreCase));
@@ -46,7 +46,7 @@ namespace Fwk.Security
         }
 
         /// <summary>
-        /// Busca un objeto <see cref="ADHelper"/> si no lo encuentra intenta crearlo e insertarlo al diccionario.-
+        /// Busca un objeto <see cref="ADWrapper"/> si no lo encuentra intenta crearlo e insertarlo al diccionario.-
         /// La creacion del diccionario se hace para no instanciar cientos de veses la clase ADHelper. ya que esta tarea requiere ,mas uso de CPU que el costo de mantener en memoria 
         /// un diccionario con porcos ADHelper. 
         /// En el mundo reali no existiran gran cantidad de clases ADHelper, pero si muchas quisa cientos de ejecuciones del metodos de autenticacio, q son los que 
@@ -54,13 +54,13 @@ namespace Fwk.Security
         /// </summary>
         /// <param name="domainName">Nombre del dominio</param>
         /// <returns></returns>
-        internal static ADHelper Find_ADHelper(string domainName)
+        internal static ADWrapper Find_ADHelper(string domainName)
         {
             // Si ADHelper no esta en el diccionario lo intenta agregar
             if(_ADHelperDictionary.ContainsKey(domainName) == false)
             {
                 DomainUrlInfo di = StaticsValues.Find_DomainUrlInfo(domainName);
-                ADHelper ad = new Fwk.Security.ActiveDirectory.ADHelper(di.LDAPPath,di.Usr,di.Pwd);
+                ADWrapper ad = new Fwk.Security.ActiveDirectory.ADWrapper(di.LDAPPath,di.Usr,di.Pwd);
                 _ADHelperDictionary.Add(domainName,ad);
                 return ad;
             }

@@ -50,7 +50,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static ActiveDirectoryGroup[] GetGroupsFromUser(string userName, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName);
      
             List<ADGroup> list = ad.User_SearchGroupList(userName);
             ad.Dispose();
@@ -67,7 +67,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static ActiveDirectoryUser[] GetUsersFromGroup(string groupName, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName);
 
             List<ADUser> list = ad.Users_SearchByGroupName(groupName);
 
@@ -85,7 +85,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static bool UserExist(string userName, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
             bool exist= ad.User_Exists(userName);
 
@@ -96,7 +96,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static ActiveDirectoryGroup[] GetGroups(string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
      
             List<ADGroup> list = ad.Groups_GetAll();
 
@@ -116,7 +116,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static void User_Unlock(string userName, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
             
             //ad.User_SetLockedStatus(userName, false);
             ad.User_Unlock(userName);
@@ -126,7 +126,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static void User_Lock(string userName, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
             ad.User_SetLockedStatus(userName,true);
         }
@@ -134,7 +134,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static ActiveDirectoryUser User_Info(string userName, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
           ADUser usr =  ad.User_Get_ByName(userName);
           if (usr != null)
@@ -144,7 +144,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static void User_SetActivation(string userName, bool disabled, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
              ad.User_SetActivation(userName, disabled);
              ad.Dispose();
@@ -152,7 +152,7 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static void User_Reset_Password(string userName, string newPassword, string domain)
         {
-            ADHelper ad = new ADHelper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
             ad.User_ResetPwd(userName, newPassword ,true);
 
@@ -167,7 +167,7 @@ namespace Fwk.CentralizedSecurity.Service
         {
 
 
-            List<DomainUrlInfo> auxlist = ADHelper.DomainsUrl_GetList2(System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString);
+            List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_GetList2(System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString);
 
             if (auxlist.Count != 0)
             {

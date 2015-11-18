@@ -1,0 +1,1791 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fwk.DataBase</name>
+    </assembly>
+    <members>
+        <member name="T:Fwk.DataBase.UserDefinedTypesBack">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.HandlersBase">
+            <summary>
+            Clase base para los metadatos
+            
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.HandlersBase._GetSchemaQuery">
+            <summary>
+            Query para obtener el esquema de una tabla
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.HandlersBase._CnnString">
+            <summary>
+            CAdena de coneccion.-
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.HandlersBase._ServerVersion">
+            <summary>
+            Version de SQL Server
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.HandlersBase.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pCnnString"></param>
+        </member>
+        <member name="M:Fwk.DataBase.HandlersBase.OnAddElementEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.HandlersBase.AddElementEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.UserDefinedTypesBack.#ctor(System.String)">
+            <summary>
+            Constructor 
+            </summary>
+            <param name="pCnnString"></param>
+        </member>
+        <member name="M:Fwk.DataBase.UserDefinedTypesBack.LoadUserDefinedTypes">
+            <summary>
+            Carga los tipos definidos por el usuario
+            </summary>
+            <returns>Tables </returns>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.ConnectionSourceChangeHandler">
+            <summary>
+            Manejador de eventos que enuncian cambios en la coneccion .-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.AceptHandler">
+            <summary>
+            Manejador de eventos Aceptar.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.CancelHandler">
+            <summary>
+            Manejador de eventos Cancel.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.CnnDataBaseForm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.OnCancelEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.OnAceptEvent(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="pConnectionOK"></param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.OnConnectionSourceChangeEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.CnnDataBaseForm.CnnStringChange">
+            <summary>
+            Determina si la cadena de coneccion a cambiado.-
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.CnnDataBaseForm.ConnectionOK">
+            <summary>
+            Indica si la conceccion fue exitosa o no .- 
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.CnnDataBaseForm.ComboDataBasesLoad">
+            <summary>
+            Indica si el combo de BD esta cargado o no.-
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.CnnDataBaseForm.ActualTxtBoxServerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.InitialiceControl">
+            <summary>
+            Establece los valores de los controles que muestran la informacion de coneccions .-
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.CnnDataBaseForm.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.CnnDataBaseForm.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.CnnDataBaseForm._AceptEvent">
+            <summary>
+            Acept event .-
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.CnnDataBaseForm._ConnectionSourceChangeEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.CnnDataBaseForm._CancelEvent">
+            <summary>
+            Cancel vent .-
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.CnnDataBaseForm.CancelEvent">
+            <summary>
+            Se produce cuando se preciona el boton cancelar
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.CnnDataBaseForm.AceptEvent">
+            <summary>
+            Se produce cuando se preciona el boton Aceptar
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.CnnDataBaseForm.ConnectionSourceChangeEvent">
+            <summary>
+            Se produce cuando se preciona el boton ConnectionSourceChangear
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.Connection">
+            <summary>
+            Connection String object
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.TestBottonVisible">
+            <summary>
+            Indica si el boton es visible.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.ButtonsBackColor">
+            <summary>
+            Indica el color de los botones del formulario de coneccion
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.ButtonsFont">
+            <summary>
+            Indica la fuente de los botones del formulario de coneccion
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.ButtonsForeColor">
+            <summary>
+            Indica la fuente de los botones del formulario de coneccion
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.ButtonsFlatStyle">
+            <summary>
+            Especifica la apariencia plana de los botones.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.CnnDataBaseForm.LabelsForeColor">
+            <summary>
+            Especifica el color de las etiquetas (titulos)
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.ConnectionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.ConnectionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.ConnectionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.ConnictionFormComponent.Show">
+            <summary>
+            Muestra el mensaje
+            </summary>
+            <param name="pMessage">Mensaje a mostrar</param>
+            <returns>DialogResult</returns>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.ConnictionFormComponent.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.ConnictionFormComponent.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.ConnictionFormComponent.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.FieldRelationList">
+            <summary>
+            Lista de relaciones entre campos de dos tablas.
+            </summary>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.FieldRelation">
+            <summary>
+            Representa una relación entre dos campos de distintas tablas.
+            </summary>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.FieldRelation.FieldName">
+            <summary>
+            Nombre del campo de relación.
+            </summary>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.FieldRelation.ParentFieldName">
+            <summary>
+            Nombre del campo referenciado.
+            </summary>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.SelectObjectHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.TreeViewBase">
+            <summary>
+            Clase base de los tree view controls
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewBase.OnSelectObjectEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.TreeViewBase.SelectObjectEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.TreeViewHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.OnAddElementEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.LoadTreeView(System.Windows.Forms.TreeView,Fwk.DataBase.DataEntities.Tables)">
+            <summary>
+            Carga el arbol con todas las tablas .- 
+            </summary>
+            <param name="pTreeView">Nodo</param>
+            <param name="pTables">Tablas</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.LoadColumnsNodes(System.Windows.Forms.TreeNode,Fwk.DataBase.DataEntities.Table)">
+            <summary>
+            Carga las coluimnas al nodo pParentNode.-
+            </summary>
+            <param name="pParentNode">Nodo padre </param>
+            <param name="pTable"></param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.LoadTreeView(System.Windows.Forms.TreeView,Fwk.DataBase.DataEntities.StoreProcedures)">
+            <summary>
+            Carga el arbol con todas los Store Procedures .- 
+            </summary>
+            <param name="pTreeView">Nodo</param>
+            <param name="pStoreProcedures">StoreProcedures</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.LoadParameteresNodes(System.Windows.Forms.TreeNode,Fwk.DataBase.DataEntities.StoreProcedure)">
+            <summary>
+            Carga los parametros al nodo pParentNode  (StoreProcedure).-
+            </summary>
+            <param name="pParentNode">Nodo padre </param>
+            <param name="pStoreProcedure">Store Procedure</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.AddChildNode(System.Windows.Forms.TreeNode,System.String,Fwk.DataBase.CustomControls.FieldRelationList)">
+            <summary>
+            Agrega un nodo a un nodo padre con información sobre una tabla relacionada a la que éste representa.
+            </summary>
+            <param name="pParentNode">Nodo padre.</param>
+            <param name="pText">Texto a mostrar.</param>
+            <param name="pRelatedFields">Lista de relaciones entre campos.</param>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.AddChildNode(System.Windows.Forms.TreeNode,System.String)">
+            <summary>
+            Agrega un nodo a un nodo padre con información sobre una tabla relacionada a la que éste representa.
+            </summary>
+            <param name="pParentNode">Nodo padre.</param>
+            <param name="pText">Texto a mostrar.</param>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.UncheckChildNodes(System.Windows.Forms.TreeNode)">
+            <summary>
+            Destilda los nodos hijos de un nodo padre.
+            </summary>
+            <param name="pNode">Nodo padre.</param>
+            <date>2006-04-05T00:00:00</date>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewHelper.HasSelectedNodes(System.Windows.Forms.TreeNode)">
+            <summary>
+            
+            </summary>
+            <param name="ParentNode"></param>
+            <returns></returns>
+        </member>
+        <member name="E:Fwk.DataBase.CustomControls.TreeViewHelper.AddElementEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.TreeViewStoreProcedures">
+            <summary>
+            Control que muestra un arbol con los Store Procedures de la base de datos.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.#ctor">
+            <summary>
+            Construtor TreeViewStoreProcedures .-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.LoadTreeView">
+            <summary>
+            Metodo que permite cargar los StoreProcedures en el arbol.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.GetSelectedStoreProcedures">
+            <summary>
+            Retorna los StoreProcedures seleccionados en el tree view.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.SelectedStoreProcedure">
+            <summary>
+            Indica el StoreProcedure seleccionado en el arbol .-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.SelectedStoreProcedureName">
+            <summary>
+            Indica el nombre de la StoreProcedure seleccionado en el arbol.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.TreeViewStoreProcedures.StoreProcedures">
+            <summary>
+            Conjunto de StoreProcedures en el arbol.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CustomControls.TreeViewTables">
+            <summary>
+            Clase helper de Tree View 
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewTables.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewTables.LoadTreeView">
+            <summary>
+            Metodo que permite cargar las tablas en el arbol.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewTables.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewTables.GetSelectedTables">
+            <summary>
+            Retorna las tablas seleccionadas en el tree view.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Fwk.DataBase.CustomControls.TreeViewTables.components">
+            <summary> 
+            marcelo oviedo
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewTables.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Fwk.DataBase.CustomControls.TreeViewTables.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.TreeViewTables.SelectedTable">
+            <summary>
+            Indica la tabla seleccionada en el arbol .-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.TreeViewTables.SelectedTableName">
+            <summary>
+            Indica el nombre de la tabla seleccionada en el arbol.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CustomControls.TreeViewTables.Tablas">
+            <summary>
+            Conjunto de tablas en el arbol.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataBaseConnections">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseConnections.Clear">
+            <summary>
+            Limpia la lista de conexiones
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseConnections.Save">
+            <summary>
+            Crear in IsolatedStorageFile con la serializacion en binario del diccionario .-
+            Este diccionario contiene el par [NombreArchivo,Ruta]
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseConnections.DeSerializeDictionary(System.IO.FileStream)">
+            <summary>
+            Deserializa: Convierte el stream a una lista de coneciones
+            </summary>
+            <param name="fs"></param>
+            <param name="dict"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseConnections.SerializeDictionary(System.IO.FileStream,Fwk.DataBase.CnnStringList)">
+            <summary>
+            Serializa en binario el la lista de conecciones
+            </summary>
+            <param name="fs"></param>
+            <param name="dict"></param>
+        </member>
+        <member name="P:Fwk.DataBase.DataBaseConnections.Connections">
+            <summary>
+            Contiene las conecciones a bases de datos
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CnnString">
+            <summary>
+            Clase que reprecenta una conexión
+            Data Source=pcpde0369\SQLEXPRESS;Initial Catalog=Gastos;Integrated Security=True
+            Data Source=pcpde0369\SQLEXPRESS;Initial Catalog=Gastos;User ID=sa
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CnnString.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.CnnString.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+            <param name="pConnectionString"></param>
+        </member>
+        <member name="M:Fwk.DataBase.CnnString.ToString">
+            <summary>
+            Retorna la cadena de conexion
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.CnnString.ParceCnnString(System.String)">
+            <summary>
+            Setea los miembros de la clase desde una cadena de conexion
+            </summary>
+            <param name="pConnectionString"></param>
+        </member>
+        <member name="P:Fwk.DataBase.CnnString.WindowsAutentification">
+            <summary>
+            Establece si la conexion admitira autorizacion integrada (true) o no (false)
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CnnString.DataSource">
+            <summary>
+            Nombre de server de datos
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CnnString.User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CnnString.InitialCatalog">
+            <summary>
+            Nombre de la base de datos
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CnnString.Name">
+            <summary>
+            Nombre de la cadena de conexion
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.CnnString.Password">
+            <summary>
+            Password de la cadena de conexion
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.CnnStringList">
+            <summary>
+            Lista de cadenas de conección.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataBaseExeption">
+            <summary>
+            Mnejador de exepciones de Fwk.DataBase
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.DataBaseExeption._Msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseExeption.GetBaseException">
+            <summary>
+            Retorna la exepcion base.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseExeption.#ctor(System.Exception,Fwk.DataBase.CnnString)">
+            <summary>
+            
+            </summary>
+            <param name="pException"></param>
+            <param name="pCnnString"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseExeption.#ctor(System.Exception,Fwk.DataBase.DataBaseExeption.ExeptionsEnums)">
+            <summary>
+            
+            </summary>
+            <param name="pException"></param>
+            <param name="pExeptionsEnums"></param>
+        </member>
+        <member name="P:Fwk.DataBase.DataBaseExeption.CnnString">
+            <summary>
+            Reprecenta si la coneccion usa autentificacion de windows o no.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataBaseExeption.Message">
+            <summary>
+            Mensaje de error.
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataBaseExeption.ExeptionsEnums">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.DataBaseExeption.ExeptionsEnums.CryptographicException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.DataBaseExeption.ExeptionsEnums.FileNotFoundException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fwk.DataBase.DataBaseExeption.ExeptionsEnums.CryptographicFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.IDatabaseObjetcEntities">
+            <summary>
+            Interface de coleccion de tablas y store procedures
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcEntities.GetDatabaseObjetcEntity(System.String)">
+            <summary>
+            Obtienen una Entity determinada en la coleccion de Entities 
+            </summary>
+            <param name="pItemName">Nombre del item a buscar. -</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcEntities.GetDataSet">
+            <summary>
+            Obtine un dataset producto de la serializacion de la clase Tables
+            </summary>
+            <returns>Dataset</returns>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcEntities.GetXml">
+            <summary>
+            Obtine un xml producto de la serializacion de la clase 
+            </summary>
+            <returns>string con el xml de la serializacion</returns>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.IDatabaseObjetcEntity">
+            <summary>
+            Interfece base de una tabla o store procedure 
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcEntity.GetDataSet">
+            <summary>
+            Obtienen un dataset de la Entity
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcEntity.GetXml">
+            <summary>
+            Obtienene un xml que reprecenta la entidad
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcEntity.DatabaseObjetcItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcEntity.Index">
+            <summary>
+            Indice dentro de la coleccion.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcEntity.Name">
+            <summary>
+            Nombre de tabla o store procedure
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.ITable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ITable.IsColumnsLoaded">
+            <summary>
+            Determina si se cargo o no las columnas de la tabla .-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ITable.Owner">
+            <summary>
+            Owner de la tabla.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ITable.PrimaryKeys">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ITable.ClavesForaneas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ITable.Columns">
+            <summary>
+            Columnas de la tabla .-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.IStoreProcedure">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IStoreProcedure.IsParametersLoaded">
+            <summary>
+            Indica si se cargaron las columnas de la tabla
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IStoreProcedure.Owner">
+            <summary>
+            Aplicable solo a store procedure
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IStoreProcedure.Parameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IStoreProcedure.Text">
+            <summary>
+            Texto del store procedure. Aplicable solo a store procedure. 
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.IDatabaseObjetcItems">
+            <summary>
+            Interface de coleccion de tablas y store procedures
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcItems.GetDatabaseObjetcItem(System.String)">
+            <summary>
+            Obtienen una Entity determinada en la coleccion de Entities 
+            </summary>
+            <param name="pItemName">Nombre del item a buscar. -</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcItems.GetDataSet">
+            <summary>
+            Obtine un dataset producto de la serializacion de la clase Tables
+            </summary>
+            <returns>Dataset</returns>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcItems.GetXml">
+            <summary>
+            Obtine un xml producto de la serializacion de la clase.
+            </summary>
+            <returns>string con el xml de la serializacion</returns>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.IDatabaseObjetcItem">
+            <summary>
+            interface base de de parametros o columnas
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.GetXml">
+            <summary>
+            Retorna un xml de la entidad que Implementa IDatabaseObjetcItems
+            </summary>
+            <returns>xml</returns>
+        </member>
+        <member name="M:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.GetDataSet">
+            <summary>
+            Retorna un dataset de la entidad que Implementa IDatabaseObjetcItems
+            </summary>
+            <returns>DataSet</returns>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.DbSqlType">
+            <summary>
+            Tipo de datos  System.Data.SqlDbType del Item (parametro de sp o columna)
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.Length">
+            <summary>
+            Tamaño maximo que soporta el item (parametro de sp o columna)
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.Name">
+            <summary>
+            Nombre del parametro de sp o columna.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.Nullable">
+            <summary>
+            Indica si parametro de sp o columna acepta nulos.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.Selected">
+            <summary>
+            Indica si el parametro de sp o columna de la entidad esta seleccionada o no.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IDatabaseObjetcItem.Type">
+            <summary>
+            Determina un string con el tipo del parametro de sp o columna.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.ISPParameter">
+            <summary>
+            Interfaz para los parametros de un SP.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ISPParameter.ParamOrder">
+            <summary>
+            Orden del parametro en el SP.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ISPParameter.Collation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ISPParameter.Direction">
+            <summary>
+            Indica la direccion del item si es de entrada o salida 
+            Para tablas no proviene de la base dadatos esta informacion .- 
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.ISPParameter.Prec">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Interfaces.IColumn">
+            <summary>
+            Interfaz para las columnas de una tabla.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IColumn.Computed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IColumn.CSharpDataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IColumn.IsIdentity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Interfaces.IColumn.KeyField">
+            <summary>
+            Indica si la columna es una clave .-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.UserDefinedTypes">
+            <summary>
+            Coleccion de tipos de datos de SQL que son deficidos por el usuario
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.UserDefinedTypes.GetUserDefinedType(System.String)">
+            <summary>
+            Obtiene una UserDefinedType de la coleccion de UserDefinedTypes .-
+            </summary>
+            <param name="name">Nombre del tipo definido por el usuario-</param>
+            <returns>UserDefinedType</returns>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.UserDefinedType">
+            <summary>
+            Clase que reprecenta la un tipodefinido por el usuario.- Es un tipo de dato customizado.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.UserDefinedType.#ctor">
+            <summary>
+            Nombre del tipo
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.UserDefinedType.SystemType">
+            <summary>
+            Tipo del sistema que conforma el tiipo de dato definido por el usuario.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.UserDefinedType.Name">
+            <summary>
+            Nombre del tipo definido por el usuario.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.UserDefinedType.Schema">
+            <summary>
+            Esquema al que pertenece el tipo definido por el usuario.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.UserDefinedType.Length">
+            <summary>
+            Largo del tipo definido por el usuario.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.UserDefinedType.NumericPrecision">
+            <summary>
+            Precicion
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.UserDefinedType.Nullable">
+            <summary>
+            indica si este tipo de datos acepta nulos o no.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataBaseServer">
+            <summary>
+            Descripción breve de SetDataBase.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.#ctor">
+            <summary>
+            Constructor que llama InitializeConfig(), el cual Permite leer nuevamente el archivo de configuracion 
+            donde esta el acceso a la BD para recargar la coneccion.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.#ctor(System.Boolean)">
+            <summary>
+            Constructor que llama InitializeConfig(), el cual Permite leer nuevamente el archivo de configuracion 
+            donde esta el acceso a la BD para recargar la coneccion.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.TestConnection">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.TestConnection(Fwk.DataBase.CnnString)">
+            <summary>
+            
+            </summary>
+            <param name="pCnnString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.TestConnection(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="pServerName"></param>
+            <param name="pUserName"></param>
+            <param name="pPassword"></param>
+            <param name="pWindowsAutChecked"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.GetCnnStringToMaster(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="pServerName"></param>
+            <param name="pUserName"></param>
+            <param name="pPassword"></param>
+            <param name="pWindowsAutChecked"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.InitializeConfig">
+            <summary>
+            Permite leer nuevamente el archivo de configuracion donde esta el acceso a la BD para recargar la coneccion.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.SaveSetting(Fwk.DataBase.CnnString)">
+             <summary>
+             Almacena la configuracion con los datos que se pasan como parametros.-
+             </summary>
+             <param name="pCnnString">Coneccion</param>
+            <param name="pAppend">Agrega nuevo elemento</param>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.SaveSetting(System.Boolean)">
+            <summary>
+            Almacena la configuracion cun los datos preceteados en el objeto DataBaseServer;
+            </summary>
+            <param name="pWindowsAutChecked">Determina si la configuracion debe alamacenartce en un App.config o en un archivo xml externo</param>
+        </member>
+        <member name="M:Fwk.DataBase.DataBaseServer.GetDataBases">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.DataBase.DataBaseServer.CnnString">
+            <summary>
+            Cadena de coneccion actual
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataBaseServer.Cnn">
+            <summary>
+            SqlConnection
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Columns">
+            <summary>
+            Contiene las columnas de un objeto Table .-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Columns.GetColumnsFromXml(System.String)">
+            <summary>
+            Metodo estatico que retorna un objeto Columns apartir de un xml.-
+            </summary>
+            <param name="pXml">String con el xml</param>
+            <returns>Columns</returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Columns.GetColumn(System.String)">
+            <summary>
+            Obtiene una columna determinada .- 
+            </summary>
+            <param name="name">Nombre de columna  a buscar.-</param>
+            <returns>Column, retorna null si no la encuentra.-</returns>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Column">
+            <summary>
+            Descripción breve de Campo.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Column.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Column.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pName"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Column.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pName"></param>
+            <param name="pType"></param>
+            <param name="pLength"></param>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Scale">
+            <summary>
+            Scale
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Prec">
+            <summary>
+            Precicion
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Selected">
+            <summary>
+            Selected
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.CSharpDataType">
+            <summary>
+            CSharpDataType
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.IsIdentity">
+            <summary>
+            IsIdentity
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Length">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Type">
+            <summary>
+            Tetorna string DbSqlType
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.DbSqlType">
+            <summary>
+            DbSqlType
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Computed">
+            <summary>
+            Computed
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Nullable">
+            <summary>
+            Nullable
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.KeyField">
+            <summary>
+            Indica si el campo es clave de la tabla que representa la entidad en el repositorio de datos.
+            </summary>
+            <author>Marcelo Oviedo</author>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Column.Autogenerated">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Keys">
+            <summary>
+            Clase que reprecenta las claves de una tabla.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Keys.GetSPParameterFromXml(System.String)">
+            <summary>
+            Metodo estatico que retorna un objeto Keys apartir de un xml.-
+            </summary>
+            <param name="pXml">String con el xml</param>
+            <returns>Keys</returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Keys.GetKey(System.String)">
+            <summary>
+            Obtiene una Key de la coleccion de Keys.-
+            </summary>
+            <param name="name">Nombre de la Index.-</param>
+            <returns>Key</returns>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Key">
+            <summary>
+            Clase que reprecenta una clave de la tabla
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Key.Name">
+            <summary>
+            Nombre de la constrain
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Key.ConstraintName">
+            <summary>
+            Nombre de una restricción -.
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Key.ConstraintType">
+            <summary>
+             Tipo de una restricción -.
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Key.GroupName">
+            <summary>
+            Grupo al que pertenece la clave
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Indexes">
+            <summary>
+            Indexes
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Indexes.GetIndexesFromXml(System.String)">
+            <summary>
+            Metodo estatico que retorna un objeto Indexes apartir de un xml.-
+            </summary>
+            <param name="pXml">String con el xml</param>
+            <returns>SPParameter</returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Indexes.GetIndex(System.String)">
+            <summary>
+            Obtiene un Index de la coleccion de Indexes.-
+            </summary>
+            <param name="name">Nombre del indice.-</param>
+            <returns>Index</returns>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Index">
+            <summary>
+            Descripción breve de ClavePrimaria.
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Index.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Index.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Index.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Index.IndexDescription">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Index.IndexKeys">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.StoreProcedures">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.StoreProcedures.GetStoreProcedureFromXml(System.String)">
+            <summary>
+            Metodo estatico que retorna un objeto StoreProcedure apartir de un xml.-
+            </summary>
+            <param name="pXml">String con el xml</param>
+            <returns>StoreProcedure</returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.StoreProcedures.GetStoreProcedure(System.String)">
+            <summary>
+            Obtienen el StoreProcedure de la coleccion StoreProcedures.-
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Fwk.DataBase.DataEntities.StoreProcedures.IsLoaded">
+            <summary>
+            Indica si StoreProcedure se cargo
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.StoreProcedure">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.StoreProcedure.#ctor">
+            <summary>
+            Costructor.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Schema">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Checked">
+            <summary>
+            Selected
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Index">
+            <summary>
+            Indice del sp.-.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Parameters">
+            <summary>
+            Parametros de entrada y salida del store procedure.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Name">
+            <summary>
+            Nombre store procedure.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Owner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.Text">
+            <summary>
+            Script del store procedure.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.StoreProcedure.IsParametersLoaded">
+            <summary>
+            Determina si se le cargaron los parametros a este store procedure.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.SPParameters">
+            <summary>
+            Parametros de un store procedure.- 
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.SPParameters.GetSPParameterFromXml(System.String)">
+            <summary>
+            Metodo estatico que retorna un objeto SPParameter apartir de un xml.-
+            </summary>
+            <param name="pXml">String con el xml</param>
+            <returns>SPParameter</returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.SPParameters.GetSPParameter(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.SPParameter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.SPParameter.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.SPParameter.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.SPParameter.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+            <param name="pType"></param>
+            <param name="pLength"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.SPParameter.GetDirecction(System.Int32)">
+            <summary>
+            Obtienen la direccione de un parametro 
+            </summary>
+            <param name="pColum_Type">COLUMN_TYPE</param>
+            <returns>System.Data.ParameterDirection ej. Input, Outputm, etc </returns>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Selected">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Index">
+            <summary>
+            Indice del Sp dentro de la coleccion.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Direction">
+            <summary>
+            ParameterDirection
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Length">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.DbSqlType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Prec">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Nullable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.ParamOrder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.SPParameter.Collation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Tables">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Tables.GetTablesFromXml(System.String)">
+            <summary>
+            Metodo estatico que retorna un objeto Tables apartir de un xml.-
+            </summary>
+            <param name="pXml">String con el xml</param>
+            <returns>Tables</returns>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Tables.GetTable(System.String)">
+            <summary>
+            Obtienen una tabla determinada en la coleccion de tablas.-
+            </summary>
+            <param name="name">Nombre de la tabla.-</param>
+            <returns></returns>
+        </member>
+        <member name="F:Fwk.DataBase.DataEntities.Tables.IsLoaded">
+            <summary>
+            Indica si Tables esta cargado.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.DataEntities.Table">
+            <summary>
+            Descripción breve de Tabla.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Table.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Table.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Table.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+            <param name="pOwner"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Table.#ctor(System.String,System.String,Fwk.DataBase.DataEntities.Columns)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+            <param name="pOwner"></param>
+            <param name="pColumns"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Table.#ctor(System.String,System.String,Fwk.DataBase.DataEntities.Columns,Fwk.DataBase.DataEntities.Keys)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+            <param name="pOwner"></param>
+            <param name="pColumns"></param>
+            <param name="pPrimaryKeys"></param>
+        </member>
+        <member name="M:Fwk.DataBase.DataEntities.Table.#ctor(System.String,System.String,Fwk.DataBase.DataEntities.Columns,Fwk.DataBase.DataEntities.Keys,Fwk.DataBase.DataEntities.Keys)">
+            <summary>
+            
+            </summary>
+            <param name="pName"></param>
+            <param name="pOwner"></param>
+            <param name="pColumns"></param>
+            <param name="pPrimaryKeys"></param>
+            <param name="pClavesForaneas"></param>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.Schema">
+            <summary>
+            Nombre del esquema al qe pertenece la tabla
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.Checked">
+            <summary>
+            Selected
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.IsColumnsLoaded">
+            <summary>
+            Determina si se cargo o no las columnas de la tabla .-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.Index">
+            <summary>
+            Indice del la tabla.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.Owner">
+            <summary>
+            Owner de la tabla.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.Columns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.PrimaryKeys">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.DataEntities.Table.ClavesForaneas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.AddElementHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.OnStoreProcedureLoadHandler">
+            <summary>
+            Handler para manejar la carga de los Store Procedure.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.OnTablesLoadHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.Metadata">
+            <summary>
+            Descripción breve de Metadata.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.#ctor(Fwk.DataBase.CnnString)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.LoadTables">
+            <summary>
+            Carga las Tables de la base de datos accediendo a la base de datos nuevamente.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.Table_FillColumns(Fwk.DataBase.DataEntities.Table)">
+            <summary>
+            Rellena la tabla con sus respectivas columnas .-
+            </summary>
+            <param name="pTable">Table</param>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.StoreProcedures_FillParameters(Fwk.DataBase.DataEntities.StoreProcedure)">
+            <summary>
+            Rellena el Store Procedures con sus parametros
+            </summary>
+            <param name="pStoreProcedure">Store Procedure</param>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.LoadStoreProcedures">
+            <summary>
+            Carga los StoreProcedures de la base de datos accediendo a la base de datos nuevamente.-
+            </summary>
+            <returns>StoreProcedures</returns>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.LoadUserDefinedTypes">
+            <summary>
+            Carga el atributo UserDefinedTypes 
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.RefreshConnection">
+            <summary>
+            Permite leer nuevamente el archivo de configuracion donde esta el acceso a la BD para recargar la coneccion.-
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.Metadata.TestConnection">
+            <summary>
+            Permite leer nuevamente el archivo de configuracion donde esta el acceso a la BD para recargar la coneccion.-
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.Metadata.OnStoreProcedureLoad">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Fwk.DataBase.Metadata.OnTablesLoad">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.ReloadObjects">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.ServerName">
+            <summary>
+            Nombre del servidodr de base de datos
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.UserName">
+            <summary>
+            Nombre de usuario .-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.DataBaseName">
+            <summary>
+            Nombre de Base de datos.-
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.CnnString">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.Tables">
+            <summary>
+            Obtiene todas las Tables de la Base de datos.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.UserDefinedTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.DataBase.Metadata.StoreProcedures">
+            <summary>
+            Obtiene todos los StoreProcedures de la Base de datos.-
+            </summary>
+        </member>
+        <member name="T:Fwk.DataBase.StoreProcedureBack">
+            <summary>
+            Summary description for StoreProcedureBack.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.#ctor(System.String,System.Int32)">
+            <summary>
+            Costuctor .-
+            </summary>
+            <param name="pCnnString">Cadena de coneccion.-</param>
+            <param name="pServerVersion">Version del SQL.-</param>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.LoadStoreProcedures">
+            <summary>
+            Carga todos los store procedures de una base de datos 
+            </summary>
+            <returns>Coleccion de StoreProcedure</returns>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.LoadStoreProcedures(System.Boolean)">
+            <summary>
+            Carga todos los store procedures de una base de datos .-
+            </summary>
+            <param name="pLoadParameters">Indica si se cargan los parametros y text del Store Procedure .-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.FillParametesAndText(Fwk.DataBase.DataEntities.StoreProcedure)">
+            <summary>
+            Establece los parametros y texto del Store Procedure.-
+            </summary>
+            <param name="pStoreProcedures"></param>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.SetParameterToStoreProcedure(Fwk.DataBase.DataEntities.StoreProcedure)">
+            <summary>
+            Setea los parametros de un StoreProcedure determinado
+            </summary>
+            <param name="pSP">StoreProcedure</param>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.SetParameters(Fwk.DataBase.DataEntities.StoreProcedure,System.Data.DataTable)">
+            <summary>
+            Carga los parametros de un SP.-
+            </summary>
+            <param name="pSP">StoreProcedure</param>
+            <param name="pDattSPs">DataTable con los parametros.-</param>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.GetParametesAndTextFromSP(Fwk.DataBase.DataEntities.StoreProcedure)">
+            <summary>
+            Obtienen los parametros y texto del store procedure desde la base de datos.-
+            </summary>
+            <param name="pStoreProcedure">Nombre store procedure </param>
+            <returns>DataSet </returns>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.GetStoredProcedureFromDatabase">
+            <summary>
+            Busca todos los stored procedures de la base de datos actual.-
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.GetParametersFromStoredProcedure(System.String)">
+            <summary>
+            Obtione informacion de la tabla.-
+            </summary>
+            <param name="pStoredProcedureName">Nombre del Stored Procedure</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.GetTextFromStoredProcedure(System.String)">
+            <summary>
+            Obtione text des la StoredProcedure.-
+            </summary>
+            <param name="pStoredProcedureName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.DataBase.StoreProcedureBack.GetStoreProceduresFromTable(System.String)">
+            <summary>
+            Obtione informacion de la tabla.-
+            </summary>
+            <param name="pNombreTabla"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fwk.DataBase.TablesBack">
+            <summary>
+            Summary description for TablesBack.
+            </summary>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.#ctor(System.String)">
+            <summary>
+            Costuctor .-
+            </summary>
+            <param name="pCnnString">Cadena de coneccion.-</param>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.LoadTables">
+            <summary>
+            Carga las tablas de la base de datos accediendo a la base de datos nuevamente.-
+            </summary>
+            <returns>Tables </returns>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.LoadTables(System.Boolean)">
+            <summary>
+            Carga las tablas de la base de datos accediendo a la base de datos nuevamente.-
+            </summary>
+            <returns>Tables </returns>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.SetColumnsAndKeysToTables(Fwk.DataBase.DataEntities.Tables)">
+            <summary>
+            
+            </summary>
+            <param name="pTables"></param>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.SetColumnsAndKeysToTable(Fwk.DataBase.DataEntities.Table)">
+            <summary>
+            
+            </summary>
+            <param name="wTable"></param>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.GetKeysFromTable(System.String)">
+            <summary>
+            Busca los campos que son claves primarias o secundarias de un adeterminada tabla
+            </summary>
+            <param name="pTableName">Nombre de la tabla</param>
+            <returns>DataTable con las claves</returns>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.SetKeys(System.Data.DataTable,Fwk.DataBase.DataEntities.Keys,Fwk.DataBase.DataEntities.Keys)">
+            <summary>
+            Establece las claves Primarias y foraneas de un objeto Table (No se usa actualmente)
+            </summary>
+            <param name="pDttClave"></param>
+            <param name="pClavesPrimarias"></param>
+            <param name="pClavesForaneas"></param>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.GetColumns(System.Data.DataTable,System.String)">
+            <summary>
+            Setea las columbas y claves de una determinada tabla .-
+            </summary>
+            <param name="pColumnsDtt">DataTable con las columnas de una tabla obtenida de la base de datos</param>
+            <param name="pTableName">Nombre de la tabla.-</param>
+            <returns>Objeto Columns de la tabla.-</returns>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.GetTablesFromDataBase">
+            <summary>
+            Busca todas las tablas en la base de datos .-
+            </summary>
+            <returns>DataTable con las tablas obtenidas.-</returns>
+        </member>
+        <member name="M:Fwk.DataBase.TablesBack.GetTableInfoFromDataBase(Fwk.DataBase.DataEntities.Table)">
+            <summary>
+            Obtiene informacion de la tabla.-
+            </summary>
+            <param name="pTable">tabla</param>
+            <returns>Marcelo Oviedo</returns>
+        </member>
+    </members>
+</doc>

@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConfigurationApp", "ConfigurationApp", "{34F08673-7A2C-4EB9-B62C-BC6AC218CAAD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SecurityAppBlock", "SecurityAppBlock", "{ADC2348D-3D6E-44D6-9F8E-C388F8A2F9A3}"
@@ -25,8 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Logging.Viewer", "..\Fw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.CodeGenerator", "..\Fwk.CodeGenerator\Fwk.CodeGenerator\Fwk.CodeGenerator.csproj", "{1D25CAB6-E245-40A7-A0F4-DA0879D72849}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGeneratorDataModel", "..\CodeGeneratorDataModelExporter\CodeGeneratorDataModel\CodeGeneratorDataModel.csproj", "{58880388-45E1-46D9-A664-FDC3C3D1D83D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Security", "..\..\Fwk\Fwk.Security\Fwk.Security.csproj", "{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.ServiceManagement.Tools.Win32", "..\ServiceManagement\Fwk.ServiceManagement.Tools.Win32\Fwk.ServiceManagement.Tools.Win32.csproj", "{35C67E35-70D2-4AF0-A937-977CCFAB4346}"
@@ -34,8 +32,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppChecker.core", "..\AppChecker\AppChecker.core\AppChecker.core.csproj", "{94CDACBF-864F-4B83-AB95-E20B1F9A14AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectReferencesCreator", "..\ProjectReferencesCreator\ProjectReferencesCreator.csproj", "{7CC59621-8744-4194-A332-D63EF92B795F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDirectoryReplace", "..\EasyDirectoryReplace\EasyDirectoryReplace\EasyDirectoryReplace.csproj", "{440B2CEA-383F-439A-95CA-81FA1FBF1942}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

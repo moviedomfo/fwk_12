@@ -156,7 +156,6 @@
     <Compile Include="ActiveDirectory\ADHelper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ActiveDirectory\ADManager.cs" />
     <Compile Include="ActiveDirectory\ADProperties.cs" />
     <Compile Include="ActiveDirectory\AD_Entities\ADGroup.cs" />
     <Compile Include="ActiveDirectory\AD_Entities\ADUser.cs" />

@@ -334,7 +334,7 @@ namespace Fwk.Security.Admin
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 23;
             this.label3.Text = "Database";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // lblDatabase
             // 

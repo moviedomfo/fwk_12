@@ -230,16 +230,16 @@ namespace Fwk.Security.ActiveDirectory
 
 
             String domainAddress;
-            String userPrincipalName = ADHelper.GetProperty(directoryUser, ADProperties.USERPRINCIPALNAME);
+            String userPrincipalName = ADWrapper.GetProperty(directoryUser, ADProperties.USERPRINCIPALNAME);
             String domainName;
-            _UserAccountControl = ADHelper.GetProperty(directoryUser, ADProperties.USERACCOUNTCONTROL);
-            _firstName = ADHelper.GetProperty(directoryUser, ADProperties.FIRSTNAME);
+            _UserAccountControl = ADWrapper.GetProperty(directoryUser, ADProperties.USERACCOUNTCONTROL);
+            _firstName = ADWrapper.GetProperty(directoryUser, ADProperties.FIRSTNAME);
 
-            _middleName = ADHelper.GetProperty(directoryUser, ADProperties.MIDDLENAME);
+            _middleName = ADWrapper.GetProperty(directoryUser, ADProperties.MIDDLENAME);
 
-            _lastName = ADHelper.GetProperty(directoryUser, ADProperties.LASTNAME);
+            _lastName = ADWrapper.GetProperty(directoryUser, ADProperties.LASTNAME);
 
-            _loginName = ADHelper.GetProperty(directoryUser, ADProperties.LOGINNAME);
+            _loginName = ADWrapper.GetProperty(directoryUser, ADProperties.LOGINNAME);
 
 
 
@@ -268,33 +268,33 @@ namespace Fwk.Security.ActiveDirectory
 
             _loginNameWithDomain = String.Format(@"{0}\{1}", domainName, _loginName);
 
-            _streetAddress = ADHelper.GetProperty(directoryUser, ADProperties.STREETADDRESS);
+            _streetAddress = ADWrapper.GetProperty(directoryUser, ADProperties.STREETADDRESS);
 
-            _city = ADHelper.GetProperty(directoryUser, ADProperties.CITY);
+            _city = ADWrapper.GetProperty(directoryUser, ADProperties.CITY);
 
-            _state = ADHelper.GetProperty(directoryUser, ADProperties.STATE);
+            _state = ADWrapper.GetProperty(directoryUser, ADProperties.STATE);
 
-            _postalCode = ADHelper.GetProperty(directoryUser, ADProperties.POSTALCODE);
+            _postalCode = ADWrapper.GetProperty(directoryUser, ADProperties.POSTALCODE);
 
-            _country = ADHelper.GetProperty(directoryUser, ADProperties.COUNTRY);
+            _country = ADWrapper.GetProperty(directoryUser, ADProperties.COUNTRY);
 
-            _company = ADHelper.GetProperty(directoryUser, ADProperties.COMPANY);
+            _company = ADWrapper.GetProperty(directoryUser, ADProperties.COMPANY);
 
-            _department = ADHelper.GetProperty(directoryUser, ADProperties.DEPARTMENT);
+            _department = ADWrapper.GetProperty(directoryUser, ADProperties.DEPARTMENT);
 
-            _homePhone = ADHelper.GetProperty(directoryUser, ADProperties.HOMEPHONE);
+            _homePhone = ADWrapper.GetProperty(directoryUser, ADProperties.HOMEPHONE);
 
-            _extension = ADHelper.GetProperty(directoryUser, ADProperties.EXTENSION);
+            _extension = ADWrapper.GetProperty(directoryUser, ADProperties.EXTENSION);
 
-            _mobile = ADHelper.GetProperty(directoryUser, ADProperties.MOBILE);
+            _mobile = ADWrapper.GetProperty(directoryUser, ADProperties.MOBILE);
 
-            _fax = ADHelper.GetProperty(directoryUser, ADProperties.FAX);
+            _fax = ADWrapper.GetProperty(directoryUser, ADProperties.FAX);
 
-            _emailAddress = ADHelper.GetProperty(directoryUser, ADProperties.EMAILADDRESS);
+            _emailAddress = ADWrapper.GetProperty(directoryUser, ADProperties.EMAILADDRESS);
 
-            _title = ADHelper.GetProperty(directoryUser, ADProperties.TITLE);
+            _title = ADWrapper.GetProperty(directoryUser, ADProperties.TITLE);
 
-            _manager = ADHelper.GetProperty(directoryUser, ADProperties.MANAGER);
+            _manager = ADWrapper.GetProperty(directoryUser, ADProperties.MANAGER);
 
             if (!String.IsNullOrEmpty(_manager))
             {
@@ -323,16 +323,16 @@ namespace Fwk.Security.ActiveDirectory
 
 
             String domainAddress;
-            String userPrincipalName = ADHelper.GetProperty(resultUser, ADProperties.USERPRINCIPALNAME);
+            String userPrincipalName = ADWrapper.GetProperty(resultUser, ADProperties.USERPRINCIPALNAME);
             String domainName;
-            _UserAccountControl = ADHelper.GetProperty(resultUser, ADProperties.USERACCOUNTCONTROL);
-            _firstName = ADHelper.GetProperty(resultUser, ADProperties.FIRSTNAME);
+            _UserAccountControl = ADWrapper.GetProperty(resultUser, ADProperties.USERACCOUNTCONTROL);
+            _firstName = ADWrapper.GetProperty(resultUser, ADProperties.FIRSTNAME);
 
-            _middleName = ADHelper.GetProperty(resultUser, ADProperties.MIDDLENAME);
+            _middleName = ADWrapper.GetProperty(resultUser, ADProperties.MIDDLENAME);
 
-            _lastName = ADHelper.GetProperty(resultUser, ADProperties.LASTNAME);
+            _lastName = ADWrapper.GetProperty(resultUser, ADProperties.LASTNAME);
 
-            _loginName = ADHelper.GetProperty(resultUser, ADProperties.LOGINNAME);
+            _loginName = ADWrapper.GetProperty(resultUser, ADProperties.LOGINNAME);
 
 
 
@@ -361,33 +361,33 @@ namespace Fwk.Security.ActiveDirectory
 
             _loginNameWithDomain = String.Format(@"{0}\{1}", domainName, _loginName);
 
-            _streetAddress = ADHelper.GetProperty(resultUser, ADProperties.STREETADDRESS);
+            _streetAddress = ADWrapper.GetProperty(resultUser, ADProperties.STREETADDRESS);
 
-            _city = ADHelper.GetProperty(resultUser, ADProperties.CITY);
+            _city = ADWrapper.GetProperty(resultUser, ADProperties.CITY);
 
-            _state = ADHelper.GetProperty(resultUser, ADProperties.STATE);
+            _state = ADWrapper.GetProperty(resultUser, ADProperties.STATE);
 
-            _postalCode = ADHelper.GetProperty(resultUser, ADProperties.POSTALCODE);
+            _postalCode = ADWrapper.GetProperty(resultUser, ADProperties.POSTALCODE);
 
-            _country = ADHelper.GetProperty(resultUser, ADProperties.COUNTRY);
+            _country = ADWrapper.GetProperty(resultUser, ADProperties.COUNTRY);
 
-            _company = ADHelper.GetProperty(resultUser, ADProperties.COMPANY);
+            _company = ADWrapper.GetProperty(resultUser, ADProperties.COMPANY);
 
-            _department = ADHelper.GetProperty(resultUser, ADProperties.DEPARTMENT);
+            _department = ADWrapper.GetProperty(resultUser, ADProperties.DEPARTMENT);
 
-            _homePhone = ADHelper.GetProperty(resultUser, ADProperties.HOMEPHONE);
+            _homePhone = ADWrapper.GetProperty(resultUser, ADProperties.HOMEPHONE);
 
-            _extension = ADHelper.GetProperty(resultUser, ADProperties.EXTENSION);
+            _extension = ADWrapper.GetProperty(resultUser, ADProperties.EXTENSION);
 
-            _mobile = ADHelper.GetProperty(resultUser, ADProperties.MOBILE);
+            _mobile = ADWrapper.GetProperty(resultUser, ADProperties.MOBILE);
 
-            _fax = ADHelper.GetProperty(resultUser, ADProperties.FAX);
+            _fax = ADWrapper.GetProperty(resultUser, ADProperties.FAX);
 
-            _emailAddress = ADHelper.GetProperty(resultUser, ADProperties.EMAILADDRESS);
+            _emailAddress = ADWrapper.GetProperty(resultUser, ADProperties.EMAILADDRESS);
 
-            _title = ADHelper.GetProperty(resultUser, ADProperties.TITLE);
+            _title = ADWrapper.GetProperty(resultUser, ADProperties.TITLE);
 
-            _manager = ADHelper.GetProperty(resultUser, ADProperties.MANAGER);
+            _manager = ADWrapper.GetProperty(resultUser, ADProperties.MANAGER);
 
             if (!String.IsNullOrEmpty(_manager))
             {
