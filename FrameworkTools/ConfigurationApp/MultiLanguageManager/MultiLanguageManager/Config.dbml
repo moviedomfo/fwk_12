@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BB_Desarrollo_5_0" Class="ConfigDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="club" Class="ConfigDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTANA\SQLEXPRESS2008;Initial Catalog=club;User ID=sa" SettingsObjectName="MultiLanguageManager.Properties.Settings" SettingsPropertyName="clubConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.fwk_ConfigManager" Member="fwk_ConfigManagers">
     <Type Name="fwk_ConfigManager">
       <Column Name="ConfigurationFileName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -8,13 +9,14 @@
       <Column Name="value" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="Campaings.ParamCampaings" Member="ParamCampaings">
-    <Type Name="ParamCampaing">
-      <Column Name="ParamCapaingId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ParamCampaingIdRelated" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Remarks" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Language" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+  <Table Name="dbo.fwk_Param" Member="fwk_Params">
+    <Type Name="fwk_Param">
+      <Column Name="ParamId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Culture" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>

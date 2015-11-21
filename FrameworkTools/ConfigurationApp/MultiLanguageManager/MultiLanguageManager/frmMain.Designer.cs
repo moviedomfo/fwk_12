@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gridControl_Params = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.iRemoveParameter = new System.Windows.Forms.ToolStripMenuItem();
             this.iAddParameter = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridView_Params = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl_config = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeSelectedsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,10 +41,8 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_Params)).BeginInit();
+            this.ucManageParams1 = new MultiLanguageManager.ucManageParams();
             this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView_Params)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_config)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_config)).BeginInit();
@@ -56,19 +52,6 @@
             this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gridControl_Params
-            // 
-            this.gridControl_Params.ContextMenuStrip = this.contextMenuStrip2;
-            this.gridControl_Params.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl_Params.Location = new System.Drawing.Point(0, 0);
-            this.gridControl_Params.MainView = this.gridView_Params;
-            this.gridControl_Params.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl_Params.Name = "gridControl_Params";
-            this.gridControl_Params.Size = new System.Drawing.Size(1176, 703);
-            this.gridControl_Params.TabIndex = 0;
-            this.gridControl_Params.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView_Params});
             // 
             // contextMenuStrip2
             // 
@@ -83,25 +66,12 @@
             this.iRemoveParameter.Name = "iRemoveParameter";
             this.iRemoveParameter.Size = new System.Drawing.Size(206, 24);
             this.iRemoveParameter.Text = "Eliminar parametro";
-            this.iRemoveParameter.Click += new System.EventHandler(this.iRemoveParameter_Click);
             // 
             // iAddParameter
             // 
             this.iAddParameter.Name = "iAddParameter";
             this.iAddParameter.Size = new System.Drawing.Size(206, 24);
             this.iAddParameter.Text = "Nuevo parametro";
-            this.iAddParameter.Click += new System.EventHandler(this.iAddParameter_Click);
-            // 
-            // gridView_Params
-            // 
-            this.gridView_Params.GridControl = this.gridControl_Params;
-            this.gridView_Params.Name = "gridView_Params";
-            this.gridView_Params.OptionsCustomization.AllowFilter = false;
-            this.gridView_Params.OptionsFind.AlwaysVisible = true;
-            this.gridView_Params.OptionsMenu.EnableColumnMenu = false;
-            this.gridView_Params.OptionsMenu.EnableFooterMenu = false;
-            this.gridView_Params.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView_Params_CellValueChanged);
-            this.gridView_Params.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_Params_MouseDown);
             // 
             // gridControl_config
             // 
@@ -111,7 +81,7 @@
             this.gridControl_config.MainView = this.gridView_config;
             this.gridControl_config.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl_config.Name = "gridControl_config";
-            this.gridControl_config.Size = new System.Drawing.Size(1176, 703);
+            this.gridControl_config.Size = new System.Drawing.Size(1176, 701);
             this.gridControl_config.TabIndex = 2;
             this.gridControl_config.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_config});
@@ -163,32 +133,34 @@
             this.xtraTabControl1.Size = new System.Drawing.Size(1182, 732);
             this.xtraTabControl1.TabIndex = 3;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.xtraTabPage2,
+            this.xtraTabPage1});
             // 
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl_config);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1176, 703);
+            this.xtraTabPage1.PageVisible = false;
+            this.xtraTabPage1.Size = new System.Drawing.Size(1176, 701);
             this.xtraTabPage1.Text = "Configs";
             // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Controls.Add(this.label1);
-            this.xtraTabPage2.Controls.Add(this.gridControl_Params);
+            this.xtraTabPage2.Controls.Add(this.ucManageParams1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1176, 703);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1176, 701);
             this.xtraTabPage2.Text = "Params";
             // 
-            // label1
+            // ucManageParams1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(630, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.ucManageParams1.AcceptButton = null;
+            this.ucManageParams1.CancelButton = null;
+            this.ucManageParams1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucManageParams1.Location = new System.Drawing.Point(0, 0);
+            this.ucManageParams1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucManageParams1.Name = "ucManageParams1";
+            this.ucManageParams1.Size = new System.Drawing.Size(1176, 701);
+            this.ucManageParams1.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -204,9 +176,7 @@
             this.Text = "Administrar lenguajes";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_Params)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView_Params)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_config)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView_config)).EndInit();
@@ -215,15 +185,12 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
-            this.xtraTabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl_Params;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView_Params;
         private DevExpress.XtraGrid.GridControl gridControl_config;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView_config;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -236,7 +203,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem iRemoveParameter;
         private System.Windows.Forms.ToolStripMenuItem iAddParameter;
-        private System.Windows.Forms.Label label1;
+        private ucManageParams ucManageParams1;
 
     }
 }

@@ -11,8 +11,8 @@ namespace MultiLanguageManager
 {
     public partial class frmAddParam : DevExpress.XtraEditors.XtraForm
     {
-        ParamCampaing  _Param;
-        public ParamCampaing Param
+        fwk_Param   _Param;
+        public fwk_Param Param
         {
             get { return _Param; }
         }
@@ -21,11 +21,11 @@ namespace MultiLanguageManager
         {
             InitializeComponent();
         }
-        public frmAddParam(string related)
+        public frmAddParam(int paramId)
         {
 
             InitializeComponent();
-            lblGroup.Text = related;
+          
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -43,10 +43,10 @@ namespace MultiLanguageManager
                 errorProvider1.SetError(txtCode, "Ingrese solo valores numericos para el codigo EJ: 1000, 2001, 89, etc ");
                 return;
             }
-            _Param = new ParamCampaing();
-            _Param.ParamCapaingId = res;
+            _Param = new fwk_Param();
+            _Param.ParamId = res;
             _Param.Name = txtKey.Text;
-            _Param.Remarks = txtRemark.Text;
+            _Param.Description = txtRemark.Text;
 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
