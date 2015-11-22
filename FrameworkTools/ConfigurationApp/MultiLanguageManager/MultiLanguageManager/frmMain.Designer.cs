@@ -174,6 +174,7 @@
             this.Name = "frmMain";
             this.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Text = "Administrar lenguajes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.contextMenuStrip2.ResumeLayout(false);

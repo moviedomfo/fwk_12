@@ -43,11 +43,11 @@ namespace MultiLanguageManager
 
         private void iAddParameter_Click(object sender, EventArgs e)
         {
-            
-            fwk_Param parent= null;
+
+            fwk_Param parent = null;
             if (_param.ParentId.HasValue)
             {
-                parent = _AllParams.Where(p =>  p.ParamId.Equals(_param.ParentId.Value)).FirstOrDefault<fwk_Param>();
+                parent = _AllParams.Where(p => p.ParamId.Equals(_param.ParentId.Value)).FirstOrDefault<fwk_Param>();
             }
 
             using (frmAddParam frm = new frmAddParam(parent))
@@ -55,13 +55,13 @@ namespace MultiLanguageManager
 
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    
-                    
+
+
                     try
                     {
                         //TODO: Latter
                         MultilanguageDAC.Param_CreateNew(frm.Param);
-                        
+
 
                     }
                     catch (Exception ex)
@@ -80,40 +80,24 @@ namespace MultiLanguageManager
             _param = ((fwk_Param)gridView_Params.GetRow(e.RowHandle));
             if (_param == null) return;
 
-            //switch (e.Column.ToString())
-            //{
-            //    case "Name":
-            //        _param.Name = e.Value.ToString().Trim();
-            //        break;
-            //    case "Description":
-            //        _param.Name = e.Value.ToString().Trim();
-            //        break;
-            //    case "ParamId":
-            //        _param.ParamId = Convert.ToInt32(e.Value.ToString().Trim());
-            //        break;
-            //    case "ParentId":
-            //        _param.ParentId = Convert.ToInt32(e.Value.ToString().Trim());
-            //        break;
-            //    case "Culture":
-            //        _param.Culture = e.Value.ToString();
-            //        break;
-            //}
-            //int wParamCampaingIdRelated = Convert.ToInt32(gridView_Params.GetDataRow(e.RowHandle)["ParamCampaingIdRelated"]);
-            //int wParamCampaingId = Convert.ToInt32(gridView_Params.GetDataRow(e.RowHandle)["codigo"]);
 
             if (_param == null) return;
 
             try
             {
-               
-                     
-                MultilanguageDAC.Param_CreateORUpdate( _param);
+
+
+                MultilanguageDAC.Param_CreateORUpdate(_param);
                 //PopulateAsync();
             }
             catch (Exception ex)
             {
+               
+             
                 this.ExceptionViewer.Show(ex);
+
             }
+            Init();
         }
         private void gridView_Params_MouseDown(object sender, MouseEventArgs e)
         {
@@ -122,7 +106,7 @@ namespace MultiLanguageManager
             _param = ((fwk_Param)gridView_Params.GetRow(_GridHitInfoParam.RowHandle));
             if (_param == null) return;
 
-           
+
 
 
             //label1.Text = string.Concat(_GridHitInfoParam.RowHandle.ToString(), 
@@ -143,7 +127,7 @@ namespace MultiLanguageManager
         public void Init()
         {
             Cursor.Current = Cursors.WaitCursor;
-         
+
 
             var tareas = Task.WhenAll(LoadParamsAsync()).ContinueWith(res =>
             {
@@ -156,22 +140,13 @@ namespace MultiLanguageManager
                                     gridControl_Params.RefreshDataSource();
                                     gridView_Params.RefreshData();
 
-                                    //ParamCapaingId ParamCampaingIdRelated Tipo  
-                   
-                         
 
-                                  colName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-                                  colName.AppearanceCell.ForeColor = System.Drawing.Color.SteelBlue;
+                                    colName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+                                    colName.AppearanceCell.ForeColor = System.Drawing.Color.SteelBlue;
                                     colName.AppearanceCell.Options.UseBackColor = true;
                                     colName.AppearanceCell.Options.UseFont = true;
                                     colName.AppearanceCell.Options.UseForeColor = true;
 
-                                    //gridView_Params.Columns[2].GroupIndex = 0;
-                                    //gridView_Params.Columns[2].AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-                                    //gridView_Params.Columns[2].AppearanceCell.ForeColor = System.Drawing.Color.SteelBlue;
-                                    //gridView_Params.Columns[2].AppearanceCell.Options.UseBackColor = true;
-                                    //gridView_Params.Columns[2].AppearanceCell.Options.UseFont = true;
-                                    //gridView_Params.Columns[2].AppearanceCell.Options.UseForeColor = true;
                                     Cursor.Current = Cursors.Default;
 
                                 }));
