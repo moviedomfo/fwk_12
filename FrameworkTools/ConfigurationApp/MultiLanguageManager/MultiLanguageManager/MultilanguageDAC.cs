@@ -54,11 +54,11 @@ namespace MultiLanguageManager
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="language">Lenguaje</param>
+        /// <param name="culture">Lenguaje</param>
         /// <param name="parentId">Padre o tipo</param>
-        /// <param name="ParamId">Codigo de param o identificador</param>
+        /// <param name="paramId">Codigo de param o identificador</param>
         /// <param name="name"></param>
-        internal static void Param_CreateORUpdate(string language, int parentId, int ParamId, string name)
+        internal static void Param_CreateORUpdate(fwk_Param param)
         {
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
@@ -66,28 +66,26 @@ namespace MultiLanguageManager
                 fwk_Param record;
 
                 //Verifico que clave y valor exista
-                wExist = dc.fwk_Params.Any(p => p.Culture.Equals(language)
-                      && p.ParentId.Equals(parentId)
-                       && p.ParamId.Equals(ParamId));
-
+                wExist = dc.fwk_Params.Any(p => p.Culture.Equals(param.Culture)
+                      && p.ParentId.Equals(param.ParentId)
+                      && p.Name.Equals(param.Name)
+                       && p.ParamId.Equals(param.ParamId)==false);
                 if (wExist)
                 {
-                    record = dc.fwk_Params.Where(p => p.Culture.Equals(language)
-                                      && p.ParentId.Equals(parentId)
-                                      && p.ParamId.Equals(ParamId)).FirstOrDefault<fwk_Param>();
-
-                    record.Name = name;// e.Value.ToString().Trim();
+                    throw new Fwk.Exceptions.FunctionalException(String.Format("Ya existe la param {0} codig:{1} tipo {2} cultura:{2}", param.Name, param.ParamId, param.Culture));
                 }
-
                 else
                 {
-                    record = new fwk_Param();
-                    record.Culture = language;
-                    record.ParamId = ParamId;
-                    record.ParentId = parentId;
-                    //record.Remarks = "";
-                    record.Name = name;
-                    dc.fwk_Params.InsertOnSubmit(record);
+                    record = dc.fwk_Params.Where(p =>    p.Id.Equals(param.Id)).FirstOrDefault<fwk_Param>();
+                    record.Name = param.Name;
+                    record.ParamId = param.ParamId;
+                    record.ParentId = param.ParentId;
+                    record.Description = param.Description;
+                    record.Culture = param.Culture;
+                    
+                
+
+                    dc.SubmitChanges();
                 }
                 dc.SubmitChanges();
             }
@@ -97,8 +95,7 @@ namespace MultiLanguageManager
         {
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
-                var records = dc.fwk_Params.Where(p =>
-                                            p.ParamId.Equals(fwk_ParamId)
+                var records = dc.fwk_Params.Where(p => p.ParamId.Equals(fwk_ParamId)
                                        );
 
                 foreach (fwk_Param param in records)
@@ -109,41 +106,29 @@ namespace MultiLanguageManager
             }
         }
 
-        internal static void Param_CreateNew(fwk_Param param, string relatedName, out string errMsg)
+        internal static void Param_CreateNew(fwk_Param param)
         {
-
-            string language;
-            errMsg = string.Empty;
-            fwk_Param record = null;
+           
             Boolean wExist = false;
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
-                for (int i = 0; i < Fwk.Configuration.ConfigurationManager.ConfigProvider.Providers.Count; i++)
-                {
-                    language = Fwk.Configuration.ConfigurationManager.ConfigProvider.Providers[i].Name;
+       
                     //Verifico que clave y valor exista
-                    wExist = dc.fwk_Params.Any(p => p.Culture.Equals(language)
+                    wExist = dc.fwk_Params.Any(p => p.Culture.Equals(param.Culture)
                     && p.ParentId.Equals(param.ParentId)
                     && p.ParamId.Equals(param.ParamId));
 
                     if (wExist)
                     {
-
-                        errMsg = String.Format("Ya existe la param {0} codig:{1} en el grupo {2} para alguno de los lenguajes", param.Name, param.ParamId, relatedName);
-                        return;
+                           throw new Fwk.Exceptions.FunctionalException(String.Format("Ya existe la param {0} codig:{1} tipo {2} cultura:{2}", param.Name, param.ParamId, param.Culture));
+                      
                     }
                     else
                     {
-                        record = new fwk_Param();
-                        record.Culture = language;
-                        record.ParentId = param.ParentId;
-                        record.ParamId = param.ParamId;
-                        record.Name = param.Name;
-                        record.Description = param.Description;
-                        dc.fwk_Params.InsertOnSubmit(record);
+                     
+                        dc.fwk_Params.InsertOnSubmit(param);
                     }
                     dc.SubmitChanges();
-                }
             }
 
         }

@@ -14,7 +14,7 @@ namespace MultiLanguageManager
     [ToolboxItem(true)]
     public partial class ucManageParams : Fwk.UI.Controls.UC_UserControlBase
     {
-        
+        List<fwk_Param> _AllParams = null;
         fwk_Param _param;
         GridHitInfo _GridHitInfoParam = null;
         public ucManageParams()
@@ -43,22 +43,25 @@ namespace MultiLanguageManager
 
         private void iAddParameter_Click(object sender, EventArgs e)
         {
-            int wParentId = Convert.ToInt32(_param.ParentId);
+            
+            fwk_Param parent= null;
+            if (_param.ParentId.HasValue)
+            {
+                parent = _AllParams.Where(p =>  p.ParamId.Equals(_param.ParentId.Value)).FirstOrDefault<fwk_Param>();
+            }
 
-
-
-            using (frmAddParam frm = new frmAddParam(wParentId))
+            using (frmAddParam frm = new frmAddParam(parent))
             {
 
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    frm.Param.ParentId = wParentId;
-                    string errMsg = string.Empty;
+                    
+                    
                     try
                     {
                         //TODO: Latter
-                        MultilanguageDAC.Param_CreateNew(frm.Param, string.Empty, out errMsg);
-                        this.MessageViewer.Show(errMsg);
+                        MultilanguageDAC.Param_CreateNew(frm.Param);
+                        
 
                     }
                     catch (Exception ex)
@@ -72,7 +75,29 @@ namespace MultiLanguageManager
         }
         private void gridView_Params_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            string culture = e.Column.ToString();
+
+
+            _param = ((fwk_Param)gridView_Params.GetRow(e.RowHandle));
+            if (_param == null) return;
+
+            //switch (e.Column.ToString())
+            //{
+            //    case "Name":
+            //        _param.Name = e.Value.ToString().Trim();
+            //        break;
+            //    case "Description":
+            //        _param.Name = e.Value.ToString().Trim();
+            //        break;
+            //    case "ParamId":
+            //        _param.ParamId = Convert.ToInt32(e.Value.ToString().Trim());
+            //        break;
+            //    case "ParentId":
+            //        _param.ParentId = Convert.ToInt32(e.Value.ToString().Trim());
+            //        break;
+            //    case "Culture":
+            //        _param.Culture = e.Value.ToString();
+            //        break;
+            //}
             //int wParamCampaingIdRelated = Convert.ToInt32(gridView_Params.GetDataRow(e.RowHandle)["ParamCampaingIdRelated"]);
             //int wParamCampaingId = Convert.ToInt32(gridView_Params.GetDataRow(e.RowHandle)["codigo"]);
 
@@ -80,7 +105,9 @@ namespace MultiLanguageManager
 
             try
             {
-                MultilanguageDAC.Param_CreateORUpdate(culture, _param.ParentId.Value, _param.ParamId, e.Value.ToString().Trim());
+               
+                     
+                MultilanguageDAC.Param_CreateORUpdate( _param);
                 //PopulateAsync();
             }
             catch (Exception ex)
@@ -95,6 +122,7 @@ namespace MultiLanguageManager
             _param = ((fwk_Param)gridView_Params.GetRow(_GridHitInfoParam.RowHandle));
             if (_param == null) return;
 
+           
 
 
             //label1.Text = string.Concat(_GridHitInfoParam.RowHandle.ToString(), 
@@ -115,16 +143,16 @@ namespace MultiLanguageManager
         public void Init()
         {
             Cursor.Current = Cursors.WaitCursor;
-            List<fwk_Param> wParams = null;
+         
 
             var tareas = Task.WhenAll(LoadParamsAsync()).ContinueWith(res =>
             {
 
-                wParams = res.Result[0];
+                _AllParams = res.Result[0];
                 if (InvokeRequired)
                     this.Invoke((MethodInvoker)(() =>
                                 {
-                                    gridControl_Params.DataSource = wParams;
+                                    gridControl_Params.DataSource = _AllParams;
                                     gridControl_Params.RefreshDataSource();
                                     gridView_Params.RefreshData();
 

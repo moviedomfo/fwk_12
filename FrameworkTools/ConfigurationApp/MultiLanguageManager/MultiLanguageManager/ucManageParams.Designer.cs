@@ -33,6 +33,7 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.iRemoveParameter = new System.Windows.Forms.ToolStripMenuItem();
             this.iAddParameter = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoTipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fwkParamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_Params = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colParamId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,9 +70,10 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iRemoveParameter,
-            this.iAddParameter});
+            this.iAddParameter,
+            this.nuevoTipoToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(207, 52);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(207, 76);
             // 
             // iRemoveParameter
             // 
@@ -87,12 +89,20 @@
             this.iAddParameter.Text = "Nuevo parametro";
             this.iAddParameter.Click += new System.EventHandler(this.iAddParameter_Click);
             // 
+            // nuevoTipoToolStripMenuItem
+            // 
+            this.nuevoTipoToolStripMenuItem.Name = "nuevoTipoToolStripMenuItem";
+            this.nuevoTipoToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.nuevoTipoToolStripMenuItem.Text = "Nuevo tipo";
+            // 
             // fwkParamBindingSource
             // 
             this.fwkParamBindingSource.DataSource = typeof(MultiLanguageManager.fwk_Param);
             // 
             // gridView_Params
             // 
+            this.gridView_Params.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gridView_Params.Appearance.GroupRow.Options.UseBackColor = true;
             this.gridView_Params.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colParamId,
             this.colParentId,
@@ -102,21 +112,27 @@
             this.colCulture,
             this.colId});
             this.gridView_Params.GridControl = this.gridControl_Params;
+            this.gridView_Params.GroupCount = 1;
             this.gridView_Params.Name = "gridView_Params";
             this.gridView_Params.OptionsCustomization.AllowFilter = false;
             this.gridView_Params.OptionsFind.AlwaysVisible = true;
             this.gridView_Params.OptionsMenu.EnableColumnMenu = false;
             this.gridView_Params.OptionsMenu.EnableFooterMenu = false;
+            this.gridView_Params.OptionsView.GroupDrawMode = DevExpress.XtraGrid.Views.Grid.GroupDrawMode.Standard;
+            this.gridView_Params.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colParentId, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView_Params.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView_Params_CellValueChanged);
             this.gridView_Params.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_Params_MouseDown);
             // 
             // colParamId
             // 
             this.colParamId.FieldName = "ParamId";
+            this.colParamId.GroupFormat.FormatString = "{0} {1}";
+            this.colParamId.GroupFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.colParamId.Name = "colParamId";
             this.colParamId.OptionsColumn.AllowEdit = false;
             this.colParamId.Visible = true;
-            this.colParamId.VisibleIndex = 2;
+            this.colParamId.VisibleIndex = 1;
             this.colParamId.Width = 80;
             // 
             // colParentId
@@ -132,18 +148,16 @@
             // 
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
-            this.colName.OptionsColumn.AllowEdit = false;
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 3;
+            this.colName.VisibleIndex = 2;
             this.colName.Width = 260;
             // 
             // colDescription
             // 
             this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
-            this.colDescription.OptionsColumn.AllowEdit = false;
             this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 4;
+            this.colDescription.VisibleIndex = 3;
             this.colDescription.Width = 260;
             // 
             // colEnabled
@@ -152,16 +166,15 @@
             this.colEnabled.Name = "colEnabled";
             this.colEnabled.OptionsColumn.AllowEdit = false;
             this.colEnabled.Visible = true;
-            this.colEnabled.VisibleIndex = 6;
+            this.colEnabled.VisibleIndex = 5;
             this.colEnabled.Width = 457;
             // 
             // colCulture
             // 
             this.colCulture.FieldName = "Culture";
             this.colCulture.Name = "colCulture";
-            this.colCulture.OptionsColumn.AllowEdit = false;
             this.colCulture.Visible = true;
-            this.colCulture.VisibleIndex = 5;
+            this.colCulture.VisibleIndex = 4;
             this.colCulture.Width = 80;
             // 
             // colId
@@ -170,8 +183,8 @@
             this.colId.Name = "colId";
             this.colId.OptionsColumn.AllowEdit = false;
             this.colId.Visible = true;
-            this.colId.VisibleIndex = 1;
-            this.colId.Width = 40;
+            this.colId.VisibleIndex = 0;
+            this.colId.Width = 41;
             // 
             // addNewKeyToolStripMenuItem
             // 
@@ -210,5 +223,6 @@
         private System.Windows.Forms.ToolStripMenuItem iRemoveParameter;
         private System.Windows.Forms.ToolStripMenuItem iAddParameter;
         private System.Windows.Forms.ToolStripMenuItem addNewKeyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoTipoToolStripMenuItem;
     }
 }
