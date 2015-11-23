@@ -33,7 +33,8 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.iRemoveParameter = new System.Windows.Forms.ToolStripMenuItem();
             this.iAddParameter = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoTipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iAppendChilds = new System.Windows.Forms.ToolStripMenuItem();
+            this.iNewParamWithoutParent = new System.Windows.Forms.ToolStripMenuItem();
             this.fwkParamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_Params = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colParamId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,7 +45,6 @@
             this.colCulture = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addNewKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarHijoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Params)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fwkParamBindingSource)).BeginInit();
@@ -66,36 +66,47 @@
             this.gridControl_Params.TabIndex = 1;
             this.gridControl_Params.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Params});
+            this.gridControl_Params.DoubleClick += new System.EventHandler(this.gridControl_Params_DoubleClick);
             // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iRemoveParameter,
             this.iAddParameter,
-            this.nuevoTipoToolStripMenuItem,
-            this.agregarHijoToolStripMenuItem});
+            this.iAppendChilds,
+            this.iNewParamWithoutParent});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(207, 122);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(311, 122);
             // 
             // iRemoveParameter
             // 
+            this.iRemoveParameter.Image = global::MultiLanguageManager.Properties.Resources.icon_delete;
             this.iRemoveParameter.Name = "iRemoveParameter";
-            this.iRemoveParameter.Size = new System.Drawing.Size(206, 24);
+            this.iRemoveParameter.Size = new System.Drawing.Size(310, 24);
             this.iRemoveParameter.Text = "Eliminar parametro";
             this.iRemoveParameter.Click += new System.EventHandler(this.iRemoveParameter_Click);
             // 
             // iAddParameter
             // 
+            this.iAddParameter.Image = global::MultiLanguageManager.Properties.Resources.add_16;
             this.iAddParameter.Name = "iAddParameter";
-            this.iAddParameter.Size = new System.Drawing.Size(206, 24);
+            this.iAddParameter.Size = new System.Drawing.Size(310, 24);
             this.iAddParameter.Text = "Nuevo parametro";
             this.iAddParameter.Click += new System.EventHandler(this.iAddParameter_Click);
             // 
-            // nuevoTipoToolStripMenuItem
+            // iAppendChilds
             // 
-            this.nuevoTipoToolStripMenuItem.Name = "nuevoTipoToolStripMenuItem";
-            this.nuevoTipoToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
-            this.nuevoTipoToolStripMenuItem.Text = "Nuevo tipo";
+            this.iAppendChilds.Name = "iAppendChilds";
+            this.iAppendChilds.Size = new System.Drawing.Size(310, 24);
+            this.iAppendChilds.Text = "Agregar hijo";
+            this.iAppendChilds.Click += new System.EventHandler(this.iAppendChilds_Click);
+            // 
+            // iNewParamWithoutParent
+            // 
+            this.iNewParamWithoutParent.Name = "iNewParamWithoutParent";
+            this.iNewParamWithoutParent.Size = new System.Drawing.Size(310, 24);
+            this.iNewParamWithoutParent.Text = "Nuevo tipo o parametros sin padre";
+            this.iNewParamWithoutParent.Click += new System.EventHandler(this.iNewParamWithoutParent_Click);
             // 
             // fwkParamBindingSource
             // 
@@ -124,9 +135,7 @@
             this.gridView_Params.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colParentId, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView_Params.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView_Params_CellValueChanged);
-            this.gridView_Params.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_Params_ValidateRow);
             this.gridView_Params.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_Params_MouseDown);
-            
             // 
             // colParamId
             // 
@@ -195,13 +204,6 @@
             this.addNewKeyToolStripMenuItem.Name = "addNewKeyToolStripMenuItem";
             this.addNewKeyToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // agregarHijoToolStripMenuItem
-            // 
-            this.agregarHijoToolStripMenuItem.Name = "agregarHijoToolStripMenuItem";
-            this.agregarHijoToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
-            this.agregarHijoToolStripMenuItem.Text = "Agregar hijo";
-            this.agregarHijoToolStripMenuItem.Click += new System.EventHandler(this.agregarHijoToolStripMenuItem_Click);
-            // 
             // ucManageParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -234,7 +236,7 @@
         private System.Windows.Forms.ToolStripMenuItem iRemoveParameter;
         private System.Windows.Forms.ToolStripMenuItem iAddParameter;
         private System.Windows.Forms.ToolStripMenuItem addNewKeyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoTipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarHijoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iNewParamWithoutParent;
+        private System.Windows.Forms.ToolStripMenuItem iAppendChilds;
     }
 }

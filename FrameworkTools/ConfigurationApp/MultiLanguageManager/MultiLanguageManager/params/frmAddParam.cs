@@ -34,8 +34,8 @@ namespace MultiLanguageManager
             }
             else
             {
-                lblPArentName.Text = "NA";
-                lblParentId.Text = "NA";
+                lblPArentName.Text = "";
+                lblParentId.Text = "Parametro sin  padre";
             }
             FillCulture();
         }

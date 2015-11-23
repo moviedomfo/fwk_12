@@ -123,10 +123,10 @@
     <Compile Include="frmAdd.Designer.cs">
       <DependentUpon>frmAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddParam.cs">
+    <Compile Include="params\frmAddParam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddParam.Designer.cs">
+    <Compile Include="params\frmAddParam.Designer.cs">
       <DependentUpon>frmAddParam.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -136,16 +136,25 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MultilanguageDAC.cs" />
+    <Compile Include="params\frmParamInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="params\frmParamInfo.Designer.cs">
+      <DependentUpon>frmParamInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucManageParams.cs">
+    <Compile Include="params\ucManageParams.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucManageParams.Designer.cs">
+    <Compile Include="params\ucManageParams.Designer.cs">
       <DependentUpon>ucManageParams.cs</DependentUpon>
     </Compile>
     <Content Include="Campaings.ParamCampaing_s_ByRef.sql" />
-    <EmbeddedResource Include="ucManageParams.resx">
+    <EmbeddedResource Include="params\frmParamInfo.resx">
+      <DependentUpon>frmParamInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="params\ucManageParams.resx">
       <DependentUpon>ucManageParams.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Config.dbml.layout">
@@ -154,7 +163,7 @@
     <EmbeddedResource Include="frmAdd.resx">
       <DependentUpon>frmAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddParam.resx">
+    <EmbeddedResource Include="params\frmAddParam.resx">
       <DependentUpon>frmAddParam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
@@ -200,6 +209,8 @@
     <Content Include="fwk_ConfigManager_PIVOT.sql" />
     <Content Include="fwk_Inser_Update_Delete.sql" />
     <Content Include="fwk_Params_PIVOT.sql" />
+    <None Include="Resources\icon-delete.png" />
+    <None Include="Resources\add_16.gif" />
     <Content Include="tools_16.ico" />
   </ItemGroup>
   <ItemGroup>

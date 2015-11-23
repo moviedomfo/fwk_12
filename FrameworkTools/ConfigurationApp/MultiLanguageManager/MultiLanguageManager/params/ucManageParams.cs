@@ -32,36 +32,27 @@ namespace MultiLanguageManager
         {
             if (_param != null)
             {
-               
-                this.Init();
+                try
+                {
+                    MultilanguageDAC.Param_ValidateRemove(_param);
+                    MultilanguageDAC.Param_Remove(_param.ParamId);
+                    Init();
+                }
+                catch (Exception ex)
+                {
+                    this.ExceptionViewer.Show(ex);
+                }
             }
-            try
-            {
-                MultilanguageDAC.Param_ValidateRemove(_param);
-                MultilanguageDAC.Param_Remove(_param.ParamId);
-                Init();
-            }
-            catch (Exception ex)
-            {
-                this.ExceptionViewer.Show(ex);
-
-            }
-
         }
-          private void agregarHijoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void iAppendChilds_Click(object sender, EventArgs e)
         {
-            //fwk_Param parent = null;
-            //if (_param.ParentId.HasValue)
-            //{
-            //    parent = _AllParams.Where(p => p.ParamId.Equals(_param.ParentId.Value)).FirstOrDefault<fwk_Param>();
-            //}
+ 
             using (frmAddParam frm = new frmAddParam(_param))
             {
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     try
                     {
-                        //TODO: Latter
                         MultilanguageDAC.Param_CreateNew(frm.Param);
                     }
                     catch (Exception ex)
@@ -87,14 +78,10 @@ namespace MultiLanguageManager
 
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-
-
                     try
                     {
                         //TODO: Latter
                         MultilanguageDAC.Param_CreateNew(frm.Param);
-
-
                     }
                     catch (Exception ex)
                     {
@@ -107,32 +94,11 @@ namespace MultiLanguageManager
         }
         
 
-        private void gridView_Params_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-            //_param = ((fwk_Param)gridView_Params.GetRow(e.RowHandle));
-            //if (_param == null) return;
-
-            //try
-            //{
-            //    MultilanguageDAC.Param_ValidateUpdate(_param);
-            //    e.Valid = true;
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    e.ErrorText = "Error";//             ex.Message;
-            //    e.Valid = false;
-            //}
-            
-            
-            
-        }
+     
 
         private void gridView_Params_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             _param = ((fwk_Param)gridView_Params.GetRow(e.RowHandle));
-
-           
             if (_param == null) return;
 
             try
@@ -146,8 +112,52 @@ namespace MultiLanguageManager
                 this.ExceptionViewer.Show(ex);
 
             }
-           
         }
+
+        private void gridControl_Params_DoubleClick(object sender, EventArgs e)
+        {
+            if (_param == null) return;
+
+            fwk_Param parent = null;
+
+            if (_param.ParentId.HasValue)
+            {
+                parent = _AllParams.Where(p => p.ParamId.Equals(_param.ParentId.Value)).FirstOrDefault<fwk_Param>();
+            }
+
+            using (frmParamInfo frm = new frmParamInfo(parent, _param))
+            {
+                if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                { }
+            }
+
+
+        }
+
+        private void iNewParamWithoutParent_Click(object sender, EventArgs e)
+        {
+            fwk_Param parent = null;
+          
+
+            using (frmAddParam frm = new frmAddParam(parent))
+            {
+
+                if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    try
+                    {
+                        //TODO: Latter
+                        MultilanguageDAC.Param_CreateNew(frm.Param);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.ExceptionViewer.Show(ex);
+                    }
+                    this.Init();
+                }
+            }
+        }
+
         private void gridView_Params_MouseDown(object sender, MouseEventArgs e)
         {
             _GridHitInfoParam = gridView_Params.CalcHitInfo(new Point(e.X, e.Y));
@@ -205,6 +215,8 @@ namespace MultiLanguageManager
             return task;
         }
 
+       
+       
       
 
       
