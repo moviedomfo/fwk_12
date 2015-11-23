@@ -59,7 +59,7 @@ namespace MultiLanguageManager
             _Param.ParamId = res;
             if (_Parent != null)
             {
-                _Param.ParentId = _Parent.ParentId;
+                _Param.ParentId = _Parent.ParamId;
             }
             _Param.Name = txtName.Text;
             _Param.Description = txtDescription.Text;

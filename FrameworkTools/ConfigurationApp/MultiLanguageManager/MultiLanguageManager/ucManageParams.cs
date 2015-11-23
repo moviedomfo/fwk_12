@@ -32,15 +32,47 @@ namespace MultiLanguageManager
         {
             if (_param != null)
             {
-
-                int paramCampaingId = Convert.ToInt32(_param);
-
-                MultilanguageDAC.Param_Remove(paramCampaingId);
+               
+                this.Init();
             }
-            this.Init();
+            try
+            {
+                MultilanguageDAC.Param_ValidateRemove(_param);
+                MultilanguageDAC.Param_Remove(_param.ParamId);
+                Init();
+            }
+            catch (Exception ex)
+            {
+                this.ExceptionViewer.Show(ex);
+
+            }
 
         }
+          private void agregarHijoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //fwk_Param parent = null;
+            //if (_param.ParentId.HasValue)
+            //{
+            //    parent = _AllParams.Where(p => p.ParamId.Equals(_param.ParentId.Value)).FirstOrDefault<fwk_Param>();
+            //}
+            using (frmAddParam frm = new frmAddParam(_param))
+            {
+                if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    try
+                    {
+                        //TODO: Latter
+                        MultilanguageDAC.Param_CreateNew(frm.Param);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.ExceptionViewer.Show(ex);
+                    }
+                    this.Init();
+                }
+            }
 
+        }
         private void iAddParameter_Click(object sender, EventArgs e)
         {
 
@@ -73,31 +105,48 @@ namespace MultiLanguageManager
             }
 
         }
+        
+
+        private void gridView_Params_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            //_param = ((fwk_Param)gridView_Params.GetRow(e.RowHandle));
+            //if (_param == null) return;
+
+            //try
+            //{
+            //    MultilanguageDAC.Param_ValidateUpdate(_param);
+            //    e.Valid = true;
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    e.ErrorText = "Error";//             ex.Message;
+            //    e.Valid = false;
+            //}
+            
+            
+            
+        }
+
         private void gridView_Params_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-
-
             _param = ((fwk_Param)gridView_Params.GetRow(e.RowHandle));
-            if (_param == null) return;
 
-
+           
             if (_param == null) return;
 
             try
             {
-
-
-                MultilanguageDAC.Param_CreateORUpdate(_param);
-                //PopulateAsync();
+                MultilanguageDAC.Param_ValidateUpdate(_param);
+                MultilanguageDAC.Param_Update(_param);
+                Init();
             }
             catch (Exception ex)
             {
-               
-             
                 this.ExceptionViewer.Show(ex);
 
             }
-            Init();
+           
         }
         private void gridView_Params_MouseDown(object sender, MouseEventArgs e)
         {
@@ -106,12 +155,6 @@ namespace MultiLanguageManager
             _param = ((fwk_Param)gridView_Params.GetRow(_GridHitInfoParam.RowHandle));
             if (_param == null) return;
 
-
-
-
-            //label1.Text = string.Concat(_GridHitInfoParam.RowHandle.ToString(), 
-            //    " InGroupPanel: ", _GridHitInfoParam.InGroupPanel.ToString(),
-            //    " InGroupColumn: ", _GridHitInfoParam.InGroupColumn.ToString());
 
             if (_GridHitInfoParam.RowHandle < 0)
             {
@@ -162,7 +205,12 @@ namespace MultiLanguageManager
             return task;
         }
 
+      
 
+      
+       
+
+     
     }
 
 

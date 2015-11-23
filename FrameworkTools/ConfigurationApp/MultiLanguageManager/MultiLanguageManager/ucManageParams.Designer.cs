@@ -44,6 +44,7 @@
             this.colCulture = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addNewKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarHijoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Params)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fwkParamBindingSource)).BeginInit();
@@ -71,9 +72,10 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iRemoveParameter,
             this.iAddParameter,
-            this.nuevoTipoToolStripMenuItem});
+            this.nuevoTipoToolStripMenuItem,
+            this.agregarHijoToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(207, 76);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(207, 122);
             // 
             // iRemoveParameter
             // 
@@ -122,7 +124,9 @@
             this.gridView_Params.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colParentId, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView_Params.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView_Params_CellValueChanged);
+            this.gridView_Params.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_Params_ValidateRow);
             this.gridView_Params.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_Params_MouseDown);
+            
             // 
             // colParamId
             // 
@@ -191,6 +195,13 @@
             this.addNewKeyToolStripMenuItem.Name = "addNewKeyToolStripMenuItem";
             this.addNewKeyToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
+            // agregarHijoToolStripMenuItem
+            // 
+            this.agregarHijoToolStripMenuItem.Name = "agregarHijoToolStripMenuItem";
+            this.agregarHijoToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.agregarHijoToolStripMenuItem.Text = "Agregar hijo";
+            this.agregarHijoToolStripMenuItem.Click += new System.EventHandler(this.agregarHijoToolStripMenuItem_Click);
+            // 
             // ucManageParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -224,5 +235,6 @@
         private System.Windows.Forms.ToolStripMenuItem iAddParameter;
         private System.Windows.Forms.ToolStripMenuItem addNewKeyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoTipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarHijoToolStripMenuItem;
     }
 }
