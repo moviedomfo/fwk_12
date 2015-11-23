@@ -8,8 +8,8 @@
     <ProjectGuid>{8EADB6CF-AB5F-4E59-8757-C801A7631A8E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MultiLanguageManager</RootNamespace>
-    <AssemblyName>MultiLanguageManager</AssemblyName>
+    <RootNamespace>ParamsManager</RootNamespace>
+    <AssemblyName>ParamsManager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

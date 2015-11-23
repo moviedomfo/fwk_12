@@ -1,4 +1,4 @@
-﻿namespace MultiLanguageManager
+﻿namespace ParamsManager
 {
     partial class ucManageParams
     {
@@ -45,10 +45,12 @@
             this.colCulture = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addNewKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Params)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fwkParamBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Params)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl_Params
@@ -62,6 +64,8 @@
             this.gridControl_Params.MainView = this.gridView_Params;
             this.gridControl_Params.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl_Params.Name = "gridControl_Params";
+            this.gridControl_Params.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit1});
             this.gridControl_Params.Size = new System.Drawing.Size(1295, 582);
             this.gridControl_Params.TabIndex = 1;
             this.gridControl_Params.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -76,11 +80,11 @@
             this.iAppendChilds,
             this.iNewParamWithoutParent});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(311, 122);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(311, 100);
             // 
             // iRemoveParameter
             // 
-            this.iRemoveParameter.Image = global::MultiLanguageManager.Properties.Resources.icon_delete;
+            this.iRemoveParameter.Image = global::ParamsManager.Properties.Resources.icon_delete;
             this.iRemoveParameter.Name = "iRemoveParameter";
             this.iRemoveParameter.Size = new System.Drawing.Size(310, 24);
             this.iRemoveParameter.Text = "Eliminar parametro";
@@ -88,7 +92,7 @@
             // 
             // iAddParameter
             // 
-            this.iAddParameter.Image = global::MultiLanguageManager.Properties.Resources.add_16;
+            this.iAddParameter.Image = global::ParamsManager.Properties.Resources.add_16;
             this.iAddParameter.Name = "iAddParameter";
             this.iAddParameter.Size = new System.Drawing.Size(310, 24);
             this.iAddParameter.Text = "Nuevo parametro";
@@ -110,7 +114,7 @@
             // 
             // fwkParamBindingSource
             // 
-            this.fwkParamBindingSource.DataSource = typeof(MultiLanguageManager.fwk_Param);
+            this.fwkParamBindingSource.DataSource = typeof(ParamsManager.fwk_Param);
             // 
             // gridView_Params
             // 
@@ -127,6 +131,7 @@
             this.gridView_Params.GridControl = this.gridControl_Params;
             this.gridView_Params.GroupCount = 1;
             this.gridView_Params.Name = "gridView_Params";
+            this.gridView_Params.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView_Params.OptionsCustomization.AllowFilter = false;
             this.gridView_Params.OptionsFind.AlwaysVisible = true;
             this.gridView_Params.OptionsMenu.EnableColumnMenu = false;
@@ -184,8 +189,10 @@
             // 
             // colCulture
             // 
+            this.colCulture.ColumnEdit = this.repositoryItemLookUpEdit1;
             this.colCulture.FieldName = "Culture";
             this.colCulture.Name = "colCulture";
+            this.colCulture.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.colCulture.Visible = true;
             this.colCulture.VisibleIndex = 4;
             this.colCulture.Width = 80;
@@ -204,6 +211,13 @@
             this.addNewKeyToolStripMenuItem.Name = "addNewKeyToolStripMenuItem";
             this.addNewKeyToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            // 
             // ucManageParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -216,6 +230,7 @@
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fwkParamBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Params)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -238,5 +253,6 @@
         private System.Windows.Forms.ToolStripMenuItem addNewKeyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iNewParamWithoutParent;
         private System.Windows.Forms.ToolStripMenuItem iAppendChilds;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
     }
 }

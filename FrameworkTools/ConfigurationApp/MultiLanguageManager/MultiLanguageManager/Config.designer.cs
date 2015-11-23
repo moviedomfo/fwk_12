@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MultiLanguageManager
+namespace ParamsManager
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -39,7 +39,7 @@ namespace MultiLanguageManager
     #endregion
 		
 		public ConfigDataContext() : 
-				base(global::MultiLanguageManager.Properties.Settings.Default.clubConnectionString, mappingSource)
+				base(global::ParamsManager.Properties.Settings.Default.clubConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

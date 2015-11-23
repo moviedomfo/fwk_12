@@ -6,8 +6,9 @@ using System.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using Fwk.Params.BE;
+using System.Globalization;
 
-namespace MultiLanguageManager
+namespace ParamsManager
 {
     internal class MultilanguageDAC
     {
@@ -183,7 +184,30 @@ namespace MultiLanguageManager
             }
 
         }
+        internal static List<String> RetriveCulturesArray()
+        {
+            List<String> list = new List<string>();
+          foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            {
+                string specName = "(none)";
+                try
+                {
+                    specName = CultureInfo.CreateSpecificCulture(ci.Name).Name;
 
+                }
+
+                catch
+                {
+
+                }
+                //list.Add(String.Format("{0,-12}{1,-12}{2}", ci.Name, specName, ci.EnglishName));
+                //list.Add(String.Format("{0,-12},{1}", specName, ci.EnglishName));
+                list.Add(specName);
+
+            }
+
+          return list;
+        }
         #region Config
         internal static void CreateORUpdateKey(string language, string group, string key, string value)
         {

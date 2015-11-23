@@ -15,7 +15,7 @@ using Fwk.Exceptions;
 using System.Reflection;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
-namespace MultiLanguageManager
+namespace ParamsManager
 {
     public delegate void DelegateWithOutAndRefParameters(out Exception ex);
     public partial class frmMain : Fwk.UI.Forms.FormBase

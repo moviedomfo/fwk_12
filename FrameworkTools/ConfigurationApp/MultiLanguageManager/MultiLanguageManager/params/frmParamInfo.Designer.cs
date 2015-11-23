@@ -1,4 +1,4 @@
-﻿namespace MultiLanguageManager
+﻿namespace ParamsManager
 {
     partial class frmParamInfo
     {

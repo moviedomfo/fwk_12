@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Globalization;
 
-namespace MultiLanguageManager
+namespace ParamsManager
 {
     public partial class frmParamInfo : DevExpress.XtraEditors.XtraForm
     {

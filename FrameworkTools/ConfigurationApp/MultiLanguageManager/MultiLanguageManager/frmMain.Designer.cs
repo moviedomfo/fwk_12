@@ -1,4 +1,4 @@
-﻿namespace MultiLanguageManager
+﻿namespace ParamsManager
 {
     partial class frmMain
     {
@@ -41,7 +41,7 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.ucManageParams1 = new MultiLanguageManager.ucManageParams();
+            this.ucManageParams1 = new ParamsManager.ucManageParams();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_config)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();

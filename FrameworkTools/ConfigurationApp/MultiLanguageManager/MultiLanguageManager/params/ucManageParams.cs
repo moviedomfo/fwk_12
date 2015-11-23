@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
-namespace MultiLanguageManager
+namespace ParamsManager
 {
     [ToolboxItem(true)]
     public partial class ucManageParams : Fwk.UI.Controls.UC_UserControlBase
@@ -24,7 +24,7 @@ namespace MultiLanguageManager
 
         private void ucManageParams_Load(object sender, EventArgs e)
         {
-
+           
 
         }
 
@@ -181,12 +181,34 @@ namespace MultiLanguageManager
         {
             Cursor.Current = Cursors.WaitCursor;
 
+            var tareas1 = Task.WhenAll(FillCulture()).ContinueWith(res =>
+            {
+
+                var culturasArray = res.Result[0];
+                if (InvokeRequired)
+                {
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        repositoryItemLookUpEdit1.DataSource = culturasArray;
+                        
+                        
+
+
+
+
+
+                    }));
+
+
+                }
+            });
 
             var tareas = Task.WhenAll(LoadParamsAsync()).ContinueWith(res =>
             {
 
                 _AllParams = res.Result[0];
                 if (InvokeRequired)
+                {
                     this.Invoke((MethodInvoker)(() =>
                                 {
                                     gridControl_Params.DataSource = _AllParams;
@@ -202,19 +224,29 @@ namespace MultiLanguageManager
 
                                     Cursor.Current = Cursors.Default;
 
+                                     
                                 }));
 
 
+                }
             });
 
 
         }
-        public Task<List<fwk_Param>> LoadParamsAsync()
+         Task<List<fwk_Param>> LoadParamsAsync()
         {
             Task<List<fwk_Param>> task = Task<List<fwk_Param>>.Run(() => MultilanguageDAC.Params_Retrive());
             return task;
         }
 
+         Task<List<String>> FillCulture()
+         {
+
+             Task<List<String>> task = Task<List<String>>.Run(() => MultilanguageDAC.RetriveCulturesArray());
+             return task;
+
+
+         }
        
        
       

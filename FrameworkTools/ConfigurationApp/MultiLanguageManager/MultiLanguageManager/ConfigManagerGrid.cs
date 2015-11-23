@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MultiLanguageManager
+namespace ParamsManager
 {
     public class ConfigMannagerGridList : Fwk.Bases.BaseEntities<ConfigManagerGrid>
     { }
