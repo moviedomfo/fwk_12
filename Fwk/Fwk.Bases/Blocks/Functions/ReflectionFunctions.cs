@@ -149,35 +149,47 @@ namespace Fwk.HelperFunctions
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="pAssemblyString"></param>
+        /// <param name="pAssemblyString">El parametro pAssemblyString espera el siguiente formato : [Namespase.ClassName ,Assembly]</param>
         /// <param name="pClassName"></param>
         /// <param name="pAssembly"></param>
 		private static void ExtractTypeInformation(string pAssemblyString, out string pClassName, out string pAssembly)
 		{
+            pClassName = String.Empty;
+            pAssembly = String.Empty;
             TechnicalException te = null;
-			// Divide el assemblyString según la coma y guarda el resultado
-			// en un array
-			string[] wParts = GetStringsFromAssemblyString(pAssemblyString);
+            try
+            {
+                // Divide el assemblyString según la coma y guarda el resultado
+                // en un array
+                string[] wParts = GetStringsFromAssemblyString(pAssemblyString);
 
-			// Verifica que el array tenga 2 partes
-			if (wParts.Length < 2)
-			{
-                te = new TechnicalException("Assembly mal configurado.");
+                // Verifica que el array tenga 2 partes
+                if (wParts.Length < 2)
+                {
+                    te = new TechnicalException("Assembly mal configurado. El parametro pAssemblyString espera el siguiente formato : [Namespase.ClassName ,Assembly]");
+                    ExceptionHelper.SetTechnicalException<ReflectionFunctions>(te);
+                    te.ErrorId = "3000";
+                }
+
+                // Toma las partes del assemblyArray en dos strings separados
+                pClassName = wParts[0].Trim();
+                pAssembly = wParts[1].Trim();
+
+                // Verifica que el string strNamespaceClass tenga al menos un punto
+                if (pClassName.IndexOf(".") < 0)
+                {
+                    te = new TechnicalException("Assembly mal configurado. El parametro pAssemblyString espera el siguiente formato : [Namespase.ClassName ,Assembly]");
+                    ExceptionHelper.SetTechnicalException<ReflectionFunctions>(te);
+                    te.ErrorId = "3000";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                te = new TechnicalException("Assembly mal configurado. El parametro pAssemblyString espera el siguiente formato : [Namespase.ClassName ,Assembly]", ex);
                 ExceptionHelper.SetTechnicalException<ReflectionFunctions>(te);
                 te.ErrorId = "3000";
-			}
-
-			// Toma las partes del assemblyArray en dos strings separados
-			pClassName = wParts[0].Trim();
-			pAssembly = wParts[1].Trim();
-
-			// Verifica que el string strNamespaceClass tenga al menos un punto
-			if (pClassName.IndexOf(".") < 0)
-			{
-				  te = new TechnicalException("Assembly mal configurado.");
-                  ExceptionHelper.SetTechnicalException<ReflectionFunctions>(te);
-                  te.ErrorId = "3000";
-			}
+            }
 		}
 
         /// <summary>
@@ -215,7 +227,7 @@ namespace Fwk.HelperFunctions
         /// <summary>
         /// Crea un tipo dinamicamente a partir del nombre un archivo.-
         /// </summary>
-        /// <param name="pAssemblyString">Concatenacion de ClassName + , + AssemblyName</param>
+        /// <param name="pAssemblyString">Concatenacion de [ClassName,AssemblyName]</param>
         /// <param name="pPath">Ruta del archivo</param>
         /// <returns>Type definido por ClassName</returns>
         static public Type CreateTypeFromFile(string pAssemblyString,String pPath)
