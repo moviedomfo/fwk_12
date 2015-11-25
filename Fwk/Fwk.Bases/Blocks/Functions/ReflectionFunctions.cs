@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using System.ComponentModel;
+using Fwk.Exceptions;
 
 namespace Fwk.HelperFunctions
 {
@@ -128,6 +129,7 @@ namespace Fwk.HelperFunctions
         /// <summary>
         /// Crea instancia de un objetos a partir de de su nombre largo y sus parametros.
         /// Efectua load assembly
+        /// </summary>
         /// <param name="pClassName">Nombre de la clase (Type.FullName)</param>
         /// <param name="pAssemblyName">Nombre del ensamblado (Assembly.Name)</param>
         /// <param name="constructorParams">An array of arguments that match in number, order, and type the parameters of the constructor to invoke. 
@@ -152,6 +154,7 @@ namespace Fwk.HelperFunctions
         /// <param name="pAssembly"></param>
 		private static void ExtractTypeInformation(string pAssemblyString, out string pClassName, out string pAssembly)
 		{
+            TechnicalException te = null;
 			// Divide el assemblyString según la coma y guarda el resultado
 			// en un array
 			string[] wParts = GetStringsFromAssemblyString(pAssemblyString);
@@ -159,7 +162,9 @@ namespace Fwk.HelperFunctions
 			// Verifica que el array tenga 2 partes
 			if (wParts.Length < 2)
 			{
-				throw new Exception("Assembly mal configurado.");
+                te = new TechnicalException("Assembly mal configurado.");
+                ExceptionHelper.SetTechnicalException<ReflectionFunctions>(te);
+                te.ErrorId = "3000";
 			}
 
 			// Toma las partes del assemblyArray en dos strings separados
@@ -169,7 +174,9 @@ namespace Fwk.HelperFunctions
 			// Verifica que el string strNamespaceClass tenga al menos un punto
 			if (pClassName.IndexOf(".") < 0)
 			{
-				throw new Exception("Assembly mal configurado.");
+				  te = new TechnicalException("Assembly mal configurado.");
+                  ExceptionHelper.SetTechnicalException<ReflectionFunctions>(te);
+                  te.ErrorId = "3000";
 			}
 		}
 
@@ -256,12 +263,12 @@ namespace Fwk.HelperFunctions
 
             return (T)wPropValue;
         }
+
         /// <summary>
         /// Retorna el valor de una propiedad.-
         /// Generalmente utilizado cuando el nombre de la propiedad es generada dinamicamente y no se sabe en 
         /// desing time que propiedad sera utilizada de un objeto.-
         /// </summary>
-   
         /// <param name="pSourceObject">Objeto que contiene la propiedad</param>
         /// <param name="pPropertyName">Nombre de la propiedad</param>
         /// <returns>Valor de la propiedad en string</returns>
@@ -320,14 +327,12 @@ namespace Fwk.HelperFunctions
             return (T)wPropValue;
         }
 
-        /// <summary>
+      
         ///  Efectua un mapeo de todas las propiedades de un objeto a otro 
         ///  el mapeo solo lo hace de los atributos del tipo T, esto es debido a que 
         ///  puede pasarce como T una interfaz y los objetos source y destino ser de distinto tipo
-        ///  
-        /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="spurce"></param>
+        /// <param name="source"></param>
         /// <param name="target"></param>
         public static void MapProperties<T>(T source, ref T target)
         {

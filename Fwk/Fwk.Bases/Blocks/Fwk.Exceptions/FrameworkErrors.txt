@@ -190,3 +190,9 @@ o
 
 ErrorId = 4402
 "Clave de encriptacion no es la correcta " Seguramente cambio el archivo .key de encriptaion
+
+--------------------------------   Fwk.HelperFunctions -----------------------------------
+Helper de reflection
+ErrorId = 3000
+
+  "Assembly mal configurado"
