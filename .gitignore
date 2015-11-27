@@ -198,3 +198,9 @@ FrameworkTools/ConfigurationApp/ConfigurationApp/obj/Debug/ConfigurationApp.cspr
 FrameworkTools/ConfigurationApp/ConfigurationApp/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
 FrameworkTools/ConfigurationApp/ConfigurationApp/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
 FrameworkTools/ConfigurationApp/ConfigurationApp/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+Libraries/Framework/Fwk.Bases.Connector.dll.config
+Libraries/Framework/Fwk.Bases.dll.config
+Libraries/Framework/Fwk.DataBase.dll.config
+Libraries/Framework/Fwk.Security.dll.config
+Fwk/Fwk.Bases/Blocks/Fwk.Exceptions/FrameworkErrors.txt.bak
+Fwk/Fwk.Security/Membership/FwkMembership.User.cs.bak
