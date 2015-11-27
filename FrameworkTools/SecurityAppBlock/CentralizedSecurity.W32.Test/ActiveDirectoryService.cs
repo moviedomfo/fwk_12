@@ -173,7 +173,13 @@ namespace Fwk.CentralizedSecurity.Service
 
         internal static void User_Reset_Password(string userName, string newPassword, string domain)
         {
-            ADWrapper ad = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+            //ADWrapper ad3 = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
+
+            
+           // domain = "LDAP://allus.ar/DC=allus,DC=ar";
+            domain = "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar";
+            //ADWrapper ad3 = new ADWrapper("LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
+            ADWrapper ad = new ADWrapper(domain, "reseteos", "*R3s3t30s+");
 
             ad.User_ResetPwd(userName, newPassword, true);
 

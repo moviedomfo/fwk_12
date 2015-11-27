@@ -159,12 +159,23 @@ ErrorId = 4007
 	
 ErrorId = 4008
 	No se puede crear el usuario en las membership.-
+
 ErrorId = 4009	
  User_NoApproved	El usuario {0} no es un usuario aprobado. Pongase en contacto con su administrador de seguridad.	
 
  ErrorId = 4010
+  RoleExist	Role {0} already exists.
 
- RoleExist	Role {0} already exists.
+  ErrorId = 4011
+	Your account is not approved.
+
+ ErrorId = 4012
+	Your account is locked.
+
+ErrorId = 4013
+	Invalid username or password.
+
+
 
 --------------------------------   Fwk.Security Active directory-----------------------------------
 ErrorId = 4103 : AD_GetingDomainsURL_Error

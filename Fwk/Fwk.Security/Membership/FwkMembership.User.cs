@@ -28,7 +28,7 @@ namespace Fwk.Security
         public static Boolean ValidateUser(string userName, string password, string providerName)
         {
             SqlMembershipProvider wProvider = GetSqlMembershipProvider(providerName);
-           
+            TechnicalException te = null;
            bool isValid = wProvider.ValidateUser(userName, password);
 
            if (!isValid)
@@ -40,24 +40,30 @@ namespace Fwk.Security
                    if (!user.IsApproved)
                    {
                        //Account Unapproved
-                       throw new TechnicalException("Your account is not approved.");
+                       te = new TechnicalException("Your account is not approved.");
+                       te.ErrorId = "4011";
+                       throw te;
                    }
                    else if (user.IsLockedOut)
                    {
                        //Account Locked
                  
-                       throw new TechnicalException("Your account is locked.");
+                       te= new TechnicalException("Your account is locked.");
+                       te.ErrorId = "4012";
+                       throw te;
                    }
                    else
                    {
-                       //Invalid username or password
-                       
-                       throw new TechnicalException("Invalid username or password.");
+                       te = new TechnicalException("Invalid username or password.");
+                       te.ErrorId = "4013";
+                       throw te;
                    }
                }
                else
                {
-                    throw new TechnicalException("Invalid username or password.");
+                   te = new TechnicalException("Invalid username or password.");
+                   te.ErrorId = "4013";
+                   throw te;
                }
            }
            return isValid;
