@@ -183,15 +183,12 @@ namespace ParamsManager
         internal static void Param_CreateNew(fwk_Param param)
         {
             Param_CreateNew_Validate_Existent(param);
-           
-    
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
+                param.Enabled = true;
+                dc.fwk_Params.InsertOnSubmit(param);
 
-
-                        dc.fwk_Params.InsertOnSubmit(param);
-                    
-                    dc.SubmitChanges();
+                dc.SubmitChanges();
             }
 
         }
