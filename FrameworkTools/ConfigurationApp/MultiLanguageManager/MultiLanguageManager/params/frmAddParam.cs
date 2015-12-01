@@ -55,6 +55,7 @@ namespace ParamsManager
                 errorProvider1.SetError(txtParamId, "Ingrese solo valores numericos para el codigo EJ: 1000, 2001, 89, etc ");
                 return;
             }
+            
             _Param = new fwk_Param();
             _Param.ParamId = res;
             if (_Parent != null)
@@ -67,6 +68,16 @@ namespace ParamsManager
             if (String.IsNullOrEmpty(culture))
                 culture = "es-AR";
             _Param.Culture = culture.Trim();
+            try
+            {
+                MultilanguageDAC.Param_CreateNew_Validate_Existent(_Param);
+            }
+            catch(Exception ex)
+            {
+                errorProvider1.SetError(txtParamId, ex.Message);
+                //this.ExceptionViewer.Show(ex);
+                return;
+            }
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }

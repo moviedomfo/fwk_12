@@ -35,7 +35,7 @@ namespace ParamsManager
                 try
                 {
                     MultilanguageDAC.Param_ValidateRemove(_param);
-                    MultilanguageDAC.Param_Remove(_param.ParamId);
+                    MultilanguageDAC.Param_Remove(_param.Id);
                     Init();
                 }
                 catch (Exception ex)
@@ -86,6 +86,7 @@ namespace ParamsManager
                     catch (Exception ex)
                     {
                         this.ExceptionViewer.Show(ex);
+                        
                     }
                     this.Init();
                 }

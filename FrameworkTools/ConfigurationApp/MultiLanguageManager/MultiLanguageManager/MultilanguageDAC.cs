@@ -89,17 +89,12 @@ namespace ParamsManager
         {
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
-                bool wExist = false;
-
                 //Verifico si tiene algun hijo
-                wExist = dc.fwk_Params.Any(p => 
-                       p.ParamId.Equals(param.ParamId) == false);
+                bool wExist = dc.fwk_Params.Any(p => p.ParentId.Equals(param.ParamId)); 
                 if (wExist)
                 {
                     throw new Fwk.Exceptions.FunctionalException(String.Format("{0} es padre de otros en la Base de datos", param.Name));
                 }
-
-
             }
         }
 
@@ -143,12 +138,11 @@ namespace ParamsManager
             }
         }
 
-        internal static void Param_Remove(int fwk_ParamId)
+        internal static void Param_Remove(int id)
         {
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
-                var records = dc.fwk_Params.Where(p => p.ParamId.Equals(fwk_ParamId)
-                                       );
+                var records = dc.fwk_Params.Where(p => p.Id.Equals(id));
 
                 foreach (fwk_Param param in records)
                 {
@@ -158,28 +152,45 @@ namespace ParamsManager
             }
         }
 
-        internal static void Param_CreateNew(fwk_Param param)
+        /// <summary>
+        /// Verifico que clave y valor exista
+        /// </summary>
+        /// <param name="param"></param>
+        internal static void Param_CreateNew_Validate_Existent(fwk_Param param)
         {
-           
+
             Boolean wExist = false;
             using (ConfigDataContext dc = new ConfigDataContext(cnnString))
             {
-       
-                    //Verifico que clave y valor exista
-                    wExist = dc.fwk_Params.Any(p => p.Culture.Equals(param.Culture)
-                    //&& p.ParentId.Equals(param.ParentId)
-                    && p.ParamId.Equals(param.ParamId));
 
-                    if (wExist)
-                    {
-                           throw new Fwk.Exceptions.FunctionalException(String.Format("Ya existe la param {0} codig:{1} tipo {2} cultura:{2}", param.Name, param.ParamId, param.Culture));
-                      
-                    }
-                    else
-                    {
-                     
+                
+                wExist = dc.fwk_Params.Any(p => p.Culture.Equals(param.Culture) && p.ParamId.Equals(param.ParamId));
+
+                if (wExist)
+                {
+                    param = dc.fwk_Params.Where(p => p.Culture.Equals(param.Culture) && p.ParamId.Equals(param.ParamId)).FirstOrDefault();
+                    throw new Fwk.Exceptions.FunctionalException(String.Format("Ya existe la param {0} codigo: {1} tipo {2} cultura:{2}", param.Name, param.ParamId, param.Culture));
+                }
+               
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
+        internal static void Param_CreateNew(fwk_Param param)
+        {
+            Param_CreateNew_Validate_Existent(param);
+           
+    
+            using (ConfigDataContext dc = new ConfigDataContext(cnnString))
+            {
+
+
                         dc.fwk_Params.InsertOnSubmit(param);
-                    }
+                    
                     dc.SubmitChanges();
             }
 
