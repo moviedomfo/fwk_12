@@ -24,10 +24,10 @@ namespace Fwk.CentralizedSecurity.Service
             loogonUserResult.Autenticated = false;
             try
             {
-                LDAPHelper _ADHelper = new LDAPHelper(domain, ActiveDirectoryService.CnnStringName, true, false);
+                LDAPHelper _ADWrapper = new LDAPHelper(domain, ActiveDirectoryService.CnnStringName, true, false);
                 TechnicalException logError = null;
 
-                loogonUserResult.LogResult = _ADHelper.User_Logon(userName, password, out logError).ToString();
+                loogonUserResult.LogResult = _ADWrapper.User_Logon(userName, password, out logError).ToString();
 
                 if (logError != null)
                     loogonUserResult.ErrorMessage = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(logError);
@@ -167,7 +167,8 @@ namespace Fwk.CentralizedSecurity.Service
         {
 
 
-            List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_GetList2(System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString);
+            //List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_GetList2(System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString);
+            List<DomainUrlInfo> auxlist = ADWrapper.DomainsUrl_Get_FromSp_all(ActiveDirectoryService.CnnStringName);
 
             if (auxlist.Count != 0)
             {
