@@ -277,6 +277,7 @@ namespace Fwk.Security.ActiveDirectory
          
             deSearch.Filter = string.Format("(&(objectClass=user)(sAMAccountName={0}))",FilterOutDomain(userName));
             
+            //deSearch.Filter = string.Format("(&(objectClass=user)(|(SAMAccountName={0})(givenName={0})(name={0})(SN={0}))", FilterOutDomain(userName));
             //deSearch.Filter = "(&(objectClass=user)(cn=" + FilterOutDomain(userName) + "))";
             
             deSearch.CacheResults = false;
@@ -575,7 +576,7 @@ namespace Fwk.Security.ActiveDirectory
 
         }
 
-
+        static string  DomaunAndUserFormat= @"{0}\{1}"; 
         /// <summary>
         /// Obtiene un usuario por nombre sin tener en cuenta las credenciales del usuario
         /// </summary>
@@ -588,7 +589,8 @@ namespace Fwk.Security.ActiveDirectory
             DirectoryEntry userDirectoryEntry = null;
             try
             {
-                userDirectoryEntry = this.User_Get(userName);
+                string domaunAndUser = String.Format( DomaunAndUserFormat, _LDAPDomainName,userName);
+                userDirectoryEntry = this.User_Get(domaunAndUser);
                 if (userDirectoryEntry != null)
                 {
                     wADUser = new ADUser(userDirectoryEntry);

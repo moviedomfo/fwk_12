@@ -8352,12 +8352,23 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Fwk.HelperFunctions.ReflectionFunctions.CreateInstanceLoad(System.String,System.String,System.Object[])" -->
+        <member name="M:Fwk.HelperFunctions.ReflectionFunctions.CreateInstanceLoad(System.String,System.String,System.Object[])">
+            <summary>
+            Crea instancia de un objetos a partir de de su nombre largo y sus parametros.
+            Efectua load assembly
+            </summary>
+            <param name="pClassName">Nombre de la clase (Type.FullName)</param>
+            <param name="pAssemblyName">Nombre del ensamblado (Assembly.Name)</param>
+            <param name="constructorParams">An array of arguments that match in number, order, and type the parameters of the constructor to invoke. 
+            If args is an empty array or nullNothingnullptra null reference (Nothing in Visual Basic), 
+            the constructor that takes no parameters (the default constructor) is invoked. </param>
+            <returns></returns>
+        </member>
         <member name="M:Fwk.HelperFunctions.ReflectionFunctions.ExtractTypeInformation(System.String,System.String@,System.String@)">
             <summary>
             
             </summary>
-            <param name="pAssemblyString"></param>
+            <param name="pAssemblyString">El parametro pAssemblyString espera el siguiente formato : [Namespase.ClassName ,Assembly]</param>
             <param name="pClassName"></param>
             <param name="pAssembly"></param>
         </member>
@@ -8380,7 +8391,7 @@
             <summary>
             Crea un tipo dinamicamente a partir del nombre un archivo.-
             </summary>
-            <param name="pAssemblyString">Concatenacion de ClassName + , + AssemblyName</param>
+            <param name="pAssemblyString">Concatenacion de [ClassName,AssemblyName]</param>
             <param name="pPath">Ruta del archivo</param>
             <returns>Type definido por ClassName</returns>
         </member>
@@ -8396,6 +8407,11 @@
             <returns>Valor de la propiedad</returns>
         </member>
         <member name="M:Fwk.HelperFunctions.ReflectionFunctions.GetPropertieValue(System.Object,System.String)">
+            <summary>
+            Retorna el valor de una propiedad.-
+            Generalmente utilizado cuando el nombre de la propiedad es generada dinamicamente y no se sabe en 
+            desing time que propiedad sera utilizada de un objeto.-
+            </summary>
             <param name="pSourceObject">Objeto que contiene la propiedad</param>
             <param name="pPropertyName">Nombre de la propiedad</param>
             <returns>Valor de la propiedad en string</returns>
@@ -8420,14 +8436,11 @@
             <returns>Valor de la propiedad</returns>
         </member>
         <member name="M:Fwk.HelperFunctions.ReflectionFunctions.MapProperties``1(``0,``0@)">
-            <summary>
              Efectua un mapeo de todas las propiedades de un objeto a otro 
              el mapeo solo lo hace de los atributos del tipo T, esto es debido a que 
              puede pasarce como T una interfaz y los objetos source y destino ser de distinto tipo
-             
-            </summary>
             <typeparam name="T"></typeparam>
-            <param name="spurce"></param>
+            <param name="source"></param>
             <param name="target"></param>
         </member>
         <member name="T:Fwk.HelperFunctions.SerializationFunctions">
