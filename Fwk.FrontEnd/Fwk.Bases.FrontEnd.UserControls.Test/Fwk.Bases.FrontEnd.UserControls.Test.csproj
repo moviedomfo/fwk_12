@@ -105,7 +105,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\DataSources\ClietnteBECollection.datasource" />
     <None Include="Properties\DataSources\FacturaBECollection.datasource" />
     <None Include="Properties\DataSources\FacturaBECollection1.datasource" />
