@@ -16,9 +16,17 @@ namespace Fwk.Bases
         string _HostName;
         string _HostIp;
         string _ServerName;
+        string _Culture;
         DateTime _ServerTime = new DateTime();
         DateTime _HostTime = new DateTime();
-
+        /// <summary>
+        /// Indica la cultura, en texto, del cliente q realizo la peticion del REQ .- 
+        /// </summary>
+        public string Culture
+        {
+            get { return _Culture; }
+            set { _Culture = value; }
+        }
         /// <summary>
         /// Identifica la cultura con la q trabajara el servicio. Util para manejo de decimales 
         /// Idiomas llamadas a config mannager con texto o mensajes en un determinado idioma.-

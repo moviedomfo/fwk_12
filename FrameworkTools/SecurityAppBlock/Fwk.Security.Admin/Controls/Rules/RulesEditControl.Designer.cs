@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RulesEditControl));
-            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
-            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
+            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
+            DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition();
             this.colImg = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -46,6 +46,10 @@
             this.categoryTreeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grdAllRules = new DevExpress.XtraGrid.GridControl();
+            this.contextMenu_Rules = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mDeleteRule = new System.Windows.Forms.ToolStripMenuItem();
+            this.mCreateRuele = new System.Windows.Forms.ToolStripMenuItem();
+            this.mUpdateRule = new System.Windows.Forms.ToolStripMenuItem();
             this.fwkAuthorizationRuleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_AllRules = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,20 +57,16 @@
             this.lblCurrentCategory = new DevExpress.XtraEditors.LabelControl();
             this.lblSelectedRule = new DevExpress.XtraEditors.LabelControl();
             this.btnAddNewRule = new DevExpress.XtraEditors.SimpleButton();
-            this.contextMenu_Rules = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mDeleteRule = new System.Windows.Forms.ToolStripMenuItem();
-            this.mCreateRuele = new System.Windows.Forms.ToolStripMenuItem();
-            this.mUpdateRule = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.contextMenu_Categories.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryTreeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAllRules)).BeginInit();
+            this.contextMenu_Rules.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fwkAuthorizationRuleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_AllRules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            this.contextMenu_Rules.SuspendLayout();
             this.SuspendLayout();
             // 
             // colImg
@@ -129,23 +129,23 @@
             this.treeList1.ContextMenuStrip = this.contextMenu_Categories;
             this.treeList1.DataSource = this.categoryTreeBindingSource;
             this.treeList1.FixedLineWidth = 1;
-            styleFormatCondition3.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
-            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
-            styleFormatCondition3.Appearance.Options.UseFont = true;
-            styleFormatCondition3.Appearance.Options.UseForeColor = true;
-            styleFormatCondition3.ApplyToRow = true;
-            styleFormatCondition3.Column = this.colImg;
-            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition3.Value1 = true;
-            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            styleFormatCondition4.Appearance.Options.UseForeColor = true;
-            styleFormatCondition4.ApplyToRow = true;
-            styleFormatCondition4.Column = this.colImg;
-            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition4.Value1 = false;
+            styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
+            styleFormatCondition1.Appearance.Options.UseFont = true;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colImg;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = true;
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.colImg;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = false;
             this.treeList1.FormatConditions.AddRange(new DevExpress.XtraTreeList.StyleFormatConditions.StyleFormatCondition[] {
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition1,
+            styleFormatCondition2});
             this.treeList1.KeyFieldName = "Id";
             this.treeList1.Location = new System.Drawing.Point(558, 75);
             this.treeList1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -259,75 +259,6 @@
             this.grdAllRules.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_AllRules_MouseDown);
             this.grdAllRules.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridView_AllRules_MouseMove);
             // 
-            // fwkAuthorizationRuleBindingSource
-            // 
-            this.fwkAuthorizationRuleBindingSource.DataSource = typeof(Fwk.Security.FwkAuthorizationRule);
-            // 
-            // gridView_AllRules
-            // 
-            this.gridView_AllRules.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn3});
-            this.gridView_AllRules.GridControl = this.grdAllRules;
-            this.gridView_AllRules.Name = "gridView_AllRules";
-            this.gridView_AllRules.OptionsFilter.AllowFilterEditor = false;
-            this.gridView_AllRules.OptionsFind.AlwaysVisible = true;
-            this.gridView_AllRules.OptionsLayout.Columns.AddNewColumns = false;
-            this.gridView_AllRules.OptionsMenu.EnableColumnMenu = false;
-            this.gridView_AllRules.OptionsMenu.EnableFooterMenu = false;
-            this.gridView_AllRules.OptionsMenu.EnableGroupPanelMenu = false;
-            this.gridView_AllRules.OptionsMenu.ShowGroupSortSummaryItems = false;
-            this.gridView_AllRules.OptionsSelection.InvertSelection = true;
-            this.gridView_AllRules.OptionsSelection.UseIndicatorForSelection = false;
-            this.gridView_AllRules.OptionsView.ShowColumnHeaders = false;
-            this.gridView_AllRules.OptionsView.ShowDetailButtons = false;
-            this.gridView_AllRules.OptionsView.ShowGroupPanel = false;
-            this.gridView_AllRules.OptionsView.ShowVertLines = false;
-            this.gridView_AllRules.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_AllRules_MouseDown);
-            this.gridView_AllRules.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridView_AllRules_MouseMove);
-            this.gridView_AllRules.DoubleClick += new System.EventHandler(this.gridView_AllRules_DoubleClick);
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.FieldName = "Name";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.OptionsColumn.AllowEdit = false;
-            this.gridColumn3.OptionsColumn.ReadOnly = true;
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
-            // 
-            // gridView4
-            // 
-            this.gridView4.GridControl = this.grdAllRules;
-            this.gridView4.Name = "gridView4";
-            // 
-            // lblCurrentCategory
-            // 
-            this.lblCurrentCategory.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.lblCurrentCategory.Location = new System.Drawing.Point(672, 51);
-            this.lblCurrentCategory.Name = "lblCurrentCategory";
-            this.lblCurrentCategory.Size = new System.Drawing.Size(7, 16);
-            this.lblCurrentCategory.TabIndex = 38;
-            this.lblCurrentCategory.Text = "_";
-            // 
-            // lblSelectedRule
-            // 
-            this.lblSelectedRule.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.lblSelectedRule.Location = new System.Drawing.Point(5, 50);
-            this.lblSelectedRule.Name = "lblSelectedRule";
-            this.lblSelectedRule.Size = new System.Drawing.Size(4, 16);
-            this.lblSelectedRule.TabIndex = 39;
-            this.lblSelectedRule.Text = ".";
-            // 
-            // btnAddNewRule
-            // 
-            this.btnAddNewRule.Image = global::Fwk.Security.Admin.Properties.Resources.file_add_16;
-            this.btnAddNewRule.Location = new System.Drawing.Point(177, 49);
-            this.btnAddNewRule.Name = "btnAddNewRule";
-            this.btnAddNewRule.Size = new System.Drawing.Size(105, 26);
-            this.btnAddNewRule.TabIndex = 40;
-            this.btnAddNewRule.Text = "Add Rule";
-            this.btnAddNewRule.Click += new System.EventHandler(this.btnAddNewRule_Click);
-            // 
             // contextMenu_Rules
             // 
             this.contextMenu_Rules.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -335,7 +266,7 @@
             this.mCreateRuele,
             this.mUpdateRule});
             this.contextMenu_Rules.Name = "contextMenuStrip1";
-            this.contextMenu_Rules.Size = new System.Drawing.Size(234, 98);
+            this.contextMenu_Rules.Size = new System.Drawing.Size(234, 76);
             // 
             // mDeleteRule
             // 
@@ -361,6 +292,78 @@
             this.mUpdateRule.Text = "Update";
             this.mUpdateRule.Click += new System.EventHandler(this.mUpdateRule_Click);
             // 
+            // fwkAuthorizationRuleBindingSource
+            // 
+            this.fwkAuthorizationRuleBindingSource.DataSource = typeof(Fwk.Security.FwkAuthorizationRule);
+            // 
+            // gridView_AllRules
+            // 
+            this.gridView_AllRules.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3});
+            this.gridView_AllRules.GridControl = this.grdAllRules;
+            this.gridView_AllRules.Name = "gridView_AllRules";
+            this.gridView_AllRules.OptionsFilter.AllowFilterEditor = false;
+            this.gridView_AllRules.OptionsFind.AlwaysVisible = true;
+            this.gridView_AllRules.OptionsLayout.Columns.AddNewColumns = false;
+            this.gridView_AllRules.OptionsMenu.EnableColumnMenu = false;
+            this.gridView_AllRules.OptionsMenu.EnableFooterMenu = false;
+            this.gridView_AllRules.OptionsMenu.EnableGroupPanelMenu = false;
+            this.gridView_AllRules.OptionsMenu.ShowGroupSortSummaryItems = false;
+            this.gridView_AllRules.OptionsSelection.InvertSelection = true;
+            this.gridView_AllRules.OptionsSelection.UseIndicatorForSelection = false;
+            this.gridView_AllRules.OptionsView.ShowColumnHeaders = false;
+            this.gridView_AllRules.OptionsView.ShowDetailButtons = false;
+            this.gridView_AllRules.OptionsView.ShowGroupPanel = false;
+            this.gridView_AllRules.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView_AllRules.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn3, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridView_AllRules.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_AllRules_MouseDown);
+            this.gridView_AllRules.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gridView_AllRules_MouseMove);
+            this.gridView_AllRules.DoubleClick += new System.EventHandler(this.gridView_AllRules_DoubleClick);
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.FieldName = "Name";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
+            this.gridColumn3.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            // 
+            // gridView4
+            // 
+            this.gridView4.GridControl = this.grdAllRules;
+            this.gridView4.Name = "gridView4";
+            // 
+            // lblCurrentCategory
+            // 
+            this.lblCurrentCategory.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblCurrentCategory.Location = new System.Drawing.Point(672, 51);
+            this.lblCurrentCategory.Name = "lblCurrentCategory";
+            this.lblCurrentCategory.Size = new System.Drawing.Size(8, 16);
+            this.lblCurrentCategory.TabIndex = 38;
+            this.lblCurrentCategory.Text = "_";
+            // 
+            // lblSelectedRule
+            // 
+            this.lblSelectedRule.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.lblSelectedRule.Location = new System.Drawing.Point(5, 50);
+            this.lblSelectedRule.Name = "lblSelectedRule";
+            this.lblSelectedRule.Size = new System.Drawing.Size(4, 16);
+            this.lblSelectedRule.TabIndex = 39;
+            this.lblSelectedRule.Text = ".";
+            // 
+            // btnAddNewRule
+            // 
+            this.btnAddNewRule.Image = global::Fwk.Security.Admin.Properties.Resources.file_add_16;
+            this.btnAddNewRule.Location = new System.Drawing.Point(177, 49);
+            this.btnAddNewRule.Name = "btnAddNewRule";
+            this.btnAddNewRule.Size = new System.Drawing.Size(105, 26);
+            this.btnAddNewRule.TabIndex = 40;
+            this.btnAddNewRule.Text = "Add Rule";
+            this.btnAddNewRule.Click += new System.EventHandler(this.btnAddNewRule_Click);
+            // 
             // RulesEditControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -381,10 +384,10 @@
             this.contextMenu_Categories.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.categoryTreeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAllRules)).EndInit();
+            this.contextMenu_Rules.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fwkAuthorizationRuleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_AllRules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            this.contextMenu_Rules.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -12,7 +12,7 @@ namespace Fwk.Security
     /// <summary>
     /// Perform windows context Impersonation
     /// </summary>
-    internal class Impersonation_2
+    public class Impersonation_2
     {
         #region Definiciones WIN32
 
@@ -136,7 +136,7 @@ namespace Fwk.Security
     /// <summary>
     /// Perform windows context Impersonation
     /// </summary>
-    internal class Impersonation
+    public class Impersonation
     {
         #region Definiciones WIN32
 

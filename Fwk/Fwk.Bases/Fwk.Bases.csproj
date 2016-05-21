@@ -287,7 +287,6 @@
       <LastGenOutput>FwkData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Blocks\Fwk.Caching\Caching.cd" />
     <None Include="Blocks\Fwk.Caching\ConfigCaching_App.config" />
     <None Include="Blocks\Fwk.Logging\diagrams\Diagram.cd" />
   </ItemGroup>

@@ -171,19 +171,6 @@ namespace Fwk.Security
         public static string GetProvider_ConnectionStringName(string providerName)
         {
 
-            //if (_SecuritySettings != null)
-            //{
-            //    Fwk.Security.Configuration.FwkAuthorizationRuleProviderData wProviderData;
-            //    if (string.IsNullOrEmpty(providerName))
-            //        wProviderData = ((Fwk.Security.Configuration.FwkAuthorizationRuleProviderData)(_SecuritySettings.AuthorizationProviders.Get(System.Web.Security.Membership.Provider.Name)));
-            //    else
-            //        wProviderData = ((Fwk.Security.Configuration.FwkAuthorizationRuleProviderData)(_SecuritySettings.AuthorizationProviders.Get(providerName)));
-
-            //    if (wProviderData != null)
-            //    {
-            //        return wProviderData.ConnectionStringName;
-            //    }
-            //}
             if (string.IsNullOrEmpty(providerName))
             {
                 if (providerCnnStrings.ContainsKey(System.Web.Security.Membership.Provider.Name))

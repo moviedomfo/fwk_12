@@ -124,7 +124,7 @@ namespace Fwk.BusinessFacades
             IServiceContract wRequest = (IServiceContract)ReflectionFunctions.CreateInstance(wServiceConfiguration.Request);
             if (wRequest == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
@@ -160,10 +160,10 @@ namespace Fwk.BusinessFacades
             string wResult;
 
             ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            Type reqType = Type.GetType(wServiceConfiguration.Request);
+            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
             if (reqType == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
@@ -490,7 +490,7 @@ namespace Fwk.BusinessFacades
             IServiceContract wRequest = (IServiceContract)ReflectionFunctions.CreateInstance(wServiceConfiguration.Request);
             if (wRequest == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<StaticFacade>(te);
@@ -527,10 +527,11 @@ namespace Fwk.BusinessFacades
             string wResult;
 
             ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            Type reqType = Type.GetType(wServiceConfiguration.Request);
+            
+            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
             if (reqType == null)
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no construir el requets del servicio: ",
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<StaticFacade>(te);

@@ -1,1 +1,0 @@
-C:\projects\GitHub-sourcetree\fwk_12\FrameworkTools\SecurityAppBlock\Fwk.Security.AD.TestLogin\bin\Debug\Fwk.Security.AD.TestLogin.exe.config

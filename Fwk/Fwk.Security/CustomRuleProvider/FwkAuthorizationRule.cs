@@ -63,6 +63,7 @@ namespace Fwk.Security
         {
             _Expression = expression;
             _ApplicationId = applicationId;
+            _Name = name;
 
         }
     

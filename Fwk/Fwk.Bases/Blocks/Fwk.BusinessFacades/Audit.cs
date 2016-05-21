@@ -62,21 +62,24 @@ namespace Fwk.BusinessFacades.Utils
             StringBuilder s = new StringBuilder("Se ha intentado levantar el despachador de servicios.");
             s.AppendLine("Verifique que esten correctamente configurados en el .config los AppSettings.");
             s.AppendLine("ServiceDispatcherName y ServiceDispatcherConnection");
+            var logType = EventType.Audit;
             if (ex != null)
             {
                 s.AppendLine("..................................");
                 s.AppendLine("Error Interno:");
                 s.AppendLine(Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex));
+                logType = EventType.Error;
             }
 
             TechnicalException te = new TechnicalException(s.ToString());
             te.ErrorId = "7007";
             Fwk.Exceptions.ExceptionHelper.SetTechnicalException<FacadeHelper>(te);
-
+            
+            
             try
             {
                 // TODO: ver prefijo del log
-                Fwk.Logging.Event ev = new Fwk.Logging.Event(EventType.Error, 
+                Fwk.Logging.Event ev = new Fwk.Logging.Event(logType, 
                     Fwk.Bases.ConfigurationsHelper.HostApplicationName,
                     s.ToString(), Environment.MachineName, Environment.UserName);
 

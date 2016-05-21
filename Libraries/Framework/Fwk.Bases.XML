@@ -4848,6 +4848,11 @@
             </summary>
             <param name="ProviderName"></param>
         </member>
+        <member name="P:Fwk.Bases.ContextInformation.Culture">
+            <summary>
+            Indica la cultura, en texto, del cliente q realizo la peticion del REQ .- 
+            </summary>
+        </member>
         <member name="P:Fwk.Bases.ContextInformation.ProviderNameWithCultureInfo">
             <summary>
             Identifica la cultura con la q trabajara el servicio. Util para manejo de decimales 

@@ -8,6 +8,7 @@ using System.Data.Common;
 using Fwk.Security.Common;
 using System.Web.Security;
 using Fwk.Exceptions;
+using System.Data.SqlClient;
 
 namespace Fwk.Security
 {
@@ -317,21 +318,31 @@ namespace Fwk.Security
 
             SqlMembershipProvider wProvider = GetSqlMembershipProvider(providerName);
             StringBuilder str = new StringBuilder("UPDATE aspnet_Roles SET  Description = '[Description]' WHERE (LoweredRoleName = LOWER('[RoleName]')) AND(ApplicationId = CONVERT (UNIQUEIDENTIFIER,'[ApplicationId]') )");
-            Guid id = GetApplication(wProvider.Name, GetProvider_ConnectionStringName(wProvider.Name));
-            Database wDataBase = null;
-            DbCommand wCmd = null;
+
+            Guid id = GetApplication(wProvider.ApplicationName, GetProvider_ConnectionStringName(wProvider.Name));
+
+            str.Replace("[ApplicationId]", id.ToString());
+            str.Replace("[Description]", description);
+            str.Replace("[RoleName]", roleName);
+
             try
             {
 
-                wDataBase = DatabaseFactory.CreateDatabase(GetProvider_ConnectionStringName(wProvider.Name));
 
-                str.Replace("[ApplicationId]", id.ToString());
-                str.Replace("[Description]", description);
-                str.Replace("[RoleName]", roleName);
+                using (SqlConnection cnn = new SqlConnection(GetProvider_ConnectionString(wProvider.Name)))
+                {
+                    cnn.Open();
+                    using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+                    {
+                        //cmd.CommandText = str.ToString();
+                        cmd.CommandType = CommandType.Text;
 
-                wCmd = wDataBase.GetSqlStringCommand(str.ToString());
-                wCmd.CommandType = CommandType.Text;
-                wDataBase.ExecuteNonQuery(wCmd);
+                        cmd.ExecuteNonQuery();
+
+
+
+                    }
+                }
             }
             catch (System.Configuration.Provider.ProviderException pe)
             {

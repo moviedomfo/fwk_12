@@ -1,0 +1,1136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fwk.Bases.Connector</name>
+    </assembly>
+    <members>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurityWrapper">
+            <summary>
+            Wrapper para interfaz de servicio implementada a través de un web service.
+            </summary>
+            <date>2011-06-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.ExecuteService(System.String,System.String)">
+            <summary>
+            Ejecuta un servicio de negocio.
+            Si se produce el error:
+            The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+            Se debe a un error que lanza una llamada asincrona en modo debug  
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param> 
+            <param name="pData">XML con datos de entrada para la  ejecución del servicio.</param>
+            <returns>XML con datos de salida del servicio.</returns>
+            <date>2011-08-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.ExecuteServiceAsynk(System.String,System.String,System.Delegate)">
+            <summary>
+            
+            </summary>
+            <param name="pServiceName"></param>
+            <param name="pData"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.ExecuteService``2(``0)">
+            <summary>
+            Ejecuta un servicio de negocio. (Metodo vigente solo por compatibilidad con versiones anteriores donde se pasaba el 
+            nombre del servicio como parametro.-
+            Si se produce el error:
+            The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+            Se debe a un error que lanza una llamada asincrona en modo debug  
+            </summary>
+            <param name="pReq">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
+            <returns>Clase que implementa IServiceContract con datos de respuesta del servicio.</returns>
+            <date>2011-06-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.GetAllServices">
+            <summary>
+            Recupera la configuración de todos los servicios de negocio.
+            </summary>
+            <returns>Lista de configuraciones de servicios de negocio.</returns>
+            <date>2010-09-16T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.GetServiceConfiguration(System.String)">
+            <summary>
+            Recupera la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <returns>configuración del servicio de negocio.</returns>
+            <date>2011-04-07T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.SetServiceConfiguration(System.String,Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Actualiza la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio a actualizar.</param>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2010-09-16T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.AddServiceConfiguration(Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Almacena la configuración de un nuevo servicio de negocio.
+            </summary>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2011-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.DeleteServiceConfiguration(System.String)">
+            <summary>
+            Elimina la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <date>2011-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.GetAllApplicationsId">
+            <summary>
+            Obtiene una lista de todas las aplicaciones configuradas en el origen de datos configurado por el 
+            proveedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.GetProviderInfo(System.String)">
+            <summary>
+            Obtiene info del proveedor de metadata
+            </summary>
+            <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.SourceInfo">
+            <summary>
+            Direccion url del servicio web
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.AppId">
+            <summary>
+            Identificador de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.Credentials">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.Proxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.LocalWrapper">
+            <summary>
+            Rapper que realiza la ejecucion de servicios de forma local. Llama directamente al la facada de servicios
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.ExecuteService(Fwk.Bases.IServiceContract)">
+            <summary>
+            Implementa la llamada al backend atravez de la ejecucion de la SimpleFacade. 
+            Al llamar directamente a la SimpleFacade funciona como un despachador de servicios, esto lo hace
+            debido  a aque se trata de un wrapper local.
+            </summary>
+            <param name="pReq">Clase request que implementa IServiceContract. No nececita pasarce el reprecentativo xml de tal
+            objeto, esto es para evitar serializacion innecesaria</param>
+            <returns>Response con los resultados del servicio</returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.ExecuteService``2(``0)">
+            <summary>
+            Ejecuta un servicio de negocio.
+            Si se produce el error:
+            The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+            Se debe a un error que lanza una llamada asincrona en modo debug  
+            </summary>
+            <param name="pReq">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
+            <returns>Clase que implementa IServiceContract con datos de respuesta del servicio.</returns>
+            <date>2007-06-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.ExecuteService(System.String,System.String)">
+            <summary>
+            Este metodo no esta implementado para un wrapper local.-
+            Su ejecucion producira un error.-
+            </summary>
+            <param name="serviceName"></param>
+            <param name="pData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.GetAllServices">
+            <summary>
+            Recupera la configuración de todos los servicios de negocio.
+            </summary>
+            <returns>Lista de configuraciones de servicios de negocio.</returns>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.GetServiceConfiguration(System.String)">
+            <summary>
+            Recupera la configuración de un servicio de negocio.
+            </summary>
+            <param name="serviceName">Nombre del servicio.</param>
+            <returns>configuración del servicio de negocio.</returns>
+            <date>2008-04-07T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.SetServiceConfiguration(System.String,Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="serviceName"></param>
+            <param name="pServiceConfiguration"></param>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.AddServiceConfiguration(Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Almacena la configuración de un nuevo servicio de negocio.
+            </summary>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.DeleteServiceConfiguration(System.String)">
+            <summary>
+            Elimina la configuración de un servicio de negocio.
+            </summary>
+            <param name="serviceName">Nombre del servicio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.GetAllApplicationsId">
+            <summary>
+            Obtiene una lista de todas las aplicaciones configuradas en el origen de datos configurado por el 
+            proveedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.GetProviderInfo(System.String)">
+            <summary>
+            Obtiene info del proveedor de metadata
+            </summary>
+            <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.CreateSimpleFacade">
+            <summary>
+            Factory de SimpleFacade
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.CheckServiceAvailability">
+            <summary>
+            Chequea la disponibilidad del despachador de servicio
+            </summary>
+            <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.SourceInfo">
+            <summary>
+            No se utiliza en un wrapper local
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.AppId">
+            <summary>
+            Identificador de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding">
+             <summary>
+            WCF Wrapper que utiliza WsHttpBinding por defecto
+            binding.Security.Mode = SecurityMode.Message
+             </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.WCFRrapperBase`1">
+            <summary>
+            Wrapper espesializado para una conexión http a WSHttpBinding
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.ExecuteService(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pServiceName"></param>
+            <param name="pData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.ExecuteService``2(``0)">
+            <summary>
+            Ejecuta un servicio de negocio.
+            Si se produce el error:
+            The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+            Se debe a un error que lanza una llamada asincrona en modo debug  
+            </summary>
+            <param name="req">Clase que imlementa la interfaz IServiceContract datos de entrada para la  ejecución del servicio.</param>
+            <returns>Clase que imlementa la interfaz IServiceContract con datos de respuesta del servicio.</returns>
+            <returns>response</returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.GetAllServices">
+            <summary>
+            Recupera la configuración de todos los servicios de negocio.
+            </summary>
+            <returns>Lista de configuraciones de servicios de negocio.</returns>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.GetServiceConfiguration(System.String)">
+            <summary>
+            Recupera la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <returns>configuración del servicio de negocio.</returns>
+            <date>2008-04-07T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.SetServiceConfiguration(System.String,Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Actualiza la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio a actualizar.</param>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.AddServiceConfiguration(Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Almacena la configuración de un nuevo servicio de negocio.
+            </summary>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.DeleteServiceConfiguration(System.String)">
+            <summary>
+            Elimina la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.GetAllApplicationsId">
+            <summary>
+            Obtiene una lista de todas las aplicaciones configuradas en el origen de datos configurado por el 
+            proveedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.GetProviderInfo(System.String)">
+            <summary>
+            Obtiene info del proveedor de metadata
+            </summary>
+            <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.RetriveDispatcherInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.SourceInfo">
+            <summary>
+            Direccion url del servicio web
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.AppId">
+            <summary>
+            Identificador de aplicacion o de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding.InitilaizeBinding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding_transport">
+             <summary>
+             When configured for Transport security, WCF uses a secure communication protocol.Transport security
+            encrypts all communication on the channel and thus provides for integrity, privacy,
+            and mutual authentication
+             </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding_transport.InitilaizeBinding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.WCFWrapper_BasicHttpBinding">
+            <summary>
+            Wrapper espesializado para una conexión TCP a NetTcpBinding por defecto
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFWrapper_BasicHttpBinding.InitilaizeBinding">
+            <summary>
+            Si inicializa BasicHttpBinding
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.RemotingWrapper">
+            <summary>
+            Wrapper espesializado para una conexión a travez de RemotingConfiguration
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.ExecuteService(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pServiceName"></param>
+            <param name="pData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.ExecuteService``2(``0)">
+            <summary>
+            Ejecuta un servicio de negocio.
+            Si se produce el error:
+            The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+            Se debe a un error que lanza una llamada asincrona en modo debug  
+            </summary>
+            <param name="req">Clase que imlementa la interfaz IServiceContract datos de entrada para la  ejecución del servicio.</param>
+            <returns>Clase que imlementa la interfaz IServiceContract con datos de respuesta del servicio.</returns>
+            <returns>response</returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.CheckServiceAvailability">
+            <summary>
+            Chequea la disponibilidad del despachador de servicio
+            </summary>
+            <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+        </member>
+        <member name="F:Fwk.Bases.Connector.RemotingWrapper.singletonLock">
+            <summary>
+            Objeto de interbloqueo concurrente
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.CreateRemoteObject">
+            <summary>
+            Crea en este caso SimpleFacaddeRemoteObject .-
+            </summary>
+            <returns>Instancia de SimpleFacaddeRemoteObject</returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.GetAllServices">
+            <summary>
+            Recupera la configuración de todos los servicios de negocio.
+            </summary>
+            <returns>Lista de configuraciones de servicios de negocio.</returns>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.GetServiceConfiguration(System.String)">
+            <summary>
+            Recupera la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <returns>configuración del servicio de negocio.</returns>
+            <date>2008-04-07T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.SetServiceConfiguration(System.String,Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Actualiza la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio a actualizar.</param>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.AddServiceConfiguration(Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Almacena la configuración de un nuevo servicio de negocio.
+            </summary>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.DeleteServiceConfiguration(System.String)">
+            <summary>
+            Elimina la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.GetAllApplicationsId">
+            <summary>
+            Obtiene una lista de todas las aplicaciones configuradas en el origen de datos configurado por el 
+            proveedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.GetProviderInfo(System.String)">
+            <summary>
+            Obtiene info del proveedor de metadata
+            </summary>
+            <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.RetriveDispatcherInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.SourceInfo">
+            <summary>
+            Archivo de configuracion de remoting
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.AppId">
+            <summary>
+            Identificador de aplicacion o de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.WCFWrapper_NetTcpBinding">
+            <summary>
+            Wrapper espesializado para una conexión TCP a NetTcpBinding
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFWrapper_NetTcpBinding.InitilaizeBinding">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.ASPNet">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteService(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteServiceAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteServiceAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServiceConfiguration(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServiceConfigurationAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServiceConfigurationAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServicesList(System.String,System.Boolean)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServicesListAsync(System.String,System.Boolean)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServicesListAsync(System.String,System.Boolean,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetProviderInfo(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetProviderInfoAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetProviderInfoAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteServiceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServicesListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetProviderInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.BaseEntity">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.ApplicationId">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.Name">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.ConfigProviderType">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.SecurityProviderName">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.SourceInfo">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.ExecuteServiceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.ExecuteServiceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.ExecuteServiceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.GetServiceConfigurationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.GetServiceConfigurationCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.GetServiceConfigurationCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.GetServicesListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.GetServicesListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.GetServicesListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.GetProviderInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.GetProviderInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurity.GetProviderInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.SingleService">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteServiceAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteServiceAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService_OneWay(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService_OneWayAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService_OneWayAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetServiceConfiguration(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetServiceConfigurationAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetServiceConfigurationAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetServicesList(System.String,System.Boolean)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetServicesListAsync(System.String,System.Boolean)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetServicesListAsync(System.String,System.Boolean,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.SetServiceConfiguration(System.String,System.String,Fwk.Bases.Connector.Singleservice.ServiceConfiguration)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.SetServiceConfigurationAsync(System.String,System.String,Fwk.Bases.Connector.Singleservice.ServiceConfiguration)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.SetServiceConfigurationAsync(System.String,System.String,Fwk.Bases.Connector.Singleservice.ServiceConfiguration,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.AddServiceConfiguration(System.String,Fwk.Bases.Connector.Singleservice.ServiceConfiguration)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.AddServiceConfigurationAsync(System.String,Fwk.Bases.Connector.Singleservice.ServiceConfiguration)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.AddServiceConfigurationAsync(System.String,Fwk.Bases.Connector.Singleservice.ServiceConfiguration,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.DeleteServiceConfiguration(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.DeleteServiceConfigurationAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.DeleteServiceConfigurationAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetAllApplicationsId(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetAllApplicationsIdAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetAllApplicationsIdAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetProviderInfo(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetProviderInfoAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.GetProviderInfoAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.RetriveDispatcherInfo">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.RetriveDispatcherInfoAsync">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.RetriveDispatcherInfoAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteServiceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService_OneWayCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetServicesListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.SetServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.AddServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.DeleteServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetAllApplicationsIdCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetProviderInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.RetriveDispatcherInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.ServiceConfiguration">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.BaseEntity">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.CreatedUserName">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.CreatedDateTime">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.Description">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.Handler">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.Request">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.Response">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.Available">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.Audit">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.TransactionalBehaviour">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.IsolationLevel">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.ApplicationId">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.name">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.TransactionalBehaviour">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.TransactionalBehaviour.Support">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.TransactionalBehaviour.Required">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.TransactionalBehaviour.RequiresNew">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.TransactionalBehaviour.Suppres">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.IsolationLevel">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.Chaos">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.ReadCommitted">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.ReadUncommitted">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.RepeatableRead">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.Serializable">
+            <remarks/>
+        </member>
+        <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.Snapshot">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.DictionarySetting">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DictionarySetting.Key">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DictionarySetting.Value">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.DispatcherInfo">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DispatcherInfo.MetadataProviders">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DispatcherInfo.AppSettings">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DispatcherInfo.CnnStringSettings">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DispatcherInfo.ServiceDispatcherConnection">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DispatcherInfo.ServiceDispatcherName">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.DispatcherInfo.MachineIp">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.MetadataProvider">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.MetadataProvider.ApplicationId">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.MetadataProvider.Name">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.MetadataProvider.ConfigProviderType">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.MetadataProvider.SecurityProviderName">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.MetadataProvider.SourceInfo">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.ExecuteServiceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.ExecuteServiceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.ExecuteServiceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.ExecuteService_OneWayCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetServiceConfigurationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetServiceConfigurationCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.GetServiceConfigurationCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetServicesListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetServicesListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.GetServicesListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.SetServiceConfigurationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.AddServiceConfigurationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.DeleteServiceConfigurationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetAllApplicationsIdCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetAllApplicationsIdCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.GetAllApplicationsIdCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetProviderInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.GetProviderInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.GetProviderInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.RetriveDispatcherInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.RetriveDispatcherInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Fwk.Bases.Connector.Singleservice.RetriveDispatcherInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.WebServiceWrapper">
+            <summary>
+            Wrapper para interfaz de servicio implementada a través de un web service.
+            </summary>
+            <date>2007-06-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.ExecuteService(System.String,System.String)">
+            <summary>
+            Ejecuta un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param> 
+            <param name="pData">XML con datos de entrada para la  ejecución del servicio.</param>
+            <returns>XML con datos de salida del servicio.</returns>
+            <date>2007-08-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.ExecuteService_OneWay(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pServiceName"></param>
+            <param name="pData"></param>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.ExecuteServiceAsynk(System.String,System.String,System.Delegate)">
+            <summary>
+            
+            </summary>
+            <param name="pServiceName"></param>
+            <param name="pData"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.ExecuteService``2(``0)">
+            <summary>
+            Ejecuta un servicio de negocio. (Metodo vigente solo por compatibilidad con versiones anteriores donde se pasaba el 
+            nombre del servicio como parametro.-
+            </summary>
+            <param name="pReq">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
+            <returns>Clase que implementa IServiceContract con datos de respuesta del servicio.</returns>
+            <date>2007-06-23T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.CheckServiceAvailability">
+            <summary>
+            Chequea la disponibilidad del despachador de servicio
+            </summary>
+            <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.GetAllServices">
+            <summary>
+            Recupera la configuración de todos los servicios de negocio.
+            </summary>
+            <returns>Lista de configuraciones de servicios de negocio.</returns>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.GetServiceConfiguration(System.String)">
+            <summary>
+            Recupera la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <returns>configuración del servicio de negocio.</returns>
+            <date>2008-04-07T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.SetServiceConfiguration(System.String,Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Actualiza la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio a actualizar.</param>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-10T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.AddServiceConfiguration(Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Almacena la configuración de un nuevo servicio de negocio.
+            </summary>
+            <param name="pServiceConfiguration">configuración del servicio de negocio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.DeleteServiceConfiguration(System.String)">
+            <summary>
+            Elimina la configuración de un servicio de negocio.
+            </summary>
+            <param name="pServiceName">Nombre del servicio.</param>
+            <date>2008-04-13T00:00:00</date>
+            <author>moviedo</author>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.GetAllApplicationsId">
+            <summary>
+            Obtiene una lista de todas las aplicaciones configuradas en el origen de datos configurado por el 
+            proveedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.GetProviderInfo(System.String)">
+            <summary>
+            Obtiene info del proveedor de metadata
+            </summary>
+            <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.RetriveDispatcherInfo">
+            <summary>
+            Retorna uyn alista de Service Metadata providers configurados en el Web Service Dispatcher
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.GetServiceConfigurationProxy(Fwk.Bases.ServiceConfiguration)">
+            <summary>
+            Mapeta  Fwk.Bases.ServiceConfiguration a Fwk.Bases.Connector.SingleService.ServiceConfiguration 
+            </summary>
+            <param name="pServiceConfiguration"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.SourceInfo">
+            <summary>
+            Direccion url del servicio web
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.AppId">
+            <summary>
+            Identificador de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.Credentials">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.Proxy">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

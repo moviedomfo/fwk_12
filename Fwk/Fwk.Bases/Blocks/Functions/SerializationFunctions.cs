@@ -23,23 +23,12 @@ namespace Fwk.HelperFunctions
         /// <param name="objToSerialize">Objeto en memoria a transformar en bytes</param>
         public static void SerializeToBin(string fileName, object objToSerialize)
         {
-            if (objToSerialize == null)
+            using (System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write))
             {
-                throw new Exception("El objeto a serializar no debe ser nulo.");
-            }
-
-            // Creo el archivo de destino y lo devuelvo a un fileStream
-            FileStream fs = File.Create(fileName);
-
-            // Creo un BinaryFormatter que me sirve como serializador
-            BinaryFormatter serializer = new BinaryFormatter();
-
-            // Le digo al serializador que guarde los bytes en un archivo
-            // binario, representado por el FileStream
-            serializer.Serialize(fs, objToSerialize);
-
-            // Cierro el FileStream
-            fs.Close();
+                System.Runtime.Serialization.Formatters.Binary.BinaryFormatter b = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                b.Serialize(fs, objToSerialize);
+                fs.Close();
+            }  
         }
 
         /// <summary>
@@ -50,27 +39,11 @@ namespace Fwk.HelperFunctions
         /// <returns>objeto deserializado</returns>
         public static object DeserializeFromBin(string fileName)
         {
-            if (!File.Exists(fileName))
+            using (System.IO.FileStream ds = new System.IO.FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.Read))
             {
-                throw new Exception("El archivo de origen para deserializar " +
-                    "no existe. No se encuentra la ruta '" + fileName + "'");
-            }
-
-            // Abro el archivo de origen y lo devuelvo a un fileStream
-            FileStream fs = File.OpenRead(fileName);
-
-            // Creo un BinaryFormatter que me sirve como deserializador
-            BinaryFormatter deserializer = new BinaryFormatter();
-
-            // Le digo al deserializador que me devuelva el objeto a partir
-            // del FileStream
-            object objDeserialized = deserializer.Deserialize(fs);
-
-            // Cierro el FileStream
-            fs.Close();
-
-            // Devuelvo el objeto deserializado
-            return objDeserialized;
+                System.Runtime.Serialization.Formatters.Binary.BinaryFormatter bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                return bf.Deserialize(ds);
+            }  
         }
 
         #endregion
