@@ -26,10 +26,10 @@ namespace Fwk.CentralizedSecurity.Service
             loogonUserResult.Autenticated = false;
             try
             {
-                LDAPHelper _ADHelper = new LDAPHelper(domain, ActiveDirectoryService.CnnStringName, true, false);
+                LDAPHelper _ADWrapper = new LDAPHelper(domain, ActiveDirectoryService.CnnStringName, true, false);
                 TechnicalException logError = null;
 
-                loogonUserResult.LogResult = _ADHelper.User_Logon(userName, password, out logError).ToString();
+                loogonUserResult.LogResult = _ADWrapper.User_Logon(userName, password, out logError).ToString();
 
                 if (logError != null)
                     loogonUserResult.ErrorMessage = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(logError);
@@ -175,11 +175,17 @@ namespace Fwk.CentralizedSecurity.Service
         {
             //ADWrapper ad3 = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
-            
-           // domain = "LDAP://allus.ar/DC=allus,DC=ar";
+            //ADWrapper ad = new ADWrapper("LDAP://allus.ar/DC=allus,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
+            domain = "LDAP://allus.ar/DC=allus,DC=ar";
             domain = "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar";
             //ADWrapper ad3 = new ADWrapper("LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
-            ADWrapper ad = new ADWrapper(domain, "reseteos", "*R3s3t30s+");
+			//ADWrapper ad = new ADWrapper(domain, "reseteos", "*R3s3t30s+");
+            ImpersonateLogin impersonateLogin = new ImpersonateLogin();
+            impersonateLogin.ldap = "LDAP://allus.ar/DC=allus,DC=ar";
+            impersonateLogin.user = "reseteos";
+            impersonateLogin.password = "*R3s3t30s+";
+            impersonateLogin.domain = "allus-ar";
+            ADWrapper ad = new ADWrapper(impersonateLogin.domain, impersonateLogin);
 
             ad.User_ResetPwd(userName, newPassword, true);
 

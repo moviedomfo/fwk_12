@@ -20,6 +20,7 @@ using CentralizedSecurity.W32.Test;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Text;
 using CentralizedSecurity.W32.Test.ServiceReference1;
+using System.Collections.Generic;
 
 namespace SecurityAppBlock.Use
 {
@@ -52,14 +53,29 @@ namespace SecurityAppBlock.Use
 
             cmbAllDomains.Text = _Storage.StorageObject.Domain;
 
-
+            List<Fwk.Security.ActiveDirectory.DomainUrlInfo> wDomainUrlInfoList = new List<Fwk.Security.ActiveDirectory.DomainUrlInfo>();
             try
             {
+                var d2 = ActiveDirectoryService.GetAllDomainsUrl();
 
-                string cnnString = System.Configuration.ConfigurationManager.ConnectionStrings["ActiveDirectory"].ConnectionString;
-                          txtCnnString.Text = cnnString;
-                var d = DirectoryServicesBase.DomainsUrl_Get_FromSp_all("ActiveDirectory");
-                cmbAllDomains.DataSource = d;
+                foreach (Fwk.CentralizedSecurity.Contracts.DomainsUrl domainUrlItem in d2)
+                {
+                    Fwk.Security.ActiveDirectory.DomainUrlInfo item = new Fwk.Security.ActiveDirectory.DomainUrlInfo();
+                    item.DomainDN = domainUrlItem.DomainDN;
+                    item.DomainName = domainUrlItem.DomainName;
+                    item.LDAPPath = domainUrlItem.LDAPPath;
+                    item.Id = domainUrlItem.Id;
+                    item.Pwd = domainUrlItem.Pwd;
+                    item.Usr = domainUrlItem.Usr;
+                    item.SiteName = domainUrlItem.SiteName;
+
+                    wDomainUrlInfoList.Add(item);
+                }
+                string cnnString = System.Configuration.ConfigurationManager.ConnectionStrings[ActiveDirectoryService.CnnStringName].ConnectionString;
+                txtCnnString.Text = cnnString;
+                //List<DomainUrlInfo>
+                //  var d = DirectoryServicesBase.DomainsUrl_Get_FromSp_all(ActiveDirectoryService.CnnStringName);
+                cmbAllDomains.DataSource = wDomainUrlInfoList;
                 cmbAllDomains.SelectedIndex = 0;
 
 
@@ -203,6 +219,43 @@ namespace SecurityAppBlock.Use
             str.AppendLine("pwd: " + domainUrlInfo.Pwd);
 
             txtLDAPUser.Text = str.ToString();
+        }
+
+        private void btnGetUserInfo_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string domainName = "";
+
+     
+                var dom = ((Fwk.Security.ActiveDirectory.DomainUrlInfo)(cmbAllDomains.SelectedItem));
+                if (dom != null)
+                {
+
+                    domainName = dom.DomainName;
+                }
+                else
+                {
+                    domainName = cmbAllDomains.Text;
+                }
+
+
+
+
+
+                var res = ActiveDirectoryService.User_Info(usernameTextBox.Text, domainName);
+                //if (res.LogResult != null)
+                //    txtErr.Text = res.LogResult;
+                //else
+                //    txtErr.Text = res.ErrorMessage;
+            }
+            catch (Exception ex)
+            {
+                txtErr.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+
+            }
+
         }
 
         

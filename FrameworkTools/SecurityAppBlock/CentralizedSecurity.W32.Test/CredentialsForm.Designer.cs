@@ -45,6 +45,8 @@ namespace SecurityAppBlock.Use
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAutenticate2 = new System.Windows.Forms.Button();
+            this.btnAutenticate1 = new System.Windows.Forms.Button();
             this.btnResset = new System.Windows.Forms.Button();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
@@ -54,8 +56,7 @@ namespace SecurityAppBlock.Use
             this.txtErr = new System.Windows.Forms.TextBox();
             this.txtLDAPUser = new System.Windows.Forms.TextBox();
             this.txtCnnString = new System.Windows.Forms.TextBox();
-            this.btnAutenticate1 = new System.Windows.Forms.Button();
-            this.btnAutenticate2 = new System.Windows.Forms.Button();
+            this.btnGetUserInfo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.domainUrlInfoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +80,20 @@ namespace SecurityAppBlock.Use
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // btnAutenticate2
+            // 
+            resources.ApplyResources(this.btnAutenticate2, "btnAutenticate2");
+            this.btnAutenticate2.Name = "btnAutenticate2";
+            this.btnAutenticate2.UseVisualStyleBackColor = true;
+            this.btnAutenticate2.Click += new System.EventHandler(this.btnAutenticate2_Click);
+            // 
+            // btnAutenticate1
+            // 
+            resources.ApplyResources(this.btnAutenticate1, "btnAutenticate1");
+            this.btnAutenticate1.Name = "btnAutenticate1";
+            this.btnAutenticate1.UseVisualStyleBackColor = true;
+            this.btnAutenticate1.Click += new System.EventHandler(this.btnAutenticate1_Click);
             // 
             // btnResset
             // 
@@ -131,23 +146,17 @@ namespace SecurityAppBlock.Use
             resources.ApplyResources(this.txtCnnString, "txtCnnString");
             this.txtCnnString.Name = "txtCnnString";
             // 
-            // btnAutenticate1
+            // btnGetUserInfo
             // 
-            resources.ApplyResources(this.btnAutenticate1, "btnAutenticate1");
-            this.btnAutenticate1.Name = "btnAutenticate1";
-            this.btnAutenticate1.UseVisualStyleBackColor = true;
-            this.btnAutenticate1.Click += new System.EventHandler(this.btnAutenticate1_Click);
-            // 
-            // btnAutenticate2
-            // 
-            resources.ApplyResources(this.btnAutenticate2, "btnAutenticate2");
-            this.btnAutenticate2.Name = "btnAutenticate2";
-            this.btnAutenticate2.UseVisualStyleBackColor = true;
-            this.btnAutenticate2.Click += new System.EventHandler(this.btnAutenticate2_Click);
+            resources.ApplyResources(this.btnGetUserInfo, "btnGetUserInfo");
+            this.btnGetUserInfo.Name = "btnGetUserInfo";
+            this.btnGetUserInfo.UseVisualStyleBackColor = true;
+            this.btnGetUserInfo.Click += new System.EventHandler(this.btnGetUserInfo_Click);
             // 
             // CredentialsForm
             // 
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.btnGetUserInfo);
             this.Controls.Add(this.txtCnnString);
             this.Controls.Add(this.txtLDAPUser);
             this.Controls.Add(this.txtErr);
@@ -182,5 +191,6 @@ namespace SecurityAppBlock.Use
         private System.Windows.Forms.TextBox txtCnnString;
         private System.Windows.Forms.Button btnAutenticate2;
         private System.Windows.Forms.Button btnAutenticate1;
+   		private System.Windows.Forms.Button btnGetUserInfo;
     }
 }
