@@ -207,3 +207,36 @@ Helper de reflection
 ErrorId = 3000
 
   "Assembly mal configurado"
+
+
+--------------------------------   Archivos-----------------------------------
+
+ErrorId = 5000 
+"Ocurrio un error al intentar abrir el archivo {0}"
+
+
+
+ErrorId = 5001
+"Formato de archivo incorrecto"
+
+ErrorId = 5002
+"No se encontro el archivo {0}"
+
+ErrorId = 5002
+"No se puede abrir el archivo {0}"
+
+
+ErrorId = 5003
+"El nombre del archivo no puede ser nulo o vacio"
+"File Name Can't be Null"
+
+ErrorId = 5004
+"El contenido del archivo no puede ser nulo"
+"File Content is null"
+
+
+
+
+
+
+

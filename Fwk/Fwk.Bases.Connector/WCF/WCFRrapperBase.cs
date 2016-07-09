@@ -119,6 +119,7 @@ namespace Fwk.Bases.Connector
             wcfReq.serviceName = req.ServiceName;
             wcfReq.providerName = _ServiceMetadataProviderName;
             wcfReq.jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson<TRequest>(req);
+            //wcfReq.xmlRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(req);
 
 
             var channelFactory = new ChannelFactory<IFwkService>(binding, address);
@@ -141,7 +142,7 @@ namespace Fwk.Bases.Connector
 
 
             TResponse response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceResult);
-
+            //TResponse response = (TResponse)Fwk.HelperFunction    s.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wcfRes.ExecuteServiceResult);
             response.InitializeHostContextInformation();
             return response;
         }
@@ -384,10 +385,36 @@ namespace Fwk.Bases.Connector
         
         
 
-
+        /// <summary>
+        /// Chequea si un Dispatcher esta activo
+        /// </summary>
+        /// <returns></returns>
         public string CheckServiceAvailability()
         {
-            throw new NotImplementedException();
+            RetriveDispatcherInfoRequest wcfReq = new RetriveDispatcherInfoRequest();
+            RetriveDispatcherInfoResponse wcfRes = null;
+
+            var channelFactory = new ChannelFactory<IFwkService>(binding, address);
+            IFwkService client = null;
+            try
+            {
+                client = channelFactory.CreateChannel();
+
+                wcfRes = client.RetriveDispatcherInfo(wcfReq);
+                ((ICommunicationObject)client).Close();
+            }
+            catch (Exception ex)
+            {
+                if (client != null)
+                {
+                    ((ICommunicationObject)client).Abort();
+                }
+                throw ex;
+            }
+
+            DispatcherInfo wDispatcherInfo = wcfRes.RetriveDispatcherInfoResult;
+
+            return wDispatcherInfo.ServiceDispatcherName + " " + wDispatcherInfo.MachineIp;
         }
 
 

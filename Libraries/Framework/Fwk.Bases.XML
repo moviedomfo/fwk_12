@@ -8566,8 +8566,6 @@
             <summary>
             deserialize an instance of type T from JSON
             </summary>
-            <param name="t"></param>
-            <param name="jsonString"></param>
             <returns></returns>
         </member>
         <member name="M:Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson(System.Type,System.String)">

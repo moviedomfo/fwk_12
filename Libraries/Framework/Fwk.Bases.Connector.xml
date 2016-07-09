@@ -355,6 +355,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.CheckServiceAvailability">
+            <summary>
+            Chequea si un Dispatcher esta activo
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ProviderName">
             <summary>
             Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher

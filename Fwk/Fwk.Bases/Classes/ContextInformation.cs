@@ -10,7 +10,7 @@ namespace Fwk.Bases
     [Serializable]
 	public class ContextInformation
 	{
-        string _AppId;
+        
         string _ProviderName;
 		string _UserId;
         string _HostName;

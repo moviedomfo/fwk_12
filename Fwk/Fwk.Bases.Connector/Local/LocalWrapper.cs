@@ -253,6 +253,7 @@ namespace Fwk.Bases.Connector
         /// <returns>Mensaje en caso de que el servicio no esté disponible</returns>
         public string CheckServiceAvailability()
         {
+            CreateSimpleFacade();
             return _SimpleFacade.CheckServiceAvailability();
         }
 
@@ -263,7 +264,7 @@ namespace Fwk.Bases.Connector
 
         public Fwk.ConfigSection.DispatcherInfo RetriveDispatcherInfo()
         {
-           
+            CreateSimpleFacade();
             return _SimpleFacade.RetriveDispatcherInfo();
         }
 

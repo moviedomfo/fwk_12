@@ -186,6 +186,7 @@ namespace Fwk.Bases
                 {
                     try
                     {
+                   
                         wResponse = _WraperPepository[providerName].ExecuteService<TRequest, TResponse>(pRequest);
                     }
                     catch (TechnicalException te)
