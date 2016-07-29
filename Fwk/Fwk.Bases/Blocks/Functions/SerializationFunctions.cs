@@ -286,7 +286,7 @@ namespace Fwk.HelperFunctions
 
             ////var obj = new JavaScriptSerializer().Deserialize(json, typeof(T));
             //return (T)obj;
-            var instance = Activator.CreateInstance<T>();
+            //var instance = Activator.CreateInstance<T>();
             using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
             {
                 //var serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(instance.GetType());

@@ -66,6 +66,7 @@ namespace Fwk.Bases.Connector
         }
         /// <summary>
         /// 
+        /// 
         /// </summary>
         public override void InitilaizeBinding()
         {
@@ -77,6 +78,16 @@ namespace Fwk.Bases.Connector
                 binding.Name = "tcp";
                 binding.MaxReceivedMessageSize = System.Int32.MaxValue;
                 binding.MaxBufferSize *= factorSize;
+                //openTimeout as the name implies is the amount of time you're willing to wait when you open the connection to your WCF service.
+                //closeTimeout is the amount of time when you close the connection (dispose the client proxy) that you'll wait before an exception is thrown
+                //binding.CloseTimeout = new TimeSpan(0,0,35);
+                //binding.OpenTimeout = new TimeSpan(0, 0, 35);
+                //specify how long the client will wait for a RESPONSE from WCF-Service
+                //in this case it wait 10 min
+                //si se exede del timepo salta una Ex en la connexion del proxy
+                binding.SendTimeout = new TimeSpan(0, 1, 00);
+                //receiveTimeout is a bit like a mirror for the sendTimeout. Is the amount of time you'll give you client to receive and process the response from the server.
+                binding.ReceiveTimeout = new TimeSpan(0, 1, 00);
                 binding.MaxBufferPoolSize *= factorSize;
                 binding.ReaderQuotas.MaxDepth = System.Int32.MaxValue;
                 binding.ReaderQuotas.MaxNameTableCharCount = System.Int32.MaxValue;

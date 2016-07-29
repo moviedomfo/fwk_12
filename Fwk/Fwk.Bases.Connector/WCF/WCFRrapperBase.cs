@@ -24,13 +24,13 @@ namespace Fwk.Bases.Connector
     public abstract class WCFRrapperBase<T> : IServiceWrapper where T : System.ServiceModel.Channels.Binding
     {
         protected const int factorSize = 5;
-       protected T binding = null;
-       protected EndpointAddress address = null;
+        protected T binding = null;
+        protected EndpointAddress address = null;
         string _ProviderName;
 
         public WCFRrapperBase()
         {
-            
+
         }
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
@@ -111,7 +111,7 @@ namespace Fwk.Bases.Connector
         {
 
             InitilaizeBinding();
-
+            TResponse response;
             req.InitializeHostContextInformation();
 
             ExecuteServiceRequest wcfReq = new ExecuteServiceRequest();
@@ -128,8 +128,9 @@ namespace Fwk.Bases.Connector
             IFwkService client = null;
             try
             {
+
                 client = channelFactory.CreateChannel();
-               wcfRes = client.ExecuteService(wcfReq);
+                wcfRes = client.ExecuteService(wcfReq);
                 ((ICommunicationObject)client).Close();
             }
             catch (Exception ex)
@@ -137,12 +138,21 @@ namespace Fwk.Bases.Connector
                 if (client != null)
                 {
                     ((ICommunicationObject)client).Abort();
-                } throw ex;
+                }
+
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
+
+                response.Error = new ServiceError();
+                response.Error.Class = "WCFRrapperBase";
+                response.Error.Message = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+                response.InitializeHostContextInformation();
+
+                return response;
             }
 
 
 
-            TResponse response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceResult);
+            response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceResult);
             //TResponse response = (TResponse)Fwk.HelperFunction    s.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wcfRes.ExecuteServiceResult);
             response.InitializeHostContextInformation();
             return response;
@@ -360,7 +370,7 @@ namespace Fwk.Bases.Connector
             try
             {
                 client = channelFactory.CreateChannel();
-                
+
                 wcfRes = client.RetriveDispatcherInfo(wcfReq);
                 ((ICommunicationObject)client).Close();
             }
@@ -382,17 +392,17 @@ namespace Fwk.Bases.Connector
 
 
         public abstract void InitilaizeBinding();
-        
-        
-        
+
+
+
 
         /// <summary>
         /// Chequea si un Dispatcher esta activo
         /// </summary>
         /// <returns></returns>
-        public DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings ,bool includeAppSettings,bool includeMetadata)
+        public DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings, bool includeAppSettings, bool includeMetadata)
         {
-            RetriveDispatcherInfoReq req = new RetriveDispatcherInfoReq ();
+            RetriveDispatcherInfoReq req = new RetriveDispatcherInfoReq();
             req.BusinessData.IncludeAppSettings = includeAppSettings;
             req.BusinessData.IncludeCnnstSrings = includeCnnstSrings;
             req.BusinessData.IncludeMetadata = includeMetadata;
@@ -423,7 +433,7 @@ namespace Fwk.Bases.Connector
             //    throw ex;
             //}
 
-        
+
 
             return res.BusinessData;
         }
@@ -431,7 +441,7 @@ namespace Fwk.Bases.Connector
 
 
 
-       
+
     }
 }
 
