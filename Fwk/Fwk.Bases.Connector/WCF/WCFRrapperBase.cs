@@ -10,6 +10,7 @@ using Fwk.ConfigSection;
 using System.ServiceModel;
 using Fwk.Bases.Connector.WCFServiceReference;
 using System.ServiceModel.Channels;
+using Fwk.Bases.ISVC;
 
 
 
@@ -389,35 +390,48 @@ namespace Fwk.Bases.Connector
         /// Chequea si un Dispatcher esta activo
         /// </summary>
         /// <returns></returns>
-        public string CheckServiceAvailability()
+        public DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings ,bool includeAppSettings,bool includeMetadata)
         {
-            RetriveDispatcherInfoRequest wcfReq = new RetriveDispatcherInfoRequest();
-            RetriveDispatcherInfoResponse wcfRes = null;
-
-            var channelFactory = new ChannelFactory<IFwkService>(binding, address);
-            IFwkService client = null;
-            try
+            RetriveDispatcherInfoReq req = new RetriveDispatcherInfoReq ();
+            req.BusinessData.IncludeAppSettings = includeAppSettings;
+            req.BusinessData.IncludeCnnstSrings = includeCnnstSrings;
+            req.BusinessData.IncludeMetadata = includeMetadata;
+            var res = this.ExecuteService<RetriveDispatcherInfoReq, RetriveDispatcherInfoRes>(req);
+            if (res.Error != null)
             {
-                client = channelFactory.CreateChannel();
+                throw Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error);
 
-                wcfRes = client.RetriveDispatcherInfo(wcfReq);
-                ((ICommunicationObject)client).Close();
             }
-            catch (Exception ex)
-            {
-                if (client != null)
-                {
-                    ((ICommunicationObject)client).Abort();
-                }
-                throw ex;
-            }
+            //RetriveDispatcherInfoRequest wcfReq = new RetriveDispatcherInfoRequest();
+            //RetriveDispatcherInfoResponse wcfRes = null;
 
-            DispatcherInfo wDispatcherInfo = wcfRes.RetriveDispatcherInfoResult;
+            //var channelFactory = new ChannelFactory<IFwkService>(binding, address);
+            //IFwkService client = null;
+            //try
+            //{
+            //    client = channelFactory.CreateChannel();
 
-            return wDispatcherInfo.ServiceDispatcherName + " " + wDispatcherInfo.MachineIp;
+            //    wcfRes = client.RetriveDispatcherInfo(wcfReq);
+            //    ((ICommunicationObject)client).Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    if (client != null)
+            //    {
+            //        ((ICommunicationObject)client).Abort();
+            //    }
+            //    throw ex;
+            //}
+
+        
+
+            return res.BusinessData;
         }
 
 
+
+
+       
     }
 }
 

@@ -151,6 +151,8 @@
     <Compile Include="Blocks\Fwk.ServiceManagement\config\ServiceProviderElement.cs" />
     <Compile Include="Blocks\Fwk.ServiceManagement\config\ServiceProviderSection.cs" />
     <Compile Include="Blocks\Fwk.ServiceManagement\ServiceManagement.cs" />
+    <Compile Include="Blocks\Services\RetriveDispatcherInfoIsvc.cs" />
+    <Compile Include="Blocks\Services\RetriveDispatcherInfoSvc.cs" />
     <Compile Include="Classes\Common.cs" />
     <Compile Include="Blocks\Functions\ExportFunctions.cs" />
     <Compile Include="Blocks\Functions\ImportFunctions.cs" />

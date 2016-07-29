@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Text;
+using Fwk.Bases.ISVC;
 
 namespace Fwk.Bases
 {
@@ -53,7 +54,7 @@ namespace Fwk.Bases
         /// Si retorna StringEmpty 
         /// </summary>
         /// <returns></returns>
-        string CheckServiceAvailability();
+        DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings = false, bool includeAppSettings = false, bool includeMetadata=false);
 
         /// <summary>
         /// Ejecuta un servicio de negocio.

@@ -15,6 +15,11 @@ namespace Fwk.Security.SVC
     /// </summary>
     public class CreateRulesCategoryService : BusinessService<CreateRulesCategoryReq, CreateRulesCategoryRes>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pServiceRequest"></param>
+        /// <returns></returns>
         public override CreateRulesCategoryRes Execute(CreateRulesCategoryReq pServiceRequest)
         {
             CreateRulesCategoryRes wRes = new CreateRulesCategoryRes();

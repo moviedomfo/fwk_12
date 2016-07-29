@@ -4,6 +4,7 @@ using Fwk.Exceptions;
 using System.Collections.Generic;
 using Fwk.ConfigSection;
 using System.Net;
+using Fwk.Bases.ISVC;
 
 namespace Fwk.Bases.Connector
 {
@@ -325,9 +326,28 @@ namespace Fwk.Bases.Connector
         #region IServiceWrapper Members
 
 
-        public string CheckServiceAvailability()
+        /// <summary>
+        /// Chequea la disponibilidad del despachador de servicio
+        /// </summary>
+        /// <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+        /// <summary>
+        /// Chequea si un Dispatcher esta activo
+        /// </summary>
+        /// <returns></returns>
+        public DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings, bool includeAppSettings, bool includeMetadata)
         {
-            throw new NotImplementedException();
+            RetriveDispatcherInfoReq req = new RetriveDispatcherInfoReq();
+            req.BusinessData.IncludeAppSettings = includeAppSettings;
+            req.BusinessData.IncludeCnnstSrings = includeCnnstSrings;
+            req.BusinessData.IncludeMetadata = includeMetadata;
+            var res = this.ExecuteService<RetriveDispatcherInfoReq, RetriveDispatcherInfoRes>(req);
+            if (res.Error != null)
+            {
+                throw Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error);
+
+            }
+
+            return res.BusinessData;
         }
 
         #endregion

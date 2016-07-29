@@ -7,6 +7,7 @@ using System.Runtime.Remoting;
 using Fwk.Remoting;
 using Fwk.BusinessFacades.Utils;
 using Fwk.ConfigSection;
+using Fwk.Bases.ISVC;
 
 namespace Fwk.Bases.Connector
 {
@@ -144,10 +145,24 @@ namespace Fwk.Bases.Connector
         /// Chequea la disponibilidad del despachador de servicio
         /// </summary>
         /// <returns>Mensaje en caso de que el servicio no esté disponible</returns>
-        public string CheckServiceAvailability()
+        /// <summary>
+        /// Chequea si un Dispatcher esta activo
+        /// </summary>
+        /// <returns></returns>
+        public DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings=false, bool includeAppSettings=false, bool includeMetadata=false)
         {
-            FwkRemoteObject wFwkRemoteObject = CreateRemoteObject();
-            return wFwkRemoteObject.CheckServiceAvailability();
+            RetriveDispatcherInfoReq req = new RetriveDispatcherInfoReq();
+            req.BusinessData.IncludeAppSettings = includeAppSettings;
+            req.BusinessData.IncludeCnnstSrings = includeCnnstSrings;
+            req.BusinessData.IncludeMetadata = includeMetadata;
+            var res = this.ExecuteService<RetriveDispatcherInfoReq, RetriveDispatcherInfoRes>(req);
+            if (res.Error != null)
+            {
+                throw Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error);
+
+            }
+
+            return res.BusinessData;
         }
         /// <summary>
         /// Objeto de interbloqueo concurrente
