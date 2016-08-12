@@ -81,9 +81,9 @@ namespace Fwk.ConfigSection
             set { this["sourceinfo"] = value; }
         }
 
-
+      
          /// <summary>
-         /// Solo se utiliza en caso de typo sqldatabase y acepta 
+        ///Solo para uso interno. determina si sourceinfo representa la cadena de conexion o el nombre de la cadena en un rchivo de configuracion
          /// </summary>
         public Boolean SourceInfoIsConnectionString{get;set;}
        

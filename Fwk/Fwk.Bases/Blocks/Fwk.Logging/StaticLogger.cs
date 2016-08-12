@@ -37,18 +37,18 @@ namespace Fwk.Logging
         ///  Escribe el log de un evento .. Este metodo utiliza la configuracion del appsetting
         /// </summary>
         /// <param name="providerName">Nombre del proveedor de Logueo</param>
-        /// <param name="eventType"></param>
-        public static void Log(String providerName, Event eventType)
+        /// <param name="eventLog"></param>
+        public static void Log(String providerName, Event eventLog)
         {
-            WriteLog( providerName,eventType, string.Empty, string.Empty);
+            WriteLog(providerName, eventLog, string.Empty, string.Empty);
         }
         /// <summary>
         /// Escribe el log de un evento .. Este metodo utiliza la configuracion del appsetting
         /// </summary>
-        /// <param name="eventType"></param>
-        public static void Log(Event eventType)
+        /// <param name="eventLog"></param>
+        public static void Log(Event eventLog)
         {
-            WriteLog(eventType, string.Empty, string.Empty);
+            WriteLog(eventLog, string.Empty, string.Empty);
         }
 
 

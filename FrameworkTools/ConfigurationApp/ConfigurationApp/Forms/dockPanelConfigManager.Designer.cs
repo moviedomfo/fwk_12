@@ -50,6 +50,7 @@ namespace ConfigurationApp.Forms
             this.mnCnfgManFile_Fail = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnConfigManagerRoot.SuspendLayout();
             this.mnCnfgManFile.SuspendLayout();
             this.mnGroupAndKey.SuspendLayout();
@@ -64,13 +65,13 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemQuitAllFiles,
             this.tsMenuItemRefreshAllFiles});
             this.mnConfigManagerRoot.Name = "mnContextConfigManager";
-            this.mnConfigManagerRoot.Size = new System.Drawing.Size(150, 100);
+            this.mnConfigManagerRoot.Size = new System.Drawing.Size(131, 92);
             // 
             // tsMenuItemNewFile
             // 
             this.tsMenuItemNewFile.Image = global::ConfigurationApp.Properties.Resources.documents_small;
             this.tsMenuItemNewFile.Name = "tsMenuItemNewFile";
-            this.tsMenuItemNewFile.Size = new System.Drawing.Size(149, 24);
+            this.tsMenuItemNewFile.Size = new System.Drawing.Size(130, 22);
             this.tsMenuItemNewFile.Text = "New";
             // 
             // tsMenuItemSaveAllFiles
@@ -78,21 +79,21 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemSaveAllFiles.Image = global::ConfigurationApp.Properties.Resources.save_as_small;
             this.tsMenuItemSaveAllFiles.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.tsMenuItemSaveAllFiles.Name = "tsMenuItemSaveAllFiles";
-            this.tsMenuItemSaveAllFiles.Size = new System.Drawing.Size(149, 24);
+            this.tsMenuItemSaveAllFiles.Size = new System.Drawing.Size(130, 22);
             this.tsMenuItemSaveAllFiles.Text = "Save All";
             // 
             // tsMenuItemQuitAllFiles
             // 
             this.tsMenuItemQuitAllFiles.Image = global::ConfigurationApp.Properties.Resources.Delete;
             this.tsMenuItemQuitAllFiles.Name = "tsMenuItemQuitAllFiles";
-            this.tsMenuItemQuitAllFiles.Size = new System.Drawing.Size(149, 24);
+            this.tsMenuItemQuitAllFiles.Size = new System.Drawing.Size(130, 22);
             this.tsMenuItemQuitAllFiles.Text = "Quit All";
             // 
             // tsMenuItemRefreshAllFiles
             // 
             this.tsMenuItemRefreshAllFiles.Image = global::ConfigurationApp.Properties.Resources.Refresh;
             this.tsMenuItemRefreshAllFiles.Name = "tsMenuItemRefreshAllFiles";
-            this.tsMenuItemRefreshAllFiles.Size = new System.Drawing.Size(149, 24);
+            this.tsMenuItemRefreshAllFiles.Size = new System.Drawing.Size(130, 22);
             this.tsMenuItemRefreshAllFiles.Text = "Refresh All";
             this.tsMenuItemRefreshAllFiles.Click += new System.EventHandler(this.tsMenuItemRefreshAllFiles_Click);
             // 
@@ -108,8 +109,7 @@ namespace ConfigurationApp.Forms
             this.treeView1.HotTracking = true;
             this.treeView1.ImageKey = "EditInformationHS.png";
             this.treeView1.ImageList = this.imgImages;
-            this.treeView1.Location = new System.Drawing.Point(7, 2);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
+            this.treeView1.Location = new System.Drawing.Point(5, 2);
             this.treeView1.Name = "treeView1";
             treeNode1.ContextMenuStrip = this.mnConfigManagerRoot;
             treeNode1.ImageKey = "EditInformationHS.png";
@@ -120,7 +120,7 @@ namespace ConfigurationApp.Forms
             treeNode1});
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.ShowNodeToolTips = true;
-            this.treeView1.Size = new System.Drawing.Size(353, 596);
+            this.treeView1.Size = new System.Drawing.Size(266, 485);
             this.treeView1.TabIndex = 1;
             this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -157,15 +157,16 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemQuitFile,
             this.tsMenuItemRefreshFile,
             this.tsMenuItemNewGroup,
-            this.exploreToolStripMenuItem});
+            this.exploreToolStripMenuItem,
+            this.exportToToolStripMenuItem});
             this.mnCnfgManFile.Name = "mnContextConfigManager";
-            this.mnCnfgManFile.Size = new System.Drawing.Size(154, 146);
+            this.mnCnfgManFile.Size = new System.Drawing.Size(153, 158);
             // 
             // tsMenuItemSaveFile
             // 
             this.tsMenuItemSaveFile.Image = global::ConfigurationApp.Properties.Resources.save_as_small;
             this.tsMenuItemSaveFile.Name = "tsMenuItemSaveFile";
-            this.tsMenuItemSaveFile.Size = new System.Drawing.Size(153, 24);
+            this.tsMenuItemSaveFile.Size = new System.Drawing.Size(152, 22);
             this.tsMenuItemSaveFile.Text = "Save";
             // 
             // tsMenuItemQuitFile
@@ -173,7 +174,7 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemQuitFile.Enabled = false;
             this.tsMenuItemQuitFile.Image = global::ConfigurationApp.Properties.Resources.Delete;
             this.tsMenuItemQuitFile.Name = "tsMenuItemQuitFile";
-            this.tsMenuItemQuitFile.Size = new System.Drawing.Size(153, 24);
+            this.tsMenuItemQuitFile.Size = new System.Drawing.Size(152, 22);
             this.tsMenuItemQuitFile.Text = "Quit";
             this.tsMenuItemQuitFile.Click += new System.EventHandler(this.tsMenuItemQuitFile_Click);
             // 
@@ -181,7 +182,7 @@ namespace ConfigurationApp.Forms
             // 
             this.tsMenuItemRefreshFile.Image = global::ConfigurationApp.Properties.Resources.Refresh;
             this.tsMenuItemRefreshFile.Name = "tsMenuItemRefreshFile";
-            this.tsMenuItemRefreshFile.Size = new System.Drawing.Size(153, 24);
+            this.tsMenuItemRefreshFile.Size = new System.Drawing.Size(152, 22);
             this.tsMenuItemRefreshFile.Text = "Refresh";
             this.tsMenuItemRefreshFile.Click += new System.EventHandler(this.tsMenuItemRefreshFile_Click);
             // 
@@ -189,7 +190,7 @@ namespace ConfigurationApp.Forms
             // 
             this.tsMenuItemNewGroup.Image = global::ConfigurationApp.Properties.Resources.add;
             this.tsMenuItemNewGroup.Name = "tsMenuItemNewGroup";
-            this.tsMenuItemNewGroup.Size = new System.Drawing.Size(153, 24);
+            this.tsMenuItemNewGroup.Size = new System.Drawing.Size(152, 22);
             this.tsMenuItemNewGroup.Text = "New Group";
             this.tsMenuItemNewGroup.Click += new System.EventHandler(this.tsMenuItemNewGroup_Click);
             // 
@@ -197,7 +198,7 @@ namespace ConfigurationApp.Forms
             // 
             this.exploreToolStripMenuItem.Image = global::ConfigurationApp.Properties.Resources.Web_WebConfig;
             this.exploreToolStripMenuItem.Name = "exploreToolStripMenuItem";
-            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exploreToolStripMenuItem.Text = "Explore";
             this.exploreToolStripMenuItem.Click += new System.EventHandler(this.exploreToolStripMenuItem_Click);
             // 
@@ -207,13 +208,13 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemNewKey,
             this.tsMenuItemRemoveGrOrKey});
             this.mnGroupAndKey.Name = "mnContextConfigManager";
-            this.mnGroupAndKey.Size = new System.Drawing.Size(137, 52);
+            this.mnGroupAndKey.Size = new System.Drawing.Size(121, 48);
             // 
             // tsMenuItemNewKey
             // 
             this.tsMenuItemNewKey.Image = global::ConfigurationApp.Properties.Resources.add;
             this.tsMenuItemNewKey.Name = "tsMenuItemNewKey";
-            this.tsMenuItemNewKey.Size = new System.Drawing.Size(136, 24);
+            this.tsMenuItemNewKey.Size = new System.Drawing.Size(120, 22);
             this.tsMenuItemNewKey.Text = "New Key";
             this.tsMenuItemNewKey.Click += new System.EventHandler(this.tsMenuItemNewKey_Click);
             // 
@@ -221,7 +222,7 @@ namespace ConfigurationApp.Forms
             // 
             this.tsMenuItemRemoveGrOrKey.Image = global::ConfigurationApp.Properties.Resources.Delete;
             this.tsMenuItemRemoveGrOrKey.Name = "tsMenuItemRemoveGrOrKey";
-            this.tsMenuItemRemoveGrOrKey.Size = new System.Drawing.Size(136, 24);
+            this.tsMenuItemRemoveGrOrKey.Size = new System.Drawing.Size(120, 22);
             this.tsMenuItemRemoveGrOrKey.Text = "Remove";
             this.tsMenuItemRemoveGrOrKey.Click += new System.EventHandler(this.tsMenuItemRemoveGrOrKey_Click);
             // 
@@ -231,13 +232,13 @@ namespace ConfigurationApp.Forms
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.mnCnfgManFile_Fail.Name = "mnContextConfigManager";
-            this.mnCnfgManFile_Fail.Size = new System.Drawing.Size(128, 52);
+            this.mnCnfgManFile_Fail.Size = new System.Drawing.Size(114, 48);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Image = global::ConfigurationApp.Properties.Resources.Delete;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(127, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem2.Text = "Quit";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -245,20 +246,26 @@ namespace ConfigurationApp.Forms
             // 
             this.toolStripMenuItem3.Image = global::ConfigurationApp.Properties.Resources.Refresh;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(127, 24);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem3.Text = "Refresh";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // exportToToolStripMenuItem
+            // 
+            this.exportToToolStripMenuItem.Name = "exportToToolStripMenuItem";
+            this.exportToToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportToToolStripMenuItem.Text = "Export to";
+            this.exportToToolStripMenuItem.Click += new System.EventHandler(this.exportToToolStripMenuItem_Click);
             // 
             // dockPanelConfigManager
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.Controls.Add(this.treeView1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "dockPanelConfigManager";
-            this.Size = new System.Drawing.Size(365, 601);
+            this.Size = new System.Drawing.Size(274, 488);
             this.mnConfigManagerRoot.ResumeLayout(false);
             this.mnCnfgManFile.ResumeLayout(false);
             this.mnGroupAndKey.ResumeLayout(false);
@@ -288,5 +295,6 @@ namespace ConfigurationApp.Forms
         private System.Windows.Forms.ContextMenuStrip mnCnfgManFile_Fail;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem exportToToolStripMenuItem;
     }
 }

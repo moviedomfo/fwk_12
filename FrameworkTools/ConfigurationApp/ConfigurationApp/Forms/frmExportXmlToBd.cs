@@ -12,16 +12,17 @@ using Fwk.Configuration.Common;
 
 namespace ConfigurationApp.Forms
 {
+    public enum AuthenticationModes
+    {
+        [Description("Autenticación SQL")]
+        SqlAuthentication = 1,
+        [Description("Autenticación de Windows")]
+        IntegratedAuthentication = 2
+    }
     public partial class frmExportXmlToBd : Form
     {
         #region << -Attributes- >>
-        private enum AuthenticationModes
-        {
-            [Description("Autenticación SQL")]
-            SqlAuthentication = 1,
-            [Description("Autenticación de Windows")]
-            IntegratedAuthentication = 2
-        }
+       
 
         private const string _ErrorColor = "#F8F4B3";
         #endregion
@@ -267,6 +268,11 @@ namespace ConfigurationApp.Forms
 
             System.IO.FileInfo f = new System.IO.FileInfo(txtXml.Text);
             txtConfigFileName.Text = f.Name;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
 

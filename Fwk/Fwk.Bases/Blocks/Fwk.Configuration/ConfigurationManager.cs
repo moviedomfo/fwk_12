@@ -480,7 +480,7 @@ namespace Fwk.Configuration
         /// 
         /// </summary>
         /// <param name="sourceConfigurationFile"></param>
-        /// <param name="provider"></param>
+        /// <param name="provider">Destination provider </param>
         public static void Import(ConfigurationFile sourceConfigurationFile, ConfigProviderElement provider)
         {
             

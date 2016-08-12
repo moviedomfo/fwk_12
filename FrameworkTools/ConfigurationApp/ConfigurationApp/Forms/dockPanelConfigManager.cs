@@ -461,6 +461,17 @@ namespace ConfigurationApp.Forms
 
         }
 
+        private void exportToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CnfgManagerSelectedNodeType == CnfgManagerSelectedNodeType.File)
+            {
+               
+                TreeNode wTreeNodeFile = GetTreeNodeFile();
+                frmExport1 f = new frmExport1((System.Collections.Specialized.ListDictionary)wTreeNodeFile.Tag);
+                f.ShowDialog();
+            }
+        }
+
 
     }
 }
