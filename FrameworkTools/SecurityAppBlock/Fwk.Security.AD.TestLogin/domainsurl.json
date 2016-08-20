@@ -1,0 +1,12 @@
+﻿[
+  {
+    "DomainName": "testaa",
+    "LDAPPath": "LDAP://172.22.14.40/DC=testaa,DC=ar   ",
+    "Usr": "Conexion",
+    "Pwd": "UhtUDxCRO6fILkoToU9T6g==",
+    "Id": 0,
+    "SiteName": null,
+    "DomainDN": "testaa",
+    "EntityState": 0
+  }
+]

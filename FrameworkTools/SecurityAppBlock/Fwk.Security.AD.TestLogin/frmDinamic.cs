@@ -17,13 +17,30 @@ namespace Fwk.Security.AD.TestLogin
     public partial class frmDinamic : Form
     {
         LDAPHelper _ADHelper;
+        ADWrapper _ADWrapper;
         //IDirectoryService _ADHelperSecure;
-        List<DomainUrlInfo> urls;
+        List<DomainUrlInfo> urls = new List<DomainUrlInfo> ();
 
         public frmDinamic()
         {
             InitializeComponent();
-            init();
+            //DomainUrlInfo d = new DomainUrlInfo();
+            //d.DomainDN = "testaa";
+            //d.DomainName = "testaa";
+            //d.LDAPPath = "LDAP://172.22.14.40/DC=testaa,DC=ar   ";
+            //d.Usr = "Conexion";
+            //d.Pwd = "UhtUDxCRO6fILkoToU9T6g==";
+            //urls.Add(d);
+            
+//            var str = Newtonsoft.Json.JsonConvert.SerializeObject(urls);
+              var str =Fwk.HelperFunctions.FileFunctions.OpenTextFile("domainsurl.json");
+
+
+              urls = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DomainUrlInfo>>(str);
+              domainUrlInfoBindingSource.DataSource = urls;
+              cmbDomains.SelectedIndex = 0;
+            
+              lblURL.Text = ((DomainUrlInfo)cmbDomains.SelectedItem).LDAPPath;
         }
 
         private void btnAutenticate_Click(object sender, EventArgs e)
@@ -65,7 +82,8 @@ namespace Fwk.Security.AD.TestLogin
                 return false;
             }
             //_ADHelper = new ADHelper(wDomainUrlInfo.LDAPPath, wDomainUrlInfo.Usr, wDomainUrlInfo.Pwd);
-            _ADHelper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
+            _ADHelper = new LDAPHelper(wDomainUrlInfo);
+            //_ADHelper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
 
             return true;
         }
@@ -75,7 +93,8 @@ namespace Fwk.Security.AD.TestLogin
 
             try
             {
-                urls = ADWrapper.DomainsUrl_GetList("testActiveDirectory");//@"Data Source=SANTANA\SQLEXPRESS;Initial Catalog=Logs;Integrated Security=True");
+                urls = ADWrapper.DomainsUrl_GetList("ActiveDirectory");//@"Data Source=SANTANA\SQLEXPRESS;Initial Catalog=Logs;Integrated Security=True");
+
                 domainUrlInfoBindingSource.DataSource = urls;
                 cmbDomains.SelectedIndex = 1;
 
@@ -90,6 +109,10 @@ namespace Fwk.Security.AD.TestLogin
 
 
         }
+        private void btnRetriveDomains_Click(object sender, EventArgs e)
+        {
+            init();
+        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,7 +124,9 @@ namespace Fwk.Security.AD.TestLogin
 
         private void frmDinamic_Load(object sender, EventArgs e)
         {
+            var dinfo = new DomainUrlInfo();
 
+            urls.Add(new DomainUrlInfo());
         }
 
         private void ResetPwd_Click(object sender, EventArgs e)
@@ -140,6 +165,8 @@ namespace Fwk.Security.AD.TestLogin
             wStore.Close();
 
         }
+
+     
 
 
     }

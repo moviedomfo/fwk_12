@@ -53,6 +53,14 @@ namespace Fwk.Security.ActiveDirectory
         }
 
         /// <summary>
+        /// No realiza busquedas en base de datos de los controladores decominio
+        /// </summary>
+        /// <param name="domainUrlInfo"></param>
+        public LDAPHelper(DomainUrlInfo domainUrlInfo)
+        {
+            _DomainUrlInfo = domainUrlInfo;
+        }
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="domainName"></param>

@@ -102,8 +102,7 @@
             this.cmbDomains.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDomains.FormattingEnabled = true;
             this.cmbDomains.Items.AddRange(new object[] {
-            "pelsoft-ar",
-            "pelsoft"});
+            "allus-ar"});
             this.cmbDomains.Location = new System.Drawing.Point(138, 125);
             this.cmbDomains.Name = "cmbDomains";
             this.cmbDomains.Size = new System.Drawing.Size(175, 23);
@@ -246,7 +245,7 @@
             this.Controls.Add(this.txtLoginName);
             this.Controls.Add(this.txtPassword);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmResset";

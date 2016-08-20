@@ -472,6 +472,17 @@ namespace ConfigurationApp.Forms
             }
         }
 
+        private void viewInsertScriptsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CnfgManagerSelectedNodeType == CnfgManagerSelectedNodeType.File)
+            {
+
+                TreeNode wTreeNodeFile = GetTreeNodeFile();
+                ConfigurationApp.Export.frmViewInsertScript f = new ConfigurationApp.Export.frmViewInsertScript((System.Collections.Specialized.ListDictionary)wTreeNodeFile.Tag);
+                f.ShowDialog();
+            }
+        }
+
 
     }
 }

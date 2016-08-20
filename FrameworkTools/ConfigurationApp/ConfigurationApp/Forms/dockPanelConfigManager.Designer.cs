@@ -44,13 +44,14 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemRefreshFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuItemNewGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.exploreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnGroupAndKey = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsMenuItemNewKey = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuItemRemoveGrOrKey = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCnfgManFile_Fail = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewInsertScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnConfigManagerRoot.SuspendLayout();
             this.mnCnfgManFile.SuspendLayout();
             this.mnGroupAndKey.SuspendLayout();
@@ -158,15 +159,16 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemRefreshFile,
             this.tsMenuItemNewGroup,
             this.exploreToolStripMenuItem,
-            this.exportToToolStripMenuItem});
+            this.exportToToolStripMenuItem,
+            this.viewInsertScriptsToolStripMenuItem});
             this.mnCnfgManFile.Name = "mnContextConfigManager";
-            this.mnCnfgManFile.Size = new System.Drawing.Size(153, 158);
+            this.mnCnfgManFile.Size = new System.Drawing.Size(170, 180);
             // 
             // tsMenuItemSaveFile
             // 
             this.tsMenuItemSaveFile.Image = global::ConfigurationApp.Properties.Resources.save_as_small;
             this.tsMenuItemSaveFile.Name = "tsMenuItemSaveFile";
-            this.tsMenuItemSaveFile.Size = new System.Drawing.Size(152, 22);
+            this.tsMenuItemSaveFile.Size = new System.Drawing.Size(169, 22);
             this.tsMenuItemSaveFile.Text = "Save";
             // 
             // tsMenuItemQuitFile
@@ -174,7 +176,7 @@ namespace ConfigurationApp.Forms
             this.tsMenuItemQuitFile.Enabled = false;
             this.tsMenuItemQuitFile.Image = global::ConfigurationApp.Properties.Resources.Delete;
             this.tsMenuItemQuitFile.Name = "tsMenuItemQuitFile";
-            this.tsMenuItemQuitFile.Size = new System.Drawing.Size(152, 22);
+            this.tsMenuItemQuitFile.Size = new System.Drawing.Size(169, 22);
             this.tsMenuItemQuitFile.Text = "Quit";
             this.tsMenuItemQuitFile.Click += new System.EventHandler(this.tsMenuItemQuitFile_Click);
             // 
@@ -182,7 +184,7 @@ namespace ConfigurationApp.Forms
             // 
             this.tsMenuItemRefreshFile.Image = global::ConfigurationApp.Properties.Resources.Refresh;
             this.tsMenuItemRefreshFile.Name = "tsMenuItemRefreshFile";
-            this.tsMenuItemRefreshFile.Size = new System.Drawing.Size(152, 22);
+            this.tsMenuItemRefreshFile.Size = new System.Drawing.Size(169, 22);
             this.tsMenuItemRefreshFile.Text = "Refresh";
             this.tsMenuItemRefreshFile.Click += new System.EventHandler(this.tsMenuItemRefreshFile_Click);
             // 
@@ -190,7 +192,7 @@ namespace ConfigurationApp.Forms
             // 
             this.tsMenuItemNewGroup.Image = global::ConfigurationApp.Properties.Resources.add;
             this.tsMenuItemNewGroup.Name = "tsMenuItemNewGroup";
-            this.tsMenuItemNewGroup.Size = new System.Drawing.Size(152, 22);
+            this.tsMenuItemNewGroup.Size = new System.Drawing.Size(169, 22);
             this.tsMenuItemNewGroup.Text = "New Group";
             this.tsMenuItemNewGroup.Click += new System.EventHandler(this.tsMenuItemNewGroup_Click);
             // 
@@ -198,9 +200,16 @@ namespace ConfigurationApp.Forms
             // 
             this.exploreToolStripMenuItem.Image = global::ConfigurationApp.Properties.Resources.Web_WebConfig;
             this.exploreToolStripMenuItem.Name = "exploreToolStripMenuItem";
-            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.exploreToolStripMenuItem.Text = "Explore";
             this.exploreToolStripMenuItem.Click += new System.EventHandler(this.exploreToolStripMenuItem_Click);
+            // 
+            // exportToToolStripMenuItem
+            // 
+            this.exportToToolStripMenuItem.Name = "exportToToolStripMenuItem";
+            this.exportToToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exportToToolStripMenuItem.Text = "Export to";
+            this.exportToToolStripMenuItem.Click += new System.EventHandler(this.exportToToolStripMenuItem_Click);
             // 
             // mnGroupAndKey
             // 
@@ -250,12 +259,12 @@ namespace ConfigurationApp.Forms
             this.toolStripMenuItem3.Text = "Refresh";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
-            // exportToToolStripMenuItem
+            // viewInsertScriptsToolStripMenuItem
             // 
-            this.exportToToolStripMenuItem.Name = "exportToToolStripMenuItem";
-            this.exportToToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exportToToolStripMenuItem.Text = "Export to";
-            this.exportToToolStripMenuItem.Click += new System.EventHandler(this.exportToToolStripMenuItem_Click);
+            this.viewInsertScriptsToolStripMenuItem.Name = "viewInsertScriptsToolStripMenuItem";
+            this.viewInsertScriptsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.viewInsertScriptsToolStripMenuItem.Text = "View Insert Scripts";
+            this.viewInsertScriptsToolStripMenuItem.Click += new System.EventHandler(this.viewInsertScriptsToolStripMenuItem_Click);
             // 
             // dockPanelConfigManager
             // 
@@ -296,5 +305,6 @@ namespace ConfigurationApp.Forms
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem exportToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewInsertScriptsToolStripMenuItem;
     }
 }
