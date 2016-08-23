@@ -23,7 +23,8 @@ namespace ConfigurationApp.Export
         {
             InitializeComponent();
 
-            sourceConfigFile = source["ConfigurationFile"] as ConfigurationFile;
+            sourceConfigFile = (source["ConfigurationFile"] as ConfigurationFile).Clone<ConfigurationFile>();
+            
             txtFileName.Text = sourceConfigFile.FileName;
             txtSQLInserts.TitleVisible = true;
 
