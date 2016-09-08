@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.domainGoups2 = new Fwk.Security.ActiveDirectory.Test.DomainGoups();
             this.txtDomain = new System.Windows.Forms.TextBox();
             this.btnSearchInDomain = new System.Windows.Forms.Button();
             this.grdGroupInfo = new System.Windows.Forms.DataGridView();
@@ -42,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.domainUsers1 = new Fwk.Security.ActiveDirectory.Test.DomainUsers();
-            this.domainGoups2 = new Fwk.Security.ActiveDirectory.Test.DomainGoups();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdGroupInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDomainGroupBindingSource)).BeginInit();
@@ -53,22 +53,31 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.domainGoups2);
-            this.groupBox1.Location = new System.Drawing.Point(11, 129);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(8, 105);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(931, 683);
+            this.groupBox1.Size = new System.Drawing.Size(698, 555);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domain Info";
             // 
+            // domainGoups2
+            // 
+            this.domainGoups2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.domainGoups2.Location = new System.Drawing.Point(7, 20);
+            this.domainGoups2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.domainGoups2.Name = "domainGoups2";
+            this.domainGoups2.Size = new System.Drawing.Size(684, 494);
+            this.domainGoups2.TabIndex = 21;
+            this.domainGoups2.DomainGroupChangeEvent += new Fwk.Security.ActiveDirectory.Test.DomainGroupChangeHandler(this.domainGoups2_DomainGroupChangeEvent);
+            // 
             // txtDomain
             // 
             this.txtDomain.Enabled = false;
-            this.txtDomain.Location = new System.Drawing.Point(1085, 11);
-            this.txtDomain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDomain.Location = new System.Drawing.Point(814, 9);
             this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(239, 22);
+            this.txtDomain.Size = new System.Drawing.Size(180, 20);
             this.txtDomain.TabIndex = 13;
             this.txtDomain.Text = "any-domain-ar";
             // 
@@ -78,10 +87,9 @@
             this.btnSearchInDomain.Enabled = false;
             this.btnSearchInDomain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchInDomain.Image = global::Fwk.Security.ActiveDirectory.Test.Properties.Resources.srch_16;
-            this.btnSearchInDomain.Location = new System.Drawing.Point(1351, 7);
-            this.btnSearchInDomain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchInDomain.Location = new System.Drawing.Point(1013, 6);
             this.btnSearchInDomain.Name = "btnSearchInDomain";
-            this.btnSearchInDomain.Size = new System.Drawing.Size(48, 25);
+            this.btnSearchInDomain.Size = new System.Drawing.Size(36, 20);
             this.btnSearchInDomain.TabIndex = 15;
             this.btnSearchInDomain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSearchInDomain.UseVisualStyleBackColor = false;
@@ -94,63 +102,56 @@
             this.grdGroupInfo.AutoGenerateColumns = false;
             this.grdGroupInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdGroupInfo.DataSource = this.objectDomainGroupBindingSource;
-            this.grdGroupInfo.Location = new System.Drawing.Point(16, 820);
-            this.grdGroupInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdGroupInfo.Location = new System.Drawing.Point(12, 666);
             this.grdGroupInfo.Name = "grdGroupInfo";
-            this.grdGroupInfo.Size = new System.Drawing.Size(1400, 30);
+            this.grdGroupInfo.Size = new System.Drawing.Size(1050, 24);
             this.grdGroupInfo.TabIndex = 24;
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(147, 82);
-            this.txtPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPath.Location = new System.Drawing.Point(110, 67);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(699, 22);
+            this.txtPath.Size = new System.Drawing.Size(525, 20);
             this.txtPath.TabIndex = 71;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 70;
             this.label1.Text = "Password";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 21);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(12, 17);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 17);
+            this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 69;
             this.label9.Text = "Login name";
             // 
             // txtLoginName
             // 
-            this.txtLoginName.Location = new System.Drawing.Point(147, 11);
-            this.txtLoginName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLoginName.Location = new System.Drawing.Point(110, 9);
             this.txtLoginName.Name = "txtLoginName";
-            this.txtLoginName.Size = new System.Drawing.Size(236, 22);
+            this.txtLoginName.Size = new System.Drawing.Size(178, 20);
             this.txtLoginName.TabIndex = 72;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(147, 50);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Location = new System.Drawing.Point(110, 41);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(236, 22);
+            this.txtPassword.Size = new System.Drawing.Size(178, 20);
             this.txtPassword.TabIndex = 73;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 86);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 17);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 74;
             this.label2.Text = "Cnn string ldap";
             // 
@@ -160,10 +161,9 @@
             this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheck.Image = global::Fwk.Security.ActiveDirectory.Test.Properties.Resources.apply_16;
             this.btnCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheck.Location = new System.Drawing.Point(576, 16);
-            this.btnCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheck.Location = new System.Drawing.Point(432, 13);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(131, 31);
+            this.btnCheck.Size = new System.Drawing.Size(98, 25);
             this.btnCheck.TabIndex = 75;
             this.btnCheck.Text = "Connect";
             this.btnCheck.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -175,31 +175,19 @@
             this.domainUsers1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.domainUsers1.Location = new System.Drawing.Point(968, 146);
-            this.domainUsers1.Margin = new System.Windows.Forms.Padding(5);
+            this.domainUsers1.Location = new System.Drawing.Point(726, 119);
+            this.domainUsers1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.domainUsers1.Name = "domainUsers1";
-            this.domainUsers1.Size = new System.Drawing.Size(487, 615);
+            this.domainUsers1.Size = new System.Drawing.Size(365, 500);
             this.domainUsers1.TabIndex = 22;
             this.domainUsers1.ObjectDomainChangeEvent += new Fwk.Security.ActiveDirectory.Test.ObjectDomainChangeHandler(this.domainUsers1_ObjectDomainChangeEvent);
             this.domainUsers1.ObjectDomainDoubleClickEvent += new Fwk.Security.ActiveDirectory.Test.ObjectDomainDoubleClickHandler(this.domainUsers1_ObjectDomainDoubleClickEvent);
             // 
-            // domainGoups2
-            // 
-            this.domainGoups2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.domainGoups2.Location = new System.Drawing.Point(9, 25);
-            this.domainGoups2.Margin = new System.Windows.Forms.Padding(5);
-            this.domainGoups2.Name = "domainGoups2";
-            this.domainGoups2.Size = new System.Drawing.Size(912, 608);
-            this.domainGoups2.TabIndex = 21;
-            this.domainGoups2.DomainGroupChangeEvent += new Fwk.Security.ActiveDirectory.Test.DomainGroupChangeHandler(this.domainGoups2_DomainGroupChangeEvent);
-            // 
             // frmTestGroups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1469, 876);
+            this.ClientSize = new System.Drawing.Size(1102, 712);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtLoginName);
@@ -212,7 +200,6 @@
             this.Controls.Add(this.grdGroupInfo);
             this.Controls.Add(this.domainUsers1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmTestGroups";
             this.Text = "frmTestGroups";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

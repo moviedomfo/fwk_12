@@ -9,12 +9,13 @@ using Fwk.Bases.Properties;
 using Fwk.HelperFunctions;
 using Fwk.Configuration;
 using System.Data;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data.Common;
 using Fwk.ConfigSection;
 using Fwk.Exceptions;
 
 using Fwk.ConfigData;
+using System.Data.SqlClient;
 
 namespace Fwk.Configuration
 {
@@ -141,17 +142,22 @@ namespace Fwk.Configuration
                         Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(ConfigurationManager));
                         throw te;
                     }
-                    wGroup = new Group();
-                    wGroup.Keys = new Keys();
-                    Key wKey = new Key();
 
-                    foreach (var item in properties_group)
+                    if (properties_group.Count() != 0)
                     {
-                        wKey = new Key();
-                        wKey.Name = item.key;
-                        wKey.Value.Text = item.value;
-                        wKey.Encrypted = item.encrypted;
-                        wGroup.Keys.Add(wKey);
+                        wGroup = new Group();
+                        wGroup.Name = groupName;
+                        wGroup.Keys = new Keys();
+                        Key wKey = new Key();
+
+                        foreach (var item in properties_group)
+                        {
+                            wKey = new Key();
+                            wKey.Name = item.key;
+                            wKey.Value.Text = item.value;
+                            wKey.Encrypted = item.encrypted;
+                            wGroup.Keys.Add(wKey);
+                        }
                     }
                 }
             }
@@ -465,26 +471,36 @@ namespace Fwk.Configuration
                 throw te;
             }
 
-            Database wDataBase = null;
-            DbCommand wCmd = null;
+            string cnnString = System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString;
+
+           
+            //Database wDataBase = null;
+            //DbCommand wCmd = null;
             try
             {
-                wDataBase = DatabaseFactory.CreateDatabase(cnnStringName);
+                using (SqlConnection cnn = new SqlConnection(cnnString))
+                using (SqlCommand cmd = new SqlCommand(sqlCommand, cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                //wDataBase = DatabaseFactory.CreateDatabase(cnnStringName);
 
 
-                wCmd = wDataBase.GetSqlStringCommand(sqlCommand);
-                wCmd.CommandType = CommandType.Text;
+                //wCmd = wDataBase.GetSqlStringCommand(sqlCommand);
+                //wCmd.CommandType = CommandType.Text;
 
-                wDataBase.ExecuteNonQuery(wCmd);
+                //wDataBase.ExecuteNonQuery(wCmd);
             }
             catch (Exception ex)
             {
-                TechnicalException te = new TechnicalException("Problemas con Fwk.Configuration al realizar operaciones con la base de datos \r\n", ex);
+                TechnicalException te = new TechnicalException("Error en Fwk.Configuration al realizar operaciones con la base de datos \r\n", ex);
                 ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
                 te.ErrorId = "8200";
                 throw te;
             }
-
+           
         }
 
         /// <summary>

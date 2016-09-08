@@ -2,7 +2,7 @@
   {
     "DomainName": "testaa",
     "LDAPPath": "LDAP://172.22.14.40/DC=testaa,DC=ar",
-    "Usr": "TESTAA\u007CUserSQL",
+    "Usr": "CUserSQL",
     "Pwd": "Allus+123",
     "Id": 10,
     "SiteName": null,

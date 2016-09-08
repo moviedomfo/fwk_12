@@ -101,6 +101,16 @@
             <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
             <returns></returns>
         </member>
+        <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.CheckServiceAvailability(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Chequea la disponibilidad del despachador de servicio
+            </summary>
+            <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+            <summary>
+            Chequea si un Dispatcher esta activo
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ProviderName">
             <summary>
             Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
@@ -232,11 +242,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Fwk.Bases.Connector.LocalWrapper.CheckServiceAvailability">
+        <member name="M:Fwk.Bases.Connector.LocalWrapper.CheckServiceAvailability(System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Chequea la disponibilidad del despachador de servicio
             </summary>
             <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+            <summary>
+            Chequea si un Dispatcher esta activo
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:Fwk.Bases.Connector.LocalWrapper.ProviderName">
             <summary>
@@ -355,7 +369,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.CheckServiceAvailability">
+        <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.CheckServiceAvailability(System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Chequea si un Dispatcher esta activo
             </summary>
@@ -437,11 +451,15 @@
             <returns>Clase que imlementa la interfaz IServiceContract con datos de respuesta del servicio.</returns>
             <returns>response</returns>
         </member>
-        <member name="M:Fwk.Bases.Connector.RemotingWrapper.CheckServiceAvailability">
+        <member name="M:Fwk.Bases.Connector.RemotingWrapper.CheckServiceAvailability(System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Chequea la disponibilidad del despachador de servicio
             </summary>
             <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+            <summary>
+            Chequea si un Dispatcher esta activo
+            </summary>
+            <returns></returns>
         </member>
         <member name="F:Fwk.Bases.Connector.RemotingWrapper.singletonLock">
             <summary>
@@ -548,6 +566,7 @@
         </member>
         <member name="M:Fwk.Bases.Connector.WCFWrapper_NetTcpBinding.InitilaizeBinding">
             <summary>
+            
             
             </summary>
         </member>
@@ -1028,11 +1047,15 @@
             <date>2007-06-23T00:00:00</date>
             <author>moviedo</author>
         </member>
-        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.CheckServiceAvailability">
+        <member name="M:Fwk.Bases.Connector.WebServiceWrapper.CheckServiceAvailability(System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Chequea la disponibilidad del despachador de servicio
             </summary>
             <returns>Mensaje en caso de que el servicio no esté disponible</returns>
+            <summary>
+            Chequea si un Dispatcher esta activo
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Fwk.Bases.Connector.WebServiceWrapper.GetAllServices">
             <summary>

@@ -45,7 +45,6 @@ namespace Fwk.Security.ActiveDirectory.Test
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtUserFullName = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnCreateUser = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,7 +68,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             this.lstBoxRoles = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.btnAsignarRoles = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.fwkMessageViewInfo = new FwkMessageViewComponent(this.components);
+            this.fwkMessageViewInfo = new Fwk.Bases.FrontEnd.Controls.FwkMessageViewComponent(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPageUsers.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,9 +105,9 @@ namespace Fwk.Security.ActiveDirectory.Test
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPageUsers);
             this.tabControl1.Controls.Add(this.tabPageRoles);
             this.tabControl1.Controls.Add(this.tabPageAsingRol);
@@ -135,9 +134,9 @@ namespace Fwk.Security.ActiveDirectory.Test
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Controls.Add(this.lblRolesByUser);
@@ -211,7 +210,6 @@ namespace Fwk.Security.ActiveDirectory.Test
             // 
             this.groupBox2.Controls.Add(this.txtUserFullName);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.btnCreateUser);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtUserName);
             this.groupBox2.Controls.Add(this.label3);
@@ -242,20 +240,6 @@ namespace Fwk.Security.ActiveDirectory.Test
             this.label5.Size = new System.Drawing.Size(99, 18);
             this.label5.TabIndex = 21;
             this.label5.Text = "Full Name";
-            // 
-            // btnCreateUser
-            // 
-            this.btnCreateUser.BackColor = System.Drawing.Color.White;
-            this.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateUser.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnCreateUser.Location = new System.Drawing.Point(11, 117);
-            this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(96, 23);
-            this.btnCreateUser.TabIndex = 1;
-            this.btnCreateUser.Text = "Add this user";
-            this.btnCreateUser.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnCreateUser.UseVisualStyleBackColor = false;
-            this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
             // 
             // label4
             // 
@@ -298,8 +282,8 @@ namespace Fwk.Security.ActiveDirectory.Test
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.domainUsers1);
             this.groupBox1.Controls.Add(this.domainGoups2);
             this.groupBox1.Controls.Add(this.txtDomain);
@@ -313,8 +297,8 @@ namespace Fwk.Security.ActiveDirectory.Test
             // 
             // domainUsers1
             // 
-            this.domainUsers1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.domainUsers1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.domainUsers1.Location = new System.Drawing.Point(9, 268);
             this.domainUsers1.Name = "domainUsers1";
             this.domainUsers1.Size = new System.Drawing.Size(317, 410);
@@ -323,8 +307,8 @@ namespace Fwk.Security.ActiveDirectory.Test
             // 
             // domainGoups2
             // 
-            this.domainGoups2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.domainGoups2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.domainGoups2.Location = new System.Drawing.Point(6, 57);
             this.domainGoups2.Name = "domainGoups2";
             this.domainGoups2.Size = new System.Drawing.Size(319, 205);
@@ -373,6 +357,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             this.btnUsersList.TabIndex = 3;
             this.btnUsersList.Text = "Listar usuarios grupo";
             this.btnUsersList.UseVisualStyleBackColor = false;
+            this.btnUsersList.Click += new System.EventHandler(this.btnUsersList_Click);
             // 
             // tabPageRoles
             // 
@@ -560,7 +545,6 @@ namespace Fwk.Security.ActiveDirectory.Test
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnUsersList;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnCreateUser;
         private System.Windows.Forms.TabPage tabPageRoles;
         private System.Windows.Forms.Label lblrolSelected;
         private System.Windows.Forms.DataGridView dataGridView4;

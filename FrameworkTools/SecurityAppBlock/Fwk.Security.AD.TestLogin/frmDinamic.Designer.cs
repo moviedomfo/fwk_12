@@ -110,21 +110,22 @@
             this.lblURL.BackColor = System.Drawing.Color.White;
             this.lblURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.lblURL.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblURL.Location = new System.Drawing.Point(9, 245);
+            this.lblURL.Location = new System.Drawing.Point(12, 170);
             this.lblURL.Name = "lblURL";
-            this.lblURL.Size = new System.Drawing.Size(485, 24);
+            this.lblURL.Size = new System.Drawing.Size(585, 24);
             this.lblURL.TabIndex = 73;
             // 
             // cmbDomains
             // 
+            this.cmbDomains.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cmbDomains.DataSource = this.domainUrlInfoBindingSource;
             this.cmbDomains.DisplayMember = "DomainName";
-            this.cmbDomains.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbDomains.FormattingEnabled = true;
-            this.cmbDomains.Location = new System.Drawing.Point(130, 109);
+            this.cmbDomains.Location = new System.Drawing.Point(128, 106);
             this.cmbDomains.Name = "cmbDomains";
             this.cmbDomains.Size = new System.Drawing.Size(175, 21);
             this.cmbDomains.TabIndex = 74;
+            this.cmbDomains.SelectedIndexChanged += new System.EventHandler(this.cmbDomains_SelectedIndexChanged);
             // 
             // domainUrlInfoBindingSource
             // 
@@ -134,11 +135,11 @@
             // 
             this.lblCheckResult.BackColor = System.Drawing.Color.White;
             this.lblCheckResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheckResult.Location = new System.Drawing.Point(12, 164);
+            this.lblCheckResult.Location = new System.Drawing.Point(12, 199);
             this.lblCheckResult.Multiline = true;
             this.lblCheckResult.Name = "lblCheckResult";
             this.lblCheckResult.ReadOnly = true;
-            this.lblCheckResult.Size = new System.Drawing.Size(482, 105);
+            this.lblCheckResult.Size = new System.Drawing.Size(485, 101);
             this.lblCheckResult.TabIndex = 75;
             // 
             // ResetPwd

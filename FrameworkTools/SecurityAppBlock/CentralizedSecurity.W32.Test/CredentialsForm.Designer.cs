@@ -14,10 +14,6 @@ namespace SecurityAppBlock.Use
         
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.Container components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -41,6 +37,7 @@ namespace SecurityAppBlock.Use
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CredentialsForm));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +48,7 @@ namespace SecurityAppBlock.Use
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.cmbAllDomains = new System.Windows.Forms.ComboBox();
-            this.domainUrlInfoBindingSource = new System.Windows.Forms.BindingSource();
+            this.domainUrlInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Domain = new System.Windows.Forms.Label();
             this.txtErr = new System.Windows.Forms.TextBox();
             this.txtLDAPUser = new System.Windows.Forms.TextBox();
@@ -192,5 +189,6 @@ namespace SecurityAppBlock.Use
         private System.Windows.Forms.Button btnAutenticate2;
         private System.Windows.Forms.Button btnAutenticate1;
    		private System.Windows.Forms.Button btnGetUserInfo;
+        private IContainer components;
     }
 }

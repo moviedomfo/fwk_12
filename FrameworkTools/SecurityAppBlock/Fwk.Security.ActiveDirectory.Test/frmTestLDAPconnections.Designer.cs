@@ -81,7 +81,7 @@
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(178, 20);
             this.txtLoginName.TabIndex = 61;
-            this.txtLoginName.Text = "pdesarrollo2";
+            this.txtLoginName.Text = "TESTAA\\UserSQL";
             // 
             // txtPassword
             // 
@@ -89,7 +89,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(178, 20);
             this.txtPassword.TabIndex = 62;
-            this.txtPassword.Text = "Pelsoft+123";
+            this.txtPassword.Text = "Allus+123";
             // 
             // btnCheck
             // 
@@ -112,7 +112,7 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(525, 20);
             this.txtPath.TabIndex = 68;
-            this.txtPath.Text = "LDAP://123.22.12.142:389/DC=pelsoft,DC=ar";
+            this.txtPath.Text = "LDAP://172.22.14.40/DC=testaa,DC=ar";
             // 
             // lstDomains
             // 

@@ -260,7 +260,7 @@
         <member name="T:Fwk.Security.ActiveDirectory.ADWrapper">
             <summary>
             Wrapper de Active Directory con funcionalidades para interactuar contra un controlador de dominio .-
-            
+            Es mas completa q LDAPHelper
             </summary>
         </member>
         <member name="T:Fwk.Security.ActiveDirectory.DirectoryServicesBase">
@@ -569,6 +569,13 @@
             <param name="lockUser">true = loock user</param>
         </member>
         <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_SetActivation(System.String,System.Boolean)">
+            <summary>
+            Enable or disable user acount 
+            </summary>
+            <param name="userName"></param>
+            <param name="disabled"></param>
+        </member>
+        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_SetActivation2(System.String,System.Boolean)">
             <summary>
             Enable or disable user acount 
             </summary>
@@ -1534,6 +1541,12 @@
             <param name="domainName">Nombre corto del dominio, por ej "ALCO"</param>
             <param name="connStringName">Nombre de la cadena conexión de la base de datos de la tabla UrlDomains</param>
             <param name="pSecure">Especifica si establece una conexión SSL</param>
+        </member>
+        <member name="M:Fwk.Security.ActiveDirectory.LDAPHelper.#ctor(Fwk.Security.ActiveDirectory.DomainUrlInfo)">
+            <summary>
+            No realiza busquedas en base de datos de los controladores decominio
+            </summary>
+            <param name="domainUrlInfo"></param>
         </member>
         <member name="M:Fwk.Security.ActiveDirectory.LDAPHelper.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
@@ -3870,6 +3883,13 @@
             <summary>
             Servicio de creacion de nueva categoria
             </summary>
+        </member>
+        <member name="M:Fwk.Security.SVC.CreateRulesCategoryService.Execute(Fwk.Security.ISVC.CreateRulesCategory.CreateRulesCategoryReq)">
+            <summary>
+            
+            </summary>
+            <param name="pServiceRequest"></param>
+            <returns></returns>
         </member>
         <member name="T:Fwk.Security.SVC.DeleteRulesCategoryService">
             <summary>

@@ -23,7 +23,7 @@ namespace Fwk.Security.ActiveDirectory
     }
     /// <summary>
     /// Wrapper de Active Directory con funcionalidades para interactuar contra un controlador de dominio .-
-    /// 
+    /// Es mas completa q LDAPHelper
     /// </summary>
     public class ADWrapper : DirectoryServicesBase, IDirectoryService,IDisposable
     {  Impersonation objImp ; 
@@ -439,8 +439,8 @@ namespace Fwk.Security.ActiveDirectory
                 //  objImp.UnImpersonate();
 
                 //}
-                if (userDirectoryEntry != null)
-                {
+                    if (userDirectoryEntry != null)
+                    {
 
                     int val = (int)userDirectoryEntry.Properties["userAccountControl"].Value;
                     if (lockUser)
@@ -477,21 +477,24 @@ namespace Fwk.Security.ActiveDirectory
 
                 DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
                 deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                
                 SearchResult result = deSearch.FindOne();
                 if (result != null)
                     userDirectoryEntry = result.GetDirectoryEntry();
 
+                if (userDirectoryEntry != null)
+                {
+                    int val = (int)userDirectoryEntry.Properties["userAccountControl"].Value;
 
-                int val = (int)userDirectoryEntry.Properties["userAccountControl"].Value;
-
-                if (disabled)
-                    userDirectoryEntry.Properties["userAccountControl"].Value = val | (int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
-                else
-                    userDirectoryEntry.Properties["userAccountControl"].Value = val & ~(int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
+                    if (disabled)
+                        userDirectoryEntry.Properties["userAccountControl"].Value = val | (int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
+                    else
+                        userDirectoryEntry.Properties["userAccountControl"].Value = val & ~(int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
 
 
-                userDirectoryEntry.CommitChanges();
-                userDirectoryEntry.Close();
+                    userDirectoryEntry.CommitChanges();
+                    userDirectoryEntry.Close();
+                }
                 
             }
             catch (System.DirectoryServices.DirectoryServicesCOMException ex)
@@ -501,7 +504,32 @@ namespace Fwk.Security.ActiveDirectory
             }
 
         }
+        /// <summary>
+        /// Enable or disable user acount 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="disabled"></param>
+        public void User_SetActivation2(string userName, bool disabled)
+        {
+            DirectoryEntry userDirectoryEntry = null;
 
+            try
+            {
+
+
+                DirectoryEntry usr =     new DirectoryEntry("LDAP://" + userName + ",CN=users,DC=fabrikam,DC=com");
+                int val = (int)usr.Properties["userAccountControl"].Value;
+                usr.Properties["userAccountControl"].Value = val |                    (int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
+                usr.CommitChanges();
+
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException ex)
+            {
+
+                throw ProcessActiveDirectoryException(ex);
+            }
+
+        }
         private void User_MustChangePasswordNextLogon(string userName,bool mustChange)
         {
             DirectoryEntry userDirectoryEntry = null;

@@ -176,8 +176,8 @@ namespace Fwk.CentralizedSecurity.Service
             //ADWrapper ad3 = new ADWrapper(domain, ActiveDirectoryService.CnnStringName, performCustomWindowsContextImpersonalization);
 
             //ADWrapper ad = new ADWrapper("LDAP://allus.ar/DC=allus,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
-            domain = "LDAP://allus.ar/DC=allus,DC=ar";
-            domain = "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar";
+            //domain = "LDAP://allus.ar/DC=allus,DC=ar";
+            //domain = "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar";
             //ADWrapper ad3 = new ADWrapper("LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar", "LDAP_Reseteo_WSReset", "R3s3t30s++");
 			//ADWrapper ad = new ADWrapper(domain, "reseteos", "*R3s3t30s+");
             ImpersonateLogin impersonateLogin = new ImpersonateLogin();

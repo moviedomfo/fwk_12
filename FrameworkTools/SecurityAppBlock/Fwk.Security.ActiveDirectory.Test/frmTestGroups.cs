@@ -77,14 +77,20 @@ namespace Fwk.Security.ActiveDirectory.Test
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            domainGoups2.Initialize(txtPath.Text, txtLoginName.Text, txtPassword.Text);
-
-            using (new WaitCursorHelper(this))
+            try
             {
-                domainGoups2.Populate();
-             
-            }
+                domainGoups2.Initialize(txtPath.Text, txtLoginName.Text, txtPassword.Text);
 
+                using (new WaitCursorHelper(this))
+                {
+                    domainGoups2.Populate();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
        
             
         }

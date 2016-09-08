@@ -39,8 +39,9 @@ namespace Fwk.Security.AD.TestLogin
               urls = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DomainUrlInfo>>(str);
               domainUrlInfoBindingSource.DataSource = urls;
               cmbDomains.SelectedIndex = 0;
-            
-              lblURL.Text = ((DomainUrlInfo)cmbDomains.SelectedItem).LDAPPath;
+              _DomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;
+              lblURL.Text = _DomainUrlInfo.LDAPPath;
+              
         }
 
         private void btnAutenticate_Click(object sender, EventArgs e)
@@ -72,17 +73,13 @@ namespace Fwk.Security.AD.TestLogin
 
         bool SetAD(Boolean pSecure)
         {
-            lblURL.Text = string.Empty;
-
-            DomainUrlInfo wDomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;//urls.Find(p => p.DomainName.Equals(txtDomain.Text,StringComparison.CurrentCultureIgnoreCase));
-
-            if (wDomainUrlInfo == null)
+            if (_DomainUrlInfo == null)
             {
                 lblCheckResult.Text = "Nombre de dominio incorrecto";
                 return false;
             }
             //_ADHelper = new ADHelper(wDomainUrlInfo.LDAPPath, wDomainUrlInfo.Usr, wDomainUrlInfo.Pwd);
-            _ADHelper = new LDAPHelper(wDomainUrlInfo);
+            _ADHelper = new LDAPHelper(_DomainUrlInfo);
             //_ADHelper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
 
             return true;
@@ -113,20 +110,18 @@ namespace Fwk.Security.AD.TestLogin
         {
             init();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        DomainUrlInfo _DomainUrlInfo;
+        private void cmbDomains_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DomainUrlInfo wDomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;//urls.Find(p => p.DomainName.Equals(txtDomain.Text,StringComparison.CurrentCultureIgnoreCase));
-            if (wDomainUrlInfo == null) return;
-            lblURL.Text = wDomainUrlInfo.LDAPPath;
+            _DomainUrlInfo = (DomainUrlInfo)cmbDomains.SelectedItem;//urls.Find(p => p.DomainName.Equals(txtDomain.Text,StringComparison.CurrentCultureIgnoreCase));
+            if (_DomainUrlInfo == null) return;
+            lblURL.Text = _DomainUrlInfo.LDAPPath;
 
         }
-
+       
         private void frmDinamic_Load(object sender, EventArgs e)
         {
-            var dinfo = new DomainUrlInfo();
-
-            urls.Add(new DomainUrlInfo());
+           // lblURL.Text = _DomainUrlInfo.LDAPPath;// ((DomainUrlInfo)cmbDomains.SelectedItem).LDAPPath;
         }
 
         private void ResetPwd_Click(object sender, EventArgs e)
@@ -165,6 +160,8 @@ namespace Fwk.Security.AD.TestLogin
             wStore.Close();
 
         }
+
+       
 
      
 

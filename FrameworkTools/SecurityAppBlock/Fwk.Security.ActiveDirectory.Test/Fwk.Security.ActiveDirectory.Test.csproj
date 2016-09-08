@@ -178,6 +178,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="domainsurl.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\sitebuild_icon.gif" />
   </ItemGroup>
   <ItemGroup>

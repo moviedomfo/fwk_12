@@ -2414,6 +2414,48 @@
             Seccion de metadata .-
             </summary>
         </member>
+        <member name="P:Fwk.Bases.ISVC.DispatcherInfoBE.Cnnstrings">
+            <summary>
+            Lista de cadenas de conección
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.ISVC.DispatcherInfoBE.ServiceDispatcherConnection">
+            <summary>
+            Cadena de coneccion que posee el dispatcher para obtener su entorno de configuracion. 
+            spesifica donde esta registrada la instancia del dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.ISVC.DispatcherInfoBE.ServiceDispatcherName">
+            <summary>
+            Nombre de instancia del dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.ISVC.DispatcherInfoBE.MachineIp">
+            <summary>
+            Ip donde esta correindo el servicio
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.ISVC.DispatcherInfoBE.MetadataProviders">
+            <summary>
+            Service Metadata Providers  configurados
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.ISVC.DispatcherInfoBE.AppSettings">
+            <summary>
+            Todos los AppSettings configurados
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Svc.RetriveDispatcherInfoSvc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Svc.RetriveDispatcherInfoSvc.RetriveDispatcherInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Fwk.Bases.Constants">
             <summary>
             
@@ -3877,7 +3919,7 @@
             
             </summary>
             <param name="sourceConfigurationFile"></param>
-            <param name="provider"></param>
+            <param name="provider">Destination provider </param>
         </member>
         <member name="M:Fwk.Configuration.ConfigurationManager.RefreshConfigurationFile(System.String)">
             <summary>
@@ -7409,9 +7451,9 @@
             </summary>
         </member>
         <member name="P:Fwk.ConfigSection.ConfigProviderElement.SourceInfoIsConnectionString">
-            <summary>
-            Solo se utiliza en caso de typo sqldatabase y acepta 
-            </summary>
+             <summary>
+            Solo para uso interno. determina si sourceinfo representa la cadena de conexion o el nombre de la cadena en un rchivo de configuracion
+             </summary>
         </member>
         <member name="T:Fwk.ConfigSection.ConfigProviderCollection">
             <summary>
@@ -7750,13 +7792,13 @@
              Escribe el log de un evento .. Este metodo utiliza la configuracion del appsetting
             </summary>
             <param name="providerName">Nombre del proveedor de Logueo</param>
-            <param name="eventType"></param>
+            <param name="eventLog"></param>
         </member>
         <member name="M:Fwk.Logging.StaticLogger.Log(Fwk.Logging.Event)">
             <summary>
             Escribe el log de un evento .. Este metodo utiliza la configuracion del appsetting
             </summary>
-            <param name="eventType"></param>
+            <param name="eventLog"></param>
         </member>
         <member name="M:Fwk.Logging.StaticLogger.Log(System.String,Fwk.Logging.Event,System.String,System.String)">
             <summary>
@@ -9518,7 +9560,7 @@
             <date>2007-06-23T00:00:00</date>
             <author>moviedo</author>
         </member>
-        <member name="M:Fwk.Bases.IServiceWrapper.CheckServiceAvailability">
+        <member name="M:Fwk.Bases.IServiceWrapper.CheckServiceAvailability(System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Si retorna StringEmpty 
             </summary>

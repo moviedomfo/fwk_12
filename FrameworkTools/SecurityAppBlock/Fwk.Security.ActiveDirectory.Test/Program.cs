@@ -15,7 +15,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmResetPassword());
+            Application.Run(new frmTestGroups());
         }
     }
 }

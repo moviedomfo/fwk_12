@@ -94,6 +94,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         {
 
             StaticAD.ADHelper = new ADWrapper(path, user, pwd);
+
         }
     }
 }
