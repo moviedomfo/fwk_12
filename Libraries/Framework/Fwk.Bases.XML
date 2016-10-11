@@ -1359,6 +1359,15 @@
             <returns>String con la propiedad</returns>
             <Author>Marcelo Oviedo</Author>
         </member>
+        <member name="M:Fwk.Configuration.DatabaseConfigManager.GetKey_FromDB(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="configProvider"></param>
+            <param name="groupName"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fwk.Configuration.DatabaseConfigManager.GetProperty_FromDB(System.String,System.String,System.String)">
             <summary>
             
@@ -3808,6 +3817,16 @@
             <returns>String con la propiedad</returns>
             <Author>Marcelo Oviedo</Author>
         </member>
+        <member name="M:Fwk.Configuration.ConfigurationManager.GetKey(System.String,System.String,System.String)">
+            <summary>
+            Obtiene una propiedad determinada de un archivo de configuracion .-
+            </summary>
+            <param name="configProvider">Nombre del proveedor de configuracion</param>
+            <param name="pGroupName">Nombre del grupo donde se encuentra la propiedad</param>
+            <param name="pPropertyName">Nombre de la propiedad a obtener</param>
+            <returns>String con la propiedad</returns>
+            <Author>Marcelo Oviedo</Author>
+        </member>
         <member name="M:Fwk.Configuration.ConfigurationManager.GetProperty(System.String,System.String,System.String)">
             <summary>
             Obtiene una propiedad determinada de un archivo de configuracion .-
@@ -4093,6 +4112,16 @@
             <Author>Marcelo Oviedo</Author>
         </member>
         <!-- Badly formed XML comment ignored for member "T:Fwk.Configuration.LocalFileConfigurationManager" -->
+        <member name="M:Fwk.Configuration.LocalFileConfigurationManager.GetKey(System.String,System.String,System.String)">
+            <summary>
+            Obtiene una propiedad determinada de un archivo de configuracion .-
+            </summary>
+            <param name="configProvider">Proveedor de configuuracion</param>
+            <param name="pGroupName">Nombre del grupo donde se encuentra la propiedad</param>
+            <param name="pPropertyName">Nombre de la propiedad a obtener</param>
+            <returns>String con la propiedad</returns>
+            <Author>Marcelo Oviedo</Author>
+        </member>
         <member name="M:Fwk.Configuration.LocalFileConfigurationManager.GetProperty(System.String,System.String,System.String)">
             <summary>
             Obtiene una propiedad determinada de un archivo de configuracion .-

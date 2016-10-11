@@ -33,9 +33,45 @@ namespace Fwk.Configuration
                 _Repository = new ConfigurationRepository();
             }
         }
+        
+
+            
 
 
+        /// <summary>
+        /// Obtiene una propiedad determinada de un archivo de configuracion .-
+        /// </summary>
+        /// <param name="configProvider">Proveedor de configuuracion</param>
+        /// <param name="pGroupName">Nombre del grupo donde se encuentra la propiedad</param>
+        /// <param name="pPropertyName">Nombre de la propiedad a obtener</param>
+        /// <returns>String con la propiedad</returns>
+        /// <Author>Marcelo Oviedo</Author>
+        internal static Key GetKey(string configProvider, string pGroupName, string pPropertyName)
+        {
+            string wBaseConfigFile = String.Empty;
+            ConfigProviderElement provider = ConfigurationManager.GetProvider(configProvider);
+            ConfigurationFile wConfigurationFile = GetConfig(provider);
 
+            Group wGroup = wConfigurationFile.Groups.GetFirstByName(pGroupName);
+            if (wGroup == null)
+            {
+                TechnicalException te = new TechnicalException(string.Concat(new String[] { "No se encuentra el grupo ", pGroupName, " en el archivo de configuración: ", wBaseConfigFile }));
+                te.ErrorId = "8006";
+                Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(LocalFileConfigurationManager));
+                throw te;
+            }
+            Key wKey = wGroup.Keys.GetFirstByName(pPropertyName);
+            if (wKey == null)
+            {
+                TechnicalException te = new TechnicalException(string.Concat(new String[] { "No se encuentra la propiedad ", pPropertyName, " en el grupo de propiedades: ", pGroupName, " del archivo de configuración: ", wBaseConfigFile }));
+                te.ErrorId = "8007";
+                Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(LocalFileConfigurationManager));
+                throw te;
+            }
+
+            return wKey;
+
+        }
         /// <summary>
         /// Obtiene una propiedad determinada de un archivo de configuracion .-
         /// </summary>

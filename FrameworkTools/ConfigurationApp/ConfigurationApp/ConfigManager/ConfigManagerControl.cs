@@ -367,6 +367,7 @@ namespace ConfigurationApp
            TreeNode pTreeNodeGroup,
            String pKeyName,
             String pKeyValue,
+            Boolean pEncrypted,
            ContextMenuStrip mnGroupOrProperty
            )
         {
@@ -397,6 +398,7 @@ namespace ConfigurationApp
             Key wKey = new Key();
             wKey.Value.Text = pKeyValue;
             wKey.Name = pKeyName;
+            wKey.Encrypted = pEncrypted;
 
             wKeyTreeNode.Tag = wKey;
             pTreeNodeGroup.Nodes.Add(wKeyTreeNode);

@@ -74,7 +74,12 @@ namespace Fwk.Security.ActiveDirectory
         }
         string _SiteName;
         /// <summary>
-        /// 
+        /// Distinguished Names A DN is a sequence of relative distinguished names (RDN) connected by commas.
+        /// DC	domainComponent
+        /// CN	commonName
+        /// OU	organizationalUnitName
+        /// O	organizationName
+        /// etc
         /// </summary>
         public string DomainDN
         {

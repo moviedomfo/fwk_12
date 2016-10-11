@@ -112,6 +112,42 @@ namespace Fwk.Configuration
         public static string GetProperty(string pGroupName, string pPropertyName)
         {
             return GetProperty(string.Empty, pGroupName, pPropertyName);
+        } 
+        
+        /// <summary>
+        /// Obtiene una propiedad determinada de un archivo de configuracion .-
+        /// </summary>
+        /// <param name="configProvider">Nombre del proveedor de configuracion</param>
+        /// <param name="pGroupName">Nombre del grupo donde se encuentra la propiedad</param>
+        /// <param name="pPropertyName">Nombre de la propiedad a obtener</param>
+        /// <returns>String con la propiedad</returns>
+        /// <Author>Marcelo Oviedo</Author>
+        public static Key GetKey(string configProvider, string pGroupName, string pPropertyName)
+        {
+
+
+
+            ConfigProviderElement provider = GetProvider(configProvider);
+            if (provider == null) return null;
+
+
+            switch (provider.ConfigProviderType)
+            {
+                case ConfigProviderType.local:
+                    {
+                        return LocalFileConfigurationManager.GetKey(configProvider, pGroupName, pPropertyName);
+                    }
+
+                case ConfigProviderType.sqldatabase:
+                    {
+                        return DatabaseConfigManager.GetKey(configProvider, pGroupName, pPropertyName);
+                    }
+                //case ConfigProviderType.servicewrapper:
+                //    {
+                //        return ServiceConfigurationManager.GetProperty(configProvider, pGroupName, pPropertyName); ;
+                //    }
+            }
+            return null;
         }
 
         /// <summary>

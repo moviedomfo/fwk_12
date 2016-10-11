@@ -97,6 +97,7 @@ namespace Fwk.Security.ActiveDirectory
                 _directoryEntrySearchRoot = new DirectoryEntry(_LDAPPath, _LDAPUser, _LDAPPassword, AuthenticationTypes.Secure);
 
                 _LDAPDomain = GetValue(GetProperty(_directoryEntrySearchRoot, ADProperties.DISTINGUISHEDNAME), "DC");
+                _LDAPDomainName = get_DISTINGUISHEDNAME(_directoryEntrySearchRoot);
             }
             catch (TechnicalException e)// Cuando el usuario no existe o clave erronea
             {
@@ -135,6 +136,7 @@ namespace Fwk.Security.ActiveDirectory
                 _directoryEntrySearchRoot = new DirectoryEntry(_LDAPPath, _LDAPUser, _LDAPPassword, AuthenticationTypes.Secure);
 
                 _LDAPDomain = GetValue(GetProperty(_directoryEntrySearchRoot, ADProperties.DISTINGUISHEDNAME), "DC");
+                
             }
             catch (TechnicalException e)// Cuando el usuario no existe o clave erronea
             {
@@ -163,6 +165,8 @@ namespace Fwk.Security.ActiveDirectory
                 _directoryEntrySearchRoot = new DirectoryEntry(_LDAPPath, _LDAPUser, _LDAPPassword, AuthenticationTypes.Secure);
 
                 _LDAPDomain = GetValue(GetProperty(_directoryEntrySearchRoot, ADProperties.DISTINGUISHEDNAME), "DC");
+                _LDAPDomainName = get_DISTINGUISHEDNAME(_directoryEntrySearchRoot);
+                
             }
             catch (TechnicalException e)// Cuando el usuario no existe o clave erronea
             {
@@ -269,7 +273,7 @@ namespace Fwk.Security.ActiveDirectory
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        DirectoryEntry User_Get(string userName)
+        public DirectoryEntry User_Get(string userName)
         {
 
             DirectoryEntry userDirectoryEntry = null;
@@ -298,7 +302,7 @@ namespace Fwk.Security.ActiveDirectory
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        DirectoryEntry Person_Get(string userName)
+        public DirectoryEntry Person_Get(string userName)
         {
 
             DirectoryEntry userDirectoryEntry = null;
@@ -332,9 +336,14 @@ namespace Fwk.Security.ActiveDirectory
             bool wIsAccountLocked = false;
             try
             {
-                userDirectoryEntry = this.User_Get(userName);
-                userDirectoryEntry.Close();
+                DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
+                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                SearchResult result = deSearch.FindOne();
+                if (result != null)
+                    userDirectoryEntry = result.GetDirectoryEntry();
+                
                 wIsAccountLocked = User_IsAccountActive(userDirectoryEntry);
+                userDirectoryEntry.Close();
                 return wIsAccountLocked;
             }
 
@@ -352,15 +361,23 @@ namespace Fwk.Security.ActiveDirectory
         public bool User_IsAccountLocked(string userName)
         {
 
-
+             //LOCKOUT 0x0010 16 
+               //NORMAL_ACCOUNT 0x0200 512
+                //The 514 value coming from NORMAL_ACCOUNT(512) + ACCOUNTDISABLE(2). UF_ACCOUNTDISABLE = 0x0002,
 
             bool wIsAccountLocked = false;
             DirectoryEntry userDirectoryEntry = null;
 
             try
             {
-                userDirectoryEntry = this.User_Get(userName);
-                wIsAccountLocked = Convert.ToBoolean(userDirectoryEntry.InvokeGet("IsAccountLocked"));
+                DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
+                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                SearchResult result = deSearch.FindOne();
+                if (result != null)
+                    userDirectoryEntry = result.GetDirectoryEntry();
+
+
+                wIsAccountLocked = User_IsAccountLockout(userDirectoryEntry);
                 userDirectoryEntry.Close();
                 return wIsAccountLocked;
 
@@ -425,20 +442,10 @@ namespace Fwk.Security.ActiveDirectory
                 if (result != null)
                     userDirectoryEntry = result.GetDirectoryEntry();
                 
-                //Error de acceso
-                //userDirectoryEntry = this.User_Get(userName);
-
-
-                //if (userDirectoryEntry != null)
-                //{
-                //    userDirectoryEntry.InvokeSet("IsAccountLocked", lockUser);
-
-
-                //  userDirectoryEntry.CommitChanges();
-                //  userDirectoryEntry.Close();
-                //  objImp.UnImpersonate();
-
-                //}
+               
+               //LOCKOUT 0x0010 16 
+               //NORMAL_ACCOUNT 0x0200 512
+                //The 514 value coming from NORMAL_ACCOUNT(512) + ACCOUNTDISABLE(2). UF_ACCOUNTDISABLE = 0x0002,
                     if (userDirectoryEntry != null)
                     {
 
@@ -460,6 +467,22 @@ namespace Fwk.Security.ActiveDirectory
                 //objImp.UnImpersonate();
                 throw ProcessActiveDirectoryException(ex);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        public void User_Remove(String userName)
+        {
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain, _LDAPDomainName, _LDAPUser, _LDAPPassword);
+            UserPrincipal user = UserPrincipal.FindByIdentity(ctx, userName);
+            user.Delete();
+            //DirectoryEntry directoryEntry = User_Get(userName);
+            //directoryEntry.Remove["member"].Remove(domainUser);
+            //directoryEntry.CommitChanges();
+            //directoryEntry.Close();
+
         }
 
         /// <summary>
@@ -504,40 +527,38 @@ namespace Fwk.Security.ActiveDirectory
             }
 
         }
+
         /// <summary>
         /// Enable or disable user acount 
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="disabled"></param>
-        public void User_SetActivation2(string userName, bool disabled)
-        {
-            DirectoryEntry userDirectoryEntry = null;
+        //public void User_SetActivation2(string userName, bool disabled)
+        //{
+        //    try
+        //    {
+        //        DirectoryEntry usr = new DirectoryEntry("LDAP://" + userName + ",CN=users,DC=fabrikam,DC=com");
+        //        int val = (int)usr.Properties["userAccountControl"].Value;
+        //        usr.Properties["userAccountControl"].Value = val | (int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
+        //        usr.CommitChanges();
+        //    }
+        //    catch (System.DirectoryServices.DirectoryServicesCOMException ex)
+        //    {
+        //        throw ProcessActiveDirectoryException(ex);
+        //    }
+        //}
 
-            try
-            {
-
-
-                DirectoryEntry usr =     new DirectoryEntry("LDAP://" + userName + ",CN=users,DC=fabrikam,DC=com");
-                int val = (int)usr.Properties["userAccountControl"].Value;
-                usr.Properties["userAccountControl"].Value = val |                    (int)ADS_USER_FLAG_ENUM.ADS_UF_ACCOUNTDISABLE;
-                usr.CommitChanges();
-
-            }
-            catch (System.DirectoryServices.DirectoryServicesCOMException ex)
-            {
-
-                throw ProcessActiveDirectoryException(ex);
-            }
-
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="mustChange"></param>
         private void User_MustChangePasswordNextLogon(string userName,bool mustChange)
         {
             DirectoryEntry userDirectoryEntry = null;
             
             try
             {
-
-
                 DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
                 deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
                 SearchResult result = deSearch.FindOne();
@@ -559,7 +580,6 @@ namespace Fwk.Security.ActiveDirectory
             }
             catch (System.DirectoryServices.DirectoryServicesCOMException ex)
             {
-                
                 throw ProcessActiveDirectoryException(ex);
             }
         }
@@ -606,9 +626,10 @@ namespace Fwk.Security.ActiveDirectory
 
         static string  DomaunAndUserFormat= @"{0}\{1}"; 
         /// <summary>
-        /// Obtiene un usuario por nombre sin tener en cuenta las credenciales del usuario
+        /// Obtiene un usuario por nombre Llama al User_Get el cual aplica :
+        /// deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
         /// </summary>
-        /// <param name="userName"></param>
+        /// <param name="userName">puede ser con o sin dominio siempre se le aplica FilterOutDomain</param>
         /// <returns></returns>
         public ADUser User_Get_ByName(String userName)
         {
@@ -617,8 +638,8 @@ namespace Fwk.Security.ActiveDirectory
             DirectoryEntry userDirectoryEntry = null;
             try
             {
-                string domaunAndUser = String.Format( DomaunAndUserFormat, _LDAPDomainName,userName);
-                userDirectoryEntry = this.User_Get(domaunAndUser);
+                //string domaunAndUser = String.Format( DomaunAndUserFormat, _LDAPDomainName,userName);
+                userDirectoryEntry = this.User_Get(userName);
                 if (userDirectoryEntry != null)
                 {
                     wADUser = new ADUser(userDirectoryEntry);
@@ -636,19 +657,16 @@ namespace Fwk.Security.ActiveDirectory
         }
 
         /// <summary>
-        /// Verifica si el usuario existe.- 
+        /// Verifica si el usuario existe.-  
+        /// Intermnamente realiza un deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
         /// </summary>
-        /// <param name="userName">Nombre de loging de usuario</param>
+        /// <param name="userName">Nombre de loging de usuario No aplica FilterOutDomain</param>
         /// <returns></returns>
         public bool User_Exists(string userName)
         {
-
             //create instance fo the direcory searcher
             DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
 
-            //set the search filter
-            //deSearch.Filter = "(&(objectClass=user) (cn=" + FilterOutDomain(userName) + "))";
-            //deSearch.Filter = string.Format("(&(objectClass=user)(sAMAccountName= {0} ))", FilterOutDomain(userName));
             deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
             //find the first instance
             SearchResultCollection results = deSearch.FindAll();
@@ -664,6 +682,7 @@ namespace Fwk.Security.ActiveDirectory
             }
 
         }
+
         /// <summary>
         /// Retorna los grupos a los que pertenece el usuario .-
         /// </summary>
@@ -679,7 +698,6 @@ namespace Fwk.Security.ActiveDirectory
 
             try
             {
-
                 SearchResult result = deSearch.FindOne();
 
                 if (result != null)
@@ -723,10 +741,7 @@ namespace Fwk.Security.ActiveDirectory
             deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
             try
             {
-                
                 SearchResult result = deSearch.FindOne();
-
-
                 if (result != null)
                 {
                     directoryEntryUser = result.GetDirectoryEntry();
@@ -925,15 +940,7 @@ namespace Fwk.Security.ActiveDirectory
 
             int userAccountControl_Disabled = Convert.ToInt32(ADAccountOptions.UF_ACCOUNTDISABLE);
             int flagExists = userAccountControl & userAccountControl_Disabled;
-            //Si coinciden, la bandera indicara Dehabilitao como indicador de control
-            //if (flagExists > 0)
-            //{
-            //    return false;
-            //}
-            //else
-            //{
-            //    return true;
-            //}
+      
             return flagExists == 0;//Si es = a 2 es por que esta DESHABILITADO (512 - 2) 
         }
 
@@ -1145,6 +1152,20 @@ namespace Fwk.Security.ActiveDirectory
         }
 
         /// <summary>
+        /// adADWrapper.GetRootProperty(ADProperties.DESCRIPTION);
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <returns></returns>
+        public String GetRootProperty(String prop)
+        {
+            string str1=  GetProperty(_directoryEntrySearchRoot, prop.ToString());
+
+            //string propertie = Enum.GetName(typeof(ADProperties), prop);
+
+            string str2 = GetValue(GetProperty(_directoryEntrySearchRoot, prop), "DC");
+            return str2;
+        }
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="ex"></param>
@@ -1259,19 +1280,33 @@ namespace Fwk.Security.ActiveDirectory
             return list;
         }
 
+        string get_DISTINGUISHEDNAME(DirectoryEntry de)
+        {
+            string str = GetProperty(de, ADProperties.DISTINGUISHEDNAME);
+            str = str.Replace(",", ".").Replace("DC=","");
+            return str;
+            //StringBuilder strbuilder = new StringBuilder();
+            //foreach (string s in str.Split(','))
+            //{
+            //    if (s.Contains("DC"))
+            //        strbuilder.Append( s.Split('=')[1]);
+            //}
+        }
         /// <summary>
         /// Obtiene una propiedad del objeto de active directory .-
         /// </summary>
-        /// <param name="userDetail"></param>
+        /// <param name="de"></param>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public static String GetProperty(DirectoryEntry userDetail, String propertyName)
+        public static String GetProperty(DirectoryEntry de, String propertyName)
         {
+            
             try
             {
-                if (userDetail.Properties.Contains(propertyName))
+                if (de.Properties.Contains(propertyName))
                 {
-                    return userDetail.Properties[propertyName][0].ToString();
+                    return de.Properties[propertyName][0].ToString();
+                    
                 }
                 else
                 {

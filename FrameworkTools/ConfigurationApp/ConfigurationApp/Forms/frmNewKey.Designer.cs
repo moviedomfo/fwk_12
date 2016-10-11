@@ -32,20 +32,22 @@ namespace ConfigurationApp
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblGroupName = new System.Windows.Forms.Label();
             this.txtKeyName = new System.Windows.Forms.TextBox();
+            this.lblFileName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKeyValue = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
-            this.lblFileName = new System.Windows.Forms.Label();
+            this.chkCrypted = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.chkCrypted);
             this.groupBox1.Controls.Add(this.lblGroupName);
             this.groupBox1.Controls.Add(this.txtKeyName);
             this.groupBox1.Controls.Add(this.lblFileName);
@@ -62,8 +64,8 @@ namespace ConfigurationApp
             // 
             // lblGroupName
             // 
-            this.lblGroupName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGroupName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGroupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGroupName.ForeColor = System.Drawing.Color.DimGray;
             this.lblGroupName.Location = new System.Drawing.Point(82, 43);
@@ -73,9 +75,9 @@ namespace ConfigurationApp
             // 
             // txtKeyName
             // 
-            this.txtKeyName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtKeyName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKeyName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtKeyName.BackColor = System.Drawing.Color.Cornsilk;
             this.txtKeyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -84,6 +86,17 @@ namespace ConfigurationApp
             this.txtKeyName.Name = "txtKeyName";
             this.txtKeyName.Size = new System.Drawing.Size(329, 20);
             this.txtKeyName.TabIndex = 0;
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.ForeColor = System.Drawing.Color.DimGray;
+            this.lblFileName.Location = new System.Drawing.Point(82, 20);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(334, 13);
+            this.lblFileName.TabIndex = 13;
             // 
             // label4
             // 
@@ -131,9 +144,9 @@ namespace ConfigurationApp
             // 
             // txtKeyValue
             // 
-            this.txtKeyValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtKeyValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtKeyValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKeyValue.Location = new System.Drawing.Point(6, 113);
             this.txtKeyValue.Multiline = true;
@@ -158,16 +171,15 @@ namespace ConfigurationApp
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // lblFileName
+            // chkCrypted
             // 
-            this.lblFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblFileName.Location = new System.Drawing.Point(82, 20);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(334, 13);
-            this.lblFileName.TabIndex = 13;
+            this.chkCrypted.AutoSize = true;
+            this.chkCrypted.Location = new System.Drawing.Point(137, 53);
+            this.chkCrypted.Name = "chkCrypted";
+            this.chkCrypted.Size = new System.Drawing.Size(62, 17);
+            this.chkCrypted.TabIndex = 19;
+            this.chkCrypted.Text = "Crypted";
+            this.chkCrypted.UseVisualStyleBackColor = true;
             // 
             // frmNewKey
             // 
@@ -181,7 +193,7 @@ namespace ConfigurationApp
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNewKey";
-            this.Opacity = 0.95;
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Key";
             this.groupBox1.ResumeLayout(false);
@@ -202,5 +214,6 @@ namespace ConfigurationApp
         private System.Windows.Forms.TextBox txtKeyValue;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label lblGroupName;
+        private System.Windows.Forms.CheckBox chkCrypted;
     }
 }

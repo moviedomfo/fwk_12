@@ -48,7 +48,7 @@ namespace ConfigurationApp.Forms
 
             txtNewValue.Text = _Key.Value.Text;
             txtNewKeyName.Text = _Key.Name;
-
+            chkCrypted.Checked = _Key.Encrypted;
       
         
         }
@@ -104,6 +104,11 @@ namespace ConfigurationApp.Forms
         {
             if (_Group != null)
             _Group.Name = txtGroupName.Text;
+        }
+
+        private void chkCrypted_CheckedChanged(object sender, EventArgs e)
+        {
+            _Key.Encrypted = chkCrypted.Checked;
         }
     }
 }

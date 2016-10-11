@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupKey = new System.Windows.Forms.GroupBox();
+            this.chkCrypted = new System.Windows.Forms.CheckBox();
             this.txtNewValue = new System.Windows.Forms.TextBox();
             this.lblKey = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@
             // 
             // groupKey
             // 
+            this.groupKey.Controls.Add(this.chkCrypted);
             this.groupKey.Controls.Add(this.txtNewValue);
             this.groupKey.Controls.Add(this.lblKey);
             this.groupKey.Controls.Add(this.label4);
@@ -72,6 +74,18 @@
             this.groupKey.TabIndex = 25;
             this.groupKey.TabStop = false;
             this.groupKey.Text = "Propertie";
+            // 
+            // chkCrypted
+            // 
+            this.chkCrypted.AutoSize = true;
+            this.chkCrypted.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCrypted.Location = new System.Drawing.Point(98, 120);
+            this.chkCrypted.Name = "chkCrypted";
+            this.chkCrypted.Size = new System.Drawing.Size(69, 17);
+            this.chkCrypted.TabIndex = 22;
+            this.chkCrypted.Text = "Crypted";
+            this.chkCrypted.UseVisualStyleBackColor = true;
+            this.chkCrypted.CheckedChanged += new System.EventHandler(this.chkCrypted_CheckedChanged);
             // 
             // txtNewValue
             // 
@@ -108,6 +122,7 @@
             this.txtNewKeyName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.keyBindingSource, "Name", true));
             this.txtNewKeyName.Location = new System.Drawing.Point(98, 39);
             this.txtNewKeyName.Name = "txtNewKeyName";
+            this.txtNewKeyName.ReadOnly = true;
             this.txtNewKeyName.Size = new System.Drawing.Size(328, 20);
             this.txtNewKeyName.TabIndex = 20;
             this.txtNewKeyName.TextChanged += new System.EventHandler(this.txtNewKeyName_TextChanged);
@@ -120,6 +135,7 @@
             // 
             this.txtGroupName.Location = new System.Drawing.Point(94, 72);
             this.txtGroupName.Name = "txtGroupName";
+            this.txtGroupName.ReadOnly = true;
             this.txtGroupName.Size = new System.Drawing.Size(512, 20);
             this.txtGroupName.TabIndex = 23;
             this.txtGroupName.TextChanged += new System.EventHandler(this.txtGroupName_TextChanged);
@@ -186,5 +202,6 @@
         private System.Windows.Forms.BindingSource keyBindingSource;
         private System.Windows.Forms.TextBox txtGroupName;
         private System.Windows.Forms.GroupBox groupKey;
+        private System.Windows.Forms.CheckBox chkCrypted;
     }
 }

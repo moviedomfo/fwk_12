@@ -568,6 +568,12 @@
             <param name="userName"></param>
             <param name="lockUser">true = loock user</param>
         </member>
+        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_Remove(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userName"></param>
+        </member>
         <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_SetActivation(System.String,System.Boolean)">
             <summary>
             Enable or disable user acount 
@@ -575,12 +581,12 @@
             <param name="userName"></param>
             <param name="disabled"></param>
         </member>
-        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_SetActivation2(System.String,System.Boolean)">
+        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_MustChangePasswordNextLogon(System.String,System.Boolean)">
             <summary>
-            Enable or disable user acount 
+            
             </summary>
             <param name="userName"></param>
-            <param name="disabled"></param>
+            <param name="mustChange"></param>
         </member>
         <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_ResetPwd(System.String,System.String,System.Boolean)">
             <summary>
@@ -590,20 +596,8 @@
             <param name="password">new passsword</param>
             <param name="unlockAccount">Lock or unlock flag</param>
         </member>
-        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_Get_ByName(System.String)">
-            <summary>
-            Obtiene un usuario por nombre sin tener en cuenta las credenciales del usuario
-            </summary>
-            <param name="userName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_Exists(System.String)">
-            <summary>
-            Verifica si el usuario existe.- 
-            </summary>
-            <param name="userName">Nombre de loging de usuario</param>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Fwk.Security.ActiveDirectory.ADWrapper.User_Get_ByName(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:Fwk.Security.ActiveDirectory.ADWrapper.User_Exists(System.String)" -->
         <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.User_SearchGroupList(System.String)">
             <summary>
             Retorna los grupos a los que pertenece el usuario .-
@@ -707,6 +701,13 @@
             <param name="domainName"></param>
             <returns></returns>
         </member>
+        <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.GetRootProperty(System.String)">
+            <summary>
+            adADWrapper.GetRootProperty(ADProperties.DESCRIPTION);
+            </summary>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fwk.Security.ActiveDirectory.ADWrapper.ProcessActiveDirectoryException(System.Exception)">
             <summary>
             
@@ -747,7 +748,7 @@
             <summary>
             Obtiene una propiedad del objeto de active directory .-
             </summary>
-            <param name="userDetail"></param>
+            <param name="de"></param>
             <param name="propertyName"></param>
             <returns></returns>
         </member>
@@ -1394,7 +1395,12 @@
         </member>
         <member name="P:Fwk.Security.ActiveDirectory.DomainUrlInfo.DomainDN">
             <summary>
-            
+            Distinguished Names A DN is a sequence of relative distinguished names (RDN) connected by commas.
+            DC	domainComponent
+            CN	commonName
+            OU	organizationalUnitName
+            O	organizationName
+            etc
             </summary>
         </member>
         <member name="T:Fwk.Security.Common.ObjectDomain">

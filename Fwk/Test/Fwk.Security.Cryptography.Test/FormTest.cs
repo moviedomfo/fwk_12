@@ -11,7 +11,7 @@ namespace Fwk.Security.Cryptography.Test
 {
     public partial class FormTest : Form
     {
-        SymetriCypher<AesManaged> _SymetriCypher = null;
+        SymetriCypher<RijndaelManaged> _SymetriCypher = null;
         public FormTest()
         {
             InitializeComponent();
@@ -25,14 +25,14 @@ namespace Fwk.Security.Cryptography.Test
             //SymetriCypher<System.Security.Cryptography.TripleDES> wTripleDES = new SymetriCypher<System.Security.Cryptography.TripleDES>();
 
 
-             _SymetriCypher = new SymetriCypher<AesManaged>();
+            _SymetriCypher = new SymetriCypher<RijndaelManaged>();
              //SymetriCypher<RijndaelManaged> _SymetriCypher = new SymetriCypher<RijndaelManaged>();
 
             //str.Append(SymetricCypherFactory.GenNewKey());
 
 
              str.AppendLine(_SymetriCypher.GeneratetNewK());
-            _SymetriCypher.Encrypt("", "j7Ab7ScPtcoxGTDANnvn3e4VJxqD+dR5bnJO6+hXn78=$HJoNwcu5Riru293Mj2dEXQ==");
+           // _SymetriCypher.Encrypt("", "j7Ab7ScPtcoxGTDANnvn3e4VJxqD+dR5bnJO6+hXn78=$HJoNwcu5Riru293Mj2dEXQ==");
             txtKey.Text = str.ToString();
 
             

@@ -31,7 +31,10 @@ namespace ConfigurationApp
         {
             get { return txtKeyValue.Text; }
         }
-
+        public Boolean Crypted
+        {
+            get { return chkCrypted.Checked; }
+        }
         public frmNewKey()
         {
             InitializeComponent();

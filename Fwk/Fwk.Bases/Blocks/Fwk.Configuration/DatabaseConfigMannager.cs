@@ -51,6 +51,66 @@ namespace Fwk.Configuration
 
 
         }
+        internal static Key GetKey(string configProvider, string groupName, string propertyName)
+        {
+            return GetKey_FromDB(configProvider, groupName, propertyName);
+
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configProvider"></param>
+        /// <param name="groupName"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        static Key GetKey_FromDB(string configProvider, string groupName, string propertyName)
+        {
+            ConfigProviderElement provider = ConfigurationManager.GetProvider(configProvider);
+            if (System.Configuration.ConfigurationManager.ConnectionStrings[provider.SourceInfo] == null)
+            {
+                TechnicalException te = new TechnicalException(string.Concat("Problemas con Fwk.Configuration, no se puede encontrar la cadena de conexión: ", provider.SourceInfo));
+                ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
+                te.ErrorId = "8200";
+                throw te;
+            }
+
+            try
+            {
+                using (FwkDatacontext dc = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[provider.SourceInfo].ConnectionString))
+                {
+                    var val = dc.fwk_ConfigManagers.Where(config =>
+                        config.ConfigurationFileName.ToLower().Equals(provider.BaseConfigFile.ToLower()) &&
+                        config.group.ToLower().Equals(groupName.ToLower()) &&
+                        config.key.ToLower().Equals(propertyName.ToLower())).FirstOrDefault();
+
+                    if (val == null)
+                    {
+                        TechnicalException te = new TechnicalException(string.Concat(new String[] { "No se encuentra la propiedad ", propertyName, " en el grupo de propiedades: ", groupName, " del archivo de configuración: ", provider.BaseConfigFile }));
+                        te.ErrorId = "8007";
+                        Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(ConfigurationManager));
+                        throw te;
+                    }
+
+                    Key wKey = new Key();
+                    wKey.Value.Text = val.value;
+                    wKey.Name = propertyName;
+                    wKey.Encrypted = val.encrypted;
+
+                    return wKey;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TechnicalException te = new TechnicalException("Problemas con Fwk.Configuration al realizar operaciones con la base de datos \r\n", ex);
+                ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
+                te.ErrorId = "8200";
+                throw te;
+
+            }
+
+        }
         /// <summary>
         /// 
         /// </summary>
