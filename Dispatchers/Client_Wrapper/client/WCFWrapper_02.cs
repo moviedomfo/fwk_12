@@ -274,5 +274,11 @@ namespace Fwk.Bases.Connector
         {
             throw new NotImplementedException();
         }
+
+
+        public ISVC.DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings = false, bool includeAppSettings = false, bool includeMetadata = false)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

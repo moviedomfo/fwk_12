@@ -1,5 +1,18 @@
 
 <ServiceConfigurationCollection>
+  <ServiceConfiguration name="RetriveDispatcherInfoSvc">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2012-01-26T16:35:17.7223497-03:00</CreatedDateTime>
+    <Description />
+    <Handler>Fwk.Bases.Svc.RetriveDispatcherInfoSvc, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Bases.ISVC.RetriveDispatcherInfoReq, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Bases.ISVC.RetriveDispatcherInfoRes, Fwk.Bases, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  
   <ServiceConfiguration name="GetFwkConfigurationService">
     <CreatedUserName>moviedo</CreatedUserName>
     <CreatedDateTime>2012-01-26T16:35:17.7223497-03:00</CreatedDateTime>

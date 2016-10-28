@@ -11,6 +11,7 @@ using Fwk.Security;
 using System.Web.Security;
 using System.Web.Profile;
 using Fwk.Bases.FrontEnd.Controls;
+using SecurityAppBlock.Use;
 
 namespace Fwk.Security.Admin.Controls
 {
@@ -180,6 +181,12 @@ namespace Fwk.Security.Admin.Controls
             
 
             usersGrid1.Initialize();
+        }
+
+        private void btnAuthenticateUser_Click(object sender, EventArgs e)
+        {
+            CredentialsForm frm = new CredentialsForm();
+            frm.ShowDialog();
         }
 
     

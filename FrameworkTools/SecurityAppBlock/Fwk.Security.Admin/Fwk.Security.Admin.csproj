@@ -149,6 +149,12 @@
     <Compile Include="Controls\Common\frmAddName.Designer.cs">
       <DependentUpon>frmAddName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Users\CredentialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Users\CredentialsForm.Designer.cs">
+      <DependentUpon>CredentialsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Users\frmChangePwd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Common\frmAddName.resx">
       <DependentUpon>frmAddName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Users\CredentialsForm.resx">
+      <DependentUpon>CredentialsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Users\frmChangePwd.resx">
       <DependentUpon>frmChangePwd.cs</DependentUpon>

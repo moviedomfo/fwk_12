@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblRolesByUser = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.btnApprove = new System.Windows.Forms.Button();
             this.txtComments = new DevExpress.XtraEditors.MemoEdit();
             this.btnUnlock = new System.Windows.Forms.Button();
+            this.btnAuthenticateUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -69,9 +70,9 @@
             // 
             this.lblRolesByUser.Image = global::Fwk.Security.Admin.Properties.Resources.Users;
             this.lblRolesByUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblRolesByUser.Location = new System.Drawing.Point(813, 59);
+            this.lblRolesByUser.Location = new System.Drawing.Point(697, 48);
             this.lblRolesByUser.Name = "lblRolesByUser";
-            this.lblRolesByUser.Size = new System.Drawing.Size(135, 20);
+            this.lblRolesByUser.Size = new System.Drawing.Size(116, 16);
             this.lblRolesByUser.TabIndex = 21;
             this.lblRolesByUser.Text = "User roles";
             this.lblRolesByUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -88,51 +89,48 @@
             this.groupControl1.Controls.Add(this.txtEmail);
             this.groupControl1.Controls.Add(this.txtUserName);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Location = new System.Drawing.Point(10, 392);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl1.Location = new System.Drawing.Point(9, 318);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(763, 159);
+            this.groupControl1.Size = new System.Drawing.Size(654, 129);
             this.groupControl1.TabIndex = 22;
             this.groupControl1.Text = "User properties";
             // 
             // label4
             // 
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(258, 92);
+            this.label4.Location = new System.Drawing.Point(221, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 20);
+            this.label4.Size = new System.Drawing.Size(147, 16);
             this.label4.TabIndex = 28;
             this.label4.Text = "Answer";
             // 
             // label3
             // 
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(258, 30);
+            this.label3.Location = new System.Drawing.Point(221, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(171, 20);
+            this.label3.Size = new System.Drawing.Size(147, 16);
             this.label3.TabIndex = 27;
             this.label3.Text = "Question";
             // 
             // txtQuest
             // 
-            this.txtQuest.Location = new System.Drawing.Point(260, 53);
-            this.txtQuest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtQuest.Location = new System.Drawing.Point(223, 43);
             this.txtQuest.Name = "txtQuest";
             this.txtQuest.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtQuest.Properties.Appearance.Options.UseBackColor = true;
             this.txtQuest.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtQuest.Size = new System.Drawing.Size(325, 24);
+            this.txtQuest.Size = new System.Drawing.Size(279, 22);
             this.txtQuest.TabIndex = 26;
             // 
             // txtAnsw
             // 
-            this.txtAnsw.Location = new System.Drawing.Point(261, 119);
-            this.txtAnsw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAnsw.Location = new System.Drawing.Point(224, 97);
             this.txtAnsw.Name = "txtAnsw";
             this.txtAnsw.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtAnsw.Properties.Appearance.Options.UseBackColor = true;
             this.txtAnsw.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtAnsw.Size = new System.Drawing.Size(324, 24);
+            this.txtAnsw.Size = new System.Drawing.Size(278, 22);
             this.txtAnsw.TabIndex = 25;
             // 
             // chkApproved
@@ -140,10 +138,9 @@
             this.chkApproved.AutoSize = true;
             this.chkApproved.Checked = true;
             this.chkApproved.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkApproved.Location = new System.Drawing.Point(572, -79);
-            this.chkApproved.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkApproved.Location = new System.Drawing.Point(490, -64);
             this.chkApproved.Name = "chkApproved";
-            this.chkApproved.Size = new System.Drawing.Size(103, 21);
+            this.chkApproved.Size = new System.Drawing.Size(84, 17);
             this.chkApproved.TabIndex = 24;
             this.chkApproved.Text = "Is approved";
             this.chkApproved.UseVisualStyleBackColor = true;
@@ -151,40 +148,38 @@
             // label10
             // 
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(6, 82);
+            this.label10.Location = new System.Drawing.Point(5, 67);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 20);
+            this.label10.Size = new System.Drawing.Size(80, 16);
             this.label10.TabIndex = 16;
             this.label10.Text = "e-mail";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(5, 106);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.Location = new System.Drawing.Point(4, 86);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtEmail.Properties.Appearance.Options.UseBackColor = true;
             this.txtEmail.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtEmail.Size = new System.Drawing.Size(178, 24);
+            this.txtEmail.Size = new System.Drawing.Size(153, 22);
             this.txtEmail.TabIndex = 15;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(6, 53);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUserName.Location = new System.Drawing.Point(5, 43);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtUserName.Properties.Appearance.Options.UseBackColor = true;
             this.txtUserName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtUserName.Size = new System.Drawing.Size(178, 24);
+            this.txtUserName.Size = new System.Drawing.Size(153, 22);
             this.txtUserName.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(7, 30);
+            this.label2.Location = new System.Drawing.Point(6, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "Username:";
             // 
@@ -194,10 +189,9 @@
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Image = global::Fwk.Security.Admin.Properties.Resources.file_del_16;
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemove.Location = new System.Drawing.Point(259, 4);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemove.Location = new System.Drawing.Point(222, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(117, 32);
+            this.btnRemove.Size = new System.Drawing.Size(100, 26);
             this.btnRemove.TabIndex = 17;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -210,10 +204,9 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Image = global::Fwk.Security.Admin.Properties.Resources.file_edit_16;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(138, 4);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(118, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(115, 32);
+            this.btnUpdate.Size = new System.Drawing.Size(99, 26);
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Update ";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -237,23 +230,22 @@
             this.grdRoles1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rolNameDataGridViewTextBoxColumn});
             this.grdRoles1.DataSource = this.bindingSourceRoles1;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdRoles1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdRoles1.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdRoles1.GridColor = System.Drawing.Color.White;
-            this.grdRoles1.Location = new System.Drawing.Point(816, 92);
-            this.grdRoles1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grdRoles1.Location = new System.Drawing.Point(699, 75);
             this.grdRoles1.MultiSelect = false;
             this.grdRoles1.Name = "grdRoles1";
             this.grdRoles1.ReadOnly = true;
             this.grdRoles1.RowHeadersVisible = false;
             this.grdRoles1.RowTemplate.Height = 24;
-            this.grdRoles1.Size = new System.Drawing.Size(214, 430);
+            this.grdRoles1.Size = new System.Drawing.Size(183, 349);
             this.grdRoles1.TabIndex = 20;
             // 
             // rolNameDataGridViewTextBoxColumn
@@ -273,10 +265,9 @@
             this.btnUsersList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsersList.Image = global::Fwk.Security.Admin.Properties.Resources.fwk_Refresh;
             this.btnUsersList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsersList.Location = new System.Drawing.Point(7, 4);
-            this.btnUsersList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUsersList.Location = new System.Drawing.Point(6, 3);
             this.btnUsersList.Name = "btnUsersList";
-            this.btnUsersList.Size = new System.Drawing.Size(122, 32);
+            this.btnUsersList.Size = new System.Drawing.Size(105, 26);
             this.btnUsersList.TabIndex = 19;
             this.btnUsersList.Text = "    Refresh users";
             this.btnUsersList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -287,10 +278,10 @@
             // 
             this.usersGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.usersGrid1.Location = new System.Drawing.Point(-2, 46);
-            this.usersGrid1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.usersGrid1.Location = new System.Drawing.Point(-2, 37);
+            this.usersGrid1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.usersGrid1.Name = "usersGrid1";
-            this.usersGrid1.Size = new System.Drawing.Size(798, 270);
+            this.usersGrid1.Size = new System.Drawing.Size(684, 219);
             this.usersGrid1.TabIndex = 23;
             this.usersGrid1.OnUserChange += new Fwk.Security.Admin.UserChangeHandler(this.usersGrid1_OnUserChange);
             // 
@@ -299,9 +290,9 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(7, 316);
+            this.label5.Location = new System.Drawing.Point(6, 257);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(373, 20);
+            this.label5.Size = new System.Drawing.Size(320, 16);
             this.label5.TabIndex = 30;
             this.label5.Text = "Comments";
             // 
@@ -311,10 +302,9 @@
             this.btnchangePwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnchangePwd.Image = global::Fwk.Security.Admin.Properties.Resources.lock_16;
             this.btnchangePwd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnchangePwd.Location = new System.Drawing.Point(408, 4);
-            this.btnchangePwd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnchangePwd.Location = new System.Drawing.Point(350, 3);
             this.btnchangePwd.Name = "btnchangePwd";
-            this.btnchangePwd.Size = new System.Drawing.Size(188, 32);
+            this.btnchangePwd.Size = new System.Drawing.Size(161, 26);
             this.btnchangePwd.TabIndex = 31;
             this.btnchangePwd.Text = "Change password";
             this.btnchangePwd.UseVisualStyleBackColor = false;
@@ -326,10 +316,9 @@
             this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApprove.Image = global::Fwk.Security.Admin.Properties.Resources.lock_16;
             this.btnApprove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApprove.Location = new System.Drawing.Point(602, 4);
-            this.btnApprove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnApprove.Location = new System.Drawing.Point(516, 3);
             this.btnApprove.Name = "btnApprove";
-            this.btnApprove.Size = new System.Drawing.Size(117, 32);
+            this.btnApprove.Size = new System.Drawing.Size(100, 26);
             this.btnApprove.TabIndex = 32;
             this.btnApprove.Text = "Aprovar";
             this.btnApprove.UseVisualStyleBackColor = false;
@@ -338,13 +327,12 @@
             // txtComments
             // 
             this.txtComments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtComments.Location = new System.Drawing.Point(10, 339);
-            this.txtComments.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtComments.Location = new System.Drawing.Point(9, 275);
             this.txtComments.Name = "txtComments";
             this.txtComments.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtComments.Properties.Appearance.Options.UseBackColor = true;
             this.txtComments.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.txtComments.Size = new System.Drawing.Size(765, 45);
+            this.txtComments.Size = new System.Drawing.Size(656, 37);
             this.txtComments.TabIndex = 29;
             // 
             // btnUnlock
@@ -353,19 +341,33 @@
             this.btnUnlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnlock.Image = global::Fwk.Security.Admin.Properties.Resources.ulock_24;
             this.btnUnlock.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnUnlock.Location = new System.Drawing.Point(725, 4);
-            this.btnUnlock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUnlock.Location = new System.Drawing.Point(621, 3);
             this.btnUnlock.Name = "btnUnlock";
-            this.btnUnlock.Size = new System.Drawing.Size(148, 32);
+            this.btnUnlock.Size = new System.Drawing.Size(127, 26);
             this.btnUnlock.TabIndex = 33;
             this.btnUnlock.Text = "Desbloquear";
             this.btnUnlock.UseVisualStyleBackColor = true;
             this.btnUnlock.Click += new System.EventHandler(this.btnUnlock_Click);
             // 
+            // btnAuthenticateUser
+            // 
+            this.btnAuthenticateUser.BackColor = System.Drawing.Color.White;
+            this.btnAuthenticateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuthenticateUser.Image = global::Fwk.Security.Admin.Properties.Resources.ulock_24;
+            this.btnAuthenticateUser.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnAuthenticateUser.Location = new System.Drawing.Point(754, 3);
+            this.btnAuthenticateUser.Name = "btnAuthenticateUser";
+            this.btnAuthenticateUser.Size = new System.Drawing.Size(137, 26);
+            this.btnAuthenticateUser.TabIndex = 34;
+            this.btnAuthenticateUser.Text = "Authenticate User";
+            this.btnAuthenticateUser.UseVisualStyleBackColor = true;
+            this.btnAuthenticateUser.Click += new System.EventHandler(this.btnAuthenticateUser_Click);
+            // 
             // UserAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnAuthenticateUser);
             this.Controls.Add(this.btnUnlock);
             this.Controls.Add(this.btnApprove);
             this.Controls.Add(this.btnchangePwd);
@@ -378,9 +380,9 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.grdRoles1);
             this.Controls.Add(this.txtComments);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UserAdmin";
-            this.Size = new System.Drawing.Size(1043, 569);
+            this.Size = new System.Drawing.Size(894, 462);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -421,5 +423,6 @@
         private System.Windows.Forms.Button btnApprove;
         private DevExpress.XtraEditors.MemoEdit txtComments;
         private System.Windows.Forms.Button btnUnlock;
+        private System.Windows.Forms.Button btnAuthenticateUser;
     }
 }

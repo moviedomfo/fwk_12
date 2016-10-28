@@ -11,7 +11,8 @@ using Fwk.BusinessFacades.Utils;
 
 
 
-
+namespace Allus.WebServiceDispatcher
+{
     /// <summary>
     /// Summary description for WebService1
     /// </summary>
@@ -160,14 +161,14 @@ using Fwk.BusinessFacades.Utils;
             return wSimpleFacade.GetProviderInfo(providerName);
 
         }
-		  /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [WebMethod]
         public List<MetadataProvider> RetriveProviders()
         {
-           
+
             return FacadeHelper.RetriveDispatcherInfo().MetadataProviders;
 
         }
@@ -194,3 +195,4 @@ using Fwk.BusinessFacades.Utils;
         }
     }
 
+}

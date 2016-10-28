@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hemo.Ws</RootNamespace>
-    <AssemblyName>Hemo.Ws</AssemblyName>
+    <RootNamespace>Allus.WebServiceDispatcher</RootNamespace>
+    <AssemblyName>Allus.WebServiceDispatcher</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
@@ -49,9 +49,6 @@
   <ItemGroup>
     <Reference Include="Fwk.Bases">
       <HintPath>..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
-    </Reference>
-    <Reference Include="Fwk.Bases.Connector">
-      <HintPath>..\..\Libraries\Framework\Fwk.Bases.Connector.dll</HintPath>
     </Reference>
     <Reference Include="Fwk.Security">
       <HintPath>..\..\Libraries\Framework\Fwk.Security.dll</HintPath>
@@ -95,11 +92,16 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleService.asmx.cs">
       <DependentUpon>SingleService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebService.asmx.cs">
+      <DependentUpon>WebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
