@@ -29,6 +29,8 @@ namespace Allus.WebServiceDispatcher
             ConfigurationsHelper.HostApplicationName = "Fwk web service";
             //Uncomment the following line if using designed components 
             //InitializeComponent(); 
+
+            String msg_log = String.Format("El servicio {0} se ah detenido ", ConfigurationsHelper.HostApplicationName);
         }
 
         /// <summary>
