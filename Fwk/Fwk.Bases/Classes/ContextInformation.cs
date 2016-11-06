@@ -7,7 +7,7 @@ namespace Fwk.Bases
     /// <summary>
     /// 
     /// </summary>
-    [Serializable]
+    //[Serializable]
 	public class ContextInformation
 	{
         

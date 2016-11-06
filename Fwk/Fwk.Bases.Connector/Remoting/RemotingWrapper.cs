@@ -168,24 +168,34 @@ namespace Fwk.Bases.Connector
         /// Objeto de interbloqueo concurrente
         /// </summary>
         protected static readonly object singletonLock = new object();
-
-        private static bool IsConfigured()
+        bool isConfigured = false;
+        private  string GetApplicationURL()
         {
             //Seccion protegida por la posibilidad de multiples procesos intentar levantar la configuracion
             lock (singletonLock)
             {
-                bool wResult = false;
-
-                foreach (WellKnownClientTypeEntry wEntry in RemotingConfiguration.GetRegisteredWellKnownClientTypes())
+                if (isConfigured==false)
                 {
-                    if (wEntry.TypeName == typeof(FwkRemoteObject).FullName)
+                    RemotingConfiguration.Configure(_SourceInfo, false);
+                    isConfigured = true;
+                }
+                WellKnownClientTypeEntry entry = null;
+
+                foreach (WellKnownClientTypeEntry temp in RemotingConfiguration.GetRegisteredWellKnownClientTypes())
+                {
+                    if (temp.TypeName.Equals(typeof(FwkRemoteObject).FullName))
                     {
-                        wResult = true;
+                        entry = temp;
                         break;
                     }
                 }
 
-                return wResult;
+                if (entry == null)
+                    throw new ArgumentException(String.Format("No se encuentra el tipo de objeto remoto {0} configurado.", typeof(FwkRemoteObject).FullName));
+
+                return entry.ObjectUrl;
+
+                
             }
         }
 
@@ -198,24 +208,27 @@ namespace Fwk.Bases.Connector
         /// <returns>Instancia de SimpleFacaddeRemoteObject</returns>
         private  FwkRemoteObject CreateRemoteObject()
 		{
+            string url = GetApplicationURL();
+            Fwk.Remoting.FwkRemoteObject _remoteInformation = (Fwk.Remoting.FwkRemoteObject)Activator.GetObject(typeof(Fwk.Remoting.FwkRemoteObject), url);
+            return _remoteInformation; 
             //Carga la configuracion de remoting en el archivo indicado por RemotingConfigFile en _SourceInfo
-            if (!IsConfigured())
-            {
-                if (System.IO.File.Exists(_SourceInfo)==false  )
-                    throw new Exception("No existe el archivo de configuración de remoting del lado del cliente.\r\nRevice la configuracion del Wrapper " + _ProviderName);
-                //Si no se encuentra algun nombre de archivo en el App.config
-                if (_SourceInfo == string.Empty)
-                {
-                    throw new Exception("No hay ruta especificada para el archivo de configuración.\r\nRevice la configuracion del Wrapper " + _ProviderName);
-                }
-                else
-                {
-                    RemotingConfiguration.Configure(_SourceInfo, false);
-                }
-            }
+            //if (!IsConfigured())
+            //{
+            //    if (System.IO.File.Exists(_SourceInfo)==false  )
+            //        throw new Exception("No existe el archivo de configuración de remoting del lado del cliente.\r\nRevice la configuracion del Wrapper " + _ProviderName);
+            //    //Si no se encuentra algun nombre de archivo en el App.config
+            //    if (_SourceInfo == string.Empty)
+            //    {
+            //        throw new Exception("No hay ruta especificada para el archivo de configuración.\r\nRevice la configuracion del Wrapper " + _ProviderName);
+            //    }
+            //    else
+            //    {
+            //        RemotingConfiguration.Configure(_SourceInfo, false);
+            //    }
+            //}
 
-            FwkRemoteObject wFwkRemoteObject = new FwkRemoteObject();
-            return wFwkRemoteObject;
+            //FwkRemoteObject wFwkRemoteObject = new FwkRemoteObject();
+            //return wFwkRemoteObject;
         }
 
 

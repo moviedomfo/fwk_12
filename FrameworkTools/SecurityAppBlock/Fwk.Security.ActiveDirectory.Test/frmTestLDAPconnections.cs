@@ -13,7 +13,7 @@ namespace Fwk.Security.ActiveDirectory.Test
 {
     public partial class frmTestLDAPconnections : Form
     {
-        ADWrapper _ADHelper;
+        ADWrapper adADWrapper;
         public frmTestLDAPconnections()
         {
             InitializeComponent();
@@ -28,11 +28,11 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text = string.Empty;
             try
             {
-                _ADHelper = new ADWrapper(txtPath.Text, txtLoginName.Text, txtPassword.Text);
-                lstDomains.DataSource = _ADHelper.Domain_GetList1();
+                adADWrapper = new ADWrapper(txtPath.Text, txtLoginName.Text, txtPassword.Text);
+                lstDomains.DataSource = adADWrapper.Domain_GetList1();
 
                
-                label4.Text = _ADHelper.LDAPPath;
+                label4.Text = adADWrapper.LDAPPath;
             }
             catch (Exception ex)
             {
@@ -45,9 +45,14 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text =  string.Empty;
             try
             {
-                _ADHelper = new ADWrapper(txtPath2.Text, txtLoginName.Text, txtPassword.Text);
-                lstDomains.DataSource = _ADHelper.Domain_GetList1();
-                label4.Text = _ADHelper.LDAPPath;
+                //ImpersonateLogin wImpersonation = new ImpersonateLogin();
+                //wImpersonation.domain = txtDomainName.Text;
+                //wImpersonation.user= txtLoginName.Text;
+                //wImpersonation.password= txtPassword.Text;
+                adADWrapper = new ADWrapper(txtPath2.Text, txtLoginName.Text, txtPassword.Text);
+                //adADWrapper.LDAPDomainName = txtDomainName.Text;
+                lstDomains.DataSource = adADWrapper.Domain_GetList1();
+                label4.Text = adADWrapper.LDAPPath;
             }
             catch (Exception ex)
             {
@@ -60,9 +65,9 @@ namespace Fwk.Security.ActiveDirectory.Test
             lblResult.Text = string.Empty;
             try
             {
-                _ADHelper = new ADWrapper(txtPath3.Text, txtLoginName.Text, txtPassword.Text);
-                lstDomains.DataSource = _ADHelper.Domain_GetList1();
-                label4.Text = _ADHelper.LDAPPath;
+                adADWrapper = new ADWrapper(txtPath3.Text, txtLoginName.Text, txtPassword.Text);
+                lstDomains.DataSource = adADWrapper.Domain_GetList1();
+                label4.Text = adADWrapper.LDAPPath;
             }
             catch (Exception ex)
             {
@@ -95,7 +100,7 @@ namespace Fwk.Security.ActiveDirectory.Test
 
          try
          {
-              cataloglist = _ADHelper.GlobalCatalogs(txtDomainC.Text);
+              cataloglist = adADWrapper.GlobalCatalogs(txtDomainC.Text);
          }
          catch (Exception ex)
          {
@@ -124,16 +129,29 @@ namespace Fwk.Security.ActiveDirectory.Test
         private void btnUser_Get_ByName_Click(object sender, EventArgs e)
         {
             StringBuilder str = new StringBuilder();
-            ADUser user = _ADHelper.User_Get_ByName(txtUserName.Text);
+            ADUser user = adADWrapper.User_Get_ByName(txtUserName.Text);
+            if (user!=null)
+            {
+                str.AppendLine(user.LoginName);
+                str.AppendLine("UserAccountControl: " + user.UserAccountControl);
+                str.AppendLine("FullName: " + user.FirstName + " " + user.LastName);
+                str.AppendLine("LoginResult: " + user.LoginResult);
+                lblResult.Text = str.ToString(); 
+            }
+            else
+                lblResult.Text = "No se encuentra el usuario " + txtUserName.Text + " en " + adADWrapper.LDAPDomainName;
 
-            str.AppendLine(user.LoginName);
-            str.AppendLine("UserAccountControl: " + user.UserAccountControl);
-            str.AppendLine("FullName: " + user.FirstName + " " + user.LastName);
-            str.AppendLine("LoginResult: " + user.LoginResult);
-
+            adADWrapper.Person_Get(txtUserName.Text);
             
+        }
 
-            lblResult.Text = str.ToString(); 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+          string s1 =  adADWrapper.GetRootProperty(ADProperties.DESCRIPTION);
+          string s2 = adADWrapper.GetRootProperty(ADProperties.DISPLAYNAME);
+           s2 = adADWrapper.GetRootProperty(ADProperties.DISTINGUISHEDNAME);
+           s2 = adADWrapper.GetRootProperty(ADProperties.DISPLAYNAME);
+
         }
     }
 

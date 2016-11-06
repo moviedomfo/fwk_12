@@ -259,6 +259,12 @@ namespace Fwk.BusinessFacades.Utils
             }
 
             #region [manage Exception]
+            catch (FunctionalException fx)
+            {
+                fx.ServiceName = wResponse.ServiceName;
+                //El response existe por q de otra manera no existiria una FunctionalException
+                wResponse.Error = GetServiceError(fx);
+            }
             catch (System.IO.FileNotFoundException ex)
             {
 
@@ -366,7 +372,7 @@ namespace Fwk.BusinessFacades.Utils
                 err.ErrorId = tx.ErrorId;
                 err.Message = tx.Message;
                 err.Source = tx.Source;
-
+                err.ServiceName = tx.ServiceName;
                 FillServiceError(err, tx);
 
             }
@@ -378,6 +384,7 @@ namespace Fwk.BusinessFacades.Utils
                 err.ErrorId = fx.ErrorId;
                 err.Message = fx.Message;
                 err.Source = fx.Source;
+                err.ServiceName = fx.ServiceName;
                 err.Severity = Enum.GetName(typeof(FunctionalException.ExceptionSeverity), fx.Severity);
                 FillServiceError(err, fx);
 

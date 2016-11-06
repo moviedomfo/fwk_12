@@ -1,0 +1,116 @@
+USE []
+GO
+
+/****** Object:  Table [dbo].[Contactos]    Script Date: 10/03/2016 11:24:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Contactos](
+	[IDLead] [int] IDENTITY(1,1) NOT NULL,
+	[CodigoCampania] [varchar](50) NOT NULL,
+	[CodigoOrigen] [varchar](50) NOT NULL,
+	[Fecha] [datetime] NOT NULL,
+	[Horario] [bit] NOT NULL,
+	[Telefonos] [varchar](500) NULL,
+	[Texto] [varchar](500) NULL,
+ CONSTRAINT [PK_Llamadas] PRIMARY KEY CLUSTERED 
+(
+	[IDLead] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Teléfonos: en formato ANI' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Contactos', @level2type=N'COLUMN',@level2name=N'Telefonos'
+GO
+
+
+
+
+
+create procedure Contactos_g	
+(	
+	
+	
+	 @Telefonos       varchar(500) 
+	
+
+	)
+	
+	AS
+	declare @CurrentDate datetime
+	set @CurrentDate  = getdate()
+	select  IDLead,Fecha from Contactos where  Telefonos = @Telefonos AND
+	DATEDIFF(minute,Fecha,@CurrentDate) <40
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[Historial_i]    Script Date: 10/03/2016 09:45:05 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+	--------------------------------------------------------------------------------------------
+	-- Author     :		 marcelo
+	-- Date       :	   2016-10-30T11:04:26
+	-- Description: 	 [Description]
+	--------------------------------------------------------------------------------------------
+	alter PROCEDURE [dbo].[Contactos_i]
+	
+	(	
+	 @IDLead int OUTPUT,
+	 @CodigoCampania  varchar(50) ,
+	 @CodigoOrigen	  varchar(50) ,
+	 @Fecha			  datetime ,
+	 @Horario			  bit ,
+	 @Telefonos       varchar(500) ,
+	  @Texto			  varchar(500)= null
+
+	)
+	
+	AS
+	
+	
+	
+	
+	
+	INSERT INTO [Contactos]
+	(
+		CodigoCampania
+		,CodigoOrigen
+		,Texto 
+		,Horario
+		,Telefonos
+		,Fecha
+		
+
+	)
+	VALUES
+	(
+	
+		@CodigoCampania
+		,@CodigoOrigen,
+		@Texto
+		,@Horario
+		,@Telefonos
+		,@Fecha
+		
+
+	)
+	
+	
+		
+	Set @IDLead = @@Identity
+	
+
+	
+	

@@ -75,7 +75,7 @@ namespace Fwk.Exceptions
                         wServiceError.Namespace = tex.Namespace;
                         wServiceError.Class =  tex.Class;
                         wServiceError.Assembly = tex.Assembly;
-                        
+                        wServiceError.ServiceName = tex.ServiceName;
                         break;
                     }
                 case FwkExceptionTypes.FunctionalException:
@@ -83,6 +83,7 @@ namespace Fwk.Exceptions
                         FunctionalException fex = (FunctionalException)ex;
                         wServiceError.ErrorId = fex.ErrorId;
                         wServiceError.Type = ex.GetType().Name;
+                        wServiceError.ServiceName = fex.ServiceName;
                         break;
                     }
                 case FwkExceptionTypes.OtherException:
@@ -128,6 +129,9 @@ namespace Fwk.Exceptions
                                 ex = new FunctionalException(Convert.ToInt32(err.ErrorId), inner, err.Message);
                             else
                                 ex = new FunctionalException(null, inner, err.Message);
+
+                            ((FunctionalException)ex).ServiceName = err.ServiceName;
+                           
                         }
                         else
                         {
@@ -135,6 +139,7 @@ namespace Fwk.Exceptions
                                 ex = new FunctionalException(Convert.ToInt32(err.ErrorId),  err.Message);
                             else
                                 ex = new FunctionalException(err.Message);
+                            ((FunctionalException)ex).ServiceName = err.ServiceName;
                         }
                         
                         ex.Source = err.Source;
@@ -152,6 +157,7 @@ namespace Fwk.Exceptions
                         ((TechnicalException)ex).Namespace = err.Namespace;
                         ((TechnicalException)ex).Class = err.Class;
                         ((TechnicalException)ex).Assembly = err.Assembly;
+                        ((FunctionalException)ex).ServiceName = err.ServiceName;
                         //((TechnicalException)ex).StackTrace = err.StackTrace;
                         break;
                     }

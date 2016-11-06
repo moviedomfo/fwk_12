@@ -66,7 +66,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.domainGoups2.Location = new System.Drawing.Point(7, 20);
-            this.domainGoups2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.domainGoups2.Margin = new System.Windows.Forms.Padding(4);
             this.domainGoups2.Name = "domainGoups2";
             this.domainGoups2.Size = new System.Drawing.Size(684, 494);
             this.domainGoups2.TabIndex = 21;
@@ -176,7 +176,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.domainUsers1.Location = new System.Drawing.Point(726, 119);
-            this.domainUsers1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.domainUsers1.Margin = new System.Windows.Forms.Padding(4);
             this.domainUsers1.Name = "domainUsers1";
             this.domainUsers1.Size = new System.Drawing.Size(365, 500);
             this.domainUsers1.TabIndex = 22;

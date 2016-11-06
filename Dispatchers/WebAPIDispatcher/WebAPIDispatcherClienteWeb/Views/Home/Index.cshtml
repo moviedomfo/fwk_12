@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+   
+</script>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+           Prueba  de servicio con ajax
+        </p>
+        <p><div id="btnAjaxCall" class="btn btn-default">POST to web site </div></p>
+
+        <p>
+            Llamada server mediante ajax post y wcf post
+        </p>
+        <p><div id="btnAjaxCall_POST" class="btn btn-default">POST to web site POST to WCF</div></p>
+    </div>
+    <div class="col-md-4">
+     
+        <p>
+          Llamada directa a server mediante ajax post 
+        </p>
+        <p><div id="btnAjaxCall_POST_Directo" class="btn btn-danger">POST to WCF directly</div></p>
+
+        
+    </div>
+    <div class="col-md-4">
+        <p>
+            Llamada a una web api REST POST service
+        </p>
+        <p><div id="btnAjaxCall_POST_WebAPI" class="btn btn-info">POST to Web Api</div></p>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="@Url.Content("~/Scripts/index.js")" type="text/javascript"></script>
+
+}

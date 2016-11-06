@@ -68,6 +68,11 @@ namespace Fwk.Exceptions
         #endregion
 
         #region --[Public Properties]--
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public String ServiceName { get; set; }
         /// <summary>
         /// Identificador del error
         /// </summary>

@@ -26,10 +26,10 @@ namespace Fwk.CentralizedSecurity.Service
             loogonUserResult.Autenticated = false;
             try
             {
-                LDAPHelper _ADWrapper = new LDAPHelper(domain, ActiveDirectoryService.CnnStringName, true, false);
+                LDAPHelper _ADHelper = new LDAPHelper(domain, ActiveDirectoryService.CnnStringName, true, false);
                 TechnicalException logError = null;
 
-                loogonUserResult.LogResult = _ADWrapper.User_Logon(userName, password, out logError).ToString();
+                loogonUserResult.LogResult = _ADHelper.User_Logon(userName, password, out logError).ToString();
 
                 if (logError != null)
                     loogonUserResult.ErrorMessage = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(logError);

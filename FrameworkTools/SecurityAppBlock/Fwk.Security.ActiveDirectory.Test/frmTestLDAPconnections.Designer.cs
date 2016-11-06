@@ -39,7 +39,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.txtDomain = new System.Windows.Forms.TextBox();
+            this.txtDomainName = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txtPath3 = new System.Windows.Forms.TextBox();
@@ -53,6 +53,8 @@
             this.btnUser_Get_ByName = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.btnGetRootProperty = new System.Windows.Forms.Button();
+            this.txtRootProperty = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +83,7 @@
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(178, 20);
             this.txtLoginName.TabIndex = 61;
-            this.txtLoginName.Text = "TESTAA\\UserSQL";
+            this.txtLoginName.Text = "reseteos";
             // 
             // txtPassword
             // 
@@ -89,7 +91,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(178, 20);
             this.txtPassword.TabIndex = 62;
-            this.txtPassword.Text = "Allus+123";
+            this.txtPassword.Text = "*R3s3t30s+";
             // 
             // btnCheck
             // 
@@ -112,7 +114,7 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(525, 20);
             this.txtPath.TabIndex = 68;
-            this.txtPath.Text = "LDAP://172.22.14.40/DC=testaa,DC=ar";
+            this.txtPath.Text = "LDAP://alcomovistar.com.ar/DC=alcomovistar,DC=com,DC=ar";
             // 
             // lstDomains
             // 
@@ -136,7 +138,7 @@
             // 
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.txtDomain);
+            this.groupBox1.Controls.Add(this.txtDomainName);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtPath3);
@@ -180,13 +182,13 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // txtDomain
+            // txtDomainName
             // 
-            this.txtDomain.Location = new System.Drawing.Point(107, 260);
-            this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(525, 20);
-            this.txtDomain.TabIndex = 75;
-            this.txtDomain.Text = "Pelsoft.ar";
+            this.txtDomainName.Location = new System.Drawing.Point(107, 260);
+            this.txtDomainName.Name = "txtDomainName";
+            this.txtDomainName.Size = new System.Drawing.Size(525, 20);
+            this.txtDomainName.TabIndex = 75;
+            this.txtDomainName.Text = "Pelsoft.ar";
             // 
             // button4
             // 
@@ -241,7 +243,7 @@
             this.txtPath2.Name = "txtPath2";
             this.txtPath2.Size = new System.Drawing.Size(525, 20);
             this.txtPath2.TabIndex = 71;
-            this.txtPath2.Text = "LDAP://172.22.12.141:389/DC=Pelsoft,DC=ar";
+            this.txtPath2.Text = "LDAP://allus.ar/DC=allus,DC=ar";
             // 
             // label4
             // 
@@ -325,11 +327,36 @@
             this.txtUserName.Size = new System.Drawing.Size(178, 20);
             this.txtUserName.TabIndex = 83;
             // 
+            // btnGetRootProperty
+            // 
+            this.btnGetRootProperty.BackColor = System.Drawing.Color.White;
+            this.btnGetRootProperty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetRootProperty.Image = global::Fwk.Security.ActiveDirectory.Test.Properties.Resources.apply_16;
+            this.btnGetRootProperty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetRootProperty.Location = new System.Drawing.Point(29, 366);
+            this.btnGetRootProperty.Name = "btnGetRootProperty";
+            this.btnGetRootProperty.Size = new System.Drawing.Size(167, 25);
+            this.btnGetRootProperty.TabIndex = 85;
+            this.btnGetRootProperty.Text = "Get domain property";
+            this.btnGetRootProperty.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGetRootProperty.UseVisualStyleBackColor = false;
+            this.btnGetRootProperty.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // txtRootProperty
+            // 
+            this.txtRootProperty.AcceptsReturn = true;
+            this.txtRootProperty.Location = new System.Drawing.Point(212, 368);
+            this.txtRootProperty.Name = "txtRootProperty";
+            this.txtRootProperty.Size = new System.Drawing.Size(178, 20);
+            this.txtRootProperty.TabIndex = 86;
+            // 
             // frmTestLDAPconnections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 665);
+            this.Controls.Add(this.txtRootProperty);
+            this.Controls.Add(this.btnGetRootProperty);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.btnUser_Get_ByName);
@@ -367,7 +394,7 @@
         private System.Windows.Forms.TextBox txtPath2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox txtDomain;
+        private System.Windows.Forms.TextBox txtDomainName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button6;
@@ -376,5 +403,7 @@
         private System.Windows.Forms.Button btnUser_Get_ByName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Button btnGetRootProperty;
+        private System.Windows.Forms.TextBox txtRootProperty;
     }
 }

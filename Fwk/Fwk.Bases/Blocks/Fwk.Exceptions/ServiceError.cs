@@ -73,6 +73,11 @@ namespace Fwk.Exceptions
 
         #region --[Public Properties]--
         /// <summary>
+        /// 
+        /// </summary>
+        public string ServiceName { get; set; }
+
+        /// <summary>
         /// Assembly donde se produce la excepcion.
         /// </summary>
         public string Assembly
@@ -164,7 +169,8 @@ namespace Fwk.Exceptions
 
         #endregion
 
-  
+
+
 
     
     }

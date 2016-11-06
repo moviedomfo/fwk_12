@@ -337,7 +337,7 @@ namespace Fwk.Security.ActiveDirectory
             try
             {
                 DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
-                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", FilterOutDomain(userName));
                 SearchResult result = deSearch.FindOne();
                 if (result != null)
                     userDirectoryEntry = result.GetDirectoryEntry();
@@ -371,7 +371,7 @@ namespace Fwk.Security.ActiveDirectory
             try
             {
                 DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
-                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", FilterOutDomain(userName));
                 SearchResult result = deSearch.FindOne();
                 if (result != null)
                     userDirectoryEntry = result.GetDirectoryEntry();
@@ -437,7 +437,7 @@ namespace Fwk.Security.ActiveDirectory
             try
             {
                 DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
-                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", FilterOutDomain(userName));
                 SearchResult result = deSearch.FindOne();
                 if (result != null)
                     userDirectoryEntry = result.GetDirectoryEntry();
@@ -499,7 +499,7 @@ namespace Fwk.Security.ActiveDirectory
 
 
                 DirectorySearcher deSearch = new DirectorySearcher(_directoryEntrySearchRoot);
-                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", userName);
+                deSearch.Filter = string.Format("(&(ObjectClass={0})(sAMAccountName={1}))", "person", FilterOutDomain(userName));
                 
                 SearchResult result = deSearch.FindOne();
                 if (result != null)

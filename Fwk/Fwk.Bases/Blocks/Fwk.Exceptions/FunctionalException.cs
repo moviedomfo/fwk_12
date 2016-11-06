@@ -121,6 +121,13 @@ namespace Fwk.Exceptions
         }
 
         /// <summary>
+        /// Identificador del servicio de fwk
+        /// </summary>
+        public string ServiceName { get; set; }
+        
+            
+        
+        /// <summary>
         /// Severidad del error.
         /// </summary>
         public ExceptionSeverity Severity
@@ -369,6 +376,7 @@ namespace Fwk.Exceptions
             if (errorId != null)
                 _ErrorId = errorId.ToString();
             _Message = pmessage;
+            
         }
 
         /// <summary>
