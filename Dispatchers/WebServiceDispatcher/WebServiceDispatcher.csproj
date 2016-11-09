@@ -53,11 +53,21 @@
     <Reference Include="Fwk.Security">
       <HintPath>..\..\Libraries\Framework\Fwk.Security.dll</HintPath>
     </Reference>
+    <Reference Include="Health.Back">
+      <HintPath>..\..\..\..\repos_allus\arquitectura\fwk\trunk\12.0\Dispatchers\WebAPIDispatcher\libs\Health.Back.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
       <HintPath>..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\repos_allus\arquitectura\fwk\trunk\12.0\Dispatchers\WebAPIDispatcher\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SomeCompany">
+      <HintPath>..\WebAPIDispatcher\libs\SomeCompany.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -75,11 +85,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConfigurationManager_02.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="..\Metasvc.xml">
+      <Link>Metasvc.xml</Link>
     </Content>
-    <Content Include="Metasvc.xml">
-      <SubType>Designer</SubType>
+    <Content Include="ConfigurationManager_02.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SingleService.asmx" />

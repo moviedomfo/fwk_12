@@ -8,6 +8,8 @@ using Fwk.Bases;
 using System.Collections.Generic;
 using Fwk.ConfigSection;
 using Fwk.BusinessFacades.Utils;
+using System.Web.Script.Services;
+using Fwk.Bases.Blocks.Fwk.BusinessFacades;
 
 
 
@@ -18,11 +20,11 @@ namespace Allus.WebServiceDispatcher
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class SingleService : System.Web.Services.WebService
     {
+        HostContext hostContext = null;
         SimpleFacade _SimpleFacade;
         public SingleService()
         {
@@ -47,6 +49,32 @@ namespace Allus.WebServiceDispatcher
             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             string wResult = wSimpleFacade.ExecuteService(providerName, pServiceName, pData);
             return wResult;
+        }
+        [WebMethod]
+        //https://forums.asp.net/t/1934215.aspx?Using+jQuery+ajax+to+call+asmx+webservice+methods
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public string Ejecutar(string providerName, string serviceName, string jsonRequets)
+        {
+            #region solo para test simple
+            //var data = new { Id = "1233", Name = "pepe"  };
+            //System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+
+            //return js.Serialize(data);
+
+            #endregion
+
+            SimpleFacade wSimpleFacade = CreateSimpleFacade();
+            try
+            {
+                string res = wSimpleFacade.ExecuteServiceJson_newtonjs(providerName, serviceName, jsonRequets, CreateHostContext());
+                
+                return res; //el res ya viene serializado enum json
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
+           
         }
         /// <summary>
         /// 
@@ -194,6 +222,18 @@ namespace Allus.WebServiceDispatcher
                 _SimpleFacade = new SimpleFacade();
 
             return _SimpleFacade;
+        }
+
+        HostContext CreateHostContext()
+        {
+            if (hostContext == null)
+            {
+                hostContext = new HostContext();
+
+                hostContext.HostName = Environment.MachineName;
+                hostContext.HostIp = Fwk.HelperFunctions.EnvironmentFunctions.GetMachineIp();
+            }
+            return  hostContext;
         }
     }
 

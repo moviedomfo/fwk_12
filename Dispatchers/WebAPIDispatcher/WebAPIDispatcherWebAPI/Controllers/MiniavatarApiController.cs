@@ -1,4 +1,4 @@
-using WebAPIDispatcher.BC;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,67 +38,13 @@ namespace WebAPIDispatcher.Controllers
                 res.Error = "Falta el parametro req";
             }
 
-            WebAPIDispatcherBE be = new WebAPIDispatcherBE();
-            be.CodigoCampania = req.CodigoCampania;
-            be.CodigoOrigen = req.CodigoOrigen;
-            be.Fecha = req.Fecha;
-            be.Horario = req.Horario;
-            be.Telefonos = req.Telefonos;
-            be.Texto = req.Texto;
-            try
-            {
-                var list = WebAPIDispatcherBC.ContactoByNum(be.Telefonos);
-                if (list.Count == 0)
-                {
-                    WebAPIDispatcherBC.Insert_llamada(be);
-                    res.IDLead = be.IDLead;
-                }
-            }
-            catch (Exception ex)
-            {
-                res.Error = ex.Message;
-            }
+           
 
             return res;
 
         }
 
-        // POST: api/MiniavatarApi
-        //[ResponseType(typeof(WebAPIDispatcherRes))]
-        //public IHttpActionResult Post(WebAPIDispatcherReq req)
-        //{
-        //    WebAPIDispatcherRes res = new WebAPIDispatcherRes();
-
-        //    if (req == null)
-        //    {
-        //        res.Error = "Falta el parametro req";
-        //    }
-
-        //    WebAPIDispatcherBE be = new WebAPIDispatcherBE();
-        //    be.CodigoCampania = req.CodigoCampania;
-        //    be.CodigoOrigen = req.CodigoOrigen;
-        //    be.Fecha = req.Fecha;
-        //    be.Horario = req.Horario;
-        //    be.Telefonos = req.Telefonos;
-        //    be.Texto = req.Texto;
-        //    try
-        //    {
-        //        var list = WebAPIDispatcherBC.ContactoByNum(be.Telefonos);
-        //        if (list.Count == 0)
-        //        {
-        //            WebAPIDispatcherBC.Insert_llamada(be);
-        //            res.IDLead = be.IDLead;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        res.Error = ex.Message;
-        //    }
-
-
-        //    return CreatedAtRoute("DefaultApi",  res);
-        //}
-
+      
 
 
 

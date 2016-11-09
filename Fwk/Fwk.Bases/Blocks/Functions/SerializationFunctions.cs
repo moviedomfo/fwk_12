@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Data;
 using System.IO;
@@ -173,7 +174,7 @@ namespace Fwk.HelperFunctions
             XmlTextWriter wXmlWriter = new XmlTextWriter(wStwSerializado);
             XmlSerializerNamespaces wNameSpaces = new XmlSerializerNamespaces();
 
-            wXmlWriter.Formatting = Formatting.Indented;
+            wXmlWriter.Formatting = System.Xml.Formatting.Indented;
             wNameSpaces.Add(String.Empty, String.Empty);
 
             wSerializer = new XmlSerializer(pObj.GetType());
@@ -255,7 +256,7 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// Serealiza pobject to json
+        /// usa DataContractJsonSerializer 
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -277,7 +278,39 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// deserialize an instance of type T from JSON
+        /// usa JavaScriptSerializer 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static string SerializeObjectToJson_JavaScriptSerializer(Type objType, object obj)
+        {
+
+            var json = new JavaScriptSerializer().Serialize(obj);
+
+            return json;
+
+           
+        }    
+        
+        /// <summary>
+        /// usa Newtonsoft 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static string SerializeObjectToJson_Newtonsoft(Type objType, object obj)
+        {
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(obj, new JsonSerializerSettings());
+           
+
+            return json;
+
+
+        }
+
+        /// <summary>
+        /// usa DataContractJsonSerializer 
         /// </summary>
         /// <returns></returns>
         public static T DeSerializeObjectFromJson<T>(string json)
@@ -296,7 +329,7 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// deserialize an instance of type objType from JSON
+        /// usa DataContractJsonSerializer
         /// </summary>
         /// <param name="objType"></param>
         /// <param name="json"></param>
@@ -304,9 +337,6 @@ namespace Fwk.HelperFunctions
         public static object DeSerializeObjectFromJson(Type objType, string json)
         {
 
-            //var obj = Newtonsoft.Json.JsonConvert.DeserializeObject(json ,objType.GetType());
-            ////var obj = new JavaScriptSerializer().Deserialize(json, objType);
-            //return obj;
             using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
             {
                 var serializer = new System.Runtime.Serialization.Json.DataContractJsonSerializer(objType);
@@ -314,6 +344,37 @@ namespace Fwk.HelperFunctions
             }
         }
 
+        /// <summary>
+        /// usa JavaScriptSerializer
+        /// </summary>
+        /// <param name="objType"></param>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static object DeSerializeObjectFromJson_JavaScriptSerializer(Type objType, string json)
+        {
+           
+            var obj = new JavaScriptSerializer().Deserialize(json, objType);
+            return obj;
+        
+        }
+
+        /// <summary>
+        /// Usa  Newtonsoft.Json.JsonConvert
+        /// </summary>
+        /// <param name="objType"></param>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public static object DeSerializeObjectFromJson_Newtonsoft(Type objType, string json)
+        {
+            var obj = Newtonsoft.Json.JsonConvert.DeserializeObject(json, objType, new JsonSerializerSettings());
+            //dynamic results = JsonConvert.DeserializeObject<dynamic>(json);
+            //var obj = Newtonsoft.Json.JsonConvert.DeserializeObject(json, objType.GetType());
+            
+            return obj;
+           
+        }
+
+        
         /// <summary>
         /// 
         /// </summary>

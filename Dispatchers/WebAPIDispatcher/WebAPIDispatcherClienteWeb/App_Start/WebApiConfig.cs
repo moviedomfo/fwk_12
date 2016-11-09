@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace WebAPIDispatcherClienteWeb
+namespace MiniAvatarClienteWeb
 {
     public static class WebApiConfig
     {
@@ -14,16 +14,28 @@ namespace WebAPIDispatcherClienteWeb
             //config.EnableCors();
 
             config.Routes.MapHttpRoute(
-              name: "DefaultApi",
-               routeTemplate: "api/{controller}/{action}/{id}",
-               defaults: new { action = "Get", id = RouteParameter.Optional }
-               );
+               name: "DefaultApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { action = "Get", id = RouteParameter.Optional }
+                );
+            //config.Routes.MapHttpRoute(
+            //name: "DefaultApi2",
+            // routeTemplate: "api/{controller}/{action}/{jsonRequets}",
+            // defaults: new { controller = "SingleServiceApi", action = "Execute", jsonRequets = RouteParameter.Optional }
+            // );
 
             //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            // name: "DefaultApi3",
+            //  routeTemplate: "api/{controller}/{action}/{provider}/{serviceName}/{jsonRequets}",
+            //  defaults: new
+            //  {
+            //      controller = "SingleServiceApi",
+            //      action = "Execute",
+            //      provider = RouteParameter.Optional,
+            //      serviceName = RouteParameter.Optional,
+            //      jsonRequets = RouteParameter.Optional
+            //  }
+            //  );
         }
     }
 }

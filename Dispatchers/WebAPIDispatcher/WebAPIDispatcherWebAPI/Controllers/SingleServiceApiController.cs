@@ -1,4 +1,4 @@
-using WebAPIDispatcher.BC;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,12 @@ using Fwk.ConfigSection;
 using Fwk.Bases.Blocks.Fwk.BusinessFacades;
 using System.ServiceModel.Channels;
 using System.ServiceModel;
+using System.Web.Http.Cors;
 
 namespace WebAPIDispatcher.Controllers
 {
+    //Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+    //[EnableCors(origins: "http://localhost:17854", headers: "*", methods: "*")]
     public class SingleServiceApiController : ApiController
     {
         SimpleFacade simpleFacade;
@@ -26,11 +29,13 @@ namespace WebAPIDispatcher.Controllers
         /// <param name="pServiceName"></param>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        [HttpGet]
-        public String Execute(string providerName, string serviceName, string jsonRequets)
+        [System.Web.Http.HttpPost]
+        //[Route("api/SingleServiceApi/Execute/")]
+        public String Execute(String param)
         {
             CreateSimpleFacade();
-            return simpleFacade.ExecuteServiceJson(providerName, serviceName, jsonRequets, hostContext);
+            return "ccccccccccc"; //simpleFacade.ExecuteServiceJson(param.ProviderName, param.ServiceName, param.JsonRequets, hostContext);
+
         }
 
         /// <summary>
@@ -38,12 +43,13 @@ namespace WebAPIDispatcher.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet]
-        public String Ping(string id)
-        {
-            //CreateSimpleFacade();
-            return "Hola " + id;
-        }
+        //[HttpGet]
+        ////[Route("api/SingleServiceApi/Ping/")]
+        //public String Ping(string param)
+        //{
+        //    //CreateSimpleFacade();
+        //    return "Hola " + param;
+        //}
         /// <summary>
         /// Factory de SimpleFacade
         /// </summary>  
@@ -70,5 +76,14 @@ namespace WebAPIDispatcher.Controllers
             }
 
         }
+    }
+    public class WebApiREQ
+    {
+
+        public String ProviderName { get; set; }
+        public String JsonRequets { get; set; }
+
+        public String ServiceName { get; set; }
+
     }
 }

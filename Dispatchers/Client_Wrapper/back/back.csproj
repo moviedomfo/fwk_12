@@ -8,8 +8,8 @@
     <ProjectGuid>{7070D9B9-65D3-433E-A504-E9C30952F973}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SomeCompany.BE</RootNamespace>
-    <AssemblyName>SomeCompany</AssemblyName>
+    <RootNamespace>Health</RootNamespace>
+    <AssemblyName>Health.Back</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

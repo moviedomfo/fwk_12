@@ -122,8 +122,8 @@ namespace Client
 
             req.ContextInformation.AppId = "ddsadsa";
             String jsonRequets = Newtonsoft.Json.JsonConvert.SerializeObject(req, Formatting.None);
-            Type t = ReflectionFunctions.CreateType("Health.Isvc.RetrivePatients.RetrivePatientsReq,SomeCompany, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
-         Type reqType =   Type.GetType("Health.Isvc.RetrivePatients.RetrivePatientsReq,SomeCompany, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+            Type t = ReflectionFunctions.CreateType("Health.Isvc.RetrivePatients.RetrivePatientsReq,Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+            Type reqType = Type.GetType("Health.Isvc.RetrivePatients.RetrivePatientsReq,Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
             
 
          var wRequest = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonRequets, reqType, new JsonSerializerSettings());

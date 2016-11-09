@@ -1,8 +1,8 @@
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(WebAPIDispatcherClienteWeb.Startup))]
-namespace WebAPIDispatcherClienteWeb
+[assembly: OwinStartupAttribute(typeof(MiniAvatarClienteWeb.Startup))]
+namespace MiniAvatarClienteWeb
 {
     public partial class Startup
     {

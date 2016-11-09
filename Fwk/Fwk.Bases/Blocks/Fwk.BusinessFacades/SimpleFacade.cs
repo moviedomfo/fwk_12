@@ -186,6 +186,44 @@ namespace Fwk.BusinessFacades
             return wResult;
         }
 
+        /// <summary>
+        /// usa internamente Newtonsoft para serializar json
+        /// </summary>
+        /// <param name="providerName"></param>
+        /// <param name="serviceName"></param>
+        /// <param name="jsonRequest"></param>
+        /// <param name="hostContext"></param>
+        /// <returns></returns>
+        public string ExecuteServiceJson_newtonjs(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
+        {
+            string wResult;
+
+            ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
+            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
+            if (reqType == null)
+            {
+                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
+                    serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
+
+                Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
+                if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
+                    te.Source = "Despachador de servicios en " + Environment.MachineName;
+                else
+                    te.Source = ConfigurationsHelper.HostApplicationName;
+
+                te.ErrorId = "7003";
+                throw te;
+            }
+
+            var wRequest = (IServiceContract)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson_Newtonsoft(reqType, jsonRequest);
+            wRequest.ContextInformation.HostName = hostContext.HostName;
+            wRequest.ContextInformation.HostIp = hostContext.HostIp;
+
+            IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
+            Type resType = Type.GetType(wServiceConfiguration.Response);
+            wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(resType, res);
+            return wResult;
+        }
         //public string ExecuteServiceXml(string providerName, string serviceName, string xmlRequest, HostContext hostContext)
         //{
         //    string xmlResult;

@@ -4,86 +4,38 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebAPIDispatcherClienteWeb.WebAPIDispatcherSVC;
+using Fwk.Bases.Blocks.Fwk.BusinessFacades;
 using System.IO;
 using System.Text;
 using System.Runtime.Serialization.Json;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Fwk.BusinessFacades;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
 
-namespace WebAPIDispatcherClienteWeb.Controllers
+namespace MiniAvatarClienteWeb.Controllers
 {
     public class HomeAPIController : ApiController
     {
-
-
+        SimpleFacade simpleFacade;
+        static HostContext hostContext;
+        //[HttpPost]
+        //public String Execute(string providerName, string serviceName, string jsonRequets)
+        //{
+        //    //CreateSimpleFacade();
+        //    //return simpleFacade.ExecuteServiceJson(providerName, serviceName, jsonRequets, hostContext);
+        //    return providerName;
+        //}
+  
         [System.Web.Mvc.HttpPost]
-        [Route("api/HomeAPI/RegistrarLlamada/")]
-        public String RegistrarLlamada(WebAPIDispatcherBE param)
+        [Route("api/HomeAPI/Execute/")]
+        public String Execute(WebApiREQ param)
         {
-            WebAPIDispatcherReq req = new WebAPIDispatcherReq();
-            WebAPIDispatcherRes res = null;
-            req.CodigoCampania = param.CodigoCampania;
-            req.CodigoOrigen = param.CodigoOrigen;
-            req.Fecha = param.Fecha;
-            req.Horario = param.Horario;
-            req.Telefonos = param.Telefonos;
-            req.Texto = param.Texto;
-            // http://localhost:16731/WebAPIDispatcherService.svc/RegistrarLlamada
-            try
-            {
-                res = new WebAPIDispatcherRes();
-                WebAPIDispatcherServiceClient proxy = new WebAPIDispatcherServiceClient();
-                
-                 res = proxy.RegistrarLlamada(req);
-                if (String.IsNullOrEmpty(res.Error)==false)
-                    return res.Error;
-                return res.IDLead.ToString();
-            }
-            catch(Exception ex)
-            {
-                res = new WebAPIDispatcherRes();
-                res.Error = ex.Message;
-                return res.Error;
-
-            }
-            
-
+            CreateSimpleFacade();
+            return simpleFacade.ExecuteServiceJson(param.ProviderName, param.ServiceName, param.JsonRequets, hostContext);
+           
         }
-
-
-        [System.Web.Mvc.HttpPost]
-        [Route("api/HomeAPI/RegistrarLlamadaPOST/")]
-        public String RegistrarLlamadaPOST(WebAPIDispatcherBE param)
-        {
-            WebAPIDispatcherReq req = new WebAPIDispatcherReq();
-            WebAPIDispatcherRes res = null;
-            req.CodigoCampania = param.CodigoCampania;
-            req.CodigoOrigen = param.CodigoOrigen;
-            req.Fecha = param.Fecha;
-            req.Horario = param.Horario;
-            req.Telefonos = param.Telefonos;
-            req.Texto = param.Texto;
-            string jsonReq = Newtonsoft.Json.JsonConvert.SerializeObject(req);
-
-            try
-            {
-                
-                callservice(jsonReq);
-
-                return "0";
-            }
-            catch (Exception ex)
-            {
-                res = new WebAPIDispatcherRes();
-                res.Error = ex.Message;
-                return res.Error;
-
-            }
-
-
-        }
-       
         private  void  callservice(string jsonReq)
         {
             HttpClient httpClient = new HttpClient();
@@ -102,74 +54,43 @@ namespace WebAPIDispatcherClienteWeb.Controllers
             //return result.Headers.Location;
 
         }
-        [System.Web.Mvc.HttpPost]
-        [Route("api/HomeAPI/RegistrarLlamadaPOST_webapi/")]
-        public String RegistrarLlamadaPOST_webapi(WebAPIDispatcherBE param)
+        /// <summary>
+        /// Factory de SimpleFacade
+        /// </summary>  
+        /// <returns></returns>
+        void CreateSimpleFacade()
         {
-            WebAPIDispatcherReq req = new WebAPIDispatcherReq();
-            WebAPIDispatcherRes res = null;
-            req.CodigoCampania = param.CodigoCampania;
-            req.CodigoOrigen = param.CodigoOrigen;
-            req.Fecha = param.Fecha;
-            req.Horario = param.Horario;
-            req.Telefonos = param.Telefonos;
-            req.Texto = param.Texto;
-            //Uri baseUri = new Uri("http://localhost:47647/");
-            Uri baseUri = new Uri("http://ws2008/miniavatarws/"); ///api/MiniavatarApi/Post/
-            string jsonReq = Newtonsoft.Json.JsonConvert.SerializeObject(req);
-            try
+            if (simpleFacade == null)
             {
-
-                RegistrarLlamadaPostAsync(req).Wait();
-                return "0";
-            }
-            catch (Exception ex)
-            {
-                res = new WebAPIDispatcherRes();
-                res.Error = ex.Message;
-                return res.Error;
+                simpleFacade = new Fwk.BusinessFacades.SimpleFacade();
 
             }
+            if (hostContext == null)
+            {
+                string[] computer_name = null;
+                hostContext = new HostContext();
+                OperationContext context = OperationContext.Current;
+                MessageProperties prop = context.IncomingMessageProperties;
+                RemoteEndpointMessageProperty endpoint = prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+                computer_name = Dns.GetHostEntry(endpoint.Address).HostName.Split(new Char[] { '.' });
 
+                hostContext.HostIp = endpoint.Address;
+                if (computer_name.Count() > 0)
+                    hostContext.HostName = computer_name[0].ToString();
+            }
 
-        }
-        static async Task<WebAPIDispatcherBE> RegistrarLlamadaPostAsync(WebAPIDispatcherReq req)
-        {
-            HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://localhost:47647/");
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await httpClient.PostAsJsonAsync("api/MiniavatarApi", req);
-         
-
-
-            var r = await response.Content.ReadAsStringAsync();
-            
-            return response.Content.ReadAsAsync<WebAPIDispatcherBE>().Result;
         }
     }
     
 
-    public class WebAPIDispatcherBE
+    public class WebApiREQ
     {
-        /// <summary>
-        /// url landing   (campo texto)
-        /// </summary>
-        public String CodigoOrigen { get; set; }
-        public String CodigoCampania { get; set; }
-        /// <summary>
-        /// Texto que explique de qué landing/campaña viene (campo texto tamaño ?)
-        /// </summary>
-        public String Texto { get; set; }
-        public String Fecha { get; set; }
-        /// <summary>
-        /// Teléfonos en formato ANI
-        /// </summary>
-        public String Telefonos { get; set; }
-        /// <summary>
-        ///dentro de horario, 0 fuera de horario
-        /// </summary>
-        public bool Horario { get; set; }
+  
+        public String ProviderName { get; set; }
+        public String JsonRequets { get; set; }
+   
+        public String ServiceName { get; set; }
+    
     }
 }
 

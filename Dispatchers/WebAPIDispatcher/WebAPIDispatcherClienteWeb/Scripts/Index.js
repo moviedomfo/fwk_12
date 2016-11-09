@@ -2,59 +2,77 @@
     var hostedRootPath = 'http://localhost:17854';
     var hostedRootPath_webapi = 'http://localhost:47647';
     var currentDate = new Date();
-    var data = {
-        CodigoCampania: "ALLUS-98",
-        CodigoOrigen: "0012.",
-        Fecha: currentDate,
-        Horario: "true",
-        Telefonos: "0351-1548788",
-        Texto: "Hola gente de allus"
+
+    var jsonRequets = {
+        SecurityProviderName: null,
+        ServiceName: 'RetrivePatientsService',
+        BusinessData: {
+            Nombre: "Jimmy  L. ",
+            Apellido: "Hendryx",
+            NroDocumento: 25365441,
+            Id: 33
+            
+        },
+        ContextInformation: {
+            Culture: null,
+            ProviderNameWithCultureInfo: null,
+            HostName: null,
+            HostIp: null,
+            HostTime: currentDate,
+            ServerName: null,
+            ServerTime: currentDate,
+            UserName: "moviedo",
+            UserId: "123432",
+            AppId: "test allus dev",
+            ProviderName: null
+        }
     };
 
-    $('#btnAjaxCall').click(function () {
-        CallService_thisSite();
+    var data = {
+        providerName: 'health',
+        serviceName: 'RetrivePatientsService',
+        jsonRequets: JSON.stringify(jsonRequets)
+    };
+    
+    $('#btnCallService_thisSite_POST_WebAPI').click(function () {
+        CallService_thisSite_POST_WebAPI();
     });
-    $('#btnAjaxCall_POST_Directo').click(function () {
-        CallService_thisSite_POST_Cruzado();
+    $('#btnAjaxCall_POST_jsonp_WebAPI').click(function () {
+        Call_POST_jsonp_WebAPI();
     });
-    $('#btnAjaxCall_POST').click(function () {
-        CallService_thisSite_POST();
+    $('#btnCallService_WS_Cruzado').click(function () {
+        CallService_WS_Cruzado();
     });
-    $('#btnAjaxCall_POST_WebAPI').click(function () {
-        CallService_POST_WebAPI();
-    });
-
-
-
-    function CallService_POST_WebAPI() {
-
-         
-        $.ajax({
-            type: 'POST',
-            url: hostedRootPath + '/api/HomeAPI/RegistrarLlamadaPOST_webapi/',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            success: function (result) {
-                var resultParced = JSON.parse(result);
-                alert('llamada al servicio OK ' + result);
-            },
-            error: ServiceFailed
-        });
-
-
+    function logResults(json) {
+        alert(json);
     }
 
-    function CallService_thisSite_POST() {
+    function Call_POST_jsonp_WebAPI() {
+        //$.ajax({
+        //    type: 'GET',
       
-
-        //Realiza un POST al propio server 
+        //    url: 'http://localhost:47647' + '/api/SingleServiceApi/Ping/test123")',
+        //    //data: JSON.stringify(data),
+        //    contentType: 'application/json; charset=utf-8',
+        //    jsonp: "logResults",
+        //    dataType: "jsonp",
+        //    //crossDomain: true,
+        //    success: function (result) {
+        //        var resultParced = JSON.parse(result);
+        //        alert('llamada al servicio OK ' + result);
+        //    },
+        //    error: ServiceFailed
+        //});
         $.ajax({
             type: 'POST',
-            url: hostedRootPath + '/api/HomeAPI/RegistrarLlamadaPOST/',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
+            url: 'http://localhost:47647' + '/api/SingleServiceApi/Execute/',
+            data: "pepe",//JSON.stringify(data),
+            contentType: 'application/json',
+            //jsonp: "logResults",
+            dataType: "jsonp",
+           // headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST' },
+            //processData: false,
+            //crossDomain: true,
             success: function (result) {
                 var resultParced = JSON.parse(result);
                 alert('llamada al servicio OK ' + result);
@@ -62,41 +80,18 @@
             error: ServiceFailed
         });
 
-
-    }
-    function CallService_thisSite_POST_Cruzado() {
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:16731/MiniAvatarService.svc' + '/RegistrarLlamadaPost/")',
-            dataType: 'json',
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(data),
-            success: function (result) {
-                alert('llamada al servicio OK ' + JSON.stringify(result));
-            },
-            error: ServiceFailed
-        });
-
-    }
-
-    function CallService_thisSite() {
-        //var currentDate = new Date();
-        //var data = {
-        //    CodigoCampania: "ALLUS-98",
-        //    CodigoOrigen: "0012.",
-        //    Fecha: currentDate,
-        //    Horario: "true",
-        //    Telefonos: "0351-1548788",
-        //    Texto: "Hola gente de allus"
-        //};
        
+    }
 
+    function CallService_thisSite_POST_WebAPI() {
       
+        
+     
         //Realiza un POST al propio server 
         $.ajax({
             type: 'POST',
-            url: hostedRootPath + '/api/HomeAPI/RegistrarLlamada/',
-            data: JSON.stringify(data),
+            url: hostedRootPath + '/api/HomeAPI/Execute/',
+            data:  JSON.stringify(data),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function (result) {
@@ -105,41 +100,44 @@
             },
             error: ServiceFailed
         });
+
+
+    }
+
+    function CallService_WS_Cruzado() {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:38091/SingleService.asmx' + '/Ejecutar',
+            //jsonp: "logResults",
+           jsonp: false,
+           jsonpCallback: function(res)
+           {
+               //var asgndata = JSON.parse(res);
+               //console.log( "jsonp asgndata: "+asgndata );
+              // alert("jsonp data: " + res);// undefined - parsererror in returned res
+           },
+           dataType: 'JSONP',
+            contentType: "application/json; charset=utf-8",
+            //contentType: "text/javascript;charset=utf-8",
+            data: data,
+            processData :true,
+            crossDomain: true,
+            success: function (data) {
+
+                var data = $.parseJSON(data);
+                alert('llamada al servicio OK ' + data.Name);
+               // alert('llamada al servicio OK ' + JSON.stringify(result));
+            },
+            error: ServiceFailed
+        });
+        
+    }
 
   
-    }
 
 
 
 
-
-    ///Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-    function CallService_CORS() {
-        var currentDate = new Date();
-        var data = {
-            CodigoCampania: "ALLUS-98",
-            CodigoOrigen: "0012.",
-            Fecha: currentDate,
-            Horario: "",
-            Telefonos: "",
-            Text: ""
-        };
-
-        
-        
-        $.ajax({
-            type: 'POST', 
-            url: 'http://localhost:16731/MiniAvatarService.svc/RegistrarLlamada', 
-            data: JSON.stringify(data), 
-            contentType: 'application/json; charset=utf-8', 
-            dataType: 'json', 
-            success: function (result) {
-                var resultParced =  JSON.parse(result);
-                alert('llamada al servicio OK ' + result);
-            },
-            error: ServiceFailed
-        });
-    }
 
     function ServiceFailed(xhr, status, p3, p4) {
         var errMsg = status + " " + p3;

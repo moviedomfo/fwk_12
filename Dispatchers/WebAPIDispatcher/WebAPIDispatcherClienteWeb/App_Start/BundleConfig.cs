@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Optimization;
 
-namespace WebAPIDispatcherClienteWeb
+namespace MiniAvatarClienteWeb
 {
     public class BundleConfig
     {

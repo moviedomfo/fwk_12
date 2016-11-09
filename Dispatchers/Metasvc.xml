@@ -1,0 +1,747 @@
+
+<ServiceConfigurationCollection>
+  <ServiceConfiguration name="DeleteParametroService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-05-31T12:16:59.839-03:00</CreatedDateTime>
+    <Handler>Health.Svc.DeleteParametroService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.DeleteParametro.DeleteParametroReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.DeleteParametro.DeleteParametroRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchParametroByParamsService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-05-31T12:48:35.854625-03:00</CreatedDateTime>
+    <Handler>Health.Svc.SearchParametroByParamsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.SearchParametroByParams.SearchParametroByParamsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.SearchParametroByParams.SearchParametroByParamsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ValidateUserExistService">
+    <CreatedUserName>pelsoft</CreatedUserName>
+    <CreatedDateTime>2012-04-06T12:35:47.0558685-03:00</CreatedDateTime>
+    <Description>Este servicio permite realizar validación de si un usuario existe en una base de datos ASPNetMembership</Description>
+    <Handler>Fwk.Security.SVC.ValidateUserExistService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.ValidateUserExist.ValidateUserExistReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.ValidateUserExist.ValidateUserExistRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:37:17.4190292-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateRulesCategory.CreateRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateRulesCategory.CreateRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRoleService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:37:26.66897-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.DeleteRoleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.DeleteRole.DeleteRoleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.DeleteRole.DeleteRoleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:37:39.7001366-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.UpdateRulesService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.UpdateRules.UpdateRulesReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.UpdateRules.UpdateRulesRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserInfoByParamsService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:38:36.4185236-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.GetUserInfoByParamsService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.GetUserInfoByParams.GetUserInfoByParamsReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.GetUserInfoByParams.GetUserInfoByParamsRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:38:43.5903527-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllRulesCategory.SearchAllRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllRulesCategory.SearchAllRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:39:13.230788-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.UpdateRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.UpdateRulesCategory.UpdateRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.UpdateRulesCategory.UpdateRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllRulesService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:39:28.9494374-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllRulesService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllRules.SearchAllRulesReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllRules.SearchAllRulesRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="DeleteRulesCategoryService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:39:39.2462465-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.DeleteRulesCategoryService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.DeleteRulesCategory.DeleteRulesCategoryReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.DeleteRulesCategory.DeleteRulesCategoryRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AssignRolesToUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:02.2617242-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.AssignRolesToUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.AssignRolesToUser.AssignRolesToUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.AssignRolesToUser.AssignRolesToUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllUsersService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:16.824131-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllUsersService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllUsers.SearchAllUsersReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllUsers.SearchAllUsersRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRolesForUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:23.3397143-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchRolesForUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchRolesForUser.SearchRolesForUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchRolesForUser.SearchRolesForUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateRoleService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:29.6990486-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateRoleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateRole.CreateRoleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateRole.CreateRoleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:38.0583701-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.UpdateUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.UpdateUser.UpdateUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.UpdateUser.UpdateUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ResetUserPasswordService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2009-11-21T10:38:45.4634864-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.ResetUserPasswordService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.ResetUserPassword.ResetUserPasswordReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.ResetUserPassword.ResetUserPasswordRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchRulesCategoryByParamService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:45.6676964-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchRulesCategoryByParamService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchRulesCategoryByParam.SearchRulesCategoryByParamReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchRulesCategoryByParam.SearchRulesCategoryByParamRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RemoveUserFromRoleService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:40:52.5270275-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.RemoveUserFromRoleService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.RemoveUserFromRole.RemoveUserFromRoleReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.RemoveUserFromRole.RemoveUserFromRoleRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AuthenticateUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:00.9800984-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.AuthenticateUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.AuthenticateUser.AuthenticateUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.AuthenticateUser.AuthenticateUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateUserService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:07.2613082-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.CreateUserService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.CreateUsers.CreateUserReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.CreateUsers.CreateUserRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchAllRolesService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:25.9799384-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchAllRolesService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchAllRoles.SearchAllRolesReq, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchAllRoles.SearchAllRolesRes, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="SearchDomainsUrlsService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-06T10:41:36.9017435-03:00</CreatedDateTime>
+    <Handler>Fwk.Security.SVC.SearchDomainsUrlsService, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Security.ISVC.SearchDomainsUrls.SearchDomainsUrlsRequest, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Security.ISVC.SearchDomainsUrls.SearchDomainsUrlsResponse, Fwk.Security, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetUserDataService">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2011-06-13T16:56:34.9045-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetUserDataService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetUserData.GetUserDataReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetUserData.GetUserDataRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CrearProfesionalService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-02-17T15:41:26.4679911-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CrearProfesionalService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CrearProfesional.CrearProfesionalReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CrearProfesional.CrearProfesionalRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CrearPatientService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-02-17T15:41:45.9020838-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CrearPatientService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CrearPatient.CrearPatientReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CrearPatient.CrearPatientRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveProfesionalesService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-02-17T15:41:54.2300935-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveProfesionalesService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveProfesionales.RetriveProfesionalesReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveProfesionales.RetriveProfesionalesRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetrivePersonasService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-02-17T15:42:10.2455405-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetrivePersonasService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePersonas.RetrivePersonasReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePersonas.RetrivePersonasRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdatePatientService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-01T17:20:51.8965601-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdatePatientService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdatePatient.UpdatePatientReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdatePatient.UpdatePatientRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdatePlanVacunacionService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-01T17:21:00.1044149-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdatePlanVacunacionService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdatePlanVacunacion.UpdatePlanVacunacionReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdatePlanVacunacion.UpdatePlanVacunacionRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateProfesionalService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-01T17:21:23.3497273-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdateProfesionalService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdateProfesional.UpdateProfesionalReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdateProfesional.UpdateProfesionalRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetPlanVacunacionService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-01T17:21:10.2621864-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetPlanVacunacionService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetPlanVacunacion.GetPlanVacunacionReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetPlanVacunacion.GetPlanVacunacionRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetrivePatientsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-02-17T15:42:00.676238-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetrivePatientsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePatients.RetrivePatientsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePatients.RetrivePatientsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetProfesionalService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-10T12:31:03.1562242-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetProfesionalService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetProfesional.GetProfesionalReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetProfesional.GetProfesionalRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateResourceSchedulingService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-12T15:08:27.463062-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CreateResourceSchedulingService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CreateResourceScheduling.CreateResourceSchedulingReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CreateResourceScheduling.CreateResourceSchedulingRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateAppointmentsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-13T08:52:55.5377017-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CreateAppointmentsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CreateAppointments.CreateAppointmentsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CreateAppointments.CreateAppointmentsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateResourceSchedulingService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-13T09:14:30.0687885-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdateResourceSchedulingService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdateResourceScheduling.UpdateResourceSchedulingReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdateResourceScheduling.UpdateResourceSchedulingRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveResourceSchedulingAndAppoinmentsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-13T14:50:24.7592029-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveResourceSchedulingAndAppoinmentsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveResourceSchedulingAndAppoinments.RetriveResourceSchedulingAndAppoinmentsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveResourceSchedulingAndAppoinments.RetriveResourceSchedulingAndAppoinmentsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveAppointmentService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-16T11:34:16.4352351-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveAppointmentService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveAppointment.RetriveAppointmentReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveAppointment.RetriveAppointmentRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveAllObraSocialService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-17T09:05:08.5329294-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveAllObraSocialService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveAllObraSocial.RetriveAllObraSocialReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveAllObraSocial.RetriveAllObraSocialRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetPatientService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-19T10:28:05.4257721-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetPatientService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetPatient.GetPatientReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetPatient.GetPatientRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetObraSocialPorPatientService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-19T10:28:05.4257721-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetObraSocialPorPatientService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetObraSocialPorPatient.GetObraSocialPorPatientReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetObraSocialPorPatient.GetObraSocialPorPatientRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AsociarPatientAPersonaService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-19T10:28:05.4257721-03:00</CreatedDateTime>
+    <Handler>Health.Svc.AsociarPatientAPersonaService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.AsociarPatientAPersona.AsociarPatientAPersonaReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.AsociarPatientAPersona.AsociarPatientAPersonaRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetPatientAllergyService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-19T10:28:05.4257721-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetPatientAllergyService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetPatientAllergy.GetPatientAllergyReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetPatientAllergy.GetPatientAllergyRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateUpdatePatientMedicamentService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-06T11:44:19.8144416-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CreateUpdatePatientMedicamentService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CreateUpdatePatientMedicament.CreateUpdatePatientMedicamentReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CreateUpdatePatientMedicament.CreateUpdatePatientMedicamentRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetrivePatientMedicamentsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-06T11:44:48.9131059-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetrivePatientMedicamentsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePatientMedicaments.RetrivePatientMedicamentsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePatientMedicaments.RetrivePatientMedicamentsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreatePatientEventService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-08T15:32:33.6124898-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CreatePatientEventService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CreatePatientEvent.CreatePatientEventReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CreatePatientEvent.CreatePatientEventRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdatePatientEventService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-08T10:49:05.9143238-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdatePatientEventService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdatePatientEvent.UpdatePatientEventReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdatePatientEvent.UpdatePatientEventRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateAppointmentsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-08T10:49:45.4215835-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdateAppointmentsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdateAppointments.UpdateAppointmentsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdateAppointments.UpdateAppointmentsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateObraSocialService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-17T09:26:30.3196055-03:00</CreatedDateTime>
+    <Description>dsalkdj erwe</Description>
+    <Handler>Health.Svc.CreateObraSocialService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CreateObraSocial.CreateObraSocialReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CreateObraSocial.CreateObraSocialRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>true</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="CreateUpdatePatientAllergyService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-03-19T10:28:05.4257721-03:00</CreatedDateTime>
+    <Handler>Health.Svc.CreateUpdatePatientAllergyService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.CreateUpdatePatientAllergy.CreateUpdatePatientAllergyReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.CreateUpdatePatientAllergy.CreateUpdatePatientAllergyRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetPatientEventService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-24T14:14:53.8698624-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetPatientEventService, Health.Back, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetPatientEvent.GetPatientEventReq, Health.Back, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetPatientEvent.GetPatientEventRes, Health.Back, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetrivePatientEventService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-24T14:15:02.1173341-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetrivePatientEventService, Health.Back, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePatientEvent.RetrivePatientEventReq, Health.Back, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePatientEvent.RetrivePatientEventRes, Health.Back, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetrivePatientAppoimentsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-06-11T15:01:45.7767068-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetrivePatientAppoimentsService, Health.Back, Version=2.1.0.23, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePatientAppoiments.RetrivePatientAppoimentsReq, Health.Back, Version=2.1.0.23, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePatientAppoiments.RetrivePatientAppoimentsRes, Health.Back, Version=2.1.0.23, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetAppoinmentByParamsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-06-22T10:12:54.6554779-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetAppoinmentByParamsService, Health.Back, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetAppoinmentByParams.GetAppoinmentByParamsReq, Health.Back, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetAppoinmentByParams.GetAppoinmentByParamsRes, Health.Back, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="UpdateAppointmentStatusService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-06-22T10:22:02.3783-03:00</CreatedDateTime>
+    <Handler>Health.Svc.UpdateAppointmentStatusService, Health.Back, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.UpdateAppointmentStatus.UpdateAppointmentStatusReq, Health.Back, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.UpdateAppointmentStatus.UpdateAppointmentStatusRes, Health.Back, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>RequiresNew</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="ValidateActivationCodeService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-08-03T11:05:15.2546115-03:00</CreatedDateTime>
+    <Handler>Health.Svc.ValidateActivationCodeService, Health.Back, Version=1.2.0.6, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.ValidateActivationCode.ValidateActivationCodeReq, Health.Back, Version=1.2.0.6, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.ValidateActivationCode.ValidateActivationCodeRes, Health.Back, Version=1.2.0.6, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveHealthhInstitutionService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-09-28T10:26:58.1832483-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveHealthhInstitutionService, Health.Back, Version=1.2.0.6, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveHealthhInstitution.RetriveHealthhInstitutionReq, Health.Back, Version=1.2.0.6, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveHealthhInstitution.RetriveHealthhInstitutionRes, Health.Back, Version=1.2.0.6, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="AuthHealthhInstitutionService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-09-30T11:16:08.1295444-03:00</CreatedDateTime>
+    <Handler>Health.Svc.AuthHealthhInstitutionService, Health.Back, Version=1.2.0.7, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.AuthHealthhInstitution.AuthHealthhInstitutionReq, Health.Back, Version=1.2.0.7, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.AuthHealthhInstitution.AuthHealthhInstitutionRes, Health.Back, Version=1.2.0.7, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="GetHealthhInstitutionByIdService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-09-30T12:56:17.8612814-03:00</CreatedDateTime>
+    <Handler>Health.Svc.GetHealthhInstitutionByIdService, Health.Back, Version=1.2.0.7, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.GetHealthhInstitutionById.GetHealthhInstitutionByIdReq, Health.Back, Version=1.2.0.7, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.GetHealthhInstitutionById.GetHealthhInstitutionByIdRes, Health.Back, Version=1.2.0.7, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveMedicalEventPMO_DiagService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-11-07T11:29:05.7022716-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveMedicalEventPMO_DiagService, Health.Back, Version=1.2.0.22, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveMedicalEventPMO_Diag.RetriveMedicalEventPMO_DiagReq, Health.Back, Version=1.2.0.22, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveMedicalEventPMO_Diag.RetriveMedicalEventPMO_DiagRes, Health.Back, Version=1.2.0.22, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveMedicalEventAlertsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-11-10T20:39:01.724531-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveMedicalEventAlertsService, Health.Back, Version=1.2.0.23, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveMedicalEventAlerts.RetriveMedicalEventAlertsReq, Health.Back, Version=1.2.0.23, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveMedicalEventAlerts.RetriveMedicalEventAlertsRes, Health.Back, Version=1.2.0.23, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetriveMedicalEventDetailsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-11-10T20:39:01.724531-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetriveMedicalEventDetailsService, Health.Back, Version=1.2.0.23, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetriveMedicalEventDetails.RetriveMedicalEventDetailsReq, Health.Back, Version=1.2.0.23, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetriveMedicalEventDetails.RetriveMedicalEventDetailRes, Health.Back, Version=1.2.0.23, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+</ServiceConfigurationCollection>

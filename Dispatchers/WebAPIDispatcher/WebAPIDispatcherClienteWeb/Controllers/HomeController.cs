@@ -1,11 +1,11 @@
-using WebAPIDispatcherClienteWeb.WebAPIDispatcherSVC;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebAPIDispatcherClienteWeb.Controllers
+namespace MiniAvatarClienteWeb.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,19 +14,19 @@ namespace WebAPIDispatcherClienteWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public JsonResult RegistrarLlamada(WebAPIDispatcherBE param)
-        {
-            WebAPIDispatcherReq req = new WebAPIDispatcherReq();
-            req.CodigoCampania = param.CodigoCampania;
-            req.CodigoOrigen = param.CodigoOrigen;
-            req.Fecha = param.Fecha;
-            req.Horario = param.Horario;
-            req.Telefonos = param.Telefonos;
-            req.Texto = param.Texto;
+        //[HttpPost]
+        //public JsonResult RegistrarLlamada(WebAPIDispatcherBE param)
+        //{
+        //    //WebAPIDispatcherReq req = new WebAPIDispatcherReq();
+        //    //req.CodigoCampania = param.CodigoCampania;
+        //    //req.CodigoOrigen = param.CodigoOrigen;
+        //    //req.Fecha = param.Fecha;
+        //    //req.Horario = param.Horario;
+        //    //req.Telefonos = param.Telefonos;
+        //    //req.Texto = param.Texto;
 
-            return Json(req);
-        }
+        //    return Json("");
+        //}
 
     }
 }
