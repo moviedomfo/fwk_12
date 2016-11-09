@@ -7,7 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 
 
-namespace MiniAvatarClienteWeb
+namespace WebAPIDispatcherClienteWeb
 {
     public partial class Startup
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MiniAvatarClienteWeb.Controllers
+namespace WebAPIDispatcherClienteWeb.Controllers
 {
     public class HomeController : Controller
     {

@@ -14,7 +14,7 @@ using Fwk.BusinessFacades;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 
-namespace MiniAvatarClienteWeb.Controllers
+namespace WebAPIDispatcherClienteWeb.Controllers
 {
     public class HomeAPIController : ApiController
     {

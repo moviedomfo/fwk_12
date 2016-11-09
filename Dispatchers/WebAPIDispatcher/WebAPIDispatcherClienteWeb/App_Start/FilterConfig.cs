@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Mvc;
 
-namespace MiniAvatarClienteWeb
+namespace WebAPIDispatcherClienteWeb
 {
     public class FilterConfig
     {
