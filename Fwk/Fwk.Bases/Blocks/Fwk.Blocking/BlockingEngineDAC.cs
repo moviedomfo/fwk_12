@@ -22,12 +22,19 @@ namespace Fwk.Blocking
             {
                 if (ConfigurationManager.GetProperty("BlockingModel", "ConnectionString") != null)
                     msz_ConnectionString = ConfigurationManager.GetProperty("BlockingModel", "ConnectionString");
+
             }
             catch
             {
                 if (String.IsNullOrEmpty(msz_ConnectionString))
                     msz_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["BlockingModel"].ConnectionString;
             }
+
+            if (String.IsNullOrEmpty(msz_ConnectionString))
+                msz_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["BlockingModel"].ConnectionString;
+
+            if (String.IsNullOrEmpty(msz_ConnectionString))
+                throw new TechnicalException("Falta la ConnectionStrings BlockingModel");
         }
 
         /// <summary>

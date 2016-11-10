@@ -78,6 +78,7 @@
             this.txtSimpleResult = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCallsNumber)).BeginInit();
@@ -677,6 +678,19 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::TestServicePerformance.Properties.Resources.bt_play;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(269, 131);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(251, 23);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "GetAllServices";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -768,6 +782,7 @@
         private System.Windows.Forms.Button btn_InitConfigFile;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

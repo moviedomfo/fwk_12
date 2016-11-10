@@ -16,6 +16,7 @@ using System.Threading;
 using System.Runtime.Remoting.Messaging;
 using Fwk.HelperFunctions;
 using System.IO;
+using System.Runtime.Remoting;
 
 namespace TestServicePerformance
 {
@@ -23,7 +24,7 @@ namespace TestServicePerformance
     public partial class frmTest : Form
     {
         Measures _Sizes = new Measures();
-        
+
         ControllerTest Ctrl;
         RemotingWrapper _RemotingWrapper;
         RemotingWrapper_config _RemotingWrapper_config;
@@ -197,7 +198,7 @@ namespace TestServicePerformance
             ControllerTest.Storage.Save();
         }
 
-       
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -213,7 +214,7 @@ namespace TestServicePerformance
                 }
             }
 
-    
+
 
         }
 
@@ -273,7 +274,7 @@ namespace TestServicePerformance
             return (decimal)lSize;
         }
 
-        #region populate async 
+        #region populate async
         void PopulateAsync()
         {
             Exception ex = null;
@@ -311,7 +312,7 @@ namespace TestServicePerformance
                 dataGridView3.DataSource = _Sizes;
 
                 string info = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(_SearchSalesOrderDetailRes.ContextInformation);
-                txtSimpleResult.Text = string.Concat(info,Environment.NewLine,Environment.NewLine + "Bussiness data ",Environment.NewLine, _SearchSalesOrderDetailRes.BusinessData.SalesOrderDetailList.GetXml());
+                txtSimpleResult.Text = string.Concat(info, Environment.NewLine, Environment.NewLine + "Bussiness data ", Environment.NewLine, _SearchSalesOrderDetailRes.BusinessData.SalesOrderDetailList.GetXml());
 
             }
 
@@ -330,22 +331,22 @@ namespace TestServicePerformance
         {
             if (_SearchSalesOrderDetailRes == null) return;
 
-            if(!Directory.Exists("Logs"))
+            if (!Directory.Exists("Logs"))
             {
                 Directory.CreateDirectory("Logs");
             }
             TestRes wTestRes = new TestRes();
             wTestRes.Times = _SearchSalesOrderDetailRes.BusinessData.Times;
             wTestRes.Sizes = _Sizes;
-            string name =string.Concat(@"Logs\R_",DateFunctions.Get_Year_Mont_Day_Hour_Min_Sec_String(_SearchSalesOrderDetailRes.ContextInformation.HostTime, '_'),".xml");
+            string name = string.Concat(@"Logs\R_", DateFunctions.Get_Year_Mont_Day_Hour_Min_Sec_String(_SearchSalesOrderDetailRes.ContextInformation.HostTime, '_'), ".xml");
 
-           
+
 
             Fwk.HelperFunctions.FileFunctions.SaveTextFile(name, wTestRes.GetXml(), false);
 
             MessageBox.Show("Test saved successfully");
         }
-  
+
 
         private void btn_InitConfigFile_Click(object sender, EventArgs e)
         {
@@ -403,9 +404,9 @@ namespace TestServicePerformance
             try
             {
                 SearchSalesOrderDetailRes res = ControllerTest.SearchSalesOrderDetailRes();
-                
+
                 if (res.Error != null)
-                    MessageBox.Show( Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message);
+                    MessageBox.Show(Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message);
             }
             catch (Exception ex)
             {
@@ -413,7 +414,67 @@ namespace TestServicePerformance
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var remotingWrapper = Fwk.Bases.WrapperFactory.GetWrapper("");
+
+                RemotingConfiguration.Configure("RemotingConfigFile.config", false);
+
+                Fwk.Remoting.FwkRemoteObject remotingWrapperobj2 = ProxySystemInformation();
+                var list13 = remotingWrapperobj2.GetServicesList(remotingWrapper.ServiceMetadataProviderName);
+
+
+                Fwk.Remoting.FwkRemoteObject remotingWrapperobj = (Fwk.Remoting.FwkRemoteObject)Activator.GetObject(typeof(Fwk.Remoting.FwkRemoteObject),
+                  "tcp://192.168.2.177:8989/TestDispatcher.rem");
+
+
+
+                var list1 = remotingWrapperobj.GetServicesList(remotingWrapper.ServiceMetadataProviderName);
+                var list = remotingWrapper.GetAllServices();
+
+                //if (res.Error != null)
+                //    MessageBox.Show(Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+      
+        public Fwk.Remoting.FwkRemoteObject ProxySystemInformation()
+{
+    string url = GetApplicationURL(typeof(Fwk.Remoting.FwkRemoteObject));
+    Fwk.Remoting.FwkRemoteObject _remoteInformation = (Fwk.Remoting.FwkRemoteObject)Activator.GetObject(typeof(Fwk.Remoting.FwkRemoteObject), url); 
+            return _remoteInformation; 
+}
+        /// <summary>
+        /// Retrieves the URL of the Type from the .NET Remoting configuration.
+        /// 
+        /// Exceptions:
+        /// ArgumentException - Type was not found in configuration.
+        /// </summary>
+        private string GetApplicationURL(Type Type)
+        {
+            WellKnownClientTypeEntry entry = null;
+
+            foreach (WellKnownClientTypeEntry temp in RemotingConfiguration.GetRegisteredWellKnownClientTypes())
+            {
+                if (temp.TypeName.Equals(Type.FullName))
+                {
+                    entry = temp;
+                    break;
+                }
+            }
+
+            if (entry == null)
+                throw new ArgumentException(String.Format("Type {0} not found.", Type.FullName));
+
+            return entry.ObjectUrl;
+        }
     }
 
-    
+
 }
