@@ -991,3 +991,6 @@ Dispatchers/WebAPIDispatcher/WebAPIDispatcherWebAPI/packages/Microsoft.AspNet.Id
 Dispatchers/WebAPIDispatcher/WebAPIDispatcherWebAPI/packages/Microsoft.AspNet.Identity.EntityFramework.2.2.1/lib/net45/Microsoft.AspNet.Identity.EntityFramework.xml
 Dispatchers/WebAPIDispatcher/WebAPIDispatcherWebAPI/packages/Microsoft.AspNet.Identity.Owin.2.2.1/Microsoft.AspNet.Identity.Owin.2.2.1.nupkg
 Dispatchers/WebAPIDispatcher/WebAPIDispatcherWebAPI/packages/Microsoft.AspNet.Identity.Owin.2.2.1/lib/net45/Microsoft.AspNet.Identity.Owin.xml
+Fwk/Fwk.Bases/Blocks/Fwk.Blocking/BlockingEngineDAC.cs.bak
+Fwk/Fwk.Bases/Blocks/Fwk.Exceptions/ExceptionHelper.cs.bak
+Fwk/Fwk.Bases/Classes/ContextInformation.cs.bak

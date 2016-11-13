@@ -157,7 +157,7 @@ namespace Fwk.Exceptions
                         ((TechnicalException)ex).Namespace = err.Namespace;
                         ((TechnicalException)ex).Class = err.Class;
                         ((TechnicalException)ex).Assembly = err.Assembly;
-                        ((FunctionalException)ex).ServiceName = err.ServiceName;
+                        ((TechnicalException)ex).ServiceName = err.ServiceName;
                         //((TechnicalException)ex).StackTrace = err.StackTrace;
                         break;
                     }
