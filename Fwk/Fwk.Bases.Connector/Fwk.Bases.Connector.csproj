@@ -204,9 +204,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Remoting\RemotingConfigFile.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Remoting\RemotingConfigFile.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

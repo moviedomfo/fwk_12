@@ -1008,3 +1008,7 @@ Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/2016-11-15_DispatcherErro
 Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/WcfDispatcher_Host.vshost.exe
 Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/WcfDispatcher_Host.vshost.exe.config
 Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/WcfDispatcher_Host.vshost.exe.manifest
+Fwk/Test/Fwk.Blocking.Test/obj/Debug/build.force
+Fwk/Test/Fwk.Configuration.Test/Fwk.Configuration.Test/obj/Debug/build.force
+Fwk/Test/Fwk.Security.Service.Test/obj/Debug/build.force
+Fwk/Test/Fwk.UnitTest/obj/Debug/build.force
