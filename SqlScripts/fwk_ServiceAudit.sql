@@ -1,4 +1,6 @@
-/****** Object:  Table [dbo].[fwk_ServiceAudit]    Script Date: 07/28/2013 13:54:08 ******/
+
+GO
+/****** Object:  Table [dbo].[fwk_ServiceAudit]    Script Date: 11/17/2016 09:10:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,6 +20,8 @@ CREATE TABLE [dbo].[fwk_ServiceAudit](
 	[Requets] [varbinary](max) NULL,
 	[Response] [varbinary](max) NULL,
 	[ServiceError] [varbinary](max) NULL,
+	[Message] [varchar](max) NULL,
+	[Logtype] [varchar](10) NOT NULL,
  CONSTRAINT [PK_fwk_ServiceAudit] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
