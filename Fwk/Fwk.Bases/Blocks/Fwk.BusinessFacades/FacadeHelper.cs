@@ -69,13 +69,13 @@ namespace Fwk.BusinessFacades.Utils
         {
             stringMessage = string.Empty;
 
-
+            ServiceDispatcherConfig = new fwk_ServiceDispatcher();
 
             //ConnectionString donde proviene la configuracion del Service Dispatcher
             ConfigurationsHelper.ServiceDispatcherConnection = System.Configuration.ConfigurationManager.AppSettings["ServiceDispatcherConnection"];
             string serviceDispatcherName = System.Configuration.ConfigurationManager.AppSettings["ServiceDispatcherName"];
 
-            if (!String.IsNullOrEmpty(ConfigurationsHelper.ServiceDispatcherConnection) || !String.IsNullOrEmpty(serviceDispatcherName))
+            if (!String.IsNullOrEmpty(ConfigurationsHelper.ServiceDispatcherConnection))
             {
                 #region Check cnn string if exist
                 if (System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection] == null)
@@ -84,51 +84,70 @@ namespace Fwk.BusinessFacades.Utils
                     ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
                     te.ErrorId = "8200";
                     stringMessage = Audit.LogDispatcherErrorConfig(te).Message;
-                    DefaultSettings = true;
+                    //DefaultSettings = true;
                 }
                 #endregion
 
-                if (DefaultSettings == false)
-                {
-                    #region Try coinnect tod serivice dispatcher database
-                    try
-                    {
-                        using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
-                        {
-                            ServiceDispatcherConfig = context.fwk_ServiceDispatchers.Where(s => s.InstanseName.Equals(serviceDispatcherName.Trim())).FirstOrDefault();
+                //if (DefaultSettings == false)
+                //{
 
-                            if (ServiceDispatcherConfig == null)
-                            {
-                                TechnicalException te = new TechnicalException(string.Concat("No se puede encontrar la configuracion del despachador de servicio en la base de datos\r\nCadena de conexión : ", ConfigurationsHelper.ServiceDispatcherConnection));
-                                ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
-                                te.ErrorId = "7009";
-                                stringMessage = Audit.LogDispatcherErrorConfig(te).Message;
-                            }
-                        }
+                #region Try coinnect tod serivice dispatcher database
+                //try
+                //{
+                //    using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
+                //    {
+                //        ServiceDispatcherConfig = context.fwk_ServiceDispatchers.Where(s => s.InstanseName.Equals(serviceDispatcherName.Trim())).FirstOrDefault();
 
-                        ConfigurationsHelper.HostApplicationName = ServiceDispatcherConfig.InstanseName;
-                    }
-                    catch (Exception ex)
-                    {
+                //        if (ServiceDispatcherConfig == null)
+                //        {
+                //            TechnicalException te = new TechnicalException(string.Concat("No se puede encontrar la configuracion del despachador de servicio en la base de datos\r\nCadena de conexión : ", ConfigurationsHelper.ServiceDispatcherConnection));
+                //            ExceptionHelper.SetTechnicalException<DatabaseConfigManager>(te);
+                //            te.ErrorId = "7009";
+                //            stringMessage = Audit.LogDispatcherErrorConfig(te).Message;
+                //        }
+                //    }
 
-                        DefaultSettings = true;
-                        stringMessage = Audit.LogDispatcherErrorConfig(ex).Message;
-                    }
-                    #endregion
-                }
+                //    ConfigurationsHelper.HostApplicationName = ServiceDispatcherConfig.InstanseName;
+                //}
+                //catch (Exception ex)
+                //{
 
+                //    DefaultSettings = true;
+                //    stringMessage = Audit.LogDispatcherErrorConfig(ex).Message;
+                //}
+                #endregion
+                //}
+
+            }
+            //else
+            //{ 
+            //    DefaultSettings = true; 
+            //}
+
+
+            if (!String.IsNullOrEmpty(serviceDispatcherName))
+                ServiceDispatcherConfig.InstanseName = serviceDispatcherName;
+            else
+                ServiceDispatcherConfig.InstanseName = "Fwk Dispatcher (default name)";
+
+            if (System.Configuration.ConfigurationManager.AppSettings["ServiceDispatcherAuditMode"] != null)
+            {
+                AuditMode auditMode = (AuditMode)Enum.Parse(typeof(AuditMode), System.Configuration.ConfigurationManager.AppSettings["ServiceDispatcherAuditMode"]);
+                ServiceDispatcherConfig.AuditMode = (short)auditMode;
             }
             else
-            { DefaultSettings = true; }
-
-            if (DefaultSettings)
-            {
-                ServiceDispatcherConfig = new fwk_ServiceDispatcher();
                 ServiceDispatcherConfig.AuditMode = (int)AuditMode.None;
-                ServiceDispatcherConfig.HostIp = "127.0.0.1";
-                ServiceDispatcherConfig.InstanseName = "Fwk Dispatcher (default name)";
-                stringMessage = Audit.LogDispatcherErrorConfig(null).Message;
-            }
+
+
+            ServiceDispatcherConfig.HostIp = Fwk.HelperFunctions.EnvironmentFunctions.GetMachineIp();
+            //if (DefaultSettings)
+            //{
+
+            //    ServiceDispatcherConfig.AuditMode = (int)AuditMode.None;
+            //    ServiceDispatcherConfig.HostIp = "127.0.0.1";
+
+            //    stringMessage = Audit.LogDispatcherErrorConfig(null).Message;
+            //}
 
 
         }
@@ -344,6 +363,24 @@ namespace Fwk.BusinessFacades.Utils
             return wResponse;
 
         }
+
+        //Mtodo que audita
+        internal static void DoAuditError(string serviceName, string message, string appId)
+        {
+            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.Required)
+            {
+                fwk_ServiceAudit audit = new fwk_ServiceAudit();
+                audit.ServiceName = serviceName;
+                //audit.Send_Time = pRequest.ContextInformation.;
+                //audit.Resived_Time = DateTime.Now;
+               
+                audit.ApplicationId = appId;
+                audit.Message = message;
+                
+                Audit.LogNonSucessfulExecution(audit);
+            }  
+        }
+
         //Mtodo que audita
         static void DoAudit(ServiceConfiguration pServiceConfiguration, IServiceContract pRequest, IServiceContract wResponse)
         {

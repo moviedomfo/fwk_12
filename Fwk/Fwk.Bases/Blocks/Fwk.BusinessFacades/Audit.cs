@@ -93,19 +93,32 @@ namespace Fwk.BusinessFacades.Utils
             catch { }
             return te;
         }
+        /// <summary>
+        /// Log error from dispatcher on xml File
+        /// </summary>
+        /// <param name="ex"></param>
+        internal static  void LogDispatcherError(Exception ex)
+        {
+           
+            try
+            {
+                // TODO: ver prefijo del log
+                Fwk.Logging.Event ev = new Fwk.Logging.Event( EventType.Error,
+                    Fwk.Bases.ConfigurationsHelper.HostApplicationName,
+                    ex.Message, Environment.MachineName, Environment.UserName);
 
-        ///// <summary>
-        ///// Genera un log de tipo "Error" cuando se ha producido
-        ///// un error en la  ejecución del servicio.
-        ///// </summary>
-        ///// <param name="pException">excepción.</param>
-        ///// <param name="pConfig">configuración del servicio.</param>
-        //internal static void LogNonSucessfulExecution(Exception pException, ServiceConfiguration pConfig)
-        //{
-        //    ServiceError wServiceError = ExceptionHelper.GetServiceError(pException);
-        //    LogNonSucessfulExecution(wServiceError, pConfig);
-      
-        //}
+                Fwk.Logging.Targets.XmlTarget target = new Logging.Targets.XmlTarget();
+                target.FileName = String.Concat(Fwk.HelperFunctions.DateFunctions.Get_Year_Mont_Day_String(DateTime.Now, '-'), "_", "DispatcherErrorsLog.xml");
+
+                //Fwk.Logging.StaticLogger.Log(
+                target.Write(ev);
+
+
+            }
+            catch { }
+            
+        }
+  
 
         /// <summary>
         /// Genera un log de tipo "Error" cuando se ha producido
@@ -137,8 +150,8 @@ namespace Fwk.BusinessFacades.Utils
 
             audit.Requets = TypeFunctions.ConvertStringToByteArray(pRequest.GetXml());
             audit.ServiceError = TypeFunctions.ConvertStringToByteArray(wResult.Error.GetXml());
-           
-           
+            audit.Message = wResult.Error.Message;
+            audit.Logtype = Enum.GetName(typeof(Fwk.Logging.EventType), Fwk.Logging.EventType.Error);
             try
             {
                 using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
@@ -147,21 +160,50 @@ namespace Fwk.BusinessFacades.Utils
                     context.SubmitChanges();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                LogSuccessfulExecution_Old(pRequest, wResult);
+                TechnicalException te = new TechnicalException("No se pudo insertar la auditoria de la ejecucion de un servicio.-  " + ex.Message.ToString(), ex);
+                te.ErrorId = "7010";
+                Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(Audit));
+                LogDispatcherError(ex);
+
             }
             
         }
-      
+        internal static void LogNonSucessfulExecution(fwk_ServiceAudit audit ) //ServiceError pServiceError, ServiceConfiguration pConfig)
+        {
+
+          
+            audit.LogTime = System.DateTime.Now;
+            audit.Dispatcher_Instance_Name = FacadeHelper.ServiceDispatcherConfig.InstanseName;
+
+            audit.Logtype = Enum.GetName(typeof(Fwk.Logging.EventType), Fwk.Logging.EventType.Error);
+
+            try
+            {
+                using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
+                {
+                    context.fwk_ServiceAudits.InsertOnSubmit(audit);
+                    context.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                TechnicalException te = new TechnicalException("No se pudo insertar la auditoria de la ejecucion de un servicio.-  " + ex.Message.ToString(), ex);
+                te.ErrorId = "7010";
+                Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te,typeof(Audit));
+                LogDispatcherError(ex);
+            }
+
+        }
         /// <summary>
         /// Almacena informacion de auditoria.- 
         /// Llama a StaticLogger y carga el log auditando los datos del Request de entrada
         /// </summary>
         /// <param name="pRequest">Request</param>
         /// <param name="wResult">Response</param>
-        internal static void LogSuccessfulExecution(IServiceContract pRequest, IServiceContract wResult)
+        internal static void LogSuccessfulExecution(IServiceContract pRequest, IServiceContract wResult, Fwk.Logging.EventType logType = Fwk.Logging.EventType.Audit)
         {
             fwk_ServiceAudit audit = new fwk_ServiceAudit();
 
@@ -184,7 +226,7 @@ namespace Fwk.BusinessFacades.Utils
 
             audit.Requets = TypeFunctions.ConvertStringToByteArray(pRequest.GetXml());
             audit.Response = TypeFunctions.ConvertStringToByteArray(wResult.GetXml());
-
+            audit.Logtype = Enum.GetName(typeof( Fwk.Logging.EventType), logType);
            
 
             try
@@ -197,8 +239,12 @@ namespace Fwk.BusinessFacades.Utils
     
 
             }
-            catch(Exception)
+            catch(Exception ex)
             {
+                TechnicalException te = new TechnicalException("No se pudo insertar la auditoria de la ejecucion de un servicio.-  " + ex.Message.ToString(), ex);
+                te.ErrorId = "7010";
+                Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(Audit));
+                LogDispatcherError(ex);
                 
                 LogSuccessfulExecution_Old(pRequest, wResult);
             }

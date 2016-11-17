@@ -39,7 +39,8 @@ ErrorId = 7008
 Descripcion: El despachador no puede responder debido a que ocurrieron problemas en la carga de la configuración del dispatcher
 ErrorId = 7009 
 Descripcion: No se puede encontrar la configuracion del despachador de servicio en la base de datos\r\nCadena de conexión : [CONNECTION_STRING_NAME	]
-
+ErrorId = 7010
+Descripcion: No se pudo insertar la auditoria de la ejecucion de un servicio.- 
 Descripcion: El despachador no puede responder debido a que ocurrieron problemas en la carga de la configuración del dispatcher
 ErrorId = 7100
  Descripcion =  No tiene permiso para actualizar el archivo 

@@ -13,29 +13,30 @@ using System.Collections.Generic;
 using Fwk.ConfigSection;
 using Newtonsoft.Json;
 using Fwk.Bases.Blocks.Fwk.BusinessFacades;
+using System.Threading.Tasks;
 
 namespace Fwk.BusinessFacades
 {
 
-	/// <summary>
-	/// Fachada de servicio por defecto a utilizar por las aplicaciones.
-	/// </summary>
-	/// <remarks>Esta fachada realiza las siguientes tareas: 
-	/// 
-	/// <list type="number">
-	/// <item>Audita la  ejecución del servicio.</item>
-	/// <item>Provee seguridad de acceso al servicio.</item>
-	/// <item>Verifica que el servicio está disponible para ser ejecutado.</item>
-	/// <item>Ejecuta el servicio a través de MSDTC en caso de ser necesario.</item>
-	/// </list>
-	/// </remarks>
-	/// <date>2008-04-07T00:00:00</date>
-	/// <author>moviedo</author>
+    /// <summary>
+    /// Fachada de servicio por defecto a utilizar por las aplicaciones.
+    /// </summary>
+    /// <remarks>Esta fachada realiza las siguientes tareas: 
+    /// 
+    /// <list type="number">
+    /// <item>Audita la  ejecución del servicio.</item>
+    /// <item>Provee seguridad de acceso al servicio.</item>
+    /// <item>Verifica que el servicio está disponible para ser ejecutado.</item>
+    /// <item>Ejecuta el servicio a través de MSDTC en caso de ser necesario.</item>
+    /// </list>
+    /// </remarks>
+    /// <date>2008-04-07T00:00:00</date>
+    /// <author>moviedo</author>
     public sealed class SimpleFacade : IBusinessFacade
     {
 
-  
-      
+
+
         #region < IBusinessFacade members >
 
 
@@ -53,24 +54,17 @@ namespace Fwk.BusinessFacades
             IServiceContract wResult = null;
             if (string.IsNullOrEmpty(pRequest.ServiceName))
             {
-
-                TechnicalException te = new TechnicalException("El despachador de servicio no pudo continuar debido\r\n a que el nombre del servicio no fue establecido");
-                Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
-
-                te.ErrorId = "7005";
-                throw te;
+                throw get_TechnicalException_error_serviceName_null();
             }
             Boolean wExecuteOndispatcher = true;
 
             IRequest req = (IRequest)pRequest;
             ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, pRequest.ServiceName);
 
-
-            
             //establezco el nombre del proveedor de seguridad al request
             req.SecurityProviderName = FacadeHelper.GetProviderInfo(providerName).SecurityProviderName;
 
-            
+
             req.ContextInformation.SetProviderName(providerName);
             //if (String.IsNullOrEmpty(req.ContextInformation.DefaultCulture))
             //    req.ContextInformation.DefaultCulture = FacadeHelper.GetProviderInfo(providerName).DefaultCulture;
@@ -101,41 +95,31 @@ namespace Fwk.BusinessFacades
             }
 
             return wResult;
-        }    
-           
-        
-   
-     
+        }
+
+
+
+
         /// <summary>
-		/// Ejecuta un servicio de negocio.
-		/// </summary>
+        /// Ejecuta un servicio de negocio.
+        /// </summary>
         /// <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
         /// <param name="serviceName">Nombre del servicio de negocio.</param> 
         /// <param name="pXmlRequest">XML con datos de entrada para la  ejecución del servicio.</param>
-		/// <returns>XML con el resultado de la  ejecución del servicio.</returns>
-		/// <date>2008-04-07T00:00:00</date>
-		/// <author>moviedo</author>
+        /// <returns>XML con el resultado de la  ejecución del servicio.</returns>
+        /// <date>2008-04-07T00:00:00</date>
+        /// <author>moviedo</author>
         public string ExecuteService(string providerName, string serviceName, string pXmlRequest)
         {
             string wResult;
-
-            ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-
-            IServiceContract wRequest = (IServiceContract)ReflectionFunctions.CreateInstance(wServiceConfiguration.Request);
-            if (wRequest == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
-                    serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
-
-                Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
-                if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
-                    te.Source = "Despachador de servicios en " + Environment.MachineName;
-                else
-                    te.Source = ConfigurationsHelper.HostApplicationName;
-
-                te.ErrorId = "7003";
-                throw te;
+                throw get_TechnicalException_error_serviceName_null();
             }
+            ServiceConfiguration serviceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
+
+            IServiceContract wRequest = Try_get_IServiceContract(providerName, serviceConfiguration);
+
             wRequest.SetXml(pXmlRequest);
 
             wResult = ExecuteService(providerName, wRequest).GetXml();
@@ -158,33 +142,25 @@ namespace Fwk.BusinessFacades
         public string ExecuteServiceJson(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
         {
             string wResult;
-
-            ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
-            if (reqType == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
-                    serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
-
-                Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
-                if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
-                    te.Source = "Despachador de servicios en " + Environment.MachineName;
-                else
-                    te.Source = ConfigurationsHelper.HostApplicationName;
-
-                te.ErrorId = "7003";
-                throw te;
+                throw get_TechnicalException_error_serviceName_null();
             }
+            ServiceConfiguration serviceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
+            Type reqType = Try_get_reqType(providerName, serviceConfiguration);
+
 
             var wRequest = (IServiceContract)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson(reqType, jsonRequest);
             wRequest.ContextInformation.HostName = hostContext.HostName;
             wRequest.ContextInformation.HostIp = hostContext.HostIp;
 
             IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
-            Type resType = Type.GetType(wServiceConfiguration.Response);
+            Type resType = Type.GetType(serviceConfiguration.Response);
             wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson(resType, res);
             return wResult;
         }
+
+
 
         /// <summary>
         /// usa internamente Newtonsoft para serializar json
@@ -197,72 +173,108 @@ namespace Fwk.BusinessFacades
         public string ExecuteServiceJson_newtonjs(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
         {
             string wResult;
-
-            ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
-            if (reqType == null)
+            if (string.IsNullOrEmpty(serviceName))
             {
-                TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
-                    serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
-
-                Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
-                if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
-                    te.Source = "Despachador de servicios en " + Environment.MachineName;
-                else
-                    te.Source = ConfigurationsHelper.HostApplicationName;
-
-                te.ErrorId = "7003";
-                throw te;
+                throw get_TechnicalException_error_serviceName_null();
             }
+            ServiceConfiguration serviceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
+
+            Type reqType = Try_get_reqType(providerName, serviceConfiguration);
+
 
             var wRequest = (IServiceContract)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson_Newtonsoft(reqType, jsonRequest);
             wRequest.ContextInformation.HostName = hostContext.HostName;
             wRequest.ContextInformation.HostIp = hostContext.HostIp;
 
             IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
-            Type resType = Type.GetType(wServiceConfiguration.Response);
+            Type resType = Type.GetType(serviceConfiguration.Response);
             wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(resType, res);
             return wResult;
         }
-        //public string ExecuteServiceXml(string providerName, string serviceName, string xmlRequest, HostContext hostContext)
-        //{
-        //    string xmlResult;
 
-        //    ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-        //    Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
-        //    if (reqType == null)
-        //    {
-        //        TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
-        //            serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
+        Type Try_get_reqType(string providerName, ServiceConfiguration serviceConfiguration)
+        {
 
-        //        Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
-        //        if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
-        //            te.Source = "Despachador de servicios en " + Environment.MachineName;
-        //        else
-        //            te.Source = ConfigurationsHelper.HostApplicationName;
+            try
+            {
+                Type reqType = ReflectionFunctions.CreateType(serviceConfiguration.Request);
 
-        //        te.ErrorId = "7003";
-        //        throw te;
-        //    }
+                return reqType;
+            }
+            catch (Exception ex)
+            {
+                throw get_TechnicalException_error_loading_req(serviceConfiguration, ex);
+            }
 
-        //    var wRequest = (IServiceContract)Fwk.HelperFunctions.SerializationFunctions.DeserializeFromXml(reqType, xmlRequest);
-        //    wRequest.ContextInformation.HostName = hostContext.HostName;
-        //    wRequest.ContextInformation.HostIp = hostContext.HostIp;
+        }
+        IServiceContract Try_get_IServiceContract(string providerName, ServiceConfiguration serviceConfiguration)
+        {
+            try
+            {
+                IServiceContract wRequest = (IServiceContract)ReflectionFunctions.CreateInstance(serviceConfiguration.Request);
+                if (wRequest == null)
+                {
+                    throw get_TechnicalException_error_loading_req(serviceConfiguration, null);
+                }
+                return wRequest;
+            }
+            catch (Exception ex)
+            {
+                throw get_TechnicalException_error_loading_req(serviceConfiguration, ex);
+            }
 
-        //    IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
-        //    //Type resType = Type.GetType(wServiceConfiguration.Response);
-        //    xmlResult = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(res);
-        //    return xmlResult;
-        //}
+        }
 
+        /// <summary>
+        /// Audita y retorna error
+        /// </summary>
+        /// <param name="serviceConfiguration"></param>
+        /// <param name="ex"></param>
+        /// <returns></returns>
+        TechnicalException get_TechnicalException_error_loading_req(ServiceConfiguration serviceConfiguration, Exception ex = null)
+        {
+            TechnicalException te = new TechnicalException(string.Concat("El despachador de servicio no pudo continuar debido\r\na que no logro construir el requets del servicio: ",
+                            serviceConfiguration.Name, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "), ex);
 
-	    #endregion
+            Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
+            if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
+                te.Source = "Despachador de servicios en " + Environment.MachineName;
+            else
+                te.Source = ConfigurationsHelper.HostApplicationName;
+
+            te.ErrorId = "7003";
+            //Audito ensegundo plano
+            Action actionAudit = () => { FacadeHelper.DoAuditError("", te.Message, ""); };
+            Task.Factory.StartNew(actionAudit);
+            return te;
+        }
+
+        /// <summary>
+        /// Audita y retorna error
+        /// </summary>
+        /// <returns></returns>
+        TechnicalException get_TechnicalException_error_serviceName_null()
+        {
+            TechnicalException te = new TechnicalException("El despachador de servicio no pudo continuar debido\r\n a que el nombre del servicio no fue establecido");
+            Fwk.Exceptions.ExceptionHelper.SetTechnicalException<SimpleFacade>(te);
+
+            te.ErrorId = "7005";
+
+            //Audito ensegundo plano
+            Action actionAudit = () => { FacadeHelper.DoAuditError("", te.Message, ""); };
+            Task.Factory.StartNew(actionAudit);
+
+            return te;
+
+        }
+
+        #endregion
 
 
 
 
         #region --[Caching]--
-        
+
 
 
         /// <summary>
@@ -271,16 +283,16 @@ namespace Fwk.BusinessFacades
         /// <param name="pRequest"></param>
         /// <param name="pServiceConfiguration"></param>
         /// <returns>IServiceContract con el response</returns>
-        private IServiceContract GetCaheDataById(IRequest pRequest,ServiceConfiguration pServiceConfiguration)
+        private IServiceContract GetCaheDataById(IRequest pRequest, ServiceConfiguration pServiceConfiguration)
         {
             IServiceContract wResult;
             object wItemInCache = null;
             if (string.IsNullOrEmpty(pRequest.CacheSettings.ResponseCacheId))
                 pRequest.CacheSettings.ResponseCacheId = pRequest.ServiceName;
-            
+
             //TODO: Agregar manejo de error para catching
             wItemInCache = CacheManager.GetData(pRequest.CacheSettings.ResponseCacheId);
-            
+
 
             if (wItemInCache == null)
             {
@@ -311,7 +323,7 @@ namespace Fwk.BusinessFacades
 
             return wResult;
         }
-       
+
         #endregion
 
         /// <summary>
@@ -326,21 +338,21 @@ namespace Fwk.BusinessFacades
             String wServiceInfo;
             try
             {
-                wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName,serviceName);
+                wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
 
                 wServiceInfo = wServiceConfiguration.GetXml();
             }
             catch (System.NullReferenceException)
             {
                 //TODO: Poner Id error
-                throw new TechnicalException(string.Concat("El servicio ", serviceName , " no se encuentra configurado"));
+                throw new TechnicalException(string.Concat("El servicio ", serviceName, " no se encuentra configurado"));
             }
             catch (Exception e)
             {
                 //TODO: Poner Id error
-                throw new TechnicalException(string.Concat("Error al obtener la configuracion del servicio  servicio ", serviceName) , e);
+                throw new TechnicalException(string.Concat("Error al obtener la configuracion del servicio  servicio ", serviceName), e);
             }
-            
+
             return wServiceInfo;
         }
 
@@ -354,7 +366,7 @@ namespace Fwk.BusinessFacades
         public String GetServicesList(String providerName, Boolean pViewXML)
         {
             ServiceConfigurationCollection wServiceConfigurationCollection = FacadeHelper.GetAllServices(providerName);
-            
+
             if (wServiceConfigurationCollection != null)
             {
                 if (pViewXML)
@@ -384,7 +396,7 @@ namespace Fwk.BusinessFacades
         /// <author>moviedo</author>
         public void SetServiceConfiguration(String providerName, String serviceName, ServiceConfiguration pServiceConfiguration)
         {
-            FacadeHelper.SetServiceConfiguration(providerName,serviceName, pServiceConfiguration); 
+            FacadeHelper.SetServiceConfiguration(providerName, serviceName, pServiceConfiguration);
         }
 
         /// <summary>
@@ -407,7 +419,7 @@ namespace Fwk.BusinessFacades
         public void DeleteServiceConfiguration(String providerName, string serviceName)
         {
             FacadeHelper.DeleteServiceConfiguration(providerName, serviceName);
-        
+
         }
 
         /// <summary>
@@ -416,7 +428,7 @@ namespace Fwk.BusinessFacades
         /// </summary>
         /// <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
         /// <returns></returns>
-        public  List<String> GetAllApplicationsId(string providerName)
+        public List<String> GetAllApplicationsId(string providerName)
         {
             return FacadeHelper.GetAllApplicationsId(providerName);
         }
@@ -436,10 +448,10 @@ namespace Fwk.BusinessFacades
         /// <returns></returns>
         public DispatcherInfo RetriveDispatcherInfo()
         {
-           
+
             return FacadeHelper.RetriveDispatcherInfo();
         }
-        
+
         /// <summary>
         /// Chequea la disponibilidad del despachador de servicio
         /// </summary>
@@ -450,7 +462,7 @@ namespace Fwk.BusinessFacades
             FacadeHelper.ReloadConfig(out strMessage);
             return strMessage;
         }
-	}
+    }
 
     /// <summary>
     /// Fachada de servicio por defecto a utilizar por las aplicaciones.
@@ -466,7 +478,7 @@ namespace Fwk.BusinessFacades
     /// </remarks>
     /// <date>2008-04-07T00:00:00</date>
     /// <author>moviedo</author>
-    public class StaticFacade 
+    public class StaticFacade
     {
 
 
@@ -485,7 +497,7 @@ namespace Fwk.BusinessFacades
         /// <author>moviedo</author>
         public static IServiceContract ExecuteService(string providerName, IServiceContract pRequest)
         {
-          
+
             IServiceContract wResult = null;
             if (string.IsNullOrEmpty(pRequest.ServiceName))
             {
@@ -508,7 +520,7 @@ namespace Fwk.BusinessFacades
 
 
             req.ContextInformation.SetProviderName(providerName);
-        
+
 
             // Validación de disponibilidad del servicio.
             FacadeHelper.ValidateAvailability(wServiceConfiguration, out wResult);
@@ -591,12 +603,12 @@ namespace Fwk.BusinessFacades
         /// <returns>JSON con el resultado de la  ejecución del servicio.</returns>
         /// <date>2008-04-07T00:00:00</date>
         /// <author>moviedo</author>
-        public static  string ExecuteServiceJson(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
+        public static string ExecuteServiceJson(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
         {
             string wResult;
 
             ServiceConfiguration wServiceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
-            
+
             Type reqType = ReflectionFunctions.CreateType(wServiceConfiguration.Request);
             if (reqType == null)
             {
@@ -604,7 +616,7 @@ namespace Fwk.BusinessFacades
                     serviceName, "\r\nVerifique que se encuentre los componentes necesarios para su ejecucion esten en el servidor de aplicación. "));
 
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException<StaticFacade>(te);
-               
+
                 if (string.IsNullOrEmpty(ConfigurationsHelper.HostApplicationName))
                     te.Source = "Despachador de servicios en " + Environment.MachineName;
                 else
@@ -702,8 +714,7 @@ namespace Fwk.BusinessFacades
             }
             catch (System.NullReferenceException)
             {
-                //TODO: Poner Id error
-                //wServiceInfo = string.Concat("El servicio ", serviceName , " no se encuentra configurado");
+
                 throw new TechnicalException(string.Concat("El servicio ", serviceName, " no se encuentra configurado"));
             }
             catch (Exception e)
@@ -776,7 +787,7 @@ namespace Fwk.BusinessFacades
         /// <param name="serviceName">Nombre del servicio.</param>
         /// <date>2008-04-13T00:00:00</date>
         /// <author>moviedo</author>
-        public static  void DeleteServiceConfiguration(String providerName, string serviceName)
+        public static void DeleteServiceConfiguration(String providerName, string serviceName)
         {
             FacadeHelper.DeleteServiceConfiguration(providerName, serviceName);
 
@@ -821,6 +832,10 @@ namespace Fwk.BusinessFacades
             FacadeHelper.ReloadConfig(out strMessage);
             return strMessage;
         }
+
+
+
+
     }
 }
 

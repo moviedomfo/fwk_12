@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="fwkdata" EntityNamespace="Fwk.ConfigData" ContextNamespace="Fwk.ConfigData" Class="FwkDatacontext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CLAPTON\SQLEXPRESS;Initial Catalog=fwkdata;User ID=sa" SettingsObjectName="Fwk.Bases.Properties.Settings" SettingsPropertyName="fwkdataConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="fwktest1" EntityNamespace="Fwk.ConfigData" ContextNamespace="Fwk.ConfigData" Class="FwkDatacontext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTANA\SQLEXPRESS2008;Initial Catalog=fwktest1;User ID=sa" SettingsObjectName="Fwk.Bases.Properties.Settings" SettingsPropertyName="fwktest1ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.fwk_Logs" Member="fwk_Logs">
     <Type Name="fwk_Log">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -19,22 +19,6 @@
       <Column Name="[key]" Member="key" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="encrypted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="value" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.fwk_ServiceAudit" Member="fwk_ServiceAudits">
-    <Type Name="fwk_ServiceAudit">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LogTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ServiceName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Send_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Resived_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Send_UserId" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Send_Machine" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Dispatcher_Instance_Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ApplicationId" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="Requets" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Response" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ServiceError" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.fwk_ServiceDispatcher" Member="fwk_ServiceDispatchers">
@@ -61,6 +45,24 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="fwk_Param_fwk_Param" Member="fwk_Param2" ThisKey="Id" OtherKey="Id" Type="fwk_Param" Cardinality="One" />
       <Association Name="fwk_Param_fwk_Param" Member="fwk_Param1" ThisKey="Id" OtherKey="Id" Type="fwk_Param" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.fwk_ServiceAudit" Member="fwk_ServiceAudits">
+    <Type Name="fwk_ServiceAudit">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LogTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Send_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Resived_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Send_UserId" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Send_Machine" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Dispatcher_Instance_Name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Requets" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Response" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ServiceError" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Logtype" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

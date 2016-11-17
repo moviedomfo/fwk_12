@@ -94,6 +94,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Client_Wrapper\back\back.csproj">
+      <Project>{7070d9b9-65d3-433e-a504-e9c30952f973}</Project>
+      <Name>back</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WcfDispatcher\WcfDispatcher.Service.csproj">
       <Project>{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}</Project>
       <Name>WcfDispatcher.Service</Name>

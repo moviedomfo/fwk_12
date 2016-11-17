@@ -14,12 +14,6 @@
         <elementListCompartment Id="278a67e2-33c5-41fd-8ef4-7c32357dab44" absoluteBounds="0.76500000000000012, 4.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="abd2be7d-a948-4952-a8d9-e078c69acecd" absoluteBounds="4, 3.625, 2.5, 3.1170068359375">
-      <DataClassMoniker Name="/FwkDatacontext/fwk_ServiceAudit" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7c58f983-20b9-4ff3-8a17-1e4a235d2488" absoluteBounds="4.015, 4.085, 2.4699999999999998, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="023a79b1-aa28-48df-b307-ba9750057985" absoluteBounds="1.875, 7.125, 2, 2.5401025390625">
       <DataClassMoniker Name="/FwkDatacontext/fwk_ServiceDispatcher" />
       <nestedChildShapes>
@@ -39,5 +33,11 @@
         <classShapeMoniker Id="4c3152c5-57a2-4e16-a4c7-33a8d89ecd7b" />
       </nodes>
     </associationConnector>
+    <classShape Id="381fe640-e23b-48aa-ac90-349bfa096bb6" absoluteBounds="6.125, 3.25, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/FwkDatacontext/fwk_ServiceAudit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa38f76f-e558-422f-b442-feff45fe5c84" absoluteBounds="6.14, 3.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

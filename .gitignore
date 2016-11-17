@@ -994,3 +994,17 @@ Dispatchers/WebAPIDispatcher/WebAPIDispatcherWebAPI/packages/Microsoft.AspNet.Id
 Fwk/Fwk.Bases/Blocks/Fwk.Blocking/BlockingEngineDAC.cs.bak
 Fwk/Fwk.Bases/Blocks/Fwk.Exceptions/ExceptionHelper.cs.bak
 Fwk/Fwk.Bases/Classes/ContextInformation.cs.bak
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker.v12.suo
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/bin/Debug/DispatcherClientChecker.exe.config
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/bin/Debug/DispatcherClientChecker.vshost.exe
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/bin/Debug/DispatcherClientChecker.vshost.exe.config
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/bin/Debug/DispatcherClientChecker.vshost.exe.manifest
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/obj/Debug/DispatcherClientChecker.csproj.FileListAbsolute.txt
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+Dispatchers/WcfDispatcher/WcfDispatcher.v12.suo
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/2016-11-15_DispatcherErrorsLog.xml
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/WcfDispatcher_Host.vshost.exe
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/WcfDispatcher_Host.vshost.exe.config
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/bin/Debug/WcfDispatcher_Host.vshost.exe.manifest
