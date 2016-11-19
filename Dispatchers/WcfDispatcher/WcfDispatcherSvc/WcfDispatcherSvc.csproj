@@ -59,7 +59,9 @@
       <HintPath>..\..\..\Libraries\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,13 +71,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="WCFWinService.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WCFWinService.Designer.cs">
       <DependentUpon>WCFWinService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,9 +96,18 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="install.bat" />
+    <None Include="StartService.bat" />
+    <None Include="StopService.bat" />
+    <None Include="uninstall.bat" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XMLFile1.xml" />
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WCFWinService.resx">
+      <DependentUpon>WCFWinService.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,23 +13,29 @@ namespace WcfDispatcher_Host
     {
         static void Main(string[] args)
         {
-            using (ServiceHost host = new ServiceHost(typeof(FwkService)))
-            {
-               
-                host.Open();
-                MetadataHelper.Log_ServiceHost(host);
-                Console.ReadLine();
-            }
-           
+            ServiceHost host = new ServiceHost(typeof(FwkService));
+            host.Faulted += new EventHandler(host_Faulted);
+            host.Open();
+            MetadataHelper.Log_ServiceHost(host);
 
+            //ServiceHost FileTRansferHost = new ServiceHost(typeof(FwkFileTransferService));
+            //MetadataHelper.Log_ServiceHost(FileTRansferHost);
+            //FileTRansferHost.Open();
+       
+            Console.ReadLine();
+        }
 
+        private static void host_Faulted(object sender, EventArgs e)
+        {
+
+            Console.Write("FwkService host_Faulted");
         }
 
         void SetNetTcpBinding(ServiceHost host)
         {
 
             NetTcpBinding tcpBinding = new NetTcpBinding();
-            Uri wUri = new Uri("net.tcp://santana:8001/FwkService1");
+            Uri wUri = new Uri("net.tcp://localhost:8001/FwkService1");
             tcpBinding.TransactionFlow = true;
             
             host.AddServiceEndpoint(typeof(IFwkService), tcpBinding, wUri);

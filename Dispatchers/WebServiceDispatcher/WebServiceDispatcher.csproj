@@ -87,6 +87,7 @@
   <ItemGroup>
     <Content Include="..\Metasvc.xml">
       <Link>Metasvc.xml</Link>
+       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ConfigurationManager_02.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

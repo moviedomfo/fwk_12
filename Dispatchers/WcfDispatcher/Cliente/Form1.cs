@@ -33,8 +33,10 @@ namespace Cliente
         {
              _WCFWrapper_01 = new WCFWrapper_01();
              _WCFWrapper_02 = new WCFWrapper_02();
-            //_WCFWrapper_01.SourceInfo = "net.tcp://localhost:8001/FwkService";
-            //_WCFWrapper_02.SourceInfo = "net.tcp://localhost:8001/FwkService";
+             _WCFWrapper_01.SourceInfo = "net.tcp://localhost:8001/FwkService";
+             _WCFWrapper_02.SourceInfo = "net.tcp://localhost:8001/FwkService";
+            
+            
              wrap_provider w = comboProviders.SelectedItem as wrap_provider;
              StringBuilder str = new StringBuilder("Wrapper name: " + w.Name);
              str.AppendLine();
@@ -48,7 +50,10 @@ namespace Cliente
         private void btn_RetrivePatientsReq1_Click(object sender, EventArgs e)
         {
             RetrivePatientsReq req = CreateReq();
+            req.BusinessData = new Params();
+            req.BusinessData.SleepSeconds = 8000;
             RetrivePatientsRes res = _WCFWrapper_01.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(req);
+            
             if (res.Error != null)
                 MessageBox.Show(Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message);
 

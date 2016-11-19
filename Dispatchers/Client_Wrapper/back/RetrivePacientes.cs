@@ -29,7 +29,7 @@ namespace Health.Isvc.RetrivePatients
 
 
     [Serializable]
-    public class RetrivePatientsRes : Fwk.Bases.Response<PatientList>
+    public class RetrivePatientsRes : Fwk.Bases.Response<PatientViewList>
     {
     }
 

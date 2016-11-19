@@ -36,7 +36,7 @@ namespace WcfDispatcherSvc
             ev.LogType = EventType.Information;
             ev.Machine = Environment.MachineName;
             ev.User = Environment.UserName;
-            ev.Message.Text = string.Concat("Servicio de host de WCF ", Fwk.Bases.ConfigurationsHelper.HostApplicationName, " iniciado");
+            ev.Message.Text = string.Concat("Servicio de host (",base.ServiceName,") iniciado");
             StaticLogger.Log(TargetType.WindowsEvent, ev, null, null);
         }
 
@@ -59,7 +59,7 @@ namespace WcfDispatcherSvc
             ev.LogType = EventType.Information;
             ev.Machine = Environment.MachineName;
             ev.User = Environment.UserName;
-            ev.Message.Text = string.Concat("Servicio de host de WCF ", Fwk.Bases.ConfigurationsHelper.HostApplicationName, " iniciado");
+            ev.Message.Text = string.Concat("Servicio de host (", base.ServiceName, ")  detenido");
             StaticLogger.Log(TargetType.WindowsEvent, ev, null, null);
         }
     }

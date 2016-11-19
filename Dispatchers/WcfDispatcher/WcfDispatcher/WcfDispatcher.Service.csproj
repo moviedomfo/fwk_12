@@ -82,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FwkDataContract.cs" />
+    <Compile Include="FwkFileTransferContract.cs" />
+    <Compile Include="FwkFileTransferService.cs" />
     <Compile Include="IFwkService.cs" />
     <Compile Include="MetadataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

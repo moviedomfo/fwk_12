@@ -13,7 +13,7 @@ namespace WcfDispatcher.Service
     
     [DataContract]
     //[ServiceKnownType("GetKnownTypes", typeof(FwkKnownTypesProvider))]
-    [KnownType("GetKnownTypes")]
+    //[KnownType("GetKnownTypes")]
     public class WCFRequet
     {
         [DataMember]
@@ -25,27 +25,27 @@ namespace WcfDispatcher.Service
 
         [DataMember]
         public  Fwk.Bases.ContextInformation ContextInformation{ get; set; }
-        public static Type[] GetKnownTypes()
-        {
-            System.Collections.Generic.List<System.Type> knownTypes = new System.Collections.Generic.List<System.Type>();
+        //public static Type[] GetKnownTypes()
+        //{
+        //    System.Collections.Generic.List<System.Type> knownTypes = new System.Collections.Generic.List<System.Type>();
 
-            String type = "Health.Isvc.SearchParametroByParams.SearchParametroByParamsReq, Health.SVC";
+        //    String type = "Health.Isvc.SearchParametroByParams.SearchParametroByParamsReq, Health.SVC";
 
-            knownTypes.Add(Type.GetType(type));
+        //    knownTypes.Add(Type.GetType(type));
 
-            knownTypes.Add(Type.GetType("Health.Isvc.SearchParametroByParams.SearchParametroByParamsRes, Health.SVC"));
-            knownTypes.Add(Type.GetType("Health.Isvc.SearchParametroByParams.Params, Health.SVC"));
+        //    knownTypes.Add(Type.GetType("Health.Isvc.SearchParametroByParams.SearchParametroByParamsRes, Health.SVC"));
+        //    knownTypes.Add(Type.GetType("Health.Isvc.SearchParametroByParams.Params, Health.SVC"));
             
-            knownTypes.Add(typeof(Fwk.Bases.Entity));
-            knownTypes.Add(typeof(Fwk.Bases.IEntity));
-            // Add any types to include here.
-            //Properties.Settings.Default.KnowTypes.Cast<string>().ToList().ForEach(type =>
-            //{
-            //    knownTypes.Add(Type.GetType(type));
-            //});
+        //    knownTypes.Add(typeof(Fwk.Bases.Entity));
+        //    knownTypes.Add(typeof(Fwk.Bases.IEntity));
+        //    // Add any types to include here.
+        //    //Properties.Settings.Default.KnowTypes.Cast<string>().ToList().ForEach(type =>
+        //    //{
+        //    //    knownTypes.Add(Type.GetType(type));
+        //    //});
 
-            return knownTypes.ToArray();
-        }
+        //    return knownTypes.ToArray();
+        //}
     }
 
     [DataContract]
@@ -61,26 +61,26 @@ namespace WcfDispatcher.Service
 
     }
 
-    internal static class FwkKnownTypesProvider
-    {
-        public static IEnumerable<Type> GetKnownTypes(ICustomAttributeProvider provider)
-        {
-            System.Collections.Generic.List<System.Type> knownTypes =  new System.Collections.Generic.List<System.Type>();
+    //internal static class FwkKnownTypesProvider
+    //{
+    //    public static IEnumerable<Type> GetKnownTypes(ICustomAttributeProvider provider)
+    //    {
+    //        System.Collections.Generic.List<System.Type> knownTypes =  new System.Collections.Generic.List<System.Type>();
 
-            String type = "Health.Isvc.SearchParametroByParams.SearchParametroByParamsReq, Health.SVC";
+    //        String type = "Health.Isvc.SearchParametroByParams.SearchParametroByParamsReq, Health.SVC";
 
-            knownTypes.Add(Type.GetType(type));
+    //        knownTypes.Add(Type.GetType(type));
 
-            knownTypes.Add(Type.GetType("Health.Isvc.SearchParametroByParams.SearchParametroByParamsRes, Health.SVC"));
-            knownTypes.Add(typeof(Fwk.Bases.Entity));
-            knownTypes.Add(typeof(Fwk.Bases.IEntity));
-            // Add any types to include here.
-            //Properties.Settings.Default.KnowTypes.Cast<string>().ToList().ForEach(type =>
-            //{
-            //    knownTypes.Add(Type.GetType(type));
-            //});
+    //        knownTypes.Add(Type.GetType("Health.Isvc.SearchParametroByParams.SearchParametroByParamsRes, Health.SVC"));
+    //        knownTypes.Add(typeof(Fwk.Bases.Entity));
+    //        knownTypes.Add(typeof(Fwk.Bases.IEntity));
+    //        // Add any types to include here.
+    //        //Properties.Settings.Default.KnowTypes.Cast<string>().ToList().ForEach(type =>
+    //        //{
+    //        //    knownTypes.Add(Type.GetType(type));
+    //        //});
 
-            return knownTypes;
-        }
-    }
+    //        return knownTypes;
+    //    }
+    //}
 }

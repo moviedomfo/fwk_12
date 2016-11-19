@@ -9,6 +9,12 @@ namespace Fwk.Bases
     /// </summary>
     public static class ConfigurationsHelper
     {
+        static ConfigurationsHelper()
+        {
+            if (!String.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["HostApplicationName"]))
+                ConfigurationsHelper.HostApplicationName = System.Configuration.ConfigurationManager.AppSettings["HostApplicationName"];
+        }
+
         private static string _HostApplicationName;
 
         /// <summary>

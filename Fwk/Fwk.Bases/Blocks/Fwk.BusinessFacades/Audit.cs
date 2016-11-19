@@ -178,7 +178,7 @@ namespace Fwk.BusinessFacades.Utils
             audit.LogTime = System.DateTime.Now;
             audit.Dispatcher_Instance_Name = FacadeHelper.ServiceDispatcherConfig.InstanseName;
 
-            audit.Logtype = Enum.GetName(typeof(Fwk.Logging.EventType), Fwk.Logginug.EventType.Error);
+            audit.Logtype = Enum.GetName(typeof(Fwk.Logging.EventType), Fwk.Logging.EventType.Error);
 
             try
             {

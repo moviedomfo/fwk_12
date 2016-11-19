@@ -4,8 +4,6 @@
 
 echo Installing MyService...
 
-%DOTNETFX2%InstallUtil /i [root]\[systemname].Remoting.exe
-
+%DOTNETFX2%InstallUtil  [root]\WCFservice.exe -u
 
 pause
-

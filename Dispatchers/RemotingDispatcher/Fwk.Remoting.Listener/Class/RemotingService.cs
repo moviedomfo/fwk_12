@@ -16,12 +16,12 @@ namespace Fwk.Remoting.Listener
 {
     public partial class RemotingService : ServiceBase
     {
-        
+
         #region ---[Constructor y Main]---
         public RemotingService()
         {
             InitializeComponent();
-           
+
         }
 
 
@@ -35,52 +35,36 @@ namespace Fwk.Remoting.Listener
         }
         #endregion
 
-        #region ---[Metodos Privados]---
-        private void Inicializar()
-        {
-            try
-            {
-                //Controlar que este configurado en donde obtener las configuraciones
-                if (String.IsNullOrEmpty(ConfigurationManager.GetProperty("Config","RemotingConfig")) )
-                {
-                    RemotingHelper.WriteLog("\r\nNo se encuentra configurado el nombre del archivo" +
-                        "en el cual se leen las configuraciones de Remoting.\r\nProbablemente no exista el archivo de " +
-                        "configuración.\r\nPresione ENTER para finalizar la ejecución.", EventLogEntryType.Error);
-
-                    throw new Exception("\r\nNo se encuentra configurado el nombre del archivo" +
-                        "en el cual se leen las configuraciones de Remoting.\r\nProbablemente no exista el archivo de " +
-                        "configuración.\r\nPresione ENTER para finalizar la ejecución.");
-                }
-                else
-                {
-
-                    RemotingConfiguration.Configure(AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"\" + ConfigurationManager.GetProperty("Config", "RemotingConfig").ToString(), false);
-                    RemotingHelper.WriteLog("\r\nEl servicio esta preparado para escuchar las peticiones.", EventLogEntryType.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                RemotingHelper.WriteLog("\r\nSe produjo una excepción al inicializar el servicio." +
-                    "\r\n\r\n" + ex.ToString(),
-                    EventLogEntryType.Error);
-
-                throw ex;
-            }
-        }
-        #endregion
         
+
         #region ---[OnStart]---
         protected override void OnStart(string[] args)
         {
-            ConfigurationsHelper.HostApplicationName = string.Concat("Fwk remoting ", this.ServiceName);
-            RemotingConfiguration.Configure(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile, false);
-            
+            Fwk.Logging.Event ev = null;
+            //ConfigurationsHelper.HostApplicationName = string.Concat("Fwk remoting ", this.ServiceName);
+            try
+            {
+                RemotingConfiguration.Configure(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile, false);
+                ev = new Event();
+                ev.LogType = EventType.Information;
+                ev.Machine = Environment.MachineName;
+                ev.User = Environment.UserName;
+                ev.Message.Text = "Servicio de host de Remoting iniciado.";
+            }
+            catch (Exception ex)
+            {
+                //RemotingHelper.WriteLog("\r\nSe produjo una excepción al iniciar el servicio." +
+                //    "\r\n\r\n" + ex.ToString(),
+                //    EventLogEntryType.Error);
+                ev = new Event();
+                ev.LogType = EventType.Error;
+                ev.Machine = Environment.MachineName;
+                ev.User = Environment.UserName;
+                ev.Message.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+
+            }
             //RemotingHelper.WriteLog("Servicio de host de Remoting iniciado.", EventLogEntryType.Information);
-            Fwk.Logging.Event ev = new Event();
-            ev.LogType = EventType.Information;
-            ev.Machine = Environment.MachineName;
-            ev.User = Environment.UserName;
-            ev.Message.Text = "Servicio de host de Remoting iniciado.";
+
             StaticLogger.Log(TargetType.WindowsEvent, ev, null, null);
         }
         #endregion
@@ -98,9 +82,9 @@ namespace Fwk.Remoting.Listener
             ev.User = Environment.UserName;
             ev.Message.Text = "Servicio de host de Remoting detenido.";
             StaticLogger.Log(TargetType.WindowsEvent, ev, null, null);
-           
+
         }
         #endregion
-        
+
     }
 }

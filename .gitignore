@@ -1012,3 +1012,12 @@ Fwk/Test/Fwk.Blocking.Test/obj/Debug/build.force
 Fwk/Test/Fwk.Configuration.Test/Fwk.Configuration.Test/obj/Debug/build.force
 Fwk/Test/Fwk.Security.Service.Test/obj/Debug/build.force
 Fwk/Test/Fwk.UnitTest/obj/Debug/build.force
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/Fwk.Bases.xml
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/Remoting.Host.exe
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/Remoting.Host.exe.config
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/Remoting.Host.vshost.exe
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/Remoting.Host.vshost.exe.config
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/Remoting.Host.vshost.exe.manifest
+Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/RemotingHost.config
+Dispatchers/RemotingDispatcher/Remoting.Host/obj/Debug/Remoting.Host.csproj.FileListAbsolute.txt
+Dispatchers/RemotingDispatcher/Remoting.Host/obj/Debug/Remoting.Host.exe

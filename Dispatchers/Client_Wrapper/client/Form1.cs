@@ -103,7 +103,7 @@ namespace Client
         }
 
 
-        public  PatientList RetrivePatients(int? IdPersona)
+        public  PatientViewList RetrivePatients(int? IdPersona)
         {
             RetrivePatientsReq req = CreateReq();
             RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(comboProviders.Text, req);
@@ -115,19 +115,7 @@ namespace Client
 
         private void button4_Click(object sender, EventArgs e)
         {
-             RetrivePatientsReq req = new RetrivePatientsReq();
-
-            req.BusinessData.Id = 33;
-            req.ContextInformation.UserId = "hylux";
-
-            req.ContextInformation.AppId = "ddsadsa";
-            String jsonRequets = Newtonsoft.Json.JsonConvert.SerializeObject(req, Formatting.None);
-            Type t = ReflectionFunctions.CreateType("Health.Isvc.RetrivePatients.RetrivePatientsReq,Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
-            Type reqType = Type.GetType("Health.Isvc.RetrivePatients.RetrivePatientsReq,Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
             
-
-         var wRequest = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonRequets, reqType, new JsonSerializerSettings());
-         //IServiceContract wRequest2 = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonRequets, typeof(IServiceContract), new JsonSerializerSettings());   
         }
         StringBuilder str = new StringBuilder();
 
@@ -189,5 +177,56 @@ namespace Client
             str.AppendLine("ApplicationId: " + w.ApplicationId);
             textBox1.Text = str.ToString();
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            RetrivePatientsReq req = create_RetrivePatientsReq();
+
+            String jsonRequets = Newtonsoft.Json.JsonConvert.SerializeObject(req, Formatting.None);
+            jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson(typeof(RetrivePatientsReq), req);
+            txtResponse.Text = jsonRequets;
+            //var wRequest = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonRequets, reqType, new JsonSerializerSettings());
+            //IServiceContract wRequest2 = Newtonsoft.Json.JsonConvert.DeserializeObject(jsonRequets, typeof(IServiceContract), new JsonSerializerSettings());   
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RetrivePatientsReq req = create_RetrivePatientsReq();
+
+            
+            string jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(typeof(RetrivePatientsReq), req);
+            txtResponse.Text = jsonRequets;
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            RetrivePatientsReq req = create_RetrivePatientsReq();
+
+
+            string jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_JavaScriptSerializer(typeof(RetrivePatientsReq), req);
+            txtResponse.Text = jsonRequets;
+        }
+
+        RetrivePatientsReq create_RetrivePatientsReq()
+        {
+            RetrivePatientsReq req = new RetrivePatientsReq();
+
+            req.BusinessData.Id = 33;
+            req.BusinessData.Apellido="Curi Ventus";
+            req.BusinessData.Nombre="Dafne";
+            req.BusinessData.NroDocumento= 12097453;
+            req.ContextInformation.UserId = "hylux";
+            req.ContextInformation.Culture = "EN-ES";
+            req.ContextInformation.AppId = "test_fwk_serializartion";
+            req.ContextInformation.HostName = Environment.MachineName;
+            req.ContextInformation.HostTime = DateTime.Now;
+
+            return req;
+        }
+
+       
+       
+
     }
 }

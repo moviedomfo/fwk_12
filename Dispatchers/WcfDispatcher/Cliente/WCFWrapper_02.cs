@@ -258,19 +258,36 @@ namespace Fwk.Bases.Connector
                 this.binding = new NetTcpBinding();
 
                 binding.Name = "tcp";
-                binding.MaxReceivedMessageSize *= factorSize;
+                binding.MaxReceivedMessageSize = System.Int32.MaxValue;
                 binding.MaxBufferSize *= factorSize;
+                //openTimeout as the name implies is the amount of time you're willing to wait when you open the connection to your WCF service.
+                //closeTimeout is the amount of time when you close the connection (dispose the client proxy) that you'll wait before an exception is thrown
+                //binding.CloseTimeout = new TimeSpan(0,0,35);
+                //binding.OpenTimeout = new TimeSpan(0, 0, 35);
+                //specify how long the client will wait for a RESPONSE from WCF-Service
+                //in this case it wait 10 min
+                binding.SendTimeout = new TimeSpan(0, 00, 10);
+                //receiveTimeout is a bit like a mirror for the sendTimeout. Is the amount of time you'll give you client to receive and process the response from the server.
+                binding.ReceiveTimeout = new TimeSpan(0, 10, 10);
                 binding.MaxBufferPoolSize *= factorSize;
-                binding.ReaderQuotas.MaxStringContentLength = 2147483647;
-                binding.ReaderQuotas.MaxArrayLength = 2147483647;
-                binding.ReaderQuotas.MaxBytesPerRead = 2147483647;
-                address = new EndpointAddress(_URL);
+                binding.ReaderQuotas.MaxDepth = System.Int32.MaxValue;
+                binding.ReaderQuotas.MaxNameTableCharCount = System.Int32.MaxValue;
+                binding.ReaderQuotas.MaxStringContentLength = System.Int32.MaxValue;
+                binding.ReaderQuotas.MaxArrayLength = System.Int32.MaxValue;
+                binding.ReaderQuotas.MaxBytesPerRead = System.Int32.MaxValue;
+                address = new EndpointAddress(this.SourceInfo);
             }
         }
 
 
 
         public string CheckServiceAvailability()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public ISVC.DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings = false, bool includeAppSettings = false, bool includeMetadata = false)
         {
             throw new NotImplementedException();
         }

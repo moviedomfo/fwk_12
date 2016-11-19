@@ -133,6 +133,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WcfDispatcher\WcfDispatcher.Service.csproj">
+      <Project>{01286891-ae8e-4a3a-b7eb-e22fcecc3f05}</Project>
+      <Name>WcfDispatcher.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

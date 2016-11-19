@@ -19,15 +19,30 @@ namespace Health.Svc
         public override RetrivePatientsRes Execute(RetrivePatientsReq pServiceRequest)
         {
             RetrivePatientsRes wRes = new RetrivePatientsRes();
-            //if (String.IsNullOrEmpty(pServiceRequest.BusinessData.Nombre) && String.IsNullOrEmpty(pServiceRequest.BusinessData.Apellido) && pServiceRequest.BusinessData.Id.HasValue)
-            //{
-            //    PatientBE p = PatientsDAC.GetById(pServiceRequest.BusinessData.Id.Value);
-            //    wRes.BusinessData.Add(p);
-            //}
-            //else
-            //{
-            //    wRes.BusinessData.AddRange(PatientsDAC.SearchByParams(pServiceRequest.BusinessData.Nombre, pServiceRequest.BusinessData.Apellido));
-            //}
+           
+            PatientViewBE p = new PatientViewBE();
+            p.FechaAlta = DateTime.Now;
+            p.IdPersona = 3;
+            p.PatientId = 1234;
+            p.Nombre = "Facundo";
+            p.Apellido = "Cabral";
+            wRes.BusinessData.Add(p);
+            p = new PatientViewBE();
+            p.FechaAlta = DateTime.Now;
+            p.IdPersona = 12312;
+            p.PatientId = 12;
+            p.Nombre = "Christopher";
+            p.Apellido = "EchePler";
+            wRes.BusinessData.Add(p);
+
+            wRes.BusinessData.Add(p);
+            p = new PatientViewBE();
+            p.FechaAlta = DateTime.Now;
+            p.IdPersona = 122;
+            p.PatientId = 1222;
+            p.Nombre = "Chris Blan";
+            p.Apellido = "As perl";
+            wRes.BusinessData.Add(p);
             return wRes;
         }
     }
