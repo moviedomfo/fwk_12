@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Allus.WebServiceDispatcher</RootNamespace>
-    <AssemblyName>Allus.WebServiceDispatcher</AssemblyName>
+    <RootNamespace>Hemo.Ws</RootNamespace>
+    <AssemblyName>Hemo.Ws</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
@@ -53,9 +53,6 @@
     <Reference Include="Fwk.Security">
       <HintPath>..\..\Libraries\Framework\Fwk.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Health.Back">
-      <HintPath>..\..\..\..\repos_allus\arquitectura\fwk\trunk\12.0\Dispatchers\WebAPIDispatcher\libs\Health.Back.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
@@ -65,10 +62,8 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\repos_allus\arquitectura\fwk\trunk\12.0\Dispatchers\WebAPIDispatcher\libs\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SomeCompany">
-      <HintPath>..\WebAPIDispatcher\libs\SomeCompany.dll</HintPath>
-    </Reference>
+    </Reference>º
+
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -87,7 +82,7 @@
   <ItemGroup>
     <Content Include="..\Metasvc.xml">
       <Link>Metasvc.xml</Link>
-       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ConfigurationManager_02.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -112,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Client_Wrapper\back\back.csproj">
+      <Project>{7070d9b9-65d3-433e-a504-e9c30952f973}</Project>
+      <Name>back</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

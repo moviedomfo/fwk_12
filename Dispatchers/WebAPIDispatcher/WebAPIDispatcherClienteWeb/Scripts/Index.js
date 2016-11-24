@@ -1,9 +1,22 @@
 ﻿$(function () {
     var hostedRootPath = 'http://localhost:17854';
     var hostedRootPath_webapi = 'http://localhost:47647';
+    var url = 'http://localhost:38091/SingleService.asmx' ;
     var currentDate = new Date();
 
-    var jsonRequets = {
+    var contextInformation = new ContextInformation();
+    contextInformation.Culture = "ES-AR";
+    contextInformation.HostName = 'localhost';
+    contextInformation.HostIp = '10.10.200.168';
+    contextInformation.HostTime = currentDate;
+    contextInformation.ServerName = 'WebAPIDispatcherClienteWeb',
+    contextInformation.ServerTime = currentDate;
+    contextInformation.UserName = 'moviedo';
+    contextInformation.UserId = '';
+    contextInformation.AppId = 'WebAPIDispatcherClienteWeb';
+    contextInformation.ProviderName = 'health';
+
+    var requetObj = {
         SecurityProviderName: null,
         ServiceName: 'RetrivePatientsService',
         BusinessData: {
@@ -13,25 +26,13 @@
             Id: 33
             
         },
-        ContextInformation: {
-            Culture: null,
-            ProviderNameWithCultureInfo: null,
-            HostName: null,
-            HostIp: null,
-            HostTime: currentDate,
-            ServerName: null,
-            ServerTime: currentDate,
-            UserName: "moviedo",
-            UserId: "123432",
-            AppId: "test allus dev",
-            ProviderName: null
-        }
+        ContextInformation: contextInformation
     };
 
     var data = {
-        providerName: 'health',
-        serviceName: 'RetrivePatientsService',
-        jsonRequets: JSON.stringify(jsonRequets)
+        providerName: requetObj.ContextInformation.ProviderName,
+        serviceName: requetObj.ServiceName,
+        jsonRequets: JSON.stringify(requetObj)
     };
     
     $('#btnCallService_thisSite_POST_WebAPI').click(function () {
@@ -42,6 +43,9 @@
     });
     $('#btnCallService_WS_Cruzado').click(function () {
         CallService_WS_Cruzado();
+    });
+    $('#btnCallService_WS_Cruzado2').click(function () {
+        CallService_WS_Cruzado_FwkWebCLientWrapper();
     });
     function logResults(json) {
         alert(json);
@@ -105,37 +109,53 @@
     }
 
     function CallService_WS_Cruzado() {
+     
+   
         $.ajax({
+            
             type: 'POST',
-            url: 'http://localhost:38091/SingleService.asmx' + '/Ejecutar',
-            //jsonp: "logResults",
-           jsonp: false,
-           jsonpCallback: function(res)
-           {
-               //var asgndata = JSON.parse(res);
-               //console.log( "jsonp asgndata: "+asgndata );
-              // alert("jsonp data: " + res);// undefined - parsererror in returned res
-           },
-           dataType: 'JSONP',
-            contentType: "application/json; charset=utf-8",
-            //contentType: "text/javascript;charset=utf-8",
+            url: url + '/EjecutarTest',
+            dataType: 'jsonp',
+            
+            //contentType: "text/javascript; charset=utf-8",
             data: data,
-            processData :true,
             crossDomain: true,
-            success: function (data) {
-
-                var data = $.parseJSON(data);
-                alert('llamada al servicio OK ' + data.Name);
-               // alert('llamada al servicio OK ' + JSON.stringify(result));
-            },
-            error: ServiceFailed
+            jsonpCallback: 'CallbackResponse',
+            success: CallbackResponse,
+            error: function (pJqXHR, pTextStatus, pErrorThrown) {
+                alert(pJqXHR.responseText);
+                return null;
+            }
         });
         
     }
-
+    function CallbackResponse(response) {
+        
+        var businessData = response.BusinessData;
+        alert('llamada al servicio OK ' + businessData[0].PatientId);
+    }
   
+    function CallService_WS_Cruzado_FwkWebCLientWrapper() {
 
+        var wrapper = new FwkWebCLientWrapper();
+        wrapper.ExecuteService(url, requetObj, wrapper_Callback);
 
+      
+
+    }
+
+    function wrapper_Callback(response) {
+       
+        
+        if (response.error)
+        {
+            alert(response.error.MessageText);
+            return;
+        }
+        var businessData = response.BusinessData;
+        alert('llamada al servicio OK ');
+        alert(JSON.stringify( businessData));
+    }
 
 
 

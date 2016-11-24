@@ -50,9 +50,9 @@ namespace WcfDispatcher.Service
         /// <returns></returns>
         string IFwkService.ExecuteService(String providerName, String serviceName, String jsonRequets)
         {
-#if DEBUG
-            Console.WriteLine(DateTime.Now.ToString() +  " SVC: " + serviceName);
-#endif 
+
+            Console.WriteLine("Excecuting svc " + serviceName + "  " + DateTime.Now.ToString());
+
             CreateSimpleFacade();
             return simpleFacade.ExecuteServiceJson(providerName, serviceName, jsonRequets, hostContext);
 

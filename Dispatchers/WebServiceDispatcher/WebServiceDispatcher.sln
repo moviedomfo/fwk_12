@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceDispatcher", "WebServiceDispatcher.csproj", "{EFA632D2-F98A-4650-8BBA-075E67CB7D29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "back", "..\Client_Wrapper\back\back.csproj", "{7070D9B9-65D3-433E-A504-E9C30952F973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{EFA632D2-F98A-4650-8BBA-075E67CB7D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFA632D2-F98A-4650-8BBA-075E67CB7D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFA632D2-F98A-4650-8BBA-075E67CB7D29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7070D9B9-65D3-433E-A504-E9C30952F973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

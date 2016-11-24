@@ -5,44 +5,57 @@
    
 </script>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        @*<p>
-          
-        </p>
-        <p><div id="btnAjaxCall" class="btn btn-default">POST to web site </div></p>*@
 
-        <p>
-            JSONP contra Web API Dispatcher fwk
-            Llamada server mediante ajax jsonp post contra  web api jsonp
-        </p>
-        <p><div id="btnAjaxCall_POST_jsonp_WebAPI" class="btn btn-default">POST</div></p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel-group">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    JSONP contra Web API Dispatcher fwk
+                </div>
+                <div class="panel-body">
+                    Llamada server mediante ajax jsonp post contra  web api jsonp
+                    <p><div id="btnAjaxCall_POST_jsonp_WebAPI" class="btn btn-default">POST</div></p>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    POST Web API en este sitio
+                </div>
+                <div class="panel-body">
+                    <p><div id="btnCallService_thisSite_POST_WebAPI" class="btn btn-danger">POST </div></p>
+
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    POST a un web service externo  jsonp
+
+                </div>
+                <div class="panel-body">
+                    El metodo en el WS hace un response.write(jsonResult)
+                    <p><div id="btnCallService_WS_Cruzado" class="btn btn-info">Call WS </div></p>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    POST ExecuteService 
+
+                </div>
+                <div class="panel-body">
+                    Ejecuta el web service Dispatcher ExecuteServiceJsonp
+                    llama a una libreria js 
+                    <p><div id="btnCallService_WS_Cruzado2" class="btn btn-info">Call WS </div></p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
     
-</div>
-<div class="row">
-
-    <div class="col-md-4">
-
-        <p>
-            POST to Execute tyhis site  directly
-        </p>
-        <p><div id="btnCallService_thisSite_POST_WebAPI" class="btn btn-danger">POST </div></p>
-
-
-    </div>
-    <div class="col-md-4">
-        <p>
-            Llamada a una web service  json p
-        </p>
-        <p><div id="btnCallService_WS_Cruzado" class="btn btn-info">Call WS</div></p>
-
-    </div>
-</div>
 
     @section Scripts {
 
         <script src="@Url.Content("~/Scripts/index.js")" type="text/javascript"></script>
-
+        <script src="@Url.Content("~/Scripts/FwkWebCLientWrapper.js")" type="text/javascript"></script>
     }

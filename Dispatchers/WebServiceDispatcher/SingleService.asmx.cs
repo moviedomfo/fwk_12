@@ -10,10 +10,11 @@ using Fwk.ConfigSection;
 using Fwk.BusinessFacades.Utils;
 using System.Web.Script.Services;
 using Fwk.Bases.Blocks.Fwk.BusinessFacades;
+using Health.Svc;
 
 
 
-namespace Allus.WebServiceDispatcher
+namespace WebServiceDispatcher
 {
     /// <summary>
     /// Summary description for WebService1
@@ -50,32 +51,32 @@ namespace Allus.WebServiceDispatcher
             string wResult = wSimpleFacade.ExecuteService(providerName, pServiceName, pData);
             return wResult;
         }
+
         [WebMethod]
-        //https://forums.asp.net/t/1934215.aspx?Using+jQuery+ajax+to+call+asmx+webservice+methods
-        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public string Ejecutar(string providerName, string serviceName, string jsonRequets)
+        public void ExecuteServiceJsonp(string providerName, string serviceName, string jsonRequets, string callback)
+        {
+            SimpleFacade wSimpleFacade = CreateSimpleFacade();
+
+            string jsonRes = wSimpleFacade.ExecuteServiceJson_newtonjs(providerName, serviceName, jsonRequets, CreateHostContext());
+            Context.Response.Write(string.Concat(callback, "(", jsonRes, ")"));
+        }
+
+        [WebMethod]
+        public void EjecutarTest(string providerName, string serviceName, string jsonRequets, string callback)
         {
             #region solo para test simple
-            //var data = new { Id = "1233", Name = "pepe"  };
-            //System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
-
-            //return js.Serialize(data);
-
+            RetrivePatientsService svc = new RetrivePatientsService();
+            Health.Isvc.RetrivePatients.RetrivePatientsRes res = svc.Execute(new Health.Isvc.RetrivePatients.RetrivePatientsReq());
+            string jsonRes = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(typeof(Health.Isvc.RetrivePatients.RetrivePatientsReq), res);
+         
+            Context.Response.Write(string.Concat(callback, "(", jsonRes, ")"));
             #endregion
-
-            SimpleFacade wSimpleFacade = CreateSimpleFacade();
-            try
-            {
-                string res = wSimpleFacade.ExecuteServiceJson_newtonjs(providerName, serviceName, jsonRequets, CreateHostContext());
-                
-                return res; //el res ya viene serializado enum json
-            }
-            catch (Exception ex) 
-            {
-                throw ex;
-            }
-           
         }
+       
+
+       
+       
+
         /// <summary>
         /// 
         /// </summary>
