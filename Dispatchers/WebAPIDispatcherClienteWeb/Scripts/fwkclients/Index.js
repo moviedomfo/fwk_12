@@ -1,6 +1,7 @@
-﻿$(function () {
-    var hostedRootPath = 'http://localhost:17854';
-    var hostedRootPath_webapi = 'http://localhost:47647';
+﻿'use strict';
+$(function () {
+    
+    
     var url = 'http://localhost:38091/SingleService.asmx' ;
     var currentDate = new Date();
 
@@ -34,13 +35,10 @@
         serviceName: requetObj.ServiceName,
         jsonRequets: JSON.stringify(requetObj)
     };
+    $('#btnCreate_es6_class').click(function () {
+        Create_es6_class();
+    });
     
-    $('#btnCallService_thisSite_POST_WebAPI').click(function () {
-        CallService_thisSite_POST_WebAPI();
-    });
-    $('#btnAjaxCall_POST_jsonp_WebAPI').click(function () {
-        Call_POST_jsonp_WebAPI();
-    });
     $('#btnCallService_WS_Cruzado').click(function () {
         CallService_WS_Cruzado();
     });
@@ -51,63 +49,17 @@
         alert(json);
     }
 
-    function Call_POST_jsonp_WebAPI() {
-        //$.ajax({
-        //    type: 'GET',
-      
-        //    url: 'http://localhost:47647' + '/api/SingleServiceApi/Ping/test123")',
-        //    //data: JSON.stringify(data),
-        //    contentType: 'application/json; charset=utf-8',
-        //    jsonp: "logResults",
-        //    dataType: "jsonp",
-        //    //crossDomain: true,
-        //    success: function (result) {
-        //        var resultParced = JSON.parse(result);
-        //        alert('llamada al servicio OK ' + result);
-        //    },
-        //    error: ServiceFailed
-        //});
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:47647' + '/api/SingleServiceApi/Execute/',
-            data: "pepe",//JSON.stringify(data),
-            contentType: 'application/json',
-            //jsonp: "logResults",
-            dataType: "jsonp",
-           // headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST' },
-            //processData: false,
-            //crossDomain: true,
-            success: function (result) {
-                var resultParced = JSON.parse(result);
-                alert('llamada al servicio OK ' + result);
-            },
-            error: ServiceFailed
-        });
-
-       
-    }
-
-    function CallService_thisSite_POST_WebAPI() {
-      
-        
-     
-        //Realiza un POST al propio server 
-        $.ajax({
-            type: 'POST',
-            url: hostedRootPath + '/api/HomeAPI/Execute/',
-            data:  JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            success: function (result) {
-                var resultParced = JSON.parse(result);
-                alert('llamada al servicio OK ' + result);
-            },
-            error: ServiceFailed
-        });
+  
+    function Create_es6_class()
+    {
+        let ctx = new ContextInformation( );
+        ctx.HostName = 'Clases de Ecmascript 6';
+        ctx.UserId=8783;
+        console.log(ctx.UserId + '   ' + ctx.HostName);
+        $('#Create_es6_class_result').val(ctx.UserId + '   ' + ctx.HostName);
 
 
     }
-
     function CallService_WS_Cruzado() {
      
    
@@ -129,19 +81,17 @@
         });
         
     }
+
     function CallbackResponse(response) {
         
-        var businessData = response.BusinessData;
+        let businessData = response.BusinessData;
         alert('llamada al servicio OK ' + businessData[0].PatientId);
     }
   
     function CallService_WS_Cruzado_FwkWebCLientWrapper() {
 
-        var wrapper = new FwkWebCLientWrapper();
+        let wrapper = new FwkWebCLientWrapper();
         wrapper.ExecuteService(url, requetObj, wrapper_Callback);
-
-      
-
     }
 
     function wrapper_Callback(response) {
@@ -152,7 +102,7 @@
             alert(response.error.MessageText);
             return;
         }
-        var businessData = response.BusinessData;
+        let businessData = response.BusinessData;
         alert('llamada al servicio OK ');
         alert(JSON.stringify( businessData));
     }
@@ -160,7 +110,7 @@
 
 
     function ServiceFailed(xhr, status, p3, p4) {
-        var errMsg = status + " " + p3;
+        let errMsg = status + " " + p3;
         errMsg = errMsg + "\n" + xhr.responseText;
         alert(errMsg);
     }

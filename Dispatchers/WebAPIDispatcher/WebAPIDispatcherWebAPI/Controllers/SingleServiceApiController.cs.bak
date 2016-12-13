@@ -13,7 +13,6 @@ using Fwk.Bases.Blocks.Fwk.BusinessFacades;
 using System.ServiceModel.Channels;
 using System.ServiceModel;
 using System.Web.Http.Cors;
-using Health.Svc;
 
 namespace WebAPIDispatcher.Controllers
 {
@@ -37,29 +36,6 @@ namespace WebAPIDispatcher.Controllers
             CreateSimpleFacade();
             return "ccccccccccc"; //simpleFacade.ExecuteServiceJson(param.ProviderName, param.ServiceName, param.JsonRequets, hostContext);
 
-        }
-        [System.Web.Http.HttpPost]
-        public String EjecutarTest(string providerName, string serviceName, string jsonRequets, string callback)
-        {
-            #region solo para test simple
-            RetrivePatientsService svc = new RetrivePatientsService();
-            Health.Isvc.RetrivePatients.RetrivePatientsRes res = svc.Execute(new Health.Isvc.RetrivePatients.RetrivePatientsReq());
-            string jsonRes = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(typeof(Health.Isvc.RetrivePatients.RetrivePatientsReq), res);
-            return jsonRes;
-            
-            #endregion
-        }
-
-        [System.Web.Http.HttpPost]
-        public String EjecutarTest2(WebApiREQ param)
-        {
-            #region solo para test simple
-            RetrivePatientsService svc = new RetrivePatientsService();
-            Health.Isvc.RetrivePatients.RetrivePatientsRes res = svc.Execute(new Health.Isvc.RetrivePatients.RetrivePatientsReq());
-            string jsonRes = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(typeof(Health.Isvc.RetrivePatients.RetrivePatientsReq), res);
-            return jsonRes;
-
-            #endregion
         }
 
         /// <summary>
