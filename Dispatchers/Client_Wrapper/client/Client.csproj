@@ -130,6 +130,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="remotingPreProduccion.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Service References\ServiceReference1\Client.ServiceReference1.ExecuteServiceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
