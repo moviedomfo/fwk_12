@@ -18,6 +18,7 @@ namespace Fwk.Blocking
     /// de marca personalizada.
     /// </summary>
     /// <Auhor>moviedo</Auhor>
+    [Serializable]
     public class BlockingMarkBase : IBlockingMark
     {
         

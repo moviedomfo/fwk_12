@@ -273,6 +273,7 @@ namespace Fwk.Bases
 
 
                     IServiceWrapper w = (IServiceWrapper)ReflectionFunctions.CreateInstance(provider.WrapperProviderType);
+                    
                     w.ProviderName = provider.Name;
                     w.SourceInfo = provider.SourceInfo;
                     w.ServiceMetadataProviderName = provider.ServiceMetadataProviderName;
@@ -339,5 +340,10 @@ namespace Fwk.Bases
             }
             throw new Fwk.Exceptions.TechnicalException(string.Concat("No se encuentra el wrapper solicitado [", providerName, "]"));
         }
+
+
+
+        public static Dictionary<string, IServiceWrapper> GetPepository()
+        { return _WraperPepository; }
     }
 }

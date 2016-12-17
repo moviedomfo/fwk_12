@@ -8,6 +8,7 @@ using Fwk.Remoting;
 using Fwk.BusinessFacades.Utils;
 using Fwk.ConfigSection;
 using Fwk.Bases.ISVC;
+using System.Xml;
 
 namespace Fwk.Bases.Connector
 {
@@ -17,7 +18,8 @@ namespace Fwk.Bases.Connector
     [Serializable]
     public class RemotingWrapper :IServiceWrapper
     {
-
+        string remotingUrl;
+        internal string RemotingUrl { get {return  remotingUrl; } }
         string _ProviderName;
 
         /// <summary>
@@ -174,18 +176,36 @@ namespace Fwk.Bases.Connector
             //Seccion protegida por la posibilidad de multiples procesos intentar levantar la configuracion
             lock (singletonLock)
             {
-                if (isConfigured==false)
+                if (string.IsNullOrEmpty(remotingUrl))
                 {
-                    RemotingConfiguration.Configure(_SourceInfo, false);
-                    isConfigured = true;
+                    string sourceInfoxml = Fwk.HelperFunctions.FileFunctions.OpenTextFile(_SourceInfo);
+
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(sourceInfoxml);
+                    XmlNode element = doc.SelectSingleNode("/configuration/system.runtime.remoting/application/client/wellknown");
+                    remotingUrl = element.Attributes["url"].Value;
+                }
+                if (isConfigured == false)
+                {
+                    try
+                    {
+                        RemotingConfiguration.Configure(_SourceInfo, false);
+                        isConfigured = true;
+                    }
+                    catch (System.Runtime.Remoting.RemotingException)//Ya se ha registrado el canal 'tcp'.\r\n   en 
+                    {
+                        isConfigured = true;
+                    }
                 }
                 WellKnownClientTypeEntry entry = null;
 
                 foreach (WellKnownClientTypeEntry temp in RemotingConfiguration.GetRegisteredWellKnownClientTypes())
                 {
-                    if (temp.TypeName.Equals(typeof(FwkRemoteObject).FullName))
+                    if (temp.TypeName.Equals(typeof(FwkRemoteObject).FullName) && remotingUrl.CompareTo(remotingUrl)==0)
                     {
                         entry = temp;
+                        //if (string.IsNullOrEmpty(remotingUrl))
+                        //    remotingUrl = entry.ObjectUrl;
                         break;
                     }
                 }
@@ -199,7 +219,38 @@ namespace Fwk.Bases.Connector
             }
         }
 
-       
+        public bool RemotingWrapperExist()
+        {
+            foreach (var w in WrapperFactory.GetPepository())
+            {
+                if (w.Value.GetType().Name == typeof(RemotingWrapper).Name)
+                {
+                    RemotingWrapper rw = (RemotingWrapper)w.Value;
+                    if (rw.RemotingUrl == this.remotingUrl)
+                        return true;
+                }
+            }
+            return false;
+
+
+        }
+
+
+        Boolean checkIfChannelIsConfigured()
+        {
+            //Si la bandera ya esta en true simplemente retornarla
+            if (isConfigured) return isConfigured;
+            
+            foreach (WellKnownClientTypeEntry temp in RemotingConfiguration.GetRegisteredWellKnownClientTypes())
+            {
+                if (temp.TypeName.Equals(typeof(FwkRemoteObject).FullName) && temp.ObjectUrl == "OBTENER URL RPOXIMO FIX")
+                {
+                    isConfigured= true;
+                    break;
+                }
+            }
+            return isConfigured;
+        }
 		
 
         /// <summary>
@@ -340,4 +391,27 @@ namespace Fwk.Bases.Connector
 
         
     }
+
+//    <configuration>
+//  <system.runtime.remoting>
+//    <application>
+//      <client>
+//        <wellknown type="Fwk.Remoting.FwkRemoteObject, Fwk.Bases" url="tcp://localhost:7070/Fwk.Remoting.rem"/>
+//      </client>
+//      <channels>
+//        <channel ref="tcp" port="0">
+//          <serverProviders>
+//            <provider ref="wsdl" />
+//            <formatter ref="soap" typeFilterLevel="Full" />
+//            <formatter ref="binary" typeFilterLevel="Full" />
+//          </serverProviders>
+//        </channel>
+//      </channels>
+//    </application>
+//    <customErrors mode="off" />
+//  </system.runtime.remoting>
+//</configuration>
+
+
+    
 }

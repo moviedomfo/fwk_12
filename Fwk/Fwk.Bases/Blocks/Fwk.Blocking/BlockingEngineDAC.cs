@@ -298,7 +298,6 @@ namespace Fwk.Blocking
             }
         }
 
-
         /// <summary>
         /// Obtiene una o valraias marcas de bloqueo 
         /// </summary>
