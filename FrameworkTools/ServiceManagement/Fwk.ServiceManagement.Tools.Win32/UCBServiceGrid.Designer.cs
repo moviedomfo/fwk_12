@@ -33,11 +33,11 @@ namespace Fwk.ServiceManagement.Tools.Win32
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBServiceGrid));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.fwkCellStyleGreenFlat1 = new Fwk.Bases.FrontEnd.Controls.FwkGrid.Design.FwkCellStyleGreenFlat(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnFilter = new System.Windows.Forms.ToolStripButton();
@@ -45,6 +45,14 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.cmbSearchType = new System.Windows.Forms.ToolStripComboBox();
             this.fwkCellStyleMarronFlat1 = new Fwk.Bases.FrontEnd.Controls.FwkGrid.Design.FwkCellStyleMarronFlat(this.components);
             this.grdServices = new Fwk.Bases.FrontEnd.Controls.FwkGrid.FwkGenericDataGridView(this.components);
+            this.serviceConfigurationCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbFilterTransactionalBehaviour = new Fwk.Bases.FrontEnd.Controls.FwkFlatComboBox();
+            this.cmbFilterIsolationLevel = new Fwk.Bases.FrontEnd.Controls.FwkFlatComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fwkMessageViewComponent1 = new Fwk.Bases.FrontEnd.Controls.FwkMessageViewComponent(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbApplication = new Fwk.Bases.FrontEnd.Controls.FwkFlatComboBox();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,14 +62,6 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.isolationLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceConfigurationCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmbFilterTransactionalBehaviour = new Fwk.Bases.FrontEnd.Controls.FwkFlatComboBox();
-            this.cmbFilterIsolationLevel = new Fwk.Bases.FrontEnd.Controls.FwkFlatComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.fwkMessageViewComponent1 = new Fwk.Bases.FrontEnd.Controls.FwkMessageViewComponent(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbApplication = new Fwk.Bases.FrontEnd.Controls.FwkFlatComboBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceConfigurationCollectionBindingSource)).BeginInit();
@@ -86,7 +86,7 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.btnFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnFilter.Image")));
             this.btnFilter.ImageTransparentColor = System.Drawing.Color.Gainsboro;
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(51, 22);
+            this.btnFilter.Size = new System.Drawing.Size(53, 22);
             this.btnFilter.Text = "Filter";
             this.btnFilter.ToolTipText = "Filter ";
             this.btnFilter.Click += new System.EventHandler(this.toolStripButtonFilter_Click);
@@ -115,23 +115,23 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.grdServices.AllowUserToOrderColumns = true;
             this.grdServices.AllowUserToResizeColumns = false;
             this.grdServices.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(83)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(83)))), ((int)(((byte)(141)))));
-            this.grdServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.grdServices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(83)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(83)))), ((int)(((byte)(141)))));
+            this.grdServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grdServices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdServices.AutoGenerateColumns = false;
             this.grdServices.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(249)))), ((int)(((byte)(234)))));
             this.grdServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Sienna;
-            this.grdServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Sienna;
+            this.grdServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grdServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
@@ -154,14 +154,14 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.grdServices.CustomGridProperties.RowErrorColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.grdServices.CustomGridProperties.RowHeaderVisible = false;
             this.grdServices.DataSource = this.serviceConfigurationCollectionBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdServices.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdServices.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdServices.EnableHeadersVisualStyles = false;
             this.grdServices.GridColor = System.Drawing.Color.White;
             this.grdServices.Location = new System.Drawing.Point(2, 63);
@@ -169,86 +169,15 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.grdServices.Name = "grdServices";
             this.grdServices.ReadOnly = true;
             this.grdServices.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdServices.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdServices.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grdServices.RowHeadersVisible = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grdServices.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.grdServices.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.grdServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdServices.Size = new System.Drawing.Size(656, 204);
             this.grdServices.TabIndex = 39;
             this.grdServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdServices_CellClick);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // ApplicationId
-            // 
-            this.ApplicationId.DataPropertyName = "ApplicationId";
-            this.ApplicationId.HeaderText = "Application";
-            this.ApplicationId.Name = "ApplicationId";
-            this.ApplicationId.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // transactionalBehaviourDataGridViewTextBoxColumn
-            // 
-            this.transactionalBehaviourDataGridViewTextBoxColumn.DataPropertyName = "TransactionalBehaviour";
-            this.transactionalBehaviourDataGridViewTextBoxColumn.HeaderText = "TransactionalBehaviour";
-            this.transactionalBehaviourDataGridViewTextBoxColumn.Name = "transactionalBehaviourDataGridViewTextBoxColumn";
-            this.transactionalBehaviourDataGridViewTextBoxColumn.ReadOnly = true;
-            this.transactionalBehaviourDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // auditDataGridViewCheckBoxColumn
-            // 
-            this.auditDataGridViewCheckBoxColumn.DataPropertyName = "Audit";
-            this.auditDataGridViewCheckBoxColumn.HeaderText = "Audit";
-            this.auditDataGridViewCheckBoxColumn.Name = "auditDataGridViewCheckBoxColumn";
-            this.auditDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.auditDataGridViewCheckBoxColumn.Width = 70;
-            // 
-            // availableDataGridViewCheckBoxColumn
-            // 
-            this.availableDataGridViewCheckBoxColumn.DataPropertyName = "Available";
-            this.availableDataGridViewCheckBoxColumn.HeaderText = "Available";
-            this.availableDataGridViewCheckBoxColumn.Name = "availableDataGridViewCheckBoxColumn";
-            this.availableDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.availableDataGridViewCheckBoxColumn.Width = 70;
-            // 
-            // isolationLevelDataGridViewTextBoxColumn
-            // 
-            this.isolationLevelDataGridViewTextBoxColumn.DataPropertyName = "IsolationLevel";
-            this.isolationLevelDataGridViewTextBoxColumn.HeaderText = "IsolationLevel";
-            this.isolationLevelDataGridViewTextBoxColumn.Name = "isolationLevelDataGridViewTextBoxColumn";
-            this.isolationLevelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isolationLevelDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // CreatedDateTime
-            // 
-            this.CreatedDateTime.DataPropertyName = "CreatedDateTime";
-            this.CreatedDateTime.HeaderText = "Date";
-            this.CreatedDateTime.Name = "CreatedDateTime";
-            this.CreatedDateTime.ReadOnly = true;
-            this.CreatedDateTime.Width = 70;
-            // 
-            // CreatedUserName
-            // 
-            this.CreatedUserName.DataPropertyName = "CreatedUserName";
-            this.CreatedUserName.HeaderText = "User";
-            this.CreatedUserName.Name = "CreatedUserName";
-            this.CreatedUserName.ReadOnly = true;
-            this.CreatedUserName.Width = 70;
             // 
             // serviceConfigurationCollectionBindingSource
             // 
@@ -371,6 +300,77 @@ namespace Fwk.ServiceManagement.Tools.Win32
             this.cmbApplication.Size = new System.Drawing.Size(121, 21);
             this.cmbApplication.TabIndex = 44;
             this.cmbApplication.SelectedIndexChanged += new System.EventHandler(this.cmbApplication_SelectedIndexChanged);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // ApplicationId
+            // 
+            this.ApplicationId.DataPropertyName = "ApplicationId";
+            this.ApplicationId.HeaderText = "Application";
+            this.ApplicationId.Name = "ApplicationId";
+            this.ApplicationId.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // transactionalBehaviourDataGridViewTextBoxColumn
+            // 
+            this.transactionalBehaviourDataGridViewTextBoxColumn.DataPropertyName = "TransactionalBehaviour";
+            this.transactionalBehaviourDataGridViewTextBoxColumn.HeaderText = "TransactionalBehaviour";
+            this.transactionalBehaviourDataGridViewTextBoxColumn.Name = "transactionalBehaviourDataGridViewTextBoxColumn";
+            this.transactionalBehaviourDataGridViewTextBoxColumn.ReadOnly = true;
+            this.transactionalBehaviourDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // auditDataGridViewCheckBoxColumn
+            // 
+            this.auditDataGridViewCheckBoxColumn.DataPropertyName = "Audit";
+            this.auditDataGridViewCheckBoxColumn.HeaderText = "Audit";
+            this.auditDataGridViewCheckBoxColumn.Name = "auditDataGridViewCheckBoxColumn";
+            this.auditDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.auditDataGridViewCheckBoxColumn.Width = 70;
+            // 
+            // availableDataGridViewCheckBoxColumn
+            // 
+            this.availableDataGridViewCheckBoxColumn.DataPropertyName = "Available";
+            this.availableDataGridViewCheckBoxColumn.HeaderText = "Available";
+            this.availableDataGridViewCheckBoxColumn.Name = "availableDataGridViewCheckBoxColumn";
+            this.availableDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.availableDataGridViewCheckBoxColumn.Width = 70;
+            // 
+            // isolationLevelDataGridViewTextBoxColumn
+            // 
+            this.isolationLevelDataGridViewTextBoxColumn.DataPropertyName = "IsolationLevel";
+            this.isolationLevelDataGridViewTextBoxColumn.HeaderText = "IsolationLevel";
+            this.isolationLevelDataGridViewTextBoxColumn.Name = "isolationLevelDataGridViewTextBoxColumn";
+            this.isolationLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.isolationLevelDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // CreatedDateTime
+            // 
+            this.CreatedDateTime.DataPropertyName = "CreatedDateTime";
+            this.CreatedDateTime.HeaderText = "Date";
+            this.CreatedDateTime.Name = "CreatedDateTime";
+            this.CreatedDateTime.ReadOnly = true;
+            this.CreatedDateTime.Width = 70;
+            // 
+            // CreatedUserName
+            // 
+            this.CreatedUserName.DataPropertyName = "CreatedUserName";
+            this.CreatedUserName.HeaderText = "User";
+            this.CreatedUserName.Name = "CreatedUserName";
+            this.CreatedUserName.ReadOnly = true;
+            this.CreatedUserName.Width = 70;
             // 
             // UCBServiceGrid
             // 

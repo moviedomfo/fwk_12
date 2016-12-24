@@ -5,14 +5,14 @@ using System.Text;
 using Fwk.Bases;
 using Health.BE;
 
-namespace Health.Isvc.CrearPatient
+namespace Health.Isvc.CreatePatient
 {
 
     [Serializable]
-    public class CrearPatientReq : Fwk.Bases.Request<Params>
+    public class CreatePatientReq : Fwk.Bases.Request<Params>
     {
 
-        public CrearPatientReq()
+        public CreatePatientReq()
         {
             base.ServiceName = "CrearPatientService";
         }
@@ -27,7 +27,7 @@ namespace Health.Isvc.CrearPatient
     }
 
     [Serializable]
-    public class CrearPatientRes : Fwk.Bases.Response<Result>
+    public class CreatePatientRes : Fwk.Bases.Response<Result>
     {
 
 

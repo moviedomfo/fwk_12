@@ -34,7 +34,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-   
     <Reference Include="Fwk.Bases">
       <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
     </Reference>
@@ -52,14 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrearPaciente.cs" />
-    <Compile Include="CrearPacienteService.cs" />
-    <Compile Include="Entities.cs" />
-    <Compile Include="Health.Designer.cs" />
-    <Compile Include="HealthDataModel.cs" />
+    <Compile Include="SVC\CrearPaciente.cs" />
+    <Compile Include="SVC\CrearPacienteService.cs" />
+    <Compile Include="BE\Entities.cs" />
+    <Compile Include="BE\Health.Designer.cs" />
+    <Compile Include="BE\HealthDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RetrivePacientes.cs" />
-    <Compile Include="RetrivePacientesService.cs" />
+    <Compile Include="SVC\RetrivePatients.cs" />
+    <Compile Include="SVC\RetrivePatientsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Metasvc.xml">
+      <Link>Metasvc.xml</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

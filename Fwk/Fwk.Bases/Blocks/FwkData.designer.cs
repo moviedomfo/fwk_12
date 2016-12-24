@@ -48,7 +48,7 @@ namespace Fwk.ConfigData
     #endregion
 		
 		public FwkDatacontext() : 
-				base(global::Fwk.Bases.Properties.Settings.Default.fwktest1ConnectionString, mappingSource)
+				base(global::Fwk.Bases.Properties.Settings.Default.fwktestConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

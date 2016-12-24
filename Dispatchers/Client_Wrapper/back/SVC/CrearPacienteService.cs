@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Fwk.Bases;
-using Health.Isvc.CrearPatient;
+using Health.Isvc.CreatePatient;
 using Health.Back;
 
 namespace Health.Svc
@@ -13,11 +13,11 @@ namespace Health.Svc
     ///         o
     /// Crea Patient y asocia 
     /// </summary>
-    public class CrearPatientService : BusinessService<CrearPatientReq, CrearPatientRes>
+    public class CreatePatientService : BusinessService<CreatePatientReq, CreatePatientRes>
     {
-        public override CrearPatientRes Execute(CrearPatientReq pServiceRequest)
+        public override CreatePatientRes Execute(CreatePatientReq pServiceRequest)
         {
-            CrearPatientRes wRes = new CrearPatientRes();
+            CreatePatientRes wRes = new CreatePatientRes();
             //bool personaExiste = PersonasDAC.Exist(pServiceRequest.BusinessData.Patient.Persona.NroDocumento);
 
             //pServiceRequest.BusinessData.Patient.LastAccessUserId = Guid.Parse(pServiceRequest.ContextInformation.UserId);
