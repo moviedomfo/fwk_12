@@ -1026,3 +1026,6 @@ Dispatchers/RemotingDispatcher/Remoting.Host/bin/Debug/RemotingHost.config
 Dispatchers/RemotingDispatcher/Remoting.Host/obj/Debug/Remoting.Host.csproj.FileListAbsolute.txt
 Dispatchers/RemotingDispatcher/Remoting.Host/obj/Debug/Remoting.Host.exe
 Dispatchers/WebAPIDispatcherClienteWeb/.vs/WebAPIDispatcherClienteWeb/v14/.suo
+Fwk/Fwk.Bases/Blocks/Functions/DateFunctions.cs.bak
+Fwk/Fwk.Bases/Classes/FwkRemoteObject.cs.bak
+Fwk/Fwk.Bases/Interfaces/IServiceInterfaceWrapper.cs.bak
