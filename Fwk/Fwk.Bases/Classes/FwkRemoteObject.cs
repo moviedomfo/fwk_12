@@ -22,7 +22,7 @@ namespace Fwk.Remoting
         /// <returns><see cref="IServiceContract"/></returns>
         public IServiceContract ExecuteService(string providerName, IServiceContract pReq)
         {
-
+            Console.WriteLine( "Executing " + pReq.ServiceName + " " + DateTime.Now.ToString());
             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             IServiceContract wRsponse = wSimpleFacade.ExecuteService(providerName, pReq);
             return wRsponse;

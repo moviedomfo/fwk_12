@@ -355,7 +355,7 @@ namespace Fwk.HelperFunctions
         /// <returns></returns>
         public static DateTime GetEndDateTime(DateTime datetime)
         {
-            return new DateTime(datetime.Year, datetime.Month, datetime.Day, 23, 59, 59);
+            return new DateTime(datetime.Year, datetime.Month, datetime.Day, 23, 59, 59,998);
         }
     }
 

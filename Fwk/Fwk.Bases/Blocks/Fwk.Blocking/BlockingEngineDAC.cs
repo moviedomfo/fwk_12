@@ -365,7 +365,8 @@ namespace Fwk.Blocking
 
         /// <summary>Obtiene una o varias marcas de bloqueo</summary>
         /// <param name="pIBlockingMark">Clase que implementa IBlockingMark</param>
-        /// <returns>Tabla con las marcas obtenidas</returns>
+        /// <returns>Tabla con las marcas obtenidas
+        /// Datatable con BlockingId,TableName,Attribute,AttValue,TTL,UserName,FwkGuid,DueDate,Process</returns>
         /// <create>hebraida</create>
         /// <date>2010-07-15</date>
         internal static DataTable GetByParam(IBlockingMark pIBlockingMark)
@@ -408,12 +409,7 @@ namespace Fwk.Blocking
                     wParam.Value = pIBlockingMark.AttValue;
                 }
 
-                //TTL
-                if (pIBlockingMark.TTL != 0)
-                {
-                    wParam = wCmd.Parameters.Add("@TTL", SqlDbType.Int, 4);
-                    wParam.Value = pIBlockingMark.TTL;
-                }
+                
 
                 //UserName
                 if (!string.IsNullOrEmpty(pIBlockingMark.User))
