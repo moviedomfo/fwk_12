@@ -1,6 +1,7 @@
 ﻿using DispatcherClientChecker.wrappers;
 using Fwk.Bases;
 using Fwk.ConfigSection;
+using Fwk.Configuration.ISVC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -136,6 +137,26 @@ namespace DispatcherClientChecker
             }
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Fwk.Configuration.ISVC.GetFwkConfigurationReq req = new Fwk.Configuration.ISVC.GetFwkConfigurationReq();
+
+            try
+            {
+                var res = req.ExecuteService<GetFwkConfigurationReq, GetFwkConfigurationRes>(selectedWrapper.ProviderName, req);
+
+                if (res.Error!=null)
+                {
+                    txtResult.Text = Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                txtResult.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+            }
         }
     }
 

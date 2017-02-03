@@ -423,6 +423,12 @@ namespace DispatcherClientChecker.wrappers
         }
 
 
+
+
+        public Fwk.Bases.ISVC.DispatcherInfoBE CheckServiceAvailability(bool includeCnnstSrings = false, bool includeAppSettings = false, bool includeMetadata = false)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

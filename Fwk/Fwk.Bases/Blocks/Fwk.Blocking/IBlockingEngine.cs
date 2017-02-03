@@ -57,7 +57,7 @@ namespace Fwk.Blocking
         /// <param name="pGUID"></param>
         /// <param name="pBlockingId"></param>
         /// <returns></returns>
-        Boolean Exists(Guid pGUID, Int32? pBlockingId);
+        Boolean Exists(Guid? pGUID, Int32? pBlockingId);
 
     }
 }

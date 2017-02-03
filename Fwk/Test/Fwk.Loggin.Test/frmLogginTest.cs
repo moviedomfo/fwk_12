@@ -10,6 +10,7 @@ using Fwk.Logging;
 using Fwk.Configuration;
 using Fwk.ConfigSection;
 using Fwk.Logging.Targets;
+using Fwk.ConfigData;
 namespace Fwk.Logging.Test
 {
     public partial class frmLoggingTest : Form
@@ -225,6 +226,21 @@ namespace Fwk.Logging.Test
             }
             t.Remove(lst);
             txtNoStaticResult.Text = XmlTarget.Logs.GetXml();
+        }
+
+        private void btnAudit_Click(object sender, EventArgs e)
+        {
+            fwk_ServiceAudit l = new fwk_ServiceAudit ();
+            l.ApplicationId="cc";
+            l.Dispatcher_Instance_Name = "cc";
+            l.Logtype = "Error";
+            l.Message = "casdasdasdasdsac";
+            l.Send_Time = System.DateTime.Now;
+            l.Resived_Time = System.DateTime.Now;
+            l.ServiceName = "servicio de prueba";
+            l.Send_Machine = "pc test";
+            l.Send_UserId = "123";
+            Fwk.BusinessFacades.Utils.Audit.LogNonSucessfulExecution(l);
         }
 
     }

@@ -16,7 +16,7 @@ namespace Fwk.BusinessFacades.Utils
     /// <summary>
     /// 
     /// </summary>
-    static class Audit
+    public static class Audit
     {
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Fwk.BusinessFacades.Utils
         /// </summary>
         /// <param name="pRequest">Request</param>
         /// <param name="wResult">Response</param>
-        internal static void LogNonSucessfulExecution(IServiceContract pRequest, IServiceContract wResult) //ServiceError pServiceError, ServiceConfiguration pConfig)
+        public static void LogNonSucessfulExecution(IServiceContract pRequest, IServiceContract wResult) //ServiceError pServiceError, ServiceConfiguration pConfig)
         {
            
             fwk_ServiceAudit audit = new fwk_ServiceAudit();
@@ -170,8 +170,8 @@ namespace Fwk.BusinessFacades.Utils
 
             }
             
-        }
-        internal static void LogNonSucessfulExecution(fwk_ServiceAudit audit ) //ServiceError pServiceError, ServiceConfiguration pConfig)
+            }
+        public static void LogNonSucessfulExecution(fwk_ServiceAudit audit) //ServiceError pServiceError, ServiceConfiguration pConfig)
         {
 
           
@@ -185,6 +185,7 @@ namespace Fwk.BusinessFacades.Utils
                 using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
                 {
                     context.fwk_ServiceAudits.InsertOnSubmit(audit);
+                    
                     context.SubmitChanges();
                 }
             }
@@ -203,7 +204,7 @@ namespace Fwk.BusinessFacades.Utils
         /// </summary>
         /// <param name="pRequest">Request</param>
         /// <param name="wResult">Response</param>
-        internal static void LogSuccessfulExecution(IServiceContract pRequest, IServiceContract wResult, Fwk.Logging.EventType logType = Fwk.Logging.EventType.Audit)
+        public static void LogSuccessfulExecution(IServiceContract pRequest, IServiceContract wResult, Fwk.Logging.EventType logType = Fwk.Logging.EventType.Audit)
         {
             fwk_ServiceAudit audit = new fwk_ServiceAudit();
 

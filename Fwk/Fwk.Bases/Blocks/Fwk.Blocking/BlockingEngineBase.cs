@@ -77,7 +77,7 @@ namespace Fwk.Blocking
 
             BlockingMarkBase wBlockingMark = new BlockingMarkBase(_Table_BlockingMarks_Name);
             wBlockingMark.BlockingId = pBlockingId;
-          
+            wBlockingMark.FwkGuid = null;
             BlockingEngineDAC.RemoveMark(wBlockingMark);
         }
 
@@ -204,7 +204,7 @@ namespace Fwk.Blocking
         /// </summary>
         /// <param name="pBlockingMark"></param>
         /// <returns></returns>
-        public Boolean Exists(Guid pGUID, int? pBlockingId)
+        public Boolean Exists(Guid? pGUID, int? pBlockingId)
         {
             BlockingMarkBase pBlockingMark = new BlockingMarkBase(pGUID, _Table_BlockingMarks_Name);
 

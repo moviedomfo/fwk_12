@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="fwktest1" EntityNamespace="Fwk.ConfigData" ContextNamespace="Fwk.ConfigData" Class="FwkDatacontext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTANA\SQLEXPRESS2008;Initial Catalog=fwktest1;User ID=sa" SettingsObjectName="Fwk.Bases.Properties.Settings" SettingsPropertyName="fwktest1ConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SANTANA\SQLEXPRESS2008;Initial Catalog=fwktest1;User ID=sa" SettingsObjectName="Fwk.Bases.Properties.Settings" SettingsPropertyName="fwktest1ConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.fwk_Logs" Member="fwk_Logs">
     <Type Name="fwk_Log">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

@@ -75,6 +75,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ExceptionView = new Fwk.Bases.FrontEnd.Controls.FwkExceptionViewComponent(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAudit = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudItemsCount)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,6 +85,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // primitivesRemoveButton
@@ -267,12 +270,13 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.ItemSize = new System.Drawing.Size(98, 24);
             this.tabControl1.Location = new System.Drawing.Point(4, 100);
             this.tabControl1.Name = "tabControl1";
@@ -354,9 +358,9 @@
             // 
             // txtNoStaticResult
             // 
-            this.txtNoStaticResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNoStaticResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNoStaticResult.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtNoStaticResult.Location = new System.Drawing.Point(16, 145);
             this.txtNoStaticResult.Multiline = true;
@@ -423,8 +427,8 @@
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -444,7 +448,7 @@
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(889, 383);
+            this.tabPage2.Size = new System.Drawing.Size(818, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "No static  use Error Log";
             // 
@@ -488,13 +492,13 @@
             this.label8.Size = new System.Drawing.Size(672, 31);
             this.label8.TabIndex = 1;
             this.label8.Text = "Reactive caching retrieves data from the master source when the application reque" +
-                "sts it,  and retains it in the cache for future requests.";
+    "sts it,  and retains it in the cache for future requests.";
             // 
             // loadingResultsTextBox
             // 
-            this.loadingResultsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.loadingResultsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.loadingResultsTextBox.Location = new System.Drawing.Point(192, 104);
             this.loadingResultsTextBox.Multiline = true;
             this.loadingResultsTextBox.Name = "loadingResultsTextBox";
@@ -510,8 +514,8 @@
             this.label9.Size = new System.Drawing.Size(672, 39);
             this.label9.TabIndex = 0;
             this.label9.Text = "Proactive caching retrieves all of the required state from the master source, usu" +
-                "ally when the application starts, and retains it in the cache for the lifetime o" +
-                "f that application.";
+    "ally when the application starts, and retains it in the cache for the lifetime o" +
+    "f that application.";
             // 
             // tabPage3
             // 
@@ -525,7 +529,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(889, 383);
+            this.tabPage3.Size = new System.Drawing.Size(818, 588);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Static Loguer";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -559,9 +563,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(16, 150);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -609,6 +613,28 @@
             this.ExceptionView.TextMessageForeColorColor = System.Drawing.SystemColors.WindowText;
             this.ExceptionView.Title = "FrmTechnicalMsg";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btnAudit);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(818, 588);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnAudit
+            // 
+            this.btnAudit.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAudit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAudit.Location = new System.Drawing.Point(332, 279);
+            this.btnAudit.Name = "btnAudit";
+            this.btnAudit.Size = new System.Drawing.Size(154, 31);
+            this.btnAudit.TabIndex = 2;
+            this.btnAudit.Text = "Audit";
+            this.btnAudit.Click += new System.EventHandler(this.btnAudit_Click);
+            // 
             // frmLoggingTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,6 +656,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -682,6 +709,8 @@
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnClearWarning;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnAudit;
     }
 }
 
