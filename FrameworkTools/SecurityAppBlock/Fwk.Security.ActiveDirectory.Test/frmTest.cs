@@ -27,10 +27,40 @@ namespace Fwk.Security.ActiveDirectory.Test
         public frmTest()
         {
             InitializeComponent();
-          
+                        //System.Web.Security.SqlMembershipProvider wSqlMembershipProvider = new System.Web.Security.SqlMembershipProvider();
+            //wSqlMembershipProvider.ApplicationName = 
+            using (new WaitCursorHelper(this))
+            {
+                try
+                {
+                    userByAppBindingSource.DataSource = FwkMembership.GetAllUsers(System.Web.Security.Membership.Provider.Name);
+                    rolListBindingSource.DataSource = FwkMembership.GetAllRoles(System.Web.Security.Membership.Provider.Name);
+                }
+                catch (Exception ex)
+                {
+                    FwkMessageView.Show(ex, Properties.Resources.MessageBoxTitle, MessageBoxButtons.OK, Fwk.Bases.FrontEnd.Controls.MessageBoxIcon.Error);
+                }
+            }
         }
 
-       
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+
+            using (new WaitCursorHelper(this))
+            {
+                try
+                {
+                    FwkMembership.CreateUser(_CurrentUser.LoginName, txtPassword.Text,String.Empty);
+                }
+                catch (Exception ex)
+                {
+                    FwkMessageView.Show(ex, Properties.Resources.MessageBoxTitle, System.Windows.Forms.MessageBoxButtons.OK,
+                        Fwk.Bases.FrontEnd.Controls.MessageBoxIcon.Error);
+                }
+
+            }
+            userByAppBindingSource.DataSource = FwkMembership.GetAllUsers(System.Web.Security.Membership.Provider.Name);
+        }
 
 
         private void btnSearchInDomain_Click(object sender, EventArgs e)
@@ -72,11 +102,6 @@ namespace Fwk.Security.ActiveDirectory.Test
         {
             
             //this.dataGridView1.DataSource = _CurrentUser.ActiveDirectoryGroups;
-
-        }
-
-        private void btnUsersList_Click(object sender, EventArgs e)
-        {
 
         }
 
