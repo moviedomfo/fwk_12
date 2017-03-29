@@ -10,6 +10,7 @@ using Fwk.ConfigSection;
 using System.ServiceModel;
 using Fwk.Bases.Connector.WCFServiceReference;
 using System.ServiceModel.Channels;
+using System.Net;
 
 
 
@@ -20,10 +21,10 @@ namespace DispatcherClientChecker.wrappers
     /// Wrapper espesializado para una conexión http a WSHttpBinding
     /// </summary>
     [Serializable]
-    public  class WCFWrapper_WsHttpBinding : IServiceWrapper
+    public class WCFWrapper_WsHttpBinding : IServiceWrapper
     {
         #region properties
-        protected const int factorSize = 5;
+        protected const int factorSize = 10;
        protected WSHttpBinding binding = null;
        protected EndpointAddress address = null;
         string _ProviderName;
@@ -91,10 +92,13 @@ namespace DispatcherClientChecker.wrappers
                 //El tamaño de los mensajes que se pueden recibir durante la conexión a los servicios mediante BasicHttpBinding
                 this.binding = new WSHttpBinding();
 
-                //binding.Security.Mode = SecurityMode.Message;
-                //binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Ntlm;
-
-
+                binding.Security.Mode = SecurityMode.Message;
+                binding.Security.Message.ClientCredentialType = MessageCredentialType.Windows;
+                binding.Security.Message.NegotiateServiceCredential = true;
+                binding.Security.Message.EstablishSecurityContext = true;
+           
+               // binding.Security.Message.ClientCredentialType= MessageCredentialType.Windows;
+                
                 this.binding.Name = "iis";
                 //binding.MaxReceivedMessageSize *= factorSize;
 
@@ -109,7 +113,13 @@ namespace DispatcherClientChecker.wrappers
                 binding.ReaderQuotas.MaxStringContentLength = System.Int32.MaxValue;
                 binding.ReaderQuotas.MaxArrayLength = System.Int32.MaxValue;
                 binding.ReaderQuotas.MaxBytesPerRead = System.Int32.MaxValue;
-                address = new EndpointAddress(_URL);
+
+
+                
+                Uri serviceUri = new Uri(_URL);
+                address = new EndpointAddress(serviceUri, EndpointIdentity.CreateUpnIdentity("ws2008/moviedo"));
+
+                //address = new EndpointAddress(_URL);
                 //var channelFactory = new ChannelFactory<IFwkService>(binding, address);
                 //client = channelFactory.CreateChannel();
             }
@@ -206,6 +216,10 @@ namespace DispatcherClientChecker.wrappers
             IFwkService client = null;
             try
             {
+
+
+              
+
                 client = channelFactory.CreateChannel();
                 wcfRes = client.GetServicesList(wcfReq);
                 ((ICommunicationObject)client).Close();

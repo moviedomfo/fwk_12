@@ -67,7 +67,7 @@ namespace WcfDispatcher.Service
         /// <returns></returns>
         WCFResponse IFwkService.ExecuteServiceBin( WCFRequet req)
         {
-
+            Console.WriteLine("Excecuting svc " + req.ServiceName + "  " + DateTime.Now.ToString());
             CreateSimpleFacade();
             //IServiceContract result = simpleFacade.ExecuteService(req.ProviderName, req.BusinessData);
 

@@ -517,6 +517,8 @@ namespace Fwk.BusinessFacades.Utils
             //if (pException.InnerException != null)
             pServiceError.InnerMessageException = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(pException);
         }
+
+       
         /// <summary>
         /// Completa el error del que va dentro del Request con informacion de :
         /// Assembly, Class, Namespace, UserName,  InnerException, etc
@@ -557,6 +559,18 @@ namespace Fwk.BusinessFacades.Utils
             try
             {
                 wResponse = (IServiceContract)ReflectionFunctions.CreateInstance(pServiceConfiguration.Response);
+
+                if(wResponse==null)
+                {
+                    System.Text.StringBuilder wMessage = new StringBuilder();
+
+                    wMessage.Append("El servicio " + pServiceConfiguration.Handler);
+                    wMessage.AppendLine(" no se puede ejecutar debido a que esta faltando el assembly ");
+                    wMessage.Append(pServiceConfiguration.Response);
+                    wMessage.Append(" en el despachador de servicio");
+
+                    throw GetTechnicalException(wMessage.ToString(), "7003", null);
+                }
             }
             catch (Exception ex)
             {

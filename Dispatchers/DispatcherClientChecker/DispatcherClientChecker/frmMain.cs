@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -153,6 +154,32 @@ namespace DispatcherClientChecker
                 }
             }
 
+            catch (Exception ex)
+            {
+                txtResult.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+            }
+        }
+
+        private void btn_GetAllServicesCustomBinding_Click(object sender, EventArgs e)
+        {
+          
+            
+             try
+            {
+                   WCFWrapper_WsHttpBinding wrap = new WCFWrapper_WsHttpBinding();
+          
+                    wrap.SourceInfo = "http://ws2008/FWK_WCF_Dispatcher/Service.svc";
+                    wrap.SourceInfo = "http://ws2008/health/Service.svc";
+                   // wrap.SourceInfo = " https://ws2008:443/health/service.svc";
+                    //wrap.SourceInfo = "http://localhost:8732/health/Service.svc";
+                
+                ServiceConfigurationCollection res = wrap.GetAllServices();
+
+                if (rndJSON.Checked)
+                    txtResult.Text = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson<ServiceConfigurationCollection>(res);
+                else
+                    txtResult.Text = res.GetXml();
+            }
             catch (Exception ex)
             {
                 txtResult.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
