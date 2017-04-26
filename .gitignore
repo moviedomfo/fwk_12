@@ -1036,3 +1036,5 @@ Fwk/Fwk.Bases/Blocks/FwkData.designer.cs.bak
 Fwk/Fwk.Bases/Properties/Settings.Designer.cs.bak
 Fwk/Fwk.Bases/Properties/Settings.settings.bak
 Dispatchers/DispatcherClientChecker/DispatcherClientChecker/App.config.bak
+Dispatchers/DispatcherClientChecker/DispatcherClientChecker/DispatcherClientChecker.csproj.user
+Dispatchers/WcfDispatcher/WcfDispatcher/WcfDispatcher.Service.csproj.user
