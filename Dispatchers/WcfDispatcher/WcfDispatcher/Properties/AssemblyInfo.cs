@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WcfDispatcher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("WcfDispatcher Fwk")]
+[assembly: AssemblyDescription("This dlll was deployed on fwk framework source code")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("pelsoft")]
 [assembly: AssemblyProduct("WcfDispatcher")]

@@ -162,14 +162,26 @@ namespace DispatcherClientChecker
 
         private void btn_GetAllServicesCustomBinding_Click(object sender, EventArgs e)
         {
-          
-            
+      
+        //      try
+        //    {
+        //        DispatcherClientChecker.ServiceReference1.FwkServiceClient proxy = new ServiceReference1.FwkServiceClient();
+        //        proxy.Open();
+        //        var  res = proxy.GetServicesList("health",true);
+        //        txtResult.Text = res;
+        //    }
+        //      catch (Exception ex)
+        //      {
+        //          txtResult.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+        //      }
+
+        //return;
              try
             {
                    WCFWrapper_WsHttpBinding wrap = new WCFWrapper_WsHttpBinding();
-          
-                    wrap.SourceInfo = "http://ws2008/FWK_WCF_Dispatcher/Service.svc";
-                    wrap.SourceInfo = "http://ws2008/health/Service.svc";
+
+                   wrap.SourceInfo = "http://moviedo-001-site2.itempurl.com/service.svc";
+                  
                    // wrap.SourceInfo = " https://ws2008:443/health/service.svc";
                     //wrap.SourceInfo = "http://localhost:8732/health/Service.svc";
                 

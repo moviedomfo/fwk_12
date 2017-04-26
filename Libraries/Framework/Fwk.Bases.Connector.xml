@@ -280,7 +280,7 @@
         <member name="T:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding">
              <summary>
             WCF Wrapper que utiliza WsHttpBinding por defecto
-            binding.Security.Mode = SecurityMode.Message
+            binding.Security.Mode = SecurityMode.None
              </summary>
         </member>
         <member name="T:Fwk.Bases.Connector.WCFRrapperBase`1">

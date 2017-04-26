@@ -92,10 +92,10 @@ namespace DispatcherClientChecker.wrappers
                 //El tamaño de los mensajes que se pueden recibir durante la conexión a los servicios mediante BasicHttpBinding
                 this.binding = new WSHttpBinding();
 
-                binding.Security.Mode = SecurityMode.Message;
-                binding.Security.Message.ClientCredentialType = MessageCredentialType.Windows;
-                binding.Security.Message.NegotiateServiceCredential = true;
-                binding.Security.Message.EstablishSecurityContext = true;
+                binding.Security.Mode = SecurityMode.None;
+                //binding.Security.Message.ClientCredentialType = MessageCredentialType.Windows;
+                //binding.Security.Message.NegotiateServiceCredential = true;
+                //binding.Security.Message.EstablishSecurityContext = true;
            
                // binding.Security.Message.ClientCredentialType= MessageCredentialType.Windows;
                 
@@ -117,9 +117,9 @@ namespace DispatcherClientChecker.wrappers
 
                 
                 Uri serviceUri = new Uri(_URL);
-                address = new EndpointAddress(serviceUri, EndpointIdentity.CreateUpnIdentity("ws2008/moviedo"));
+                //address = new EndpointAddress(serviceUri, EndpointIdentity.CreateUpnIdentity("ws2008/moviedo"));
 
-                //address = new EndpointAddress(_URL);
+                address = new EndpointAddress(_URL);
                 //var channelFactory = new ChannelFactory<IFwkService>(binding, address);
                 //client = channelFactory.CreateChannel();
             }

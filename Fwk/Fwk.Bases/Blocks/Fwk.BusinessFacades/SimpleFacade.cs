@@ -156,6 +156,11 @@ namespace Fwk.BusinessFacades
 
             IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
             Type resType = Type.GetType(serviceConfiguration.Response);
+            if (resType == null)
+            {
+                throw new TechnicalException(string.Concat("El servicio ", serviceName, " no se encuentra configurado verifique el Response: ", serviceConfiguration.Response));
+            }
+            
             wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson(resType, res);
             return wResult;
         }

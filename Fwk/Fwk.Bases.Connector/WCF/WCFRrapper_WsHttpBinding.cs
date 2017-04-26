@@ -9,7 +9,7 @@ namespace Fwk.Bases.Connector
 {
     /// <summary>
     ///WCF Wrapper que utiliza WsHttpBinding por defecto
-    ///binding.Security.Mode = SecurityMode.Message
+    ///binding.Security.Mode = SecurityMode.None
     /// </summary>
     public class WCFRrapper_WsHttpBinding : WCFRrapperBase<WSHttpBinding>
     {
@@ -24,7 +24,7 @@ namespace Fwk.Bases.Connector
                 //El tamaño de los mensajes que se pueden recibir durante la conexión a los servicios mediante BasicHttpBinding
                 this.binding = new WSHttpBinding();
 
-                //binding.Security.Mode = SecurityMode.Message;
+                binding.Security.Mode = SecurityMode.None;
                 //binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Ntlm;
 
 

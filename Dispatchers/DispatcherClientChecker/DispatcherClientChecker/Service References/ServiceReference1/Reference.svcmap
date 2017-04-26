@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f30d790e-d777-4d95-8990-61680385d635" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://moviedo-001-site2.itempurl.com/service.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FwkService.wsdl" MetadataType="Wsdl" ID="7e8e9218-e4f1-4ccf-ba4e-93a21eb27640" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?wsdl" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="497047b7-66c1-4334-8964-e0fa16d13605" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd6" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="beb1b7b5-7b2e-473a-aac1-548836081548" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd4" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c75ae30c-d4d4-44ec-801b-80a8d2e3065f" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="57a1652a-1fa6-4f8e-bfd4-840e8e6c24e6" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd2" />
+    <MetadataFile FileName="service3.xsd" MetadataType="Schema" ID="5270de47-c2e7-4d4c-9e65-2796782e1fae" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd3" />
+    <MetadataFile FileName="service4.xsd" MetadataType="Schema" ID="bf51c3b5-3642-4edb-bba8-940b93df9276" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd0" />
+    <MetadataFile FileName="service5.xsd" MetadataType="Schema" ID="3360b3e6-3595-49e8-9f44-931bc78e6058" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd1" />
+    <MetadataFile FileName="service6.xsd" MetadataType="Schema" ID="5b6453fe-b4f1-4f0d-aaf4-13a4ee92db30" SourceId="1" SourceUrl="http://moviedo-001-site2.itempurl.com/service.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
