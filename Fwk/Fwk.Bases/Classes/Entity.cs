@@ -108,7 +108,7 @@ namespace Fwk.Bases
     /// <Author>Marcelo .F. Oviedo</Author> 
     //[DebuggerVisualizer(typeof(IEntityVisualizer))]
     [Serializable]
-    public abstract class Entity:IEntity
+    public abstract class Entity : BaseEntity ,IEntity
     {
         #region  History
         List<String> _HistoryProperties;
@@ -238,22 +238,7 @@ namespace Fwk.Bases
 
 
        
-        EntityState _EntityState = EntityState.Unchanged;
-        /// <summary>
-        /// Retorna el estado de modificacion actual de la clase 
-        /// </summary>
-        [BrowsableAttribute(false)]
-        public EntityState EntityState
-        {
-            get
-            {
-                return _EntityState;
-            }
-            set
-            {
-                _EntityState = value;
-            }
-        }
+       
         /// <summary>
         /// Obtiene un System.DataSet .-
         /// </summary>
@@ -317,33 +302,33 @@ namespace Fwk.Bases
         
 
         #region ICloneable Members
-        /// <summary>
-        /// Crea una copia espejo de la clase.-
-        /// </summary>
-        /// <typeparam name="TEntity">Tipo de Entity que implementa IEntity </typeparam>
-        /// <returns></returns>
-        public TEntity Clone<TEntity>() where TEntity : Entity
-        {
-            //return (TEntity)Fwk.HelperFunctions.SerializationFunctions.Deserialize(this.GetType(), this.GetXml());
-            return (TEntity)Clone();
-        }
+        ///// <summary>
+        ///// Crea una copia espejo de la clase.-
+        ///// </summary>
+        ///// <typeparam name="TEntity">Tipo de Entity que implementa IEntity </typeparam>
+        ///// <returns></returns>
+        //public TEntity Clone<TEntity>() where TEntity : Entity
+        //{
+        //    //return (TEntity)Fwk.HelperFunctions.SerializationFunctions.Deserialize(this.GetType(), this.GetXml());
+        //    return (TEntity)Clone();
+        //}
 
-        /// <summary>
-        /// Crea una copia espejo de la clase.-
-        /// </summary>
-        /// <returns></returns>
-        public Entity Clone()
-        {
-            return (Entity)((ICloneable)this).Clone();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        object ICloneable.Clone()
-        {
-            return this.MemberwiseClone();
-        }
+        ///// <summary>
+        ///// Crea una copia espejo de la clase.-
+        ///// </summary>
+        ///// <returns></returns>
+        //public Entity Clone()
+        //{
+        //    return (Entity)((ICloneable)this).Clone();
+        //}
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //object ICloneable.Clone()
+        //{
+        //    return this.MemberwiseClone();
+        //}
         #endregion
 
 
@@ -475,7 +460,22 @@ namespace Fwk.Bases
 
 
 
-
+        EntityState _EntityState = EntityState.Unchanged;
+        /// <summary>
+        /// Retorna el estado de modificacion actual de la clase 
+        /// </summary>
+        [BrowsableAttribute(false)]
+        public EntityState EntityState
+        {
+            get
+            {
+                return _EntityState;
+            }
+            set
+            {
+                _EntityState = value;
+            }
+        }
 
         /// <summary>
         /// Obtine un xml producto de la serializacion de la clase FacturaBE

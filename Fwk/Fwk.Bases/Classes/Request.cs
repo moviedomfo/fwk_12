@@ -113,7 +113,7 @@ namespace Fwk.Bases
     /// <author>moviedo</author> 
     [Serializable]
     public abstract class Request<T> : ServiceContractBase<T>, IRequest
-		where T : IEntity, new()
+		where T : IBaseEntity, new()
 	{
         string _SecurityProviderName;
 

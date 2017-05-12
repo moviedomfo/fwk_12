@@ -11,7 +11,7 @@ namespace Fwk.Bases
     /// <date>2007-06-23T00:00:00</date>
     /// <author>moviedo</author>
     [Serializable]
-    public abstract class Response<T> : ServiceContractBase<T> where T : IEntity, new()
+    public abstract class Response<T> : ServiceContractBase<T> where T : IBaseEntity, new()
 	{
        
     }
