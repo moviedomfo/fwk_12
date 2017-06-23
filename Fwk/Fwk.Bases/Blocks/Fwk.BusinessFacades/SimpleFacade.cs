@@ -257,7 +257,7 @@ namespace Fwk.BusinessFacades
         /// <summary>
         /// Audita y retorna error
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns
         TechnicalException get_TechnicalException_error_serviceName_null()
         {
             TechnicalException te = new TechnicalException("El despachador de servicio no pudo continuar debido\r\n a que el nombre del servicio no fue establecido");
