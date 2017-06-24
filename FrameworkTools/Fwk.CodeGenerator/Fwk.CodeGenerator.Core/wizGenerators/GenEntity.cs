@@ -48,7 +48,7 @@ namespace Fwk.CodeGenerator
 
             GenerateDataBaseProperttyBody(pView, out  wPublicProperty_BODY, out wPrivateMembers_BODY);
             //Inserta miembros privados
-            wClassContainer.Replace(CodeGeneratorCommon.CommonConstants.CONST_ENTITY_PRIVATE_MEMBERS_BODY, wPrivateMembers_BODY);
+            //wClassContainer.Replace(CodeGeneratorCommon.CommonConstants.CONST_ENTITY_PRIVATE_MEMBERS_BODY, wPrivateMembers_BODY);
             //Inserta los atributos publicos
             wClassContainer.Replace(CodeGeneratorCommon.CommonConstants.CONST_ENTITY_PUBLIC_PROPERTY_BODY, wPublicProperty_BODY);
             wClassContainer.Replace(CodeGeneratorCommon.CommonConstants.CONST_FwkProject_NAME, project);

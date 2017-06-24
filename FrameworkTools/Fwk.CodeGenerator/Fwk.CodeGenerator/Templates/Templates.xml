@@ -3,25 +3,17 @@
 
   
 <Template name="Property">
-<Content>	<![CDATA[#region [[Property_Name]]
-	public [TYPENAME][NullToken] [Property_Name]
-	{
-		get { return _[Property_Name]; }
-		set { _[Property_Name] = value;}
-	}
-	#endregion]]>
+<Content>	<![CDATA[
+	public [TYPENAME][NullToken] [Property_Name] { get ;set ;}
+	]]>
 </Content>
 </Template>
   
   <Template name="Property_Binary">
-    <Content>    <![CDATA[#region [[Property_Name]]
+    <Content>    <![CDATA[
    [System.Xml.Serialization.XmlElementAttribute("[Property_Name]",DataType = "[SCHEMATYPENAME]")]
-   public Byte[][NullToken] [Property_Name]
-    {
-      get { return _[Property_Name]; }
-      set { _[Property_Name] = value;  }
-    }
-     #endregion]]>
+   public Byte[][NullToken] [Property_Name] { get ;set ;}
+    ]]>
     </Content>
   </Template>
   

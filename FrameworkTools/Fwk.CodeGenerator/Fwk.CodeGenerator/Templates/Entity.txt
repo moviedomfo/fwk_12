@@ -18,25 +18,12 @@ using Fwk.Bases;
 
 namespace $fwkprojectname$.Common.BE
 {
-   
-	[XmlRoot("[EntityName]List"), SerializableAttribute]
     public class [EntityName]List :Entities<[EntityName]>
     {}
-    
-    [XmlInclude(typeof([EntityName])), Serializable]
     public class [EntityName]:Entity
     {
-        #region [Private Members]
-        [PRIVATE_BODY]
-        #endregion
-             
-        #region [Properties]
         [PROPERTY_BODY]
-        #endregion
- 
     }
-    
-
 }
          
 
