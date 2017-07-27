@@ -28,6 +28,7 @@ namespace Fwk.CodeGenerator
         public Storage()
         {
             _CnnString = new CnnString();
+       
         }
 
         #endregion
