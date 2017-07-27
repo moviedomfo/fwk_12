@@ -20,11 +20,19 @@ namespace $fwkprojectname$.Common.BE
 {
     public class [EntityName]List :Entities<[EntityName]>
     {}
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 025f949f3c98ac4f3a8f26f242bb18dd092f7ac7
     public class [EntityName]:Entity
     {
         [PROPERTY_BODY]
     }
+<<<<<<< HEAD
+ }
+=======
 }
+>>>>>>> 025f949f3c98ac4f3a8f26f242bb18dd092f7ac7
          
 
    

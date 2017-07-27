@@ -14,16 +14,23 @@ namespace WebAPIDispatcher
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+            //config.Routes.MapHttpRoute(
+            // name: "DefaultApi2",
+            //  routeTemplate: "api/{controller}/{action}/{param}",
+            //  defaults: new { action = "Execute", param = RouteParameter.Optional }
+            //  );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-            config.Routes.MapHttpRoute(
-             name: "DefaultApi2",
-              routeTemplate: "api/{controller}/{action}/{param}",
-              defaults: new { action = "Execute", param = RouteParameter.Optional }
-              );
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { action = "Get", id = RouteParameter.Optional }
+               );
+
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
