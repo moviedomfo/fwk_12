@@ -11,41 +11,6 @@
             <date>2011-06-23T00:00:00</date>
             <author>moviedo</author>
         </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ProviderName">
-            <summary>
-            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.SourceInfo">
-            <summary>
-            Direccion url del servicio web
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ServiceMetadataProviderName">
-            <summary>
-            Proveedor del metadatos en el despachador de servicios
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.AppId">
-            <summary>
-            Identificador de empresa
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ConfigProviderNameWithCultureInfo">
-            <summary>
-            DefaultCulture de empresa
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.Credentials">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.Proxy">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="M:Fwk.Bases.Connector.ASPNetSecurityWrapper.ExecuteService(System.String,System.String)">
             <summary>
             Ejecuta un servicio de negocio.
@@ -146,34 +111,44 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Fwk.Bases.Connector.LocalWrapper">
-            <summary>
-            Rapper que realiza la ejecucion de servicios de forma local. Llama directamente al la facada de servicios
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.LocalWrapper.ProviderName">
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ProviderName">
             <summary>
             Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
             </summary>
         </member>
-        <member name="P:Fwk.Bases.Connector.LocalWrapper.SourceInfo">
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.SourceInfo">
             <summary>
-            No se utiliza en un wrapper local
+            Direccion url del servicio web
             </summary>
         </member>
-        <member name="P:Fwk.Bases.Connector.LocalWrapper.ServiceMetadataProviderName">
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ServiceMetadataProviderName">
             <summary>
             Proveedor del metadatos en el despachador de servicios
             </summary>
         </member>
-        <member name="P:Fwk.Bases.Connector.LocalWrapper.AppId">
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.AppId">
             <summary>
             Identificador de empresa
             </summary>
         </member>
-        <member name="P:Fwk.Bases.Connector.LocalWrapper.ConfigProviderNameWithCultureInfo">
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.ConfigProviderNameWithCultureInfo">
             <summary>
             DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.Credentials">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.ASPNetSecurityWrapper.Proxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fwk.Bases.Connector.LocalWrapper">
+            <summary>
+            Rapper que realiza la ejecucion de servicios de forma local. Llama directamente al la facada de servicios
             </summary>
         </member>
         <member name="M:Fwk.Bases.Connector.LocalWrapper.ExecuteService(Fwk.Bases.IServiceContract)">
@@ -277,45 +252,40 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.SourceInfo">
+            <summary>
+            No se utiliza en un wrapper local
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.AppId">
+            <summary>
+            Identificador de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.LocalWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
         <member name="T:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding">
              <summary>
             WCF Wrapper que utiliza WsHttpBinding por defecto
             binding.Security.Mode = SecurityMode.None
              </summary>
         </member>
-        <member name="M:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding.InitilaizeBinding">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:Fwk.Bases.Connector.WCFRrapperBase`1">
             <summary>
             Wrapper espesializado para una conexión http a WSHttpBinding
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ProviderName">
-            <summary>
-            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.SourceInfo">
-            <summary>
-            Direccion url del servicio web
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ServiceMetadataProviderName">
-            <summary>
-            Proveedor del metadatos en el despachador de servicios
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.AppId">
-            <summary>
-            Identificador de aplicacion o de empresa
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ConfigProviderNameWithCultureInfo">
-            <summary>
-            DefaultCulture de empresa
             </summary>
         </member>
         <member name="M:Fwk.Bases.Connector.WCFRrapperBase`1.ExecuteService(System.String,System.String)">
@@ -405,6 +375,36 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.SourceInfo">
+            <summary>
+            Direccion url del servicio web
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.AppId">
+            <summary>
+            Identificador de aplicacion o de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WCFRrapperBase`1.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="M:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding.InitilaizeBinding">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Fwk.Bases.Connector.WCFRrapper_WsHttpBinding_transport">
              <summary>
              When configured for Transport security, WCF uses a secure communication protocol.Transport security
@@ -430,31 +430,6 @@
         <member name="T:Fwk.Bases.Connector.RemotingWrapper">
             <summary>
             Wrapper espesializado para una conexión a travez de RemotingConfiguration
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ProviderName">
-            <summary>
-            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.RemotingWrapper.SourceInfo">
-            <summary>
-            Archivo de configuracion de remoting
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ServiceMetadataProviderName">
-            <summary>
-            Proveedor del metadatos en el despachador de servicios
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.RemotingWrapper.AppId">
-            <summary>
-            Identificador de aplicacion o de empresa
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ConfigProviderNameWithCultureInfo">
-            <summary>
-            DefaultCulture de empresa
             </summary>
         </member>
         <member name="M:Fwk.Bases.Connector.RemotingWrapper.ExecuteService(System.String,System.String)">
@@ -559,6 +534,31 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.SourceInfo">
+            <summary>
+            Archivo de configuracion de remoting
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.AppId">
+            <summary>
+            Identificador de aplicacion o de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.RemotingWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
         <member name="T:Fwk.Bases.Connector.WCFWrapper_NetTcpBinding">
             <summary>
             Wrapper espesializado para una conexión TCP a NetTcpBinding
@@ -574,18 +574,6 @@
             <remarks/>
         </member>
         <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.#ctor">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteServiceCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServiceConfigurationCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServicesListCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetProviderInfoCompleted">
             <remarks/>
         </member>
         <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteService(System.String,System.String,System.String)">
@@ -627,7 +615,22 @@
         <member name="M:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.CancelAsync(System.Object)">
             <remarks/>
         </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.ExecuteServiceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetServicesListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.ASPNetSecurity.ASPNet.GetProviderInfoCompleted">
+            <remarks/>
+        </member>
         <member name="T:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.BaseEntity">
             <remarks/>
         </member>
         <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.ApplicationId">
@@ -643,9 +646,6 @@
             <remarks/>
         </member>
         <member name="P:Fwk.Bases.Connector.ASPNetSecurity.MetadataProvider.SourceInfo">
-            <remarks/>
-        </member>
-        <member name="T:Fwk.Bases.Connector.ASPNetSecurity.BaseEntity">
             <remarks/>
         </member>
         <member name="T:Fwk.Bases.Connector.ASPNetSecurity.ExecuteServiceCompletedEventHandler">
@@ -688,36 +688,6 @@
             <remarks/>
         </member>
         <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.#ctor">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteServiceCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService_OneWayCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetServiceConfigurationCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetServicesListCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.SetServiceConfigurationCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.AddServiceConfigurationCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.DeleteServiceConfigurationCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetAllApplicationsIdCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetProviderInfoCompleted">
-            <remarks/>
-        </member>
-        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.RetriveDispatcherInfoCompleted">
             <remarks/>
         </member>
         <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService(System.String,System.String,System.String)">
@@ -813,7 +783,40 @@
         <member name="M:Fwk.Bases.Connector.Singleservice.SingleService.CancelAsync(System.Object)">
             <remarks/>
         </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteServiceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.ExecuteService_OneWayCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetServicesListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.SetServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.AddServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.DeleteServiceConfigurationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetAllApplicationsIdCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.GetProviderInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Fwk.Bases.Connector.Singleservice.SingleService.RetriveDispatcherInfoCompleted">
+            <remarks/>
+        </member>
         <member name="T:Fwk.Bases.Connector.Singleservice.ServiceConfiguration">
+            <remarks/>
+        </member>
+        <member name="T:Fwk.Bases.Connector.Singleservice.BaseEntity">
             <remarks/>
         </member>
         <member name="P:Fwk.Bases.Connector.Singleservice.ServiceConfiguration.CreatedUserName">
@@ -886,9 +889,6 @@
             <remarks/>
         </member>
         <member name="F:Fwk.Bases.Connector.Singleservice.IsolationLevel.Snapshot">
-            <remarks/>
-        </member>
-        <member name="T:Fwk.Bases.Connector.Singleservice.BaseEntity">
             <remarks/>
         </member>
         <member name="T:Fwk.Bases.Connector.Singleservice.DictionarySetting">
@@ -1012,41 +1012,6 @@
             <date>2007-06-23T00:00:00</date>
             <author>moviedo</author>
         </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ProviderName">
-            <summary>
-            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.SourceInfo">
-            <summary>
-            Direccion url del servicio web
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ServiceMetadataProviderName">
-            <summary>
-            Proveedor del metadatos en el despachador de servicios
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.AppId">
-            <summary>
-            Identificador de empresa
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ConfigProviderNameWithCultureInfo">
-            <summary>
-            DefaultCulture de empresa
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.Credentials">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.Proxy">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="M:Fwk.Bases.Connector.WebServiceWrapper.ExecuteService(System.String,System.String)">
             <summary>
             Ejecuta un servicio de negocio.
@@ -1160,6 +1125,41 @@
             </summary>
             <param name="pServiceConfiguration"></param>
             <returns></returns>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ProviderName">
+            <summary>
+            Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.SourceInfo">
+            <summary>
+            Direccion url del servicio web
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ServiceMetadataProviderName">
+            <summary>
+            Proveedor del metadatos en el despachador de servicios
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.AppId">
+            <summary>
+            Identificador de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.ConfigProviderNameWithCultureInfo">
+            <summary>
+            DefaultCulture de empresa
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.Credentials">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fwk.Bases.Connector.WebServiceWrapper.Proxy">
+            <summary>
+            
+            </summary>
         </member>
     </members>
 </doc>
