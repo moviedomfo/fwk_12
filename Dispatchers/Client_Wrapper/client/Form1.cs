@@ -229,14 +229,19 @@ namespace Client
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Task.Run(() => create_RetrivePatientsReqAsync()).ContinueWith((res) =>
+
+
+            string provider = comboProviders.Text;
+
+            Task.Run(() => create_RetrivePatientsReqAsync(provider)).ContinueWith((res) =>
             {//Se hace esto debido a que no se puede modificar desde un subhilo a propiedades de ojetos UI
                 this.BeginInvoke(new Action(() =>
                 {
+                    StringBuilder str = new StringBuilder();
                     //Si no ocurre error
                     if (!res.IsFaulted)
                     {
-                        StringBuilder str = new StringBuilder();
+                        
                         if (res.Result.Error != null)
                             str.AppendLine(ExceptionHelper.GetAllMessageException(ExceptionHelper.ProcessException(res.Result.Error)));
 
@@ -245,19 +250,21 @@ namespace Client
                     }
                     else
                     {
-                        String err = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(res.Exception);
+                        str.Append ( ExceptionHelper.GetAllMessageException(res.Exception));
 
 
                     }
+
+                    txtResponse.Text = str.ToString();
                 }));
             });
         }
 
 
          
-        Task<RetrivePatientsRes> create_RetrivePatientsReqAsync()
+        Task<RetrivePatientsRes> create_RetrivePatientsReqAsync(string provider)
         {
-            return Task<RetrivePatientsRes>.Factory.StartNew(() => Do_RetrivePatient());
+            return Task<RetrivePatientsRes>.Factory.StartNew(() => Do_RetrivePatient(provider));
             
        
 
@@ -277,12 +284,12 @@ namespace Client
             //  });
         }
 
-        RetrivePatientsRes Do_RetrivePatient()
+        RetrivePatientsRes Do_RetrivePatient(String provider)
         {
 
             RetrivePatientsReq req = CreateReq();
 
-            RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(comboProviders.Text, req);
+            RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(provider, req);
           
             return res;
 
