@@ -16,7 +16,7 @@ namespace Fwk.Bases
     /// </summary>
     /// <typeparam name="T"> <see cref="IEntity"/> </typeparam>
     [Serializable]
-    public class ServiceContractBase<T>:IServiceContract where T : IEntity , new()
+    public class ServiceContractBase<T>:IServiceContract where T : IBaseEntity , new()
     {
         
         T m_Data = new T();
@@ -290,7 +290,7 @@ namespace Fwk.Bases
         /// <summary>
         /// GetBusinessDataObject
         /// </summary>
-        public IEntity IEntity
+        public IBaseEntity IEntity
         {
             get
             {

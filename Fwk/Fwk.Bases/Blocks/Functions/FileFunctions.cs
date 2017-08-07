@@ -62,8 +62,23 @@ namespace Fwk.HelperFunctions
                 else return String.Empty;
             }
         }
+        public static String[] OpenFileDialog_Open_multiselect(string pFilter, string pTitle, string pInitialDirectory)
+        {
+            using (OpenFileDialog wDialog = new OpenFileDialog())
+            {
+                wDialog.Multiselect = true;
+                if (!String.IsNullOrEmpty(pTitle))
+                    wDialog.Title = pTitle;
 
+                if (!String.IsNullOrEmpty(pInitialDirectory))
+                    wDialog.InitialDirectory = pInitialDirectory;
 
+                wDialog.CheckFileExists = true;
+                wDialog.Filter = pFilter;// String.Format("Files {0}|All Files (*.*)|*.*", pFilter);
+                if (wDialog.ShowDialog() == DialogResult.OK) return wDialog.FileNames;
+                else return null;
+            }
+        }
         /// <summary>
         /// Muestra dialog box para abrir un archivo .-
         /// </summary>

@@ -24,7 +24,9 @@ namespace Fwk.Bases
     /// Es decir la interfaz de las Entities y las Entity
     /// </summary>
     public interface IBaseEntity : ICloneable
-    {
+    { 
+       
+       
         /// <summary>
         /// Obtine un xml producto de la serializacion de la coleccion Entities.-
         /// </summary>

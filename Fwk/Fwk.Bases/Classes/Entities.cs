@@ -23,22 +23,7 @@ namespace Fwk.Bases
         #region IEntity Members
 
 
-            //EntityState _EntityState = EntityState.Unchanged;
-            ///// <summary>
-            ///// Retorna el estado de modificacion actual de la clase 
-            ///// </summary>
-            //[BrowsableAttribute(false)]
-            //public EntityState EntityState
-            //{
-            //    get
-            //    {
-            //        return _EntityState;
-            //    }
-            //    set
-            //    {
-            //        _EntityState = value;
-            //    }
-            //}
+           
         /// <summary>
         /// Obtine un xml producto de la serializacion de la coleccion Entities.-
         /// </summary>
@@ -199,5 +184,7 @@ namespace Fwk.Bases
             return this.MemberwiseClone();
         }
         #endregion
+
+      
     }
 }

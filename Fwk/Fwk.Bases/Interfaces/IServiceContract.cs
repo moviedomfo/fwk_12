@@ -20,7 +20,7 @@ namespace Fwk.Bases
         /// <summary>
         /// Interfaz de entidad 
         /// </summary>
-        IEntity IEntity
+        IBaseEntity IEntity
         {
             get;
            
