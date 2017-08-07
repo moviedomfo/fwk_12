@@ -227,17 +227,19 @@ namespace Client
             return req;
         }
 
+        int nroLlamada = 0;
         private void button5_Click(object sender, EventArgs e)
         {
-
+            nroLlamada= nroLlamada ++;
 
             string provider = comboProviders.Text;
 
-            Task.Run(() => create_RetrivePatientsReqAsync(provider)).ContinueWith((res) =>
+            Task.Run(() => create_RetrivePatientsReqAsync(provider, nroLlamada.ToString())).ContinueWith((res) =>
             {//Se hace esto debido a que no se puede modificar desde un subhilo a propiedades de ojetos UI
                 this.BeginInvoke(new Action(() =>
                 {
-                    StringBuilder str = new StringBuilder();
+                    StringBuilder str = new StringBuilder("Llamada asincrona Nro :  " + nroLlamada.ToString());
+                    str.AppendLine();
                     //Si no ocurre error
                     if (!res.IsFaulted)
                     {
@@ -262,29 +264,14 @@ namespace Client
 
 
          
-        Task<RetrivePatientsRes> create_RetrivePatientsReqAsync(string provider)
+        Task<RetrivePatientsRes> create_RetrivePatientsReqAsync(string provider, String nroLlamada)
         {
-            return Task<RetrivePatientsRes>.Factory.StartNew(() => Do_RetrivePatient(provider));
+            return Task<RetrivePatientsRes>.Factory.StartNew(() => Do_RetrivePatient(provider,nroLlamada));
             
        
-
-            //return Task.Factory.StartNew<RetrivePatientsReq>(() => create_RetrivePatientsReq())
-            //  .ContinueWith((res) =>
-            //  {
-            //      if (!res.IsFaulted)
-            //      {
-            //           res.Result;
-            //      }
-            //      else
-            //      {
-            //          if (res.Exception != null)
-            //              throw res.Exception;
-
-            //      }
-            //  });
         }
 
-        RetrivePatientsRes Do_RetrivePatient(String provider)
+        RetrivePatientsRes Do_RetrivePatient(String provider,String nroLlamada)
         {
 
             RetrivePatientsReq req = CreateReq();
