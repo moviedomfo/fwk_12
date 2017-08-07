@@ -15,6 +15,7 @@ using Fwk.Bases;
 using Fwk.Bases.Connector;
 using Fwk.ConfigSection;
 using Fwk.Exceptions;
+using System.Threading.Tasks;
 
 namespace Client
 {
@@ -226,8 +227,65 @@ namespace Client
             return req;
         }
 
-       
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Task.Run(() => create_RetrivePatientsReqAsync()).ContinueWith((res) =>
+            {//Se hace esto debido a que no se puede modificar desde un subhilo a propiedades de ojetos UI
+                this.BeginInvoke(new Action(() =>
+                {
+                    //Si no ocurre error
+                    if (!res.IsFaulted)
+                    {
+                        StringBuilder str = new StringBuilder();
+                        if (res.Result.Error != null)
+                            str.AppendLine(ExceptionHelper.GetAllMessageException(ExceptionHelper.ProcessException(res.Result.Error)));
+
+                        str.AppendLine(res.Result.BusinessData.GetXml());
+                        str.AppendLine(String.Concat(" cliente: ", res.Result.ContextInformation.ServerName));
+                    }
+                    else
+                    {
+                        String err = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(res.Exception);
+
+
+                    }
+                }));
+            });
+        }
+
+
+         
+        Task<RetrivePatientsRes> create_RetrivePatientsReqAsync()
+        {
+            return Task<RetrivePatientsRes>.Factory.StartNew(() => Do_RetrivePatient());
+            
        
 
+            //return Task.Factory.StartNew<RetrivePatientsReq>(() => create_RetrivePatientsReq())
+            //  .ContinueWith((res) =>
+            //  {
+            //      if (!res.IsFaulted)
+            //      {
+            //           res.Result;
+            //      }
+            //      else
+            //      {
+            //          if (res.Exception != null)
+            //              throw res.Exception;
+
+            //      }
+            //  });
+        }
+
+        RetrivePatientsRes Do_RetrivePatient()
+        {
+
+            RetrivePatientsReq req = CreateReq();
+
+            RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(comboProviders.Text, req);
+          
+            return res;
+
+        }
     }
 }
