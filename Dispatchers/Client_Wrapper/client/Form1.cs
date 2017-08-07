@@ -14,7 +14,7 @@ using Fwk.HelperFunctions;
 using Fwk.Bases;
 using Fwk.Bases.Connector;
 using Fwk.ConfigSection;
-
+using Fwk.Exceptions;
 
 namespace Client
 {
@@ -135,7 +135,7 @@ namespace Client
                     RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(comboProviders.Text,req);
 
                     if (res.Error != null)
-                        str.AppendLine(String.Concat(i, " ", Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error).Message));
+                        str.AppendLine(String.Concat(i, " ", ExceptionHelper.GetAllMessageException(ExceptionHelper.ProcessException(res.Error))));
 
                     str.AppendLine(String.Concat(i, " ", res.BusinessData.GetXml()));
                     str.AppendLine(String.Concat(i, " cliente: ", res.ContextInformation.ServerName));
@@ -170,6 +170,7 @@ namespace Client
         private void comboProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
             wrap_provider w = comboProviders.SelectedItem as wrap_provider;
+            if (w == null) return;
             StringBuilder str = new StringBuilder("Wrapper name: " + w.Name);
             str.AppendLine();
             str.AppendLine("SourceInfo: " + w.SourceInfo);

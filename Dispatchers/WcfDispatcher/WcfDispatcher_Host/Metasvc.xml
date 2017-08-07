@@ -5,9 +5,9 @@
   <ServiceConfiguration name="RetrivePatientsService">
     <CreatedUserName>marcelo</CreatedUserName>
     <CreatedDateTime>2012-05-24T14:15:02.1173341-03:00</CreatedDateTime>
-    <Handler>Health.Svc.RetrivePatientsService, Health.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
-    <Request>Health.Isvc.RetrivePatients.RetrivePatientsReq, Health.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
-    <Response>Health.Isvc.RetrivePatients.RetrivePatientsRes, Health.SVC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Handler>Health.Svc.RetrivePatientsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePatients.RetrivePatientsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePatients.RetrivePatientsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
     <Available>true</Available>
     <Audit>false</Audit>
     <TransactionalBehaviour>Suppres</TransactionalBehaviour>

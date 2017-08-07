@@ -262,6 +262,7 @@ namespace Fwk.DataBase.CustomControls
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbDataBases;
+
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox WindowsAutentificaction;
         private System.Windows.Forms.Button btnAceptar;
