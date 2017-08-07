@@ -839,3 +839,11 @@ Fwk/Fwk.Bases/Properties/Settings.settings.bak
 Dispatchers/DispatcherClientChecker/DispatcherClientChecker/App.config.bak
 Dispatchers/DispatcherClientChecker/DispatcherClientChecker/DispatcherClientChecker.csproj.user
 Dispatchers/WcfDispatcher/WcfDispatcher/WcfDispatcher.Service.csproj.user
+Libraries/Framework/Fwk.Security.dll.lastcodeanalysissucceeded
+Libraries/Framework/Fwk.Security.dll.CodeAnalysisLog.xml
+Libraries/Framework/Fwk.DataBase.dll.lastcodeanalysissucceeded
+Libraries/Framework/Fwk.DataBase.dll.CodeAnalysisLog.xml
+Libraries/Framework/Fwk.Bases.dll.lastcodeanalysissucceeded
+Libraries/Framework/Fwk.Bases.dll.CodeAnalysisLog.xml
+Libraries/Framework/Fwk.Bases.Connector.dll.lastcodeanalysissucceeded
+Libraries/Framework/Fwk.Bases.Connector.dll.CodeAnalysisLog.xml
