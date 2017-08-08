@@ -43,7 +43,7 @@ namespace Health.Svc
             p.Nombre = "Chris Blan";
             p.Apellido = "As perl";
             wRes.BusinessData.Add(p);
-            System.Threading.Thread.Sleep(63000);
+            System.Threading.Thread.Sleep(10000);
             return wRes;
         }
     }

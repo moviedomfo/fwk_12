@@ -227,18 +227,18 @@ namespace Client
             return req;
         }
 
-        int nroLlamada = 0;
+        int nroLlamadaCount = 0;
         private void button5_Click(object sender, EventArgs e)
         {
-            nroLlamada= nroLlamada ++;
+            nroLlamadaCount = nroLlamadaCount + 1;
 
             string provider = comboProviders.Text;
 
-            Task.Run(() => create_RetrivePatientsReqAsync(provider, nroLlamada.ToString())).ContinueWith((res) =>
+            Task.Run(() => create_RetrivePatientsReqAsync(provider, nroLlamadaCount.ToString())).ContinueWith((res) =>
             {//Se hace esto debido a que no se puede modificar desde un subhilo a propiedades de ojetos UI
                 this.BeginInvoke(new Action(() =>
                 {
-                    StringBuilder str = new StringBuilder("Llamada asincrona Nro :  " + nroLlamada.ToString());
+                    StringBuilder str = new StringBuilder("Hora de llamada :  " + res.Result.ContextInformation.HostTime.ToLongTimeString());
                     str.AppendLine();
                     //Si no ocurre error
                     if (!res.IsFaulted)
