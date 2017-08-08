@@ -245,7 +245,7 @@ namespace Fwk.BusinessFacades.Utils
                 TechnicalException te = new TechnicalException("No se pudo insertar la auditoria de la ejecucion de un servicio.-  " + ex.Message.ToString(), ex);
                 te.ErrorId = "7010";
                 Fwk.Exceptions.ExceptionHelper.SetTechnicalException(te, typeof(Audit));
-                LogDispatcherError(ex);
+                LogDispatcherError(te);
                 
                 LogSuccessfulExecution_Old(pRequest, wResult);
             }
