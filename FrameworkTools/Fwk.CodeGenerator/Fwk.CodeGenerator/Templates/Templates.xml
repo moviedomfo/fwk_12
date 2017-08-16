@@ -3,27 +3,18 @@
 
   
 <Template name="Property">
-<<<<<<< HEAD
-<Content>	<![CDATA[public [TYPENAME][NullToken] [Property_Name]{get;set;}]]>
-=======
-<Content>	<![CDATA[
-	public [TYPENAME][NullToken] [Property_Name] { get ;set ;}
-	]]>
->>>>>>> 025f949f3c98ac4f3a8f26f242bb18dd092f7ac7
+
+	<Content>	<![CDATA[public [TYPENAME][NullToken] [Property_Name]{get;set;}]]>
+
 </Content>
 </Template>
   
   <Template name="Property_Binary">
-<<<<<<< HEAD
+
     <Content>    
       <![CDATA[[System.Xml.Serialization.XmlElementAttribute("[Property_Name]",DataType = "[SCHEMATYPENAME]")]
-public Byte[][NullToken] [Property_Name]{get;set;}]]>
-=======
-    <Content>    <![CDATA[
-   [System.Xml.Serialization.XmlElementAttribute("[Property_Name]",DataType = "[SCHEMATYPENAME]")]
-   public Byte[][NullToken] [Property_Name] { get ;set ;}
-    ]]>
->>>>>>> 025f949f3c98ac4f3a8f26f242bb18dd092f7ac7
+		public Byte[][NullToken] [Property_Name]{get;set;}]]>
+
     </Content>
   </Template>
   
@@ -31,27 +22,27 @@ public Byte[][NullToken] [Property_Name]{get;set;}]]>
     <Content><![CDATA[///<param name="p[MethodParameterName]">[ParameterName]</param>]]></Content>
   </Template>
   <Template name="ParameterInput">
-    <Content>     <![CDATA[[ConditionalString]
-         wDataBase.AddInParameter(wCmd, "[ParameterName]", [ParameterType], [ParameterValue]);]]>
+    <Content><![CDATA[[ConditionalString]
+      //param type [ParameterType]
+      cmd.Parameters.AddWithValue("@[ParameterName]", [ParameterValue]);]]>
     </Content>
   </Template>
   <Template name="ParameterOutput">
-    <Content>     <![CDATA[/// [ParameterName]
-          wDataBase.AddOutParameter(wCmd, "[ParameterName]", [ParameterType], [ParameterLength]);]]>
+    <Content><![CDATA[param = new SqlParameter("@[ParameterName]", [ParameterType]);
+           param.Direction = ParameterDirection.Output;
+           cmd.Parameters.Add(param);]]>
     </Content>
   </Template>
   
   <Template name="InsertReturn">
     <Content>
-      <![CDATA[
-				p[EntityName].[Property_Name] = ([TYPENAME]) wDataBase.GetParameterValue(wCmd, "[Property_Name]");]]>
+      <![CDATA[p[EntityName].[Property_Name] = (([TYPENAME]) cmd.Parameters["@Property_Name"].Value);]]>
     </Content>
   </Template>
   <Template name="SearchReturn">
     <Content>
       <![CDATA[
-		
-         using (IDataReader reader = wDataBase.ExecuteReader(wCmd))
+		     using (SqlDataReader reader = cmd.ExecuteReader())
          {
            while (reader.Read())
            {
@@ -92,19 +83,17 @@ public Byte[][NullToken] [Property_Name]{get;set;}]]>
     </Content>
   </Template>
   <Template name="SPParameterBatchBinary">
-    <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
+    <Content><![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
           [Batch_NULL_Question]
              wBatchCommandText.Append(string.Concat("'" , w[EntityName].[Property_Name] , "'"));
-          wBatchCommandText.Append( ",");
-]]>
+          wBatchCommandText.Append( ",");]]>
     </Content>
   </Template>
   <Template name="SPParameterBatchInteger">
     <Content>     <![CDATA[wBatchCommandText.Append("@[Property_Name] = ");
          [Batch_NULL_Question]
             wBatchCommandText.Append(w[EntityName].[Property_Name]);
-         wBatchCommandText.Append( ",");
-]]>
+         wBatchCommandText.Append( ",");]]>
     </Content>
   </Template>
   <Template name="SPParameterBatchDecimal">
@@ -153,11 +142,13 @@ public Byte[][NullToken] [Property_Name]{get;set;}]]>
     /// <Author>[Author]</Author>
     public static  void [MethodName]Batch([EntityName]List p[EntityName]List)
     {
+      //string wConnectionStr = GetDataCnnstring(pAppId);
       Database wDatabase = null;
       DbCommand wCmd = null;
 			StringBuilder wBatchCommandText ;
       try
       {    
+       string wConnectionStr = GetDataCnnstring(Common.CnnString);
        wDatabase = DatabaseFactory.CreateDatabase("CnnStringKey");
        wBatchCommandText = new StringBuilder();
        #region --[Seteo de Parametros]--
@@ -200,14 +191,20 @@ public Byte[][NullToken] [Property_Name]{get;set;}]]>
     /// <Author>[Author]</Author>
     public static  [RetType] [MethodName]([ParamArgs])
     {
-      Database wDataBase = null;
-      DbCommand wCmd = null;
+      SqlParameter param;
       [Declarations]
       try
-      {                                              
-	    wDataBase = DatabaseFactory.CreateDatabase("CnnStringKey");
-	    wCmd = wDataBase.GetStoredProcCommand("[StoredProcedureName]");
+      {   
+       string wConnectionStr = GetDataCnnstring(Common.CnnString);
+	     using (SqlConnection cnn = new SqlConnection(wConnectionStr))
+       using (SqlCommand cmd = new SqlCommand("[StoredProcedureName]", cnn) { CommandType = System.Data.CommandType.StoredProcedure })
+	    {
+        #region params
         [Parameters]
+        #endregion
+        
+        cnn.Open();
+        
         [Return]				
       }
        catch (Exception ex)

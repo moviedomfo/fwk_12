@@ -381,21 +381,30 @@ namespace Fwk.BusinessFacades.Utils
             }  
         }
 
-        //Mtodo que audita
+        //Metodo que audita
         static void DoAudit(ServiceConfiguration pServiceConfiguration, IServiceContract pRequest, IServiceContract wResponse)
         {
-            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.Required)
+            //Si ocurre un error cualquiera se loguea el mismo
+            if (wResponse.Error != null)
+            {
+                Audit.LogNonSucessfulExecution(pRequest, wResponse);
+                return;
+            }
+            //Si no hay error
+
+            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.None) // No se audita nada
+                return;
+
+            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.Required) //Se audita si o si
                 Audit.LogSuccessfulExecution(pRequest, wResponse);
             else
             {
-                if (pServiceConfiguration.Audit == true)
+                if (pServiceConfiguration.Audit == true)//en este caso seria opcional
                 {
                     Audit.LogSuccessfulExecution(pRequest, wResponse);
                 }
             }
-            //Si ocurre un error cualquiera se loguea el mismo
-            if (wResponse.Error != null)
-                Audit.LogNonSucessfulExecution(pRequest, wResponse);
+         
         }
 
         static ServiceError GetServiceError(Exception e)
