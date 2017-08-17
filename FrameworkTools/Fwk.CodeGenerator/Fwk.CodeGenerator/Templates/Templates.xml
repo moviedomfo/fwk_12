@@ -160,12 +160,12 @@
         
        #endregion
 
-        wCmd = wDatabase.GetSqlStringCommand(wBatchCommandText.ToString());
-        wCmd.CommandType = CommandType.Text;
+        cmd = wDatabase.GetSqlStringCommand(wBatchCommandText.ToString());
+        cmd.CommandType = CommandType.Text;
 
         if (wBatchCommandText.Length > 0)
         {
-            wDatabase.ExecuteNonQuery(wCmd);
+                  cmd.ExecuteNonQuery();
         }
       
         
@@ -195,18 +195,19 @@
       [Declarations]
       try
       {   
-       string wConnectionStr = GetDataCnnstring(Common.CnnString);
+       string wConnectionStr = BaseDAC.GetDataCnnstring(Common.CnnString);
 	     using (SqlConnection cnn = new SqlConnection(wConnectionStr))
-       using (SqlCommand cmd = new SqlCommand("[StoredProcedureName]", cnn) { CommandType = System.Data.CommandType.StoredProcedure })
-	    {
-        #region params
-        [Parameters]
-        #endregion
+         using (SqlCommand cmd = new SqlCommand("[StoredProcedureName]", cnn) { CommandType = System.Data.CommandType.StoredProcedure })
+	      {
+          #region params
+          [Parameters]
+          #endregion
         
-        cnn.Open();
+          cnn.Open();
         
-        [Return]				
-      }
+          [Return]				
+        } 
+       }
        catch (Exception ex)
       {
         throw Fwk.Exceptions.ExceptionHelper.ProcessException(ex);

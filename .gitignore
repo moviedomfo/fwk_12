@@ -851,3 +851,5 @@ Libraries/Framework/Fwk.Security.XML
 Libraries/Framework/Fwk.DataBase.XML
 Libraries/Framework/Fwk.Bases.Connector.xml
 FrameworkTools/Fwk.CodeGenerator/Fwk.CodeGenerator.v11.suo
+FrameworkTools/Fwk.CodeGenerator/Fwk.CodeGenerator/Fwk.CodeGenerator.csproj.user
+FrameworkTools/Controls/Fwk.Controls.Win32/Fwk.Controls.Win32.v11.suo

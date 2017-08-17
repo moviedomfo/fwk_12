@@ -76,7 +76,7 @@ namespace Fwk.CodeGenerator
                         if (pPK != null)
                         {
                             
-                            wBuilderReturn = new StringBuilder("  wDataBase.ExecuteNonQuery(wCmd);");
+                            wBuilderReturn = new StringBuilder("  cmd.ExecuteNonQuery();");
                             wBuilderReturn.AppendLine(FwkGeneratorHelper.TemplateDocument.GetTemplate("InsertReturn").Content);
                             wBuilderReturn.Replace(CodeGeneratorCommon.CommonConstants.CONST_ENTITY_PROPERTY_NAME, pPK.Name);
                             wBuilderReturn.Replace(CodeGeneratorCommon.CommonConstants.CONST_TYPENAME, FwkGeneratorHelper.GetCSharpType(pPK));
@@ -84,10 +84,10 @@ namespace Fwk.CodeGenerator
                             return wBuilderReturn.ToString();
                         }
                         else
-                            return "  wDataBase.ExecuteNonQuery(wCmd);";
+                            return "  cmd.ExecuteNonQuery();";
                     }
                 case CodeGeneratorCommon.MethodActionType.Update:
-                    return "  wDataBase.ExecuteNonQuery(wCmd);";
+                    return "  cmd.ExecuteNonQuery();";
 
                 case CodeGeneratorCommon.MethodActionType.SearchByParam:
 
@@ -95,7 +95,7 @@ namespace Fwk.CodeGenerator
 
                     return wBuilderReturn.ToString();
                 case CodeGeneratorCommon.MethodActionType.Delete:
-                    return  "  wDataBase.ExecuteNonQuery(wCmd);";
+                    return "  cmd.ExecuteNonQuery();";
 
             }
 

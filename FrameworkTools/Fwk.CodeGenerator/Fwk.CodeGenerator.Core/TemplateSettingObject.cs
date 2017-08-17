@@ -183,7 +183,7 @@ namespace Fwk.CodeGenerator
             set { _CollectionsSufix = value; }
         }
         
-        String _EntitySufix = "";
+        String _EntitySufix = "BE";
         
 
         [Description("Indica como se identifican las clases tipo Entity. ej: ClienteBE")]
