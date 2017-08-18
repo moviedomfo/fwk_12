@@ -7,7 +7,7 @@ using Health.Isvc.RetrivePatients;
 using Health.Back;
 
 using Health.BE;
-
+using Fwk.Exceptions;
 
 namespace Health.Svc
 {
@@ -43,7 +43,8 @@ namespace Health.Svc
             p.Nombre = "Chris Blan";
             p.Apellido = "As perl";
             wRes.BusinessData.Add(p);
-            System.Threading.Thread.Sleep(10000);
+            throw new TechnicalException("error en el svc");
+            //System.Threading.Thread.Sleep(10000);
             return wRes;
         }
     }

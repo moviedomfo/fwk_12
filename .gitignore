@@ -853,3 +853,7 @@ Libraries/Framework/Fwk.Bases.Connector.xml
 FrameworkTools/Fwk.CodeGenerator/Fwk.CodeGenerator.v11.suo
 FrameworkTools/Fwk.CodeGenerator/Fwk.CodeGenerator/Fwk.CodeGenerator.csproj.user
 FrameworkTools/Controls/Fwk.Controls.Win32/Fwk.Controls.Win32.v11.suo
+Fwk/Fwk.Bases/Blocks/Fwk.BusinessFacades/SimpleFacade.cs.bak
+Fwk/Fwk.Bases/Blocks/Fwk.BusinessFacades/FacadeHelper.cs.bak
+Fwk/Fwk.Bases.Connector/WCF/WCFWrapper_NetTcpBinding.cs.bak
+Dispatchers/RemotingDispatcher/RemotingDispatcher.v11.suo

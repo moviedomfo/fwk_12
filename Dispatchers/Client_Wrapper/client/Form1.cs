@@ -16,6 +16,8 @@ using Fwk.Bases.Connector;
 using Fwk.ConfigSection;
 using Fwk.Exceptions;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Client
 {
@@ -279,6 +281,30 @@ namespace Client
             RetrivePatientsRes res = req.ExecuteService<RetrivePatientsReq, RetrivePatientsRes>(provider, req);
           
             return res;
+
+        }
+
+        private void btnCheckServiceAvailability_Click(object sender, EventArgs e)
+        {
+            wrap_provider w = comboProviders.SelectedItem as wrap_provider;
+            try
+            {
+                //using (Stream s = new MemoryStream())
+                //{
+                //    BinaryFormatter formatter = new BinaryFormatter();
+                //    formatter.Serialize(s, w);
+                //    long x = s.Length;
+                //}
+
+                
+                var res = WrapperFactory.GetWrapper(w.Name).CheckServiceAvailability(true, true, true);
+
+                
+            }
+            catch(Exception ex)
+            {
+                txtResponse.Text = ex.Message;
+            }
 
         }
     }
