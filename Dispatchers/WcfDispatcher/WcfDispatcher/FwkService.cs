@@ -52,12 +52,22 @@ namespace WcfDispatcher.Service
         {
 
             Console.WriteLine("Excecuting svc " + serviceName + "  " + DateTime.Now.ToString());
-
+            Console.WriteLine("--------Client IP  " + GetClientIP());
             CreateSimpleFacade();
+          
             return simpleFacade.ExecuteServiceJson(providerName, serviceName, jsonRequets, hostContext);
 
         }
-
+        private string GetClientIP()
+        {
+            OperationContext context = OperationContext.Current;
+            MessageProperties prop = context.IncomingMessageProperties;
+            RemoteEndpointMessageProperty endpoint =
+                   prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+            string ip = endpoint.Address;
+            
+            return ip;
+        }
         /// <summary>
         /// transport Binary
         /// </summary>
@@ -68,6 +78,7 @@ namespace WcfDispatcher.Service
         WCFResponse IFwkService.ExecuteServiceBin( WCFRequet req)
         {
             Console.WriteLine("Excecuting svc " + req.ServiceName + "  " + DateTime.Now.ToString());
+            Console.WriteLine("--------Client IP  " + req.ContextInformation.HostIp + " Client Name" + req.ContextInformation.HostName);
             CreateSimpleFacade();
             //IServiceContract result = simpleFacade.ExecuteService(req.ProviderName, req.BusinessData);
 
@@ -109,6 +120,8 @@ namespace WcfDispatcher.Service
         /// <returns></returns>
         public Fwk.ConfigSection.DispatcherInfo RetriveDispatcherInfo()
         {
+            Console.WriteLine("Excecuting RetriveDispatcherInfo " + DateTime.Now.ToString());
+            Console.WriteLine("--------Client IP  " + GetClientIP());
             CreateSimpleFacade();
             return simpleFacade.RetriveDispatcherInfo();
         }
@@ -120,6 +133,8 @@ namespace WcfDispatcher.Service
         /// <param name="providerName">Nombre del proveedor de metadata de servicios.-</param>
         public List<String> GetAllApplicationsId(string providerName)
         {
+            Console.WriteLine("Excecuting GetAllApplicationsId " + DateTime.Now.ToString());
+            Console.WriteLine("--------Client IP  " + GetClientIP());
             CreateSimpleFacade();
             return simpleFacade.GetAllApplicationsId(providerName);
         }
@@ -131,6 +146,8 @@ namespace WcfDispatcher.Service
         /// <returns></returns>
         public Fwk.ConfigSection.MetadataProvider GetProviderInfo(string providerName)
         {
+            Console.WriteLine("Excecuting GetProviderInfo " + DateTime.Now.ToString());
+            Console.WriteLine("--------Client IP  " + GetClientIP());
             CreateSimpleFacade();
             return simpleFacade.GetProviderInfo(providerName);
         }

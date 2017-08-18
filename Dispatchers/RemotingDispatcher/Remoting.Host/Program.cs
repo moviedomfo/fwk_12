@@ -23,9 +23,15 @@ namespace Remoting.Host
             ev.LogType = EventType.Information;
             ev.Machine = Environment.MachineName;
             ev.User = Environment.UserName;
-            ev.Message.Text = "Servicio de host de Remoting iniciado.";
-       
-            Console.WriteLine(ev.Message.Text);
+            WellKnownClientTypeEntry[] myEntries = RemotingConfiguration.GetRegisteredWellKnownClientTypes();
+            
+            ev.Message.Text = "Servicio de Remoting consola iniciado.";
+
+            StringBuilder str = new StringBuilder();
+            str.AppendLine(Fwk.Bases.ConfigurationsHelper.HostApplicationName);
+            str.AppendLine(ev.Message.Text);
+
+            Console.WriteLine(str.ToString());
             try
             {
                 StaticLogger.Log(TargetType.WindowsEvent, ev, null, null);

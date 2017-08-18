@@ -204,6 +204,7 @@ namespace Fwk.BusinessFacades.Utils
         /// </summary>
         /// <param name="pRequest">Request</param>
         /// <param name="wResult">Response</param>
+        /// <param name="logType">Audit default</param>
         public static void LogSuccessfulExecution(IServiceContract pRequest, IServiceContract wResult, Fwk.Logging.EventType logType = Fwk.Logging.EventType.Audit)
         {
             fwk_ServiceAudit audit = new fwk_ServiceAudit();

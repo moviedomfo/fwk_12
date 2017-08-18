@@ -26,18 +26,30 @@ namespace Fwk.BusinessFacades.Utils
     /// <author>moviedo</author>
     public enum AuditMode
     {
+        
         /// <summary>
         /// Se auditará la  ejecución del servicio, sin importar la configuración del mismo.
+        /// Loguea Errores y ejecucion sin errores
         /// </summary>
-        Required = 0,
+        Required_ExecutionsAndErrors = 0,
+         /// <summary>
+        /// Se auditará la  ejecución con errores del servicio, sin importar la configuración individual del mismo en la Metadata.
+        /// </summary>
+        Required_ErrorsOnly= 1,
         /// <summary>
-        /// Se auditará la  ejecución del servicio si éste está configurado para ser auditado.
+        /// Se auditará la  ejecución del servicio si éste está configurado para ser auditado en la metadata. 
+        /// Loguea Errores y ejecucion sin errores
         /// </summary>
-        Optional = 1,
+        Optional_ExecutionsAndErrors = 2,
         /// <summary>
-        /// No se auditará la  ejecución del servicio, sin importar la configuración del mismo.
+        /// Loguea solo errores de un servicio solo si esta configurado en la Metadata
         /// </summary>
-        None = 2
+        Optional_ErrorsOnly = 3,
+        /// <summary>
+        /// No se auditará la  ejecución del servicio ni errrores.-
+        /// </summary>
+        None = 4
+
     }
 
     /// <summary>
@@ -364,10 +376,19 @@ namespace Fwk.BusinessFacades.Utils
 
         }
 
-        //Mtodo que audita
-        internal static void DoAuditError(string serviceName, string message, string appId)
+        
+        /// <summary>
+        /// Audita un error
+        /// </summary>
+        /// <param name="serviceName"></param>
+        /// <param name="message"></param>
+        /// <param name="appId"></param>
+        /// <param name="forceLogError">si vieno en true no se interpretara la Configuracion de  AuditMode</param>
+        internal static void DoAuditError(string serviceName, string message, string appId,bool forceLogError=false)
         {
-            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.Required)
+            var dispatcherSuditMode = (AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode;
+
+            if (dispatcherSuditMode == AuditMode.Required_ErrorsOnly || dispatcherSuditMode == AuditMode.Required_ExecutionsAndErrors || forceLogError==true)
             {
                 fwk_ServiceAudit audit = new fwk_ServiceAudit();
                 audit.ServiceName = serviceName;
@@ -384,27 +405,35 @@ namespace Fwk.BusinessFacades.Utils
         //Metodo que audita
         static void DoAudit(ServiceConfiguration pServiceConfiguration, IServiceContract pRequest, IServiceContract wResponse)
         {
-            //Si ocurre un error cualquiera se loguea el mismo
+            var dispatcherSuditMode = (AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode;
+
+            if (dispatcherSuditMode == AuditMode.None) // No se audita nada
+                return;
+
+            //Si ocurre un error 
             if (wResponse.Error != null)
             {
-                Audit.LogNonSucessfulExecution(pRequest, wResponse);
+                if (dispatcherSuditMode == AuditMode.Required_ErrorsOnly || dispatcherSuditMode == AuditMode.Required_ExecutionsAndErrors)
+                    Audit.LogNonSucessfulExecution(pRequest, wResponse);
+
+                if ((dispatcherSuditMode == AuditMode.Optional_ErrorsOnly || dispatcherSuditMode == AuditMode.Optional_ExecutionsAndErrors)
+                    && pServiceConfiguration.Audit)
+                    Audit.LogNonSucessfulExecution(pRequest, wResponse);
+
                 return;
             }
-            //Si no hay error
 
-            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.None) // No se audita nada
+            //si solo hay q loguear errores salir
+            if (dispatcherSuditMode == AuditMode.Required_ErrorsOnly || dispatcherSuditMode == AuditMode.Optional_ErrorsOnly)
                 return;
 
-            if ((AuditMode)FacadeHelper.ServiceDispatcherConfig.AuditMode == AuditMode.Required) //Se audita si o si
+            //Si no hay error pero Required_ExecutionsAndErrors o Optional_ExecutionsAndErrors
+            if (dispatcherSuditMode == AuditMode.Required_ExecutionsAndErrors) //Se audita si o si
                 Audit.LogSuccessfulExecution(pRequest, wResponse);
-            else
-            {
-                if (pServiceConfiguration.Audit == true)//en este caso seria opcional
-                {
-                    Audit.LogSuccessfulExecution(pRequest, wResponse);
-                }
-            }
-         
+
+            if (pServiceConfiguration.Audit == true && dispatcherSuditMode == AuditMode.Optional_ExecutionsAndErrors)
+                Audit.LogSuccessfulExecution(pRequest, wResponse);
+
         }
 
         static ServiceError GetServiceError(Exception e)

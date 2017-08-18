@@ -47,6 +47,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -77,9 +78,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.ServiceModel">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -99,7 +98,7 @@
       <Name>back</Name>
     </ProjectReference>
     <ProjectReference Include="..\WcfDispatcher\WcfDispatcher.Service.csproj">
-      <Project>{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}</Project>
+      <Project>{01286891-ae8e-4a3a-b7eb-e22fcecc3f05}</Project>
       <Name>WcfDispatcher.Service</Name>
     </ProjectReference>
   </ItemGroup>

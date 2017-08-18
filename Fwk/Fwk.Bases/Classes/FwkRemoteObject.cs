@@ -5,6 +5,7 @@ using Fwk.BusinessFacades;
 using Fwk.Bases;
 using System.Diagnostics;
 using Fwk.BusinessFacades.Utils;
+using System.Web;
 
 namespace Fwk.Remoting
 {
@@ -22,7 +23,9 @@ namespace Fwk.Remoting
         /// <returns><see cref="IServiceContract"/></returns>
         public IServiceContract ExecuteService(string providerName, IServiceContract pReq)
         {
-            Console.WriteLine( "Executing " + pReq.ServiceName + " " + DateTime.Now.ToString());
+            
+            Console.WriteLine("Executing " + pReq.ServiceName + " " + DateTime.Now.ToString());
+            Console.WriteLine("--------Client IP  " + pReq.ContextInformation.HostIp + " Client Name" + pReq.ContextInformation.HostName);
             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             IServiceContract wRsponse = wSimpleFacade.ExecuteService(providerName, pReq);
             return wRsponse;
@@ -48,6 +51,7 @@ namespace Fwk.Remoting
         /// <returns>Mensaje en caso de que el servicio no esté disponible</returns>
         public string CheckServiceAvailability()
         {
+            Console.WriteLine("Executing CheckServiceAvailability " + DateTime.Now.ToString());
             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             return wSimpleFacade.CheckServiceAvailability();
         }
@@ -59,6 +63,7 @@ namespace Fwk.Remoting
         /// <returns><see cref="ServiceConfiguration"/></returns>
         public ServiceConfiguration GetServiceConfiguration(string providerName, string pServiceName)
         {
+            Console.WriteLine("Executing GetServiceConfiguration " + DateTime.Now.ToString());
             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             String xmlServices = _SimpleFacade.GetServiceConfiguration(providerName, pServiceName);
             return ServiceConfiguration.GetServiceConfigurationFromXml(xmlServices);

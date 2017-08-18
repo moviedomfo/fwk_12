@@ -11,7 +11,7 @@ using System.Xml.Serialization;
 
 namespace Fwk.Bases.ISVC
 {
-    [Serializable]
+   
     public class RetriveDispatcherInfoReq : Request<RetriveDispatcherInfoParams>
     {
         public RetriveDispatcherInfoReq()
