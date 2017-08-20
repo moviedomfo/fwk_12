@@ -435,7 +435,7 @@ namespace Fwk.BusinessFacades.Utils
                 Audit.LogSuccessfulExecution(pRequest, wResponse);
 
         }
-
+        
         static ServiceError GetServiceError(Exception e)
         {
             ServiceError err = null;
