@@ -132,9 +132,7 @@
     <Compile Include="Bases\ConnectionForm.Designer.cs">
       <DependentUpon>ConnectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bases\FrmBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Bases\FrmBase.cs" />
     <Compile Include="Bases\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
@@ -154,9 +152,7 @@
     </Compile>
     <Compile Include="DACGenController.cs" />
     <Compile Include="No_Used\DataEntityGenEngine.cs" />
-    <Compile Include="Forms\DACClasses\frm_DACGenerator.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\DACClasses\frm_DACGenerator.cs" />
     <Compile Include="Forms\DACClasses\frm_DACGenerator.Designer.cs">
       <DependentUpon>frm_DACGenerator.cs</DependentUpon>
     </Compile>
@@ -165,9 +161,7 @@
     <Compile Include="Forms\EntityClasses\frm_DataEntityGenerator.Designer.cs">
       <DependentUpon>frm_DataEntityGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmTemplateSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\FrmTemplateSetting.cs" />
     <Compile Include="Forms\FrmTemplateSetting.Designer.cs">
       <DependentUpon>FrmTemplateSetting.cs</DependentUpon>
     </Compile>
