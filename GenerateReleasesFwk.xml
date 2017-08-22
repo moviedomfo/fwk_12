@@ -10,48 +10,44 @@
       <!-- Ruta de raiz  -->
 		<OutputPath_root>$(Solution)..\..\fwk_releases\FWK-12.0\</OutputPath_root> 
 		
-		<SolutionPath_AnyCPU_debug>$(Solution)Fwk_AnyCPU_debug.sln</SolutionPath_AnyCPU_debug> 
+		<SolutionPath_AnyCPU_debug>$(Solution)Fwk.sln</SolutionPath_AnyCPU_debug> 
 		<OutputPath_AnyCPU_debug>$(OutputPath_root)Fwk_12_AnyCPU_debug</OutputPath_AnyCPU_debug>
 		
-		<SolutionPath_x64_debug>$(Solution)Fwk_x64_debug.sln</SolutionPath_x64_debug> 
+		<SolutionPath_x64_debug>$(Solution)Fwk.sln</SolutionPath_x64_debug> 
 		<OutputPath_x64_debug>$(OutputPath_root)Fwk_12_x64_debug</OutputPath_x64_debug>
 		
-		<SolutionPath_x64_release>$(Solution)Fwk_x64_release.sln</SolutionPath_x64_release> 
+		<SolutionPath_x64_release>$(Solution)Fwk.sln</SolutionPath_x64_release> 
 		<OutputPath_x64_release>$(OutputPath_root)Fwk_12_x64_release</OutputPath_x64_release>
 		
 	</PropertyGroup>  
-	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
+	<Target Name="All"  DependsOnTargets="Clean;Compile_AnyCPU_debug;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
 	<!--<Target Name="All"  DependsOnTargets="CleanRecursive"></Target>-->  
 	<Target Name="Clean">
-			<Message Text ="$(Solution)" />
-			<RemoveDir Directories="$(OutputPath_AnyCPU_debug)"/>
-			<MakeDir Directories="$(OutputPath_AnyCPU_debug)"/>
+			<Message Text ="cleaning ..." />
+			<RemoveDir Directories="$(OutputPath_root)"/>
+			<MakeDir Directories="$(OutputPath_root)"/>
 		  </Target>
 	<Target Name="Compile_AnyCPU_debug" >
 		<Message Text ="Realizando la compilacion AnyCPU_debug  del fwk" />
-		<MSBuild Properties = "OutputPath=$(OutputPath_AnyCPU_debug)" Projects= "$(SolutionPath_AnyCPU_debug)" />
-	
+		<MSBuild Properties = "Configuration=Debug; Platform=Any CPU; OutputPath=$(OutputPath_AnyCPU_debug)" 
+             Projects= "$(SolutionPath_AnyCPU_debug)" />
 	</Target>  
     <Target Name="Compile_x64_debug" >
 		<Message Text ="Realizando la compilacion Compile_x64_debug del fwk" />
-		<MSBuild Properties = "OutputPath=$(OutputPath_x64_debug)" Projects= "$(SolutionPath_x64_debug)" />
+		<MSBuild Properties = "Configuration=Debug; Platform=x64;OutputPath=$(OutputPath_x64_debug)" Projects= "$(SolutionPath_x64_debug)" />
 	</Target>  
 	
 	 <Target Name="Compile_x64_release" >
 		<Message Text ="Realizando la compilacion Compile_x64_release del fwk" />
-		<MSBuild Properties = "OutputPath=$(OutputPath_x64_release)" Projects= "$(SolutionPath_x64_release)" />
+		<MSBuild Properties = "Configuration=Release; Platform=x64;OutputPath=$(OutputPath_x64_release)" Projects= "$(SolutionPath_x64_release)" />
 	</Target> 
 	
 	<Target Name="CleanRecursive" >
-	 <Exec Command = "del /s /q $(OutputPath_root)*.pdb" />
-    <Exec Command = "del /s /q $(OutputPath_root)*.dll.config" />
-      <Exec Command = "del /s /q $(OutputPath_root)*.exe.config" />
-    <Exec Command = "del /s /q $(OutputPath_root)*.k" />
-    <Exec Command = "del /s /q $(OutputPath_root)*.exe" />
-	 
-	 
-	
-		
+	 <Exec Command = "del /s /q $(OutputPath_root)*.pdb" />  
+     <Exec Command = "del /s /q $(OutputPath_root)*.config" />
+	 <Exec Command = "del /s /q $(OutputPath_root)*.k" />
+     <Exec Command = "del /s /q $(OutputPath_root)*.exe" />
+	 <Exec Command = "del /s /q $(OutputPath_root)*.bat" />
 	</Target>  
 	
 </Project> 

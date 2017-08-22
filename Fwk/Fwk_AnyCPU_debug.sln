@@ -68,6 +68,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|x64.ActiveCfg = Debug|x64
