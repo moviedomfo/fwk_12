@@ -54,7 +54,7 @@ namespace WcfDispatcher.Service
             Console.WriteLine("Excecuting svc " + serviceName + "  " + DateTime.Now.ToString());
             Console.WriteLine("--------Client IP  " + GetClientIP());
             CreateSimpleFacade();
-            Fwk.HelperFunctions.FileFunctions.OpenTextFile("");
+          
             return simpleFacade.ExecuteServiceJson(providerName, serviceName, jsonRequets, hostContext);
 
         }
