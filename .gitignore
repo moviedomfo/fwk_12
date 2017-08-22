@@ -867,3 +867,8 @@ Fwk/.vs/Fwk_x64_release/v14/.suo
 Fwk/.vs/Fwk_x64_debug/v14/.suo
 Fwk/.vs/Fwk_AnyCPU_debug/v14/.suo
 Dispatchers/Client_Wrapper/.vs/client/v14/.suo
+Libraries/Framework/ServiceMetadataConfig.xml
+Libraries/Framework/Fwk.Bases.Test.exe
+Libraries/Framework/XmlWhitAttributes.xml
+Libraries/Framework/ConfigurationManager.xml
+Libraries/Framework/Fwk.Security.Cryptography.Test.exe
