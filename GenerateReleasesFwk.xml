@@ -5,25 +5,38 @@
 		
 		<!-- Ruta hasta el fichero con la solución -->
 		<Solution>$(MSBuildProjectDirectory)\fwk\</Solution>
-	
+		<SolutionPath>$(Solution)Fwk.sln</SolutionPath> 
+		<SolutionPathDispatcher>$(MSBuildProjectDirectory)\Dispatchers\WcfDispatcher\WcfDispatcher.sln</SolutionPathDispatcher> 
       
       <!-- Ruta de raiz  -->
 		<OutputPath_root>$(Solution)..\..\fwk_releases\FWK-12.0\</OutputPath_root> 
+		<OutputPath_root_fwk>$(OutputPath_root)\libs\</OutputPath_root_fwk> 
 		
-		<SolutionPath>$(Solution)Fwk.sln</SolutionPath> 
-		<OutputPath_AnyCPU_debug>$(OutputPath_root)Fwk_12_AnyCPU_debug</OutputPath_AnyCPU_debug>
-		<OutputPath_AnyCPU_release>$(OutputPath_root)Fwk_12_AnyCPU_release</OutputPath_AnyCPU_release>
-		<OutputPath_x64_debug>$(OutputPath_root)Fwk_12_x64_debug</OutputPath_x64_debug>
-		<OutputPath_x64_release>$(OutputPath_root)Fwk_12_x64_release</OutputPath_x64_release>
+		
+		<OutputPath_AnyCPU_debug>$(OutputPath_root_fwk)Fwk_12_AnyCPU_debug</OutputPath_AnyCPU_debug>
+		<OutputPath_AnyCPU_release>$(OutputPath_root_fwk)Fwk_12_AnyCPU_release</OutputPath_AnyCPU_release>
+		<OutputPath_x64_debug>$(OutputPath_root_fwk)Fwk_12_x64_debug</OutputPath_x64_debug>
+		<OutputPath_x64_release>$(OutputPath_root_fwk)Fwk_12_x64_release</OutputPath_x64_release>
+		
+		<OutputPath_x64_release_wcfdispatcher>$(OutputPath_root)Dispatchers\WcfDispatcher_service\</OutputPath_x64_release_wcfdispatcher>
+		
 		
 	</PropertyGroup>  
-	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
-	<!--<Target Name="All"  DependsOnTargets="CleanRecursive"></Target>-->  
+	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;dispatcher_wcf;CleanRecursive"></Target>
+	  
+	
+	<!--<Target Name="All"  DependsOnTargets="dispatcher_wcf"></Target>-->  
 	<Target Name="Clean">
 			<Message Text ="cleaning ..." />
-			<RemoveDir Directories="$(OutputPath_root)"/>
-			<MakeDir Directories="$(OutputPath_root)"/>
+			<RemoveDir Directories="$(OutputPath_root_fwk)"/>
+			<MakeDir Directories="$(OutputPath_root_fwk)"/>
 		  </Target>
+		  
+	<Target Name="dispatcher_wcf" >
+		<MSBuild Properties = "Configuration=Release; Platform=x64; OutputPath=$(OutputPath_x64_release_wcfdispatcher)" 
+             Projects= "$(SolutionPathDispatcher)" />
+	</Target>  
+
 	<Target Name="Compile_AnyCPU_debug" >
 		<Message Text ="Realizando la compilacion AnyCPU_debug  del fwk" />
 		<MSBuild Properties = "Configuration=Debug; Platform=Any CPU; OutputPath=$(OutputPath_AnyCPU_debug)" 
@@ -45,14 +58,21 @@
 	</Target> 
 	
 	<Target Name="CleanRecursive" >
-	 <Exec Command = "del /s /q $(OutputPath_root)*.pdb" />  
-     <Exec Command = "del /s /q $(OutputPath_root)*.config" />
-	 <Exec Command = "del /s /q $(OutputPath_root)*.k" />
-     <Exec Command = "del /s /q $(OutputPath_root)*.exe" />
-	 <Exec Command = "del /s /q $(OutputPath_root)*.bat" />
-	 <Exec Command = "del /s /q $(OutputPath_root)*.DebuggerVisualizers.dll" />
+	 <Exec Command = "del /s /q $(OutputPath_root)OutputPath_x64_release*.pdb" />  
+	 <Exec Command = "del /s /q $(OutputPath_root)OutputPath_AnyCPU_release*.pdb" /> 
+	 <Exec Command = "del /s /q $(OutputPath_root)*.DebuggerVisualizers.*" />
+	 
+     <Exec Command = "del /s /q $(OutputPath_root_fwk)*.config" />
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.k" />
+     <Exec Command = "del /s /q $(OutputPath_root_fwk)*.exe" />
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.bat" />
+	 
 	 <Exec Command = "del /s /q $(OutputPath_root)XmlWhitAttributes.xml" />
 	 
+	 
+	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)*.pdb" /> 
+	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)Fwk.*.xml" /> 
+	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)WcfDispatcher.Service.dll.config" /> 
 	</Target>  
 	
 </Project> 
