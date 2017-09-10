@@ -27,7 +27,7 @@ namespace Fwk.Exceptions
 
         /// <summary>
         ///    Gets a string representation of the frames on the call stack at the time
-        //     the current exception was thrown.
+        ///     the current exception was thrown.
         /// </summary>
         public string StackTrace
         {
