@@ -1,0 +1,30 @@
+
+<ServiceConfigurationCollection>
+
+  <ServiceConfiguration name="RetriveDispatcherInfoSvc">
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2016-07-28T18:40:29.5659301-03:00</CreatedDateTime>
+    <Handler>Fwk.Bases.Svc.RetriveDispatcherInfoSvc, Fwk.Bases, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Bases.ISVC.RetriveDispatcherInfoReq, Fwk.Bases, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Bases.ISVC.RetriveDispatcherInfoRes, Fwk.Bases, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadUncommitted</IsolationLevel>
+    <ApplicationId>meucciAR</ApplicationId>
+  </ServiceConfiguration>
+  <ServiceConfiguration name="RetrivePatientsService">
+    <CreatedUserName>marcelo</CreatedUserName>
+    <CreatedDateTime>2012-05-24T14:15:02.1173341-03:00</CreatedDateTime>
+    <Handler>Health.Svc.RetrivePatientsService, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Health.Isvc.RetrivePatients.RetrivePatientsReq, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Health.Isvc.RetrivePatients.RetrivePatientsRes, Health.Back, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
+  
+  
+</ServiceConfigurationCollection>

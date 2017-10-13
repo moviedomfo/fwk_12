@@ -18,6 +18,7 @@ using Fwk.Exceptions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using SomeCompany.BE;
 
 namespace Client
 {
@@ -126,6 +127,12 @@ namespace Client
 
         private void btnRetrivePatientsReq_Click(object sender, EventArgs e)
         {
+            ControlPermissionBE c = new ControlPermissionBE();
+
+            c.ControlName = "dassdas";
+            c.ControlName = "dassdas";
+            c.GetXml();
+
             Int32 iter =0;
             StringBuilder str = new StringBuilder();
             if (Int32.TryParse(txtIteraciones.Text, out iter))

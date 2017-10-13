@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "client\Client.csproj", "{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "back", "back\back.csproj", "{7070D9B9-65D3-433E-A504-E9C30952F973}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wrapper.client.test", "wrapper.client.test\wrapper.client.test.csproj", "{8F9A3407-E088-4390-B1F5-C94FC052ECF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "backend\backend.csproj", "{788CAB41-ADC2-4ECF-A044-EB86D4B4613D}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -21,14 +23,14 @@ Global
 		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35CDA0BD-675D-4B9D-97D2-61BF2184F4BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7070D9B9-65D3-433E-A504-E9C30952F973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7070D9B9-65D3-433E-A504-E9C30952F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7070D9B9-65D3-433E-A504-E9C30952F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7070D9B9-65D3-433E-A504-E9C30952F973}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F9A3407-E088-4390-B1F5-C94FC052ECF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F9A3407-E088-4390-B1F5-C94FC052ECF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F9A3407-E088-4390-B1F5-C94FC052ECF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F9A3407-E088-4390-B1F5-C94FC052ECF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788CAB41-ADC2-4ECF-A044-EB86D4B4613D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788CAB41-ADC2-4ECF-A044-EB86D4B4613D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788CAB41-ADC2-4ECF-A044-EB86D4B4613D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788CAB41-ADC2-4ECF-A044-EB86D4B4613D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

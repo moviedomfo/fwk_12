@@ -110,7 +110,7 @@ namespace Fwk.Bases.Connector
             ExecuteServiceRequest wcfReq = new ExecuteServiceRequest();
             ExecuteServiceResponse wcfRes = null;
             JsonSerializerSettings settings = null;
-
+            
             wcfReq.serviceName = req.ServiceName;
             wcfReq.providerName = _ServiceMetadataProviderName;
             wcfReq.jsonRequets = Newtonsoft.Json.JsonConvert.SerializeObject(req, Formatting.None);
