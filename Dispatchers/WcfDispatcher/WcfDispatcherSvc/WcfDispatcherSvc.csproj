@@ -61,21 +61,7 @@
     <Reference Include="Fwk.Security">
       <HintPath>..\..\..\Libraries\Framework\Fwk.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
-      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
-      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation">
-      <HintPath>..\..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\..\Libraries\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\..\..\Libraries\Microsoft.Practices.Unity.dll</HintPath>
-    </Reference>
+   
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />

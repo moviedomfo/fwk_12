@@ -90,11 +90,18 @@
     <Compile Include="ClienteDE.cs" />
     <Compile Include="ClienteDE_2.cs" />
     <Compile Include="Colaborator.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Domain.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventRequest.cs" />
     <Compile Include="EventResponseParams.cs" />
     <Compile Include="ExecuteEventISVC.cs" />
+    <Compile Include="fermHelperFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fermHelperFunctions.Designer.cs">
+      <DependentUpon>fermHelperFunctions.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEntitiesTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +147,9 @@
     <Compile Include="PautaProductoREQ.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fermHelperFunctions.resx">
+      <DependentUpon>fermHelperFunctions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEntitiesTest.resx">
       <DependentUpon>frmEntitiesTest.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -1,6 +1,6 @@
 ﻿namespace Fwk.Bases.Test
 {
-    partial class frmHelperFunctions
+    partial class fermHelperFunctions
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@
             this.btnFormatFunctions = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtResult2 = new System.Windows.Forms.TextBox();
             this.txtResult1 = new System.Windows.Forms.TextBox();
+            this.txtResult2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -45,11 +45,11 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.label3.ForeColor = System.Drawing.Color.SlateGray;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(-2, 0);
+            this.label3.Location = new System.Drawing.Point(-1, 9);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(776, 44);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Fwk HelperFunctions";
             // 
             // tabControl1
@@ -57,12 +57,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(4, 38);
+            this.tabControl1.Location = new System.Drawing.Point(13, 57);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1004, 181);
-            this.tabControl1.TabIndex = 14;
+            this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
             // 
@@ -110,45 +110,44 @@
             this.tabPage3.Text = "ServiceConfigurationManager";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // txtResult1
+            // 
+            this.txtResult1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtResult1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtResult1.Location = new System.Drawing.Point(17, 259);
+            this.txtResult1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtResult1.Multiline = true;
+            this.txtResult1.Name = "txtResult1";
+            this.txtResult1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResult1.Size = new System.Drawing.Size(444, 248);
+            this.txtResult1.TabIndex = 14;
+            // 
             // txtResult2
             // 
             this.txtResult2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResult2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtResult2.Location = new System.Drawing.Point(475, 265);
+            this.txtResult2.Location = new System.Drawing.Point(483, 259);
             this.txtResult2.Margin = new System.Windows.Forms.Padding(4);
             this.txtResult2.Multiline = true;
             this.txtResult2.Name = "txtResult2";
             this.txtResult2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtResult2.Size = new System.Drawing.Size(549, 248);
-            this.txtResult2.TabIndex = 17;
+            this.txtResult2.TabIndex = 15;
             // 
-            // txtResult1
-            // 
-            this.txtResult1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtResult1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtResult1.Location = new System.Drawing.Point(9, 265);
-            this.txtResult1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtResult1.Multiline = true;
-            this.txtResult1.Name = "txtResult1";
-            this.txtResult1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult1.Size = new System.Drawing.Size(444, 248);
-            this.txtResult1.TabIndex = 16;
-            // 
-            // frmHelperFunctions
+            // fermHelperFunctions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 601);
+            this.ClientSize = new System.Drawing.Size(1120, 618);
             this.Controls.Add(this.txtResult2);
             this.Controls.Add(this.txtResult1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmHelperFunctions";
-            this.Text = "frmHelperFunctions";
+            this.Name = "fermHelperFunctions";
+            this.Text = "fermHelperFunctions";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -164,7 +163,7 @@
         private System.Windows.Forms.Button btnFormatFunctions;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox txtResult2;
         private System.Windows.Forms.TextBox txtResult1;
+        private System.Windows.Forms.TextBox txtResult2;
     }
 }
