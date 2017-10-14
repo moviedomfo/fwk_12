@@ -52,7 +52,7 @@ Libraries/Framework/Fwk.Bases.dll
 *.Cache
 *.dll
 *.pdb
-
+*.bak
 
 
 Fwk/packages/EntityFramework.6.1.0/tools/migrate.exe
@@ -875,3 +875,4 @@ Libraries/Framework/Fwk.Security.Cryptography.Test.exe
 FrameworkTools/Fwk.Logging.Viewer/Fwk.Logging.Viewer.suo
 FrameworkTools/Fwk.Logging.Viewer/.vs/Fwk.Logging.Viewer/v14/.suo
 FrameworkTools/AppChecker/.vs/AppChecker/v14/.suo
+Dispatchers/WcfDispatcher/WcfDispatcher_Host/WcfDispatcher_Host.csproj.bak
