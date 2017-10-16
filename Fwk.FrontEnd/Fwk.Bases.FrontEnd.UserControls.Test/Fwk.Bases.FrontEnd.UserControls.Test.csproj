@@ -120,12 +120,6 @@
     <Compile Include="TipoClienteBE.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fwk.Bases.FrontEnd\Fwk.Bases.FrontEnd.csproj">
-      <Project>{E882C6F7-0C02-4014-B5E0-BEFD20756C07}</Project>
-      <Name>Fwk.Bases.FrontEnd</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -151,6 +145,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fwk.Bases.FrontEnd\Fwk.Bases.FrontEnd.csproj">
+      <Project>{e882c6f7-0c02-4014-b5e0-befd20756c07}</Project>
+      <Name>Fwk.Bases.FrontEnd</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

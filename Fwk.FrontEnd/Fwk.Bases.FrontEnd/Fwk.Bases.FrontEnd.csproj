@@ -68,9 +68,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fwk.Bases, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Fwk.Bases, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
+      <HintPath>..\..\..\fwk_releases\FWK-12.0\libs\Fwk_12_x64_debug\Fwk.Bases.dll</HintPath>
     </Reference>
     <Reference Include="Fwk.Bases.Connector, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -116,21 +116,13 @@
       <DependentUpon>FormConnector.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataGridComparer.cs" />
-    <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataPickerDataGridViewCell.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\FwkGrid\DataGridViewSorted\DataPickerDataGridViewCell.cs" />
     <Compile Include="Controls\FwkGrid\DataGridViewSorted\SortedDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewCalendarColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewEntityColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\FwkGrid\FwkColumns\FwkMaskedTextColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewCalendarColumn.cs" />
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkGridViewEntityColumn.cs" />
+    <Compile Include="Controls\FwkGrid\FwkColumns\FwkMaskedTextColumn.cs" />
     <Compile Include="Controls\FwkGrid\FwkGenericDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>

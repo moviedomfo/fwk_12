@@ -67,17 +67,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fwk.Bases, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
-    </Reference>
     <Reference Include="Fwk.Bases.FrontEnd, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
-    </Reference>
-    <Reference Include="Fwk.DataBase, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\Framework\Fwk.DataBase.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -260,6 +252,16 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Fwk\Fwk.Bases\Fwk.Bases.csproj">
+      <Project>{1654a893-0408-474e-873c-e79f00d7587c}</Project>
+      <Name>Fwk.Bases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Fwk\Fwk.DataBase\Fwk.DataBase.csproj">
+      <Project>{87c826e0-d87a-4c89-94ed-3b1044746a34}</Project>
+      <Name>Fwk.DataBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
