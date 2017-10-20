@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.IO.Compression;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Fwk.HelperFunctions.Compression
 {
@@ -744,5 +745,140 @@ namespace Fwk.HelperFunctions.Compression
             this.Close();
         }
         #endregion
+    }
+
+
+
+    public class FwkCompression
+    {
+         static void CopyTo(Stream src, Stream dest)
+        {
+            byte[] bytes = new byte[4096];
+
+            int cnt;
+
+            while ((cnt = src.Read(bytes, 0, bytes.Length)) != 0)
+            {
+                dest.Write(bytes, 0, cnt);
+            }
+        }
+
+         /// <summary>
+         /// Genera un string zipeado en base 64 que representaria en Byte[] del archivo zip comprimido
+         /// 
+         /// </summary>
+         /// <param name="obj">cualquier objeto</param>
+         /// <returns></returns>
+         public static string Zip_Object(object obj)
+         {
+             string str = ObjectToString(obj);
+             return Zip_base64(str);
+             //var bytes = Zip(str);
+             //string strBase64 = Fwk.HelperFunctions.TypeFunctions.ConvertBytesToBase64String(bytes);
+             //return strBase64;
+
+         }
+
+
+         /// <summary>
+         /// Genera un string zipeado en base 64 que representaria en Byte[] del archivo zip comprimido
+         /// 
+         /// </summary>
+         /// <param name="str"></param>
+         /// <returns></returns>
+         public static string Zip_base64(string str)
+         {
+             var bytes =  Zip(str);
+             string strBase64 = Fwk.HelperFunctions.TypeFunctions.ConvertBytesToBase64String(bytes);
+             return strBase64;
+          
+         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="base64string"></param>
+        /// <returns></returns>
+         public static object UnzipZip_From_base64_object(string base64string)
+         {
+             string objectToBase64UnZiped = UnzipZip_From_base64(base64string);
+            return  StringToObject(objectToBase64UnZiped);
+          }
+
+         /// <summary>
+         /// Inverso del Zip_base64 ; retorna la cadena original GZipStream
+         /// </summary>
+         /// <param name="str"></param>
+         /// <returns></returns>
+         public static string UnzipZip_From_base64(string base64string)
+         {
+             byte[] zipedByte = Fwk.HelperFunctions.TypeFunctions.ConvertFromBase64String(base64string);
+             var unzipedString = Unzip(zipedByte);
+             
+             return unzipedString;
+
+         }
+
+         public static string ObjectToString(object obj)
+         {
+             using (MemoryStream ms = new MemoryStream())
+             {
+                 new BinaryFormatter().Serialize(ms, obj);
+                 return Convert.ToBase64String(ms.ToArray());
+             }
+         }
+
+         public static object StringToObject(string base64String)
+         {
+             byte[] bytes = Convert.FromBase64String(base64String);
+             using (MemoryStream ms = new MemoryStream(bytes, 0, bytes.Length))
+             {
+                 ms.Write(bytes, 0, bytes.Length);
+                 ms.Position = 0;
+                 return new BinaryFormatter().Deserialize(ms);
+             }
+         }
+
+        /// <summary>
+         /// Genera un array de bytes comprimidos con GZipStream
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static byte[] Zip(string str)
+        {
+            var bytes = Encoding.UTF8.GetBytes(str);
+
+            using (var msi = new MemoryStream(bytes))
+            using (var mso = new MemoryStream())
+            {
+                using (var gs = new GZipStream(mso, CompressionMode.Compress))
+                {
+                    //msi.CopyTo(gs);
+                    CopyTo(msi, gs);
+                }
+
+                return mso.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Toma un array de bytes que fueron Comprimidos y retorna el String original
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static string Unzip(byte[] bytes)
+        {
+            using (var msi = new MemoryStream(bytes))
+            using (var mso = new MemoryStream())
+            {
+                using (var gs = new GZipStream(msi, CompressionMode.Decompress))
+                {
+                    //gs.CopyTo(mso);
+                    CopyTo(gs, mso);
+                }
+
+                return Encoding.UTF8.GetString(mso.ToArray());
+            }
+        }
     }
 }

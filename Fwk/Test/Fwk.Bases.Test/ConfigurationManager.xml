@@ -1,6 +1,6 @@
 ﻿
 <ConfigurationFile>
-  <EntityState>Unchanged</EntityState>
+  
   <Encrypted>false</Encrypted>
   <FileName>ConfigurationManager.xml</FileName>
   <TTL>0</TTL>
@@ -8,7 +8,7 @@
   <BaseConfigFile>true</BaseConfigFile>
   <Groups>
     <Group name="ValidationExceptionMessage">
-      <EntityState>Unchanged</EntityState>
+      
       <Keys>
         <Key name="NullOrEmptyField" encrypted="false">
           <EntityState>Unchanged</EntityState>

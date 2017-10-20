@@ -5,7 +5,7 @@
 		
 		<!-- Ruta hasta el fichero con la solución -->
 		<Solution>$(MSBuildProjectDirectory)\fwk\</Solution>
-		<SolutionPath>$(Solution)Fwk.sln</SolutionPath> 
+		<SolutionPath>$(Solution)FwkRelease.sln</SolutionPath> 
 		<SolutionPathDispatcher>$(MSBuildProjectDirectory)\Dispatchers\WcfDispatcher\WcfDispatcher.sln</SolutionPathDispatcher> 
       
       <!-- Ruta de raiz  -->
@@ -58,16 +58,20 @@
 	</Target> 
 	
 	<Target Name="CleanRecursive" >
-	 <Exec Command = "del /s /q $(OutputPath_root)OutputPath_x64_release*.pdb" />  
-	 <Exec Command = "del /s /q $(OutputPath_root)OutputPath_AnyCPU_release*.pdb" /> 
-	 <Exec Command = "del /s /q $(OutputPath_root)*.DebuggerVisualizers.*" />
+	
+	 
+	 
+	 
+		 
+	 
+	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.pdb" /> 
+	 
 	 
      <Exec Command = "del /s /q $(OutputPath_root_fwk)*.config" />
 	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.k" />
      <Exec Command = "del /s /q $(OutputPath_root_fwk)*.exe" />
 	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.bat" />
-	 
-	 <Exec Command = "del /s /q $(OutputPath_root)XmlWhitAttributes.xml" />
+	  <Exec Command = "del /s /q $(OutputPath_root_fwk)ConfigurationManager*.xml" />
 	 
 	 
 	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)*.pdb" /> 

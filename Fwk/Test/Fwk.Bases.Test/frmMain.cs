@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using Fwk.HelperFunctions.Compression;
 
 namespace Fwk.Bases.Test
 {
@@ -29,6 +30,9 @@ namespace Fwk.Bases.Test
         {
             using (frmEntityFromXmlWhitAttributes frm = new frmEntityFromXmlWhitAttributes())
             { frm.ShowDialog(); }
+
+           
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -141,6 +145,20 @@ namespace Fwk.Bases.Test
             TResponse res = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(json);
 
             return res;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            using (frmFwkZip frm = new frmFwkZip())
+            { frm.ShowDialog(); }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (frmFormatFunction frm = new frmFormatFunction())
+            { frm.ShowDialog(); }
+
         }
 
       

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Net;
 
 namespace Fwk.HelperFunctions
 {
@@ -432,7 +433,37 @@ namespace Fwk.HelperFunctions
         {
             return Convert.ToBase64String(byteArray);
         }
+        /// <summary>
+        /// Convierte una imagen que esta en la web a un objeto Image
+        /// </summary>
+        /// <param name="imageURL">url</param>
+        /// <returns>Image</returns>
+        /// <author>Marcelo F. Oviedo</author>
+        public static Image ConvertImageFromURL_ToImage(string imageURL)
+        {
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(imageURL);
+            Image img = Fwk.HelperFunctions.TypeFunctions.ConvertByteArrayToImage(bytes);
 
+
+            return img;
+        }
+
+        /// <summary>
+        /// Convierte una imagen que esta en la web a un objeto Byte[]
+        /// </summary>
+        /// <param name="imageURL">url</param>
+        /// <returns>Byte[]</returns>
+        /// <author>Marcelo F. Oviedo</author>
+        public static Byte[] ConvertImageFromURL_ToImageByte(string imageURL)
+        {
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData(imageURL);
+
+            return bytes;
+
+            
+        }
         /// <summary>
         /// Convierte un Byte[] a un System.Drawing.Image -
         /// </summary>
