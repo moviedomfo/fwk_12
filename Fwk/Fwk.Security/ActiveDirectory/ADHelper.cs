@@ -978,7 +978,7 @@ namespace Fwk.Security.ActiveDirectory
 
         #region Groups
         /// <summary>
-        /// Obtiene un ADGroup que reprecenta un grupo 
+        /// Obtiene un ADGroup que representa un grupo 
         /// </summary>
         /// <param name="pName"></param>
         /// <returns></returns>

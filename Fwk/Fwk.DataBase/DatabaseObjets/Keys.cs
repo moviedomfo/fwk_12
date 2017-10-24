@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace Fwk.DataBase.DataEntities
 {
     /// <summary>
-    /// Clase que reprecenta las claves de una tabla.-
+    /// Clase que representa las claves de una tabla.-
     /// </summary>
     [XmlRoot("Keys"), SerializableAttribute]
     public class Keys : Entities<Key>
@@ -35,7 +35,7 @@ namespace Fwk.DataBase.DataEntities
     }
 
 	/// <summary>
-	/// Clase que reprecenta una clave de la tabla
+	/// Clase que representa una clave de la tabla
 	/// </summary>
     [XmlInclude(typeof(Key)), Serializable]
     public class Key : Entity

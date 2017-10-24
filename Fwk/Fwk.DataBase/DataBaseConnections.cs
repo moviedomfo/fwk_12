@@ -160,7 +160,7 @@ namespace Fwk.DataBase
     }
 
     /// <summary>
-    /// Clase que reprecenta una conexión
+    /// Clase que representa una conexión
     /// Data Source=pcpde0369\SQLEXPRESS;Initial Catalog=Gastos;Integrated Security=True
     /// Data Source=pcpde0369\SQLEXPRESS;Initial Catalog=Gastos;User ID=sa
     /// </summary>

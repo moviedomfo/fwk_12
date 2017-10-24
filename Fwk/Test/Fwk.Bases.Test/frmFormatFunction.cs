@@ -27,6 +27,7 @@ namespace Fwk.Bases.Test
             Image img = Fwk.HelperFunctions.TypeFunctions.ConvertImageFromURL_ToImage(textBox1.Text);
 
             pictureBox1.Image = img;
+
         }
 
    

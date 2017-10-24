@@ -94,7 +94,7 @@ namespace Fwk.Caching
         private Fwk.HelperFunctions.DateFunctions.TimeMeasuresEnum _TimeMeasuresEnum = DateFunctions.TimeMeasuresEnum.FromDays;
 
         /// <summary>
-        /// Medida de tiempo q se usa para reprecentar ExpirationTime 
+        /// Medida de tiempo q se usa para representar ExpirationTime 
         /// pueden ser dias, horas, minutos, segundos
         /// Por defecto es FromDays.-
         /// </summary>

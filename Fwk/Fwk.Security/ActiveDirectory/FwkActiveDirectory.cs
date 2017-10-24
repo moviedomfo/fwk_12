@@ -46,7 +46,7 @@
 
 //        #region [Group]
 //        /// <summary>
-//        /// Obtiene un FwkIdentity que reprecenta un grupo 
+//        /// Obtiene un FwkIdentity que representa un grupo 
 //        /// </summary>
 //        /// <param name="pName"></param>
 //        /// <returns></returns>
@@ -250,7 +250,7 @@
 //        }
 
 //        /// <summary>
-//        ///  Obtiene un FwkIdentity que reprecenta un usuario 
+//        ///  Obtiene un FwkIdentity que representa un usuario 
 //        /// </summary>
 //        /// <param name="userName"></param>
 //        /// <returns></returns>
@@ -270,7 +270,7 @@
 
 //        }
 //        /// <summary>
-//        ///  Obtiene un FwkIdentity que reprecenta un usuario 
+//        ///  Obtiene un FwkIdentity que representa un usuario 
 //        /// </summary>
 //        /// <param name="userName"></param>
 //        /// <returns></returns>

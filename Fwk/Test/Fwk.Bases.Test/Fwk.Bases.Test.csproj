@@ -120,6 +120,18 @@
     <Compile Include="frmException.Designer.cs">
       <DependentUpon>frmException.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFormatFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFormatFunction.Designer.cs">
+      <DependentUpon>frmFormatFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFwkZip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFwkZip.Designer.cs">
+      <DependentUpon>frmFwkZip.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHelperFunctions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmException.resx">
       <DependentUpon>frmException.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFormatFunction.resx">
+      <DependentUpon>frmFormatFunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFwkZip.resx">
+      <DependentUpon>frmFwkZip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHelperFunctions.resx">
       <DependentUpon>frmHelperFunctions.cs</DependentUpon>
@@ -264,7 +282,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="GetColaboratorDataByParamsResponse.xml" />
-    <Content Include="TextFile1.txt" />
+    <Content Include="TextFile1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="XmlWhitAttributes.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

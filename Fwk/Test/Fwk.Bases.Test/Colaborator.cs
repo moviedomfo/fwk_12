@@ -14,7 +14,7 @@ namespace Fwk.Bases.Test
     
     #region Colaborator class
     /// <summary>
-    /// Esta clase reprecenta un usuario e implementa INotifyPropertyChanged lo que le da soporte
+    /// Esta clase representa un usuario e implementa INotifyPropertyChanged lo que le da soporte
     /// a bindings one-way and two-way
     /// </summary>
     [DataContract]

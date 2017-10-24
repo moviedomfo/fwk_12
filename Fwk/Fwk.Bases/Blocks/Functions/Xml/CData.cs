@@ -9,6 +9,8 @@ namespace Fwk.Xml
 {
     /// <summary>
     /// Manejo de CData.
+    /// CDATA se definen como bloques de texto que no son analizadas por el analizador, pero son de otra forma reconocida como marcado.
+    /// Si tenemos una clase serializable a XML y deceamos que un atributo sea un contenedor tipo CDATA podemos definirlo del tipo public Fwk.Xml.CData Value , 
     /// </summary>
     /// <Author>moviedo</Author>
     /// <Date>28-12-2005</Date>
@@ -18,13 +20,14 @@ namespace Fwk.Xml
 
         private string text;
         /// <summary>
-        /// 
+        /// Constructor por defecto
         /// </summary>
         public CData()
 
         { }
+
         /// <summary>
-        /// 
+        /// Constructor con inicializacion del dato
         /// </summary>
         /// <param name="text"></param>
         public CData(string text)
@@ -35,7 +38,7 @@ namespace Fwk.Xml
         }
 
         /// <summary>
-        /// 
+        /// Texto del atributo Cdata. 
         /// </summary>
         public string Text
         {

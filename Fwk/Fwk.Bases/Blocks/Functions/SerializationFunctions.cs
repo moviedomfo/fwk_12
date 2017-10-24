@@ -92,6 +92,7 @@ namespace Fwk.HelperFunctions
             ms.Position = 0;
             pDataSet.ReadXml(ms);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -141,7 +142,13 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
+        /// Crea un objeto a partir de la descerializacion del xml pasado por parametro
+        /// <code>
+        /// var xmlContrato = "<Contrato/>";
         /// 
+        /// var contrato = new (ContratoBE)SerializationFunctions.DeserializeFromXml(typeOf(ContratoBE),xmlContrato);
+        /// 
+        /// </code>
         /// </summary>
         /// <param name="pTipo"></param>
         /// <param name="pXml"></param>
@@ -163,7 +170,13 @@ namespace Fwk.HelperFunctions
 
 
         /// <summary>
+        /// Serializa un objeto
+        /// <code>
+        /// var xmlContrato = "<Contrato/>";
+        /// Contrato c = new Contrato();
+        /// var xmlContrato = SerializationFunctions.SerializeToXml(c);
         /// 
+        /// </code>
         /// </summary>
         /// <param name="pObj"></param>
         /// <returns></returns>
@@ -235,7 +248,13 @@ namespace Fwk.HelperFunctions
         #endregion
 
         /// <summary>
-        /// Serealiza pobject to json
+        /// Serializa un objeto utilizando DataContractJsonSerializer
+        /// <code>
+        /// Contrato c = new Contrato();
+        /// //set c properties here 
+        /// string strContratoJSON = SerializationFunctions.SerializeObjectToJson&lt;Contrato&gt;(c);
+        /// 
+        /// </code>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -255,11 +274,18 @@ namespace Fwk.HelperFunctions
             return sr.ReadToEnd();
         }
 
+
         /// <summary>
-        /// usa DataContractJsonSerializer 
+        /// Serializa un objeto utilizando DataContractJsonSerializer
+        /// <code>
+        /// Contrato c = new Contrato();
+        /// //set c properties here 
+        /// string strContratoJSON = (Contrato)SerializationFunctions.SerializeObjectToJson(typeOf(Contrato),c);
+        /// 
+        /// </code>
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
+        /// <param name="objType">typeOf(type)</param>
+        /// <param name="obj">Objetc</param>
         /// <returns></returns>
         public static string SerializeObjectToJson(Type objType, object obj)
         {
@@ -278,10 +304,16 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// usa JavaScriptSerializer 
+        /// Serializar un objeto utilizando JavaScriptSerializer
+        /// <code>
+        /// Contrato c = new Contrato();
+        /// //set c properties here 
+        /// string strContratoJSON = (Contrato)SerializationFunctions.SerializeObjectToJson_JavaScriptSerializer(typeOf(Contrato),c);
+        /// 
+        /// </code>
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
+        /// <param name="objType">typeOf(type)</param>
+        /// <param name="obj">Objetc</param>
         /// <returns></returns>
         public static string SerializeObjectToJson_JavaScriptSerializer(Type objType, object obj)
         {
@@ -291,27 +323,35 @@ namespace Fwk.HelperFunctions
             return json;
 
            
-        }    
-        
+        }
+
+
         /// <summary>
-        /// usa Newtonsoft 
+        /// Serializar un objeto utilizando Newtonsoft.Json.SerializeObject
+        /// <code>
+        /// Contrato c = new Contrato();
+        /// //set c properties here 
+        /// string strContratoJSON = (Contrato)SerializationFunctions.SerializeObjectToJson_Newtonsoft(typeOf(Contrato),c);
+        /// 
+        /// </code>
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
+        /// <param name="objType">typeOf(type)</param>
+        /// <param name="obj">Objetc</param>
         /// <returns></returns>
         public static string SerializeObjectToJson_Newtonsoft(Type objType, object obj)
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(obj, new JsonSerializerSettings());
-           
 
             return json;
-
-
         }
 
         /// <summary>
-        /// usa DataContractJsonSerializer 
+        /// Deserializar un json genericamente DataContractJsonSerializer 
+        /// <code>
+        /// Contrato c = SerializationFunctions.DeSerializeObjectFromJson&lt;Contrato&gt;(strContratoJSON);
+        /// </code>
         /// </summary>
+        /// <param name="json">string con formato json</param>
         /// <returns></returns>
         public static T DeSerializeObjectFromJson<T>(string json)
         {
@@ -329,10 +369,13 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// usa DataContractJsonSerializer
+        /// Deserializar un json utilizando DataContractJsonSerializer, requiere casteo de tipos
+        /// <code>
+        /// Contrato c = (Contrato)SerializationFunctions.DeSerializeObjectFromJson(typeOf(Contrato),strContratoJSON);
+        /// </code>
         /// </summary>
-        /// <param name="objType"></param>
-        /// <param name="json"></param>
+        /// <param name="objType">typeOf(type)</param>
+        /// <param name="json">string con formato json</param>
         /// <returns></returns>
         public static object DeSerializeObjectFromJson(Type objType, string json)
         {
@@ -345,10 +388,14 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// usa JavaScriptSerializer
+        /// Deserializar un json utilizando JavaScriptSerializer, requiere casteo de tipos
+        /// <code>
+        /// Contrato c = (Contrato)SerializationFunctions.DeSerializeObjectFromJson_JavaScriptSerializer(typeOf(Contrato),strContratoJSON);
+        /// 
+        /// </code>
         /// </summary>
-        /// <param name="objType"></param>
-        /// <param name="json"></param>
+        /// <param name="objType">typeOf(type)</param>
+        /// <param name="json">string con formato json</param>
         /// <returns></returns>
         public static object DeSerializeObjectFromJson_JavaScriptSerializer(Type objType, string json)
         {
@@ -359,10 +406,14 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// Usa  Newtonsoft.Json.JsonConvert
+        /// Deserializar un json utilizando Newtonsoft.Json.JsonConvert, requiere casteo de tipos
+        /// <code>
+        /// Contrato c = (Contrato)SerializationFunctions.DeSerializeObjectFromJson_Newtonsoft(typeOf(Contrato),strContratoJSON);
+        /// 
+        /// </code>
         /// </summary>
-        /// <param name="objType"></param>
-        /// <param name="json"></param>
+        /// <param name="objType">typeOf(type)</param>
+        /// <param name="json">string con formato json</param>
         /// <returns></returns>
         public static object DeSerializeObjectFromJson_Newtonsoft(Type objType, string json)
         {

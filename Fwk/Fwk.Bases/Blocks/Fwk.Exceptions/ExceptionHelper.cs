@@ -9,7 +9,7 @@ using Fwk.Bases;
 namespace Fwk.Exceptions
 {
     /// <summary>
-    /// Enumeracion que reprecenta los tipos de excepciones de 
+    /// Enumeracion que representa los tipos de excepciones de 
     /// </summary>
     public enum FwkExceptionTypes
     {

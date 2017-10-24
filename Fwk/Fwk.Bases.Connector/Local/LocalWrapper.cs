@@ -75,7 +75,7 @@ namespace Fwk.Bases.Connector
         /// Al llamar directamente a la SimpleFacade funciona como un despachador de servicios, esto lo hace
         /// debido  a aque se trata de un wrapper local.
         /// </summary>
-        /// <param name="pReq">Clase request que implementa IServiceContract. No nececita pasarce el reprecentativo xml de tal
+        /// <param name="pReq">Clase request que implementa IServiceContract. No nececita pasarce el representativo xml de tal
         /// objeto, esto es para evitar serializacion innecesaria</param>
         /// <returns>Response con los resultados del servicio</returns>
         private IServiceContract ExecuteService(IServiceContract pReq)

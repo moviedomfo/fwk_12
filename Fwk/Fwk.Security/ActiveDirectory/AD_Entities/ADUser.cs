@@ -8,7 +8,7 @@ using  Fwk.Security;
 namespace Fwk.Security.ActiveDirectory
 {
     /// <summary>
-    /// Clase que reprecenta un usuario de active directory.- 
+    /// Clase que representa un usuario de active directory.- 
     /// 1.       This class has read only properties for fetching First Name, Last Name, City, Login Name etc.
     /// 2.       Constructor of the class is taking one parameter of type DirectoryEntry class.
     /// 3.       In Constructor all the information about ADUser is getting fetched using static class ADProperties.

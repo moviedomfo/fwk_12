@@ -12,7 +12,7 @@ namespace Fwk.HelperFunctions
     {
 
         /// <summary>
-        /// Valor constante que reprecenta el separador una fecha = 01/01/0001
+        /// Valor constante que representa el separador una fecha = 01/01/0001
         /// </summary>
         public static  DateTime NullDateTime { get; set; }
 

@@ -57,7 +57,7 @@ namespace Fwk.Security.ActiveDirectory
         /// <returns></returns>
         LoginResult User_CheckLogin(string userName, string pPassword);
         /// <summary>
-        /// Obtiene un ADGroup que reprecenta un grupo 
+        /// Obtiene un ADGroup que representa un grupo 
         /// </summary>
         /// <param name="pName"></param>
         /// <returns></returns>

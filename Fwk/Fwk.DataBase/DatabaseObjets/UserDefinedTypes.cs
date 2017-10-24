@@ -31,7 +31,7 @@ namespace Fwk.DataBase.DataEntities
     }
 
     /// <summary>
-    /// Clase que reprecenta la un tipodefinido por el usuario.- Es un tipo de dato customizado.-
+    /// Clase que representa la un tipodefinido por el usuario.- Es un tipo de dato customizado.-
     /// </summary>
     [XmlInclude(typeof(UserDefinedType)), Serializable]
     public class UserDefinedType : Entity

@@ -33,6 +33,8 @@ namespace Fwk.Bases.Test
             wClienteBE1.Nombre = "Marcelo F Oviedo";
             wClienteBE1.Apellido = "Pelsoft";
             wClienteBE1.Edad = 32;
+            wClienteBE1.Historial= new Xml.CData();
+            wClienteBE1.Historial.Text = @"<Contrato Nro 21>";
             wClienteBE1.FechaNacimiento = Convert.ToDateTime("2006-10-18T00:00:00"); //new DateTime(2006,12,18);
 
 

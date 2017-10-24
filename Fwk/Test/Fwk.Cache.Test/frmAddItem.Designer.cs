@@ -54,7 +54,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(497, 28);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Modifique los datos del xml que reprecenta la coleccion de clientes";
+            this.label3.Text = "Modifique los datos del xml que representa la coleccion de clientes";
             // 
             // cancelButton
             // 

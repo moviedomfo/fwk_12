@@ -64,7 +64,7 @@ namespace Fwk.DataBase.Interfaces
         System.Data.DataSet GetDataSet();
 
         /// <summary>
-        /// Obtienene un xml que reprecenta la entidad
+        /// Obtienene un xml que representa la entidad
         /// </summary>
         /// <returns></returns>
         string GetXml();

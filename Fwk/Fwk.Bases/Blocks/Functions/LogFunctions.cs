@@ -23,6 +23,7 @@ namespace Fwk.HelperFunctions
             /// </summary>
 	        EventViewer = 1
 	    } ;
+
         /// <summary>
         /// Metodo que permite escribir un log en el Log viewer o en un archivo dependiendo del 
         /// parametro 

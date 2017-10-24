@@ -394,7 +394,7 @@ namespace Fwk.HelperFunctions
         }
 
         /// <summary>
-        /// 
+        /// Convierte 
         /// </summary>
         /// <param name="Value"></param>
         /// <returns></returns>
@@ -539,7 +539,7 @@ namespace Fwk.HelperFunctions
             return Convert.ToBase64String(arr);
         }
         /// <summary>
-        /// Obtiene el string que reprecenta el Base64 del archivo.-
+        /// Obtiene el string que representa  el Base64 del archivo.-
         /// </summary>
         /// <param name="pFullFileName">Nombre del archivo del cual se quiere obtener el Base64</param>
         /// <returns>string del binario en Base64</returns>
@@ -553,11 +553,12 @@ namespace Fwk.HelperFunctions
         /// <summary>
         /// Convierte un Base64 string en un array de bytes. 
         /// </summary>
-        /// <param name="pBase64String">String con el Base64 del binario</param>
+        /// <param name="pBase64String">String con el Base64 del binario . El string ya debe estar en base64 de lo contrario lanzara un error de formato no valido</param>
         /// <returns>Byte[]</returns>
         /// <author>Marcelo F. Oviedo</author>
         public static Byte[] ConvertFromBase64String(String pBase64String)
         {
+            
             Byte[] arrWrite = Convert.FromBase64String(pBase64String);
             return arrWrite;
         }
@@ -568,7 +569,7 @@ namespace Fwk.HelperFunctions
         /// </summary>
         /// <param name="pBase64String">String con el Base64 del binario</param>
         /// <param name="pFullFileName">Nombre del archivo</param>
-        /// <returns>Byte array que reprecenta el archivo</returns>
+        /// <returns>Byte array que representa el archivo</returns>
         /// <author>Marcelo F. Oviedo</author>
         public static Byte[] ConvertFromBase64StringToFile(String pBase64String, String pFullFileName)
         {
@@ -596,24 +597,27 @@ namespace Fwk.HelperFunctions
 
 
         /// <summary>
-        /// Toma los elementos de pEntitiCollection y los agrega a la coleccion TEntities
+        /// Toma los elementos de entityCollection y los agrega a la coleccion IEnumerable
+        /// Toma una colección Ienumerable y retorna una colección Entities<TEntity>
+        ///
+        /// 
         /// </summary>
         /// <typeparam name="TEntities">Tipo de la coleccion de entidades</typeparam>
         /// <typeparam name="TEntity">Tipo TEntity</typeparam>
-        /// <param name="pEntitiCollection">Coleccion de entidades</param>
-        /// <param name="pIenumerableList">Clase de lin q con los elementos TEntity</param>
-        public static void SetEntitiesFromIenumerable<TEntities, TEntity>(TEntities pEntitiCollection, IEnumerable<TEntity> pIenumerableList)
+        /// <param name="entityCollection">Coleccion de entidades</param>
+        /// <param name="ienumerableList">Clase de lin q con los elementos TEntity</param>
+        public static void SetEntitiesFromIenumerable<TEntities, TEntity>(TEntities entityCollection, IEnumerable<TEntity> ienumerableList)
             where TEntities : Entities<TEntity>
             where TEntity : Entity
         {
-            foreach (TEntity item in pIenumerableList)
+            foreach (TEntity item in ienumerableList)
             {
-                pEntitiCollection.Add(item);
+                entityCollection.Add(item);
             }
         }
-       
+
         /// <summary>
-        /// Funcion que busca recurcivamente si Tsource hereda de Tbase
+        /// Funcion que busca recursivamente  si Tsource hereda de Tbase
         /// </summary>
         /// <param name="Tsource">Tipo origen </param>
         /// <param name="Tbase">Tipo base del cual puede heredar el tipo origen</param>
