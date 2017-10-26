@@ -325,4 +325,17 @@
     <IsolationLevel>ReadCommitted</IsolationLevel>
     <ApplicationId>Framework</ApplicationId>
   </ServiceConfiguration>
+  <ServiceConfiguration name="ClearBlockingMarksService">
+    <EntityState>Unchanged</EntityState>
+    <CreatedUserName>moviedo</CreatedUserName>
+    <CreatedDateTime>2017-10-26T08:34:54.6566423-03:00</CreatedDateTime>
+    <Handler>Fwk.Blocking.SVC.ClearBlockingMarksService, Fwk.Bases, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null</Handler>
+    <Request>Fwk.Blocking.ISVC.ClearBlockingMarksReq, Fwk.Bases, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null</Request>
+    <Response>Fwk.Blocking.ISVC.ClearBlockingMarksRes, Fwk.Bases, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null</Response>
+    <Available>true</Available>
+    <Audit>false</Audit>
+    <TransactionalBehaviour>Suppres</TransactionalBehaviour>
+    <IsolationLevel>ReadCommitted</IsolationLevel>
+    <ApplicationId />
+  </ServiceConfiguration>
 </ServiceConfigurationCollection>

@@ -11,10 +11,10 @@ namespace Fwk.Security
     internal static class StaticsValues
     {
         private static List<DomainUrlInfo> _DomainUrlList;
-        private static Dictionary<string ,ADWrapper> _ADHelperDictionary ;
+        private static Dictionary<string ,ADWrapper> _ADWrapperDictionary ;
         static StaticsValues()
         {
-            _ADHelperDictionary = new   Dictionary<string,ADWrapper>();
+            _ADWrapperDictionary = new   Dictionary<string,ADWrapper>();
         }
 
         /// <summary>
@@ -47,26 +47,26 @@ namespace Fwk.Security
 
         /// <summary>
         /// Busca un objeto <see cref="ADWrapper"/> si no lo encuentra intenta crearlo e insertarlo al diccionario.-
-        /// La creacion del diccionario se hace para no instanciar cientos de veses la clase ADHelper. ya que esta tarea requiere ,mas uso de CPU que el costo de mantener en memoria 
-        /// un diccionario con porcos ADHelper. 
-        /// En el mundo reali no existiran gran cantidad de clases ADHelper, pero si muchas quisa cientos de ejecuciones del metodos de autenticacio, q son los que 
-        /// crearian instancias de ADHelper.-
+        /// La creacion del diccionario se hace para no instanciar cientos de veses la clase ADWrapper. ya que esta tarea requiere ,mas uso de CPU que el costo de mantener en memoria 
+        /// un diccionario con porcos ADWrapper. 
+        /// En el mundo reali no existiran gran cantidad de clases ADWrapper, pero si muchas quisa cientos de ejecuciones del metodos de autenticacio, q son los que 
+        /// crearian instancias de ADWrapper.-
         /// </summary>
         /// <param name="domainName">Nombre del dominio</param>
         /// <returns></returns>
-        internal static ADWrapper Find_ADHelper(string domainName)
+        internal static ADWrapper Find_ADWrapper(string domainName)
         {
-            // Si ADHelper no esta en el diccionario lo intenta agregar
-            if(_ADHelperDictionary.ContainsKey(domainName) == false)
+            // Si ADWrapper no esta en el diccionario lo intenta agregar
+            if(_ADWrapperDictionary.ContainsKey(domainName) == false)
             {
                 DomainUrlInfo di = StaticsValues.Find_DomainUrlInfo(domainName);
                 ADWrapper ad = new Fwk.Security.ActiveDirectory.ADWrapper(di.LDAPPath,di.Usr,di.Pwd);
-                _ADHelperDictionary.Add(domainName,ad);
+                _ADWrapperDictionary.Add(domainName,ad);
                 return ad;
             }
 
             //Si el codigo pasa por aqui es por que existe
-            return _ADHelperDictionary[domainName];
+            return _ADWrapperDictionary[domainName];
             
           
         }

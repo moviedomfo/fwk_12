@@ -243,9 +243,9 @@ namespace Fwk.Security.BC
         {
 
 
-            ADWrapper wADHelper = StaticsValues.Find_ADHelper(pDomain);
+            ADWrapper wADWrapper = StaticsValues.Find_ADWrapper(pDomain);
 
-            LoginResult wLoginResult = wADHelper.User_CheckLogin(pUserName, pPassword);
+            LoginResult wLoginResult = wADWrapper.User_CheckLogin(pUserName, pPassword);
 
 
             switch (wLoginResult)

@@ -309,7 +309,7 @@ namespace Fwk.Security.ActiveDirectory
             // LockedOutTime pero no funciona
             //_LockedOut = Convert.ToBoolean(directoryUser.InvokeGet("IsAccountLocked")); 
 
-            //_LoginResult = ADHelper.User_Get_LoginResult(directoryUser);
+            //_LoginResult = ADWrapper.User_Get_LoginResult(directoryUser);
 
         }
 
@@ -400,7 +400,7 @@ namespace Fwk.Security.ActiveDirectory
 
             //_LockedOut = Convert.ToBoolean(resultUser.GetDirectoryEntry().InvokeGet("IsAccountLocked")); 
 
-            //_LoginResult = ADHelper.User_Get_LoginResult(resultUser);
+            //_LoginResult = ADWrapper.User_Get_LoginResult(resultUser);
 
         }
 
@@ -484,7 +484,7 @@ namespace Fwk.Security.ActiveDirectory
         //    //if (pLdapUser.ContainsKey("lockoutTime"))
         //    //    _LockedOut = Convert.ToInt64(pLdapUser["lockoutTime"][0]) > 0;
 
-        //    //_LoginResult = ADHelper.User_Get_LoginResult(directoryUser);
+        //    //_LoginResult = ADWrapper.User_Get_LoginResult(directoryUser);
         //}
 
 

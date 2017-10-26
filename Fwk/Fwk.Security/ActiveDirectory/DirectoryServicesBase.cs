@@ -315,7 +315,7 @@ namespace Fwk.Security.ActiveDirectory
             }
         }
         /// <summary>
-        /// Establece los valores basicos de error producido en el componente ADHelper
+        /// Establece los valores basicos de error producido en el componente ADWrapper
         /// </summary>
         /// <param name="te"></param>
         protected static void SetError(Fwk.Exceptions.TechnicalException te)

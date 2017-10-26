@@ -22,7 +22,7 @@
 		
 		
 	</PropertyGroup>  
-	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;dispatcher_wcf;CleanRecursive"></Target>
+	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
 	  
 	
 	<!--<Target Name="All"  DependsOnTargets="dispatcher_wcf"></Target>-->  
@@ -59,24 +59,22 @@
 	
 	<Target Name="CleanRecursive" >
 	
-	 
-	 
-	 
-		 
-	 
-	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.pdb" /> 
+
+	 <Exec Command = "del /s /q $(OutputPath_root)*.pdb" /> 
 	 
 	 
      <Exec Command = "del /s /q $(OutputPath_root_fwk)*.config" />
 	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.k" />
      <Exec Command = "del /s /q $(OutputPath_root_fwk)*.exe" />
 	 <Exec Command = "del /s /q $(OutputPath_root_fwk)*.bat" />
+	 
 	  <Exec Command = "del /s /q $(OutputPath_root_fwk)ConfigurationManager*.xml" />
+	  <Exec Command = "del /s /q $(OutputPath_root_fwk)Fwk.Bases.Connector.XmlSerializers.dll" />
 	 
-	 
+	 <!--
 	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)*.pdb" /> 
 	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)Fwk.*.xml" /> 
-	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)WcfDispatcher.Service.dll.config" /> 
+	 <Exec Command = "del /s /q $(OutputPath_x64_release_wcfdispatcher)WcfDispatcher.Service.dll.config" /> -->
 	</Target>  
 	
 </Project> 

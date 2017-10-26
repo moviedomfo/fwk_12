@@ -9,57 +9,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Fwk.HelperFunctions.Compression
 {
-   /// <summary>
-   /// 
-   /// </summary>
+   
+
+    /// <summary>
+    /// Esta clase permite realizar compresion de archivos en formato zip
+    /// </summary>
     public class FwkZip : IDisposable
     {
-        /// <summary>
-        /// Compression method enumeration
-        /// </summary>
-        public enum Compression : ushort
-        {
-            /// <summary>Uncompressed storage</summary> 
-            Store = 0,
-            /// <summary>Deflate compression method</summary>
-            Deflate = 8
-        }
+        
 
-        /// <summary>
-        /// Represents an entry in Zip file directory
-        /// </summary>
-        public struct ZipFileEntry
-        {
-            /// <summary>Compression method</summary>
-            public Compression Method;
-            /// <summary>Full path and filename as stored in Zip</summary>
-            public string FilenameInZip;
-            /// <summary>Original file size</summary>
-            public uint FileSize;
-            /// <summary>Compressed file size</summary>
-            public uint CompressedSize;
-            /// <summary>Offset of header information inside Zip storage</summary>
-            public uint HeaderOffset;
-            /// <summary>Offset of file inside Zip storage</summary>
-            public uint FileOffset;
-            /// <summary>Size of header information</summary>
-            public uint HeaderSize;
-            /// <summary>32-bit checksum of entire file</summary>
-            public uint Crc32;
-            /// <summary>Last modification time of file</summary>
-            public DateTime ModifyTime;
-            /// <summary>User comment for file</summary>
-            public string Comment;
-            /// <summary>True if UTF8 encoding for filename and comments, false if default (CP 437)</summary>
-            public bool EncodeUTF8;
-
-            /// <summary>Overriden method</summary>
-            /// <returns>Filename in Zip</returns>
-            public override string ToString()
-            {
-                return this.FilenameInZip;
-            }
-        }
 
         #region Public fields
         /// <summary>True if UTF8 encoding for filename and comments, false if default (CP 437)</summary>
@@ -89,7 +47,7 @@ namespace Fwk.HelperFunctions.Compression
         private static Encoding DefaultEncoding = Encoding.GetEncoding(437);
         #endregion
 
-        #region Public methods
+        #region statics
         // Static constructor. Just invoked once in order to create the CRC32 lookup table.
         static FwkZip()
         {
@@ -108,6 +66,112 @@ namespace Fwk.HelperFunctions.Compression
                 CrcTable[i] = c;
             }
         }
+
+        /// <summary>
+        /// Genera un archivo zip de todoslos archivos pasados por parametro
+        /// para abrirlo en memoria se puede usar Byte[] zipFile = FileFunctions.OpenBinaryFile(zipFullName);
+        /// </summary>
+        /// <param name="selectedFilesToZip">Lista de archivos a comprimir</param>
+        /// <param name="zipFullName">Nombre del archivo zip</param>
+        /// <returns></returns>
+        public static FileInfo Compress(String[] selectedFilesToZip, string zipFullName)
+        {
+            //string tempFolder = System.IO.Path.Combine(Environment.CurrentDirectory, "temp");
+            //if (Directory.Exists(tempFolder))
+            //    DeleteDirectory(tempFolder);
+
+            //Directory.CreateDirectory(tempFolder);
+            //copy selected files to temp folder
+            //foreach (string filename in selectedFilesToZip)
+            //{
+            //    FileInfo f = new FileInfo(filename);
+            //    f.CopyTo(tempFolder + @"\" + f.Name);
+            //}
+            //string zipFullName = System.IO.Path.Combine(tempFolder, zipFileName);
+      
+
+
+            FwkZip zip = FwkZip.Create(zipFullName, "Generated pelsoft");
+
+            // Stores all the files into the zip file
+            foreach (string file in selectedFilesToZip)
+            {
+                zip.AddFile(FwkZip.Compression.Deflate, file, Path.GetFileName(file), "");
+            }
+
+            //crear binario con el zip
+            using (MemoryStream readme = new MemoryStream(
+                       System.Text.Encoding.UTF8.GetBytes(string.Format("{0}\r\nThis file has been {1} using the ZipStorer class, by Jaime Olivares.",
+                       DateTime.Now, "created"))))
+            {
+                // Stores a new file directly from the stream
+                zip.AddStream(FwkZip.Compression.Store, "readme.txt", readme, DateTime.Now, "Please read");
+            }
+            zip.Close();
+            FileInfo f = new FileInfo(zipFullName);
+            return f;
+
+            //Byte[] zipFile = FileFunctions.OpenBinaryFile(zipFullName);
+
+            //return zipFile;
+
+        }
+
+
+      
+        /// <summary>
+        /// Crea el archivo Zip en la ruta extractPath
+        /// </summary>
+        /// <param name="zipFileFullName">Nombre comppleto del archivo zip</param>
+        /// <param name="extractPath">ruta destino de la extracción</param>
+        public static void Extract(String zipFileFullName, string extractPath)
+        {
+            
+            ////buscar el archivo zip
+            //StoderFiles file = ChekUpdaterDAC.Get_Zip(lastVersion, appGuid);
+
+            ////Obtener nombre sin .zip
+            //String zipFileName = file.Title.Substring(0, file.Title.Length - 4);
+            //zipFileName = zipFileName + "_" + HelpersFunctions.ToDDMMYYYY(DateTime.Now, '-') + ".zip";
+            //Guardo
+            //HelpersFunctions.SaveBinaryFile(zipFileName, file.ZipFile);
+
+
+            StringBuilder strRes = new StringBuilder();
+
+            FileInfo zipFileInfo = new FileInfo(zipFileFullName);
+            //zipFileName = zipFileInfo.FullName;
+            // extractPath = Path.Combine(Environment.CurrentDirectory, "temp");
+
+            //if (System.IO.Directory.Exists(extractPath) == false)
+            //    System.IO.Directory.CreateDirectory(extractPath);
+
+
+            // Opens existing zip file
+            FwkZip zip = FwkZip.Open(zipFileFullName, FileAccess.Read);
+            // Read all directory contents
+            List<FwkZip.ZipFileEntry> dir = zip.ReadCentralDir();
+
+            bool result;
+            string path;
+            try
+            {
+                foreach (FwkZip.ZipFileEntry entry in dir)
+                {
+                    path = Path.Combine(extractPath, Path.GetFileName(entry.FilenameInZip));
+                    result = zip.ExtractFile(entry, path);
+                    strRes.AppendLine(path + (result ? "" : " (error)"));
+                }
+                zip.Close();
+            }
+            catch (Exception ex)
+            {
+                zip.Close();
+
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Method to create a new storage file
         /// </summary>
@@ -124,13 +188,14 @@ namespace Fwk.HelperFunctions.Compression
 
             return zip;
         }
+
         /// <summary>
         /// Method to create a new zip storage in a stream
         /// </summary>
         /// <param name="_stream"></param>
         /// <param name="_comment"></param>
         /// <returns>A valid FwkZip object</returns>
-        public static FwkZip Create(Stream _stream, string _comment)
+         static FwkZip Create(Stream _stream, string _comment)
         {
             FwkZip zip = new FwkZip();
             zip.Comment = _comment;
@@ -139,13 +204,14 @@ namespace Fwk.HelperFunctions.Compression
 
             return zip;
         }
+
         /// <summary>
         /// Method to open an existing storage file
         /// </summary>
         /// <param name="_filename">Full path of Zip file to open</param>
         /// <param name="_access">File access mode as used in FileStream constructor</param>
         /// <returns>A valid FwkZip object</returns>
-        public static FwkZip Open(string _filename, FileAccess _access)
+         static FwkZip Open(string _filename, FileAccess _access)
         {
             Stream stream = (Stream)new FileStream(_filename, FileMode.Open, _access == FileAccess.Read ? FileAccess.Read : FileAccess.ReadWrite);
 
@@ -154,13 +220,14 @@ namespace Fwk.HelperFunctions.Compression
 
             return zip;
         }
+
         /// <summary>
         /// Method to open an existing storage from stream
         /// </summary>
         /// <param name="_stream">Already opened stream with zip contents</param>
         /// <param name="_access">File access mode for stream operations</param>
         /// <returns>A valid FwkZip object</returns>
-        public static FwkZip Open(Stream _stream, FileAccess _access)
+         static FwkZip Open(Stream _stream, FileAccess _access)
         {
             if (!_stream.CanSeek && _access != FileAccess.Read)
                 throw new InvalidOperationException("Stream cannot seek");
@@ -175,6 +242,11 @@ namespace Fwk.HelperFunctions.Compression
 
             throw new System.IO.InvalidDataException();
         }
+        #endregion
+
+        #region Public methods
+
+
         /// <summary>
         /// Add full contents of a file into the Zip storage
         /// </summary>
@@ -191,6 +263,7 @@ namespace Fwk.HelperFunctions.Compression
             AddStream(_method, _filenameInZip, stream, File.GetLastWriteTime(_pathname), _comment);
             stream.Close();
         }
+        
         /// <summary>
         /// Add full contents of a stream into the Zip storage
         /// </summary>
@@ -237,6 +310,7 @@ namespace Fwk.HelperFunctions.Compression
 
             Files.Add(zfe);
         }
+        
         /// <summary>
         /// Updates central directory (if pertinent) and close the Zip storage
         /// </summary>
@@ -271,6 +345,7 @@ namespace Fwk.HelperFunctions.Compression
                 this.ZipFileStream = null;
             }
         }
+        
         /// <summary>
         /// Read all the file records in the central directory 
         /// </summary>
@@ -321,6 +396,7 @@ namespace Fwk.HelperFunctions.Compression
 
             return result;
         }
+      
         /// <summary>
         /// Copy the contents of a stored file into a physical file
         /// </summary>
@@ -349,6 +425,7 @@ namespace Fwk.HelperFunctions.Compression
 
             return result;
         }
+     
         /// <summary>
         /// Copy the contents of a stored file into an opened stream
         /// </summary>
@@ -393,6 +470,7 @@ namespace Fwk.HelperFunctions.Compression
                 inStream.Dispose();
             return true;
         }
+       
         /// <summary>
         /// Removes one of many files in storage. It creates a new Zip file.
         /// </summary>
@@ -451,6 +529,26 @@ namespace Fwk.HelperFunctions.Compression
         #endregion
 
         #region Private methods
+        static void DeleteDirectory(string target_dir)
+        {
+            string[] files = Directory.GetFiles(target_dir);
+            string[] dirs = Directory.GetDirectories(target_dir);
+
+            foreach (string file in files)
+            {
+                File.SetAttributes(file, FileAttributes.Normal);
+                File.Delete(file);
+            }
+
+            foreach (string dir in dirs)
+            {
+                DeleteDirectory(dir);
+            }
+
+            Directory.Delete(target_dir, false);
+        }
+
+
         // Calculate the file offset by reading the corresponding local header
         private uint GetFileOffset(uint _headerOffset)
         {
@@ -745,10 +843,61 @@ namespace Fwk.HelperFunctions.Compression
             this.Close();
         }
         #endregion
+
+        #region internal enums and structs
+        /// <summary>
+        /// Compression method enumeration
+        /// </summary>
+        public enum Compression : ushort
+        {
+            /// <summary>Uncompressed storage</summary> 
+            Store = 0,
+            /// <summary>Deflate compression method</summary>
+            Deflate = 8
+        }
+        /// <summary>
+        /// Represents an entry in Zip file directory
+        /// </summary>
+        public struct ZipFileEntry
+        {
+            /// <summary>Compression method</summary>
+            public Compression Method;
+            /// <summary>Full path and filename as stored in Zip</summary>
+            public string FilenameInZip;
+            /// <summary>Original file size</summary>
+            public uint FileSize;
+            /// <summary>Compressed file size</summary>
+            public uint CompressedSize;
+            /// <summary>Offset of header information inside Zip storage</summary>
+            public uint HeaderOffset;
+            /// <summary>Offset of file inside Zip storage</summary>
+            public uint FileOffset;
+            /// <summary>Size of header information</summary>
+            public uint HeaderSize;
+            /// <summary>32-bit checksum of entire file</summary>
+            public uint Crc32;
+            /// <summary>Last modification time of file</summary>
+            public DateTime ModifyTime;
+            /// <summary>User comment for file</summary>
+            public string Comment;
+            /// <summary>True if UTF8 encoding for filename and comments, false if default (CP 437)</summary>
+            public bool EncodeUTF8;
+
+            /// <summary>Overriden method</summary>
+            /// <returns>Filename in Zip</returns>
+            public override string ToString()
+            {
+                return this.FilenameInZip;
+            }
+        }
+
+        #endregion
     }
 
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class FwkCompression
     {
          static void CopyTo(Stream src, Stream dest)
@@ -805,12 +954,12 @@ namespace Fwk.HelperFunctions.Compression
             return  StringToObject(objectToBase64UnZiped);
           }
 
-         /// <summary>
-         /// Inverso del Zip_base64 ; retorna la cadena original GZipStream
-         /// </summary>
-         /// <param name="str"></param>
-         /// <returns></returns>
-         public static string UnzipZip_From_base64(string base64string)
+        /// <summary>
+        /// Inverso del Zip_base64 ; retorna la cadena original GZipStream
+        /// </summary>
+        /// <param name="base64string"></param>
+        /// <returns></returns>
+        public static string UnzipZip_From_base64(string base64string)
          {
              byte[] zipedByte = Fwk.HelperFunctions.TypeFunctions.ConvertFromBase64String(base64string);
              var unzipedString = Unzip(zipedByte);
@@ -819,6 +968,11 @@ namespace Fwk.HelperFunctions.Compression
 
          }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
          public static string ObjectToString(object obj)
          {
              using (MemoryStream ms = new MemoryStream())
@@ -828,6 +982,11 @@ namespace Fwk.HelperFunctions.Compression
              }
          }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="base64String"></param>
+        /// <returns></returns>
          public static object StringToObject(string base64String)
          {
              byte[] bytes = Convert.FromBase64String(base64String);
