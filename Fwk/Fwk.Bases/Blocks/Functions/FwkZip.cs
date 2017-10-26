@@ -896,7 +896,7 @@ namespace Fwk.HelperFunctions.Compression
 
 
     /// <summary>
-    /// 
+    /// Conjunto de funciones q permiten compresion y descompresion de objetos
     /// </summary>
     public class FwkCompression
     {
@@ -913,15 +913,20 @@ namespace Fwk.HelperFunctions.Compression
         }
 
          /// <summary>
+         /// Comprime un objeto y retorna su representacion zipeada en base64
          /// Genera un string zipeado en base 64 que representaria en Byte[] del archivo zip comprimido
-         /// 
+         /// Convierte el Objeto a bae64
+         /// Zipea el base64 y lo retorna
          /// </summary>
          /// <param name="obj">cualquier objeto</param>
-         /// <returns></returns>
+         /// <returns>zipedBase64FromObject</returns>
          public static string Zip_Object(object obj)
          {
-             string str = ObjectToString(obj);
-             return Zip_base64(str);
+            //Convierte el Objeto a bae64
+            string base64string = ObjectToString(obj);
+
+            //retorno strBase64_zip
+            return Zip_base64(base64string);
              //var bytes = Zip(str);
              //string strBase64 = Fwk.HelperFunctions.TypeFunctions.ConvertBytesToBase64String(bytes);
              //return strBase64;
@@ -929,13 +934,13 @@ namespace Fwk.HelperFunctions.Compression
          }
 
 
-         /// <summary>
-         /// Genera un string zipeado en base 64 que representaria en Byte[] del archivo zip comprimido
-         /// 
-         /// </summary>
-         /// <param name="str"></param>
-         /// <returns></returns>
-         public static string Zip_base64(string str)
+        /// <summary>
+        /// Comprime un string cualquiera y genera un string zipeado en base 64 que representaria en Byte[] del archivo zip comprimido
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>strBase64</returns>
+        public static string Zip_base64(string str)
          {
              var bytes =  Zip(str);
              string strBase64 = Fwk.HelperFunctions.TypeFunctions.ConvertBytesToBase64String(bytes);
@@ -944,24 +949,26 @@ namespace Fwk.HelperFunctions.Compression
          }
 
         /// <summary>
-        /// 
+        /// Descomprime un dato que este en base64. el parametro 
+        /// base64string debia haberce generado con Zip_Object 
         /// </summary>
-        /// <param name="base64string"></param>
+        /// <param name="base64string_ziped"></param>
         /// <returns></returns>
-         public static object UnzipZip_From_base64_object(string base64string)
+        public static object UnzipZip_From_base64_object(string base64string_ziped)
          {
-             string objectToBase64UnZiped = UnzipZip_From_base64(base64string);
+             string objectToBase64UnZiped = UnzipZip_From_base64(base64string_ziped);
             return  StringToObject(objectToBase64UnZiped);
           }
 
         /// <summary>
+        /// Descomprime un ziped base64string
         /// Inverso del Zip_base64 ; retorna la cadena original GZipStream
         /// </summary>
-        /// <param name="base64string"></param>
+        /// <param name="ziped_base64string">Es un string base64 producto de Zip_base64: es desir ya comprimido</param>
         /// <returns></returns>
-        public static string UnzipZip_From_base64(string base64string)
+        public static string UnzipZip_From_base64(string ziped_base64string)
          {
-             byte[] zipedByte = Fwk.HelperFunctions.TypeFunctions.ConvertFromBase64String(base64string);
+             byte[] zipedByte = Fwk.HelperFunctions.TypeFunctions.ConvertFromBase64String(ziped_base64string);
              var unzipedString = Unzip(zipedByte);
              
              return unzipedString;
@@ -969,11 +976,11 @@ namespace Fwk.HelperFunctions.Compression
          }
 
         /// <summary>
-        /// 
+        ///  Genero el ToBase64String de un objeto
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns></returns>
-         public static string ObjectToString(object obj)
+        /// <returns>base64String</returns>
+        public static string ObjectToString(object obj)
          {
              using (MemoryStream ms = new MemoryStream())
              {
@@ -983,11 +990,11 @@ namespace Fwk.HelperFunctions.Compression
          }
 
         /// <summary>
-        /// 
+        /// Genero el objeto original desde un base64String
         /// </summary>
         /// <param name="base64String"></param>
         /// <returns></returns>
-         public static object StringToObject(string base64String)
+        public static object StringToObject(string base64String)
          {
              byte[] bytes = Convert.FromBase64String(base64String);
              using (MemoryStream ms = new MemoryStream(bytes, 0, bytes.Length))

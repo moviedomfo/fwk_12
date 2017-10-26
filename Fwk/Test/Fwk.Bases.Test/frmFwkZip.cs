@@ -16,7 +16,7 @@ namespace Fwk.Bases.Test
 {
     public partial class frmFwkZip : Form
     {
-        string exeFullFileName;
+   
         string[] selectedFilesToZip;
         public frmFwkZip()
         {
@@ -25,7 +25,6 @@ namespace Fwk.Bases.Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-
 
             textBox2.Text = FwkCompression.Zip_base64(textBox1.Text);
         }
@@ -51,7 +50,7 @@ namespace Fwk.Bases.Test
             }
             catch (System.FormatException)
             {
-                MessageBox.Show("El origen debe ser en un string en b64 producto de haber utilizado la funcion FwkCompression.UnzipZip_From_base64(origen);");
+                MessageBox.Show("El origen debe ser en un string en b64 producto de haber utilizado la funcion FwkCompression.Zip_base64(origen);");
             }
 
         }
@@ -132,6 +131,30 @@ namespace Fwk.Bases.Test
 
             MessageBox.Show("Archivo zip decomprimido con exito ");
             Process.Start("Explorer", txtSourcePathToExtract.Text.Trim());
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClienteBE wClienteBE = (ClienteBE)FwkCompression.UnzipZip_From_base64_object(textBox1.Text);
+                textBox2.Text = wClienteBE.GetXml();
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("El origen debe ser en un string en b64 producto de haber utilizado la funcion FwkCompression.UnzipZip_From_base64(origen);");
+            }
+        }
+
+        private void btnZipObject_Click(object sender, EventArgs e)
+        {
+            ClienteBE wClienteBE = new ClienteBE();
+
+            wClienteBE.Apellido = "Lopez";
+            wClienteBE.Nombre = "Jenifer";
+            wClienteBE.Edad = 3;
+            textBox1.Text = FwkCompression.Zip_Object(wClienteBE);
+
         }
     }
 }

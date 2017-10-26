@@ -44,7 +44,7 @@ namespace Fwk.Security
             return wDomainUrlInfo;
 
         }
-
+       
         /// <summary>
         /// Busca un objeto <see cref="ADWrapper"/> si no lo encuentra intenta crearlo e insertarlo al diccionario.-
         /// La creacion del diccionario se hace para no instanciar cientos de veses la clase ADWrapper. ya que esta tarea requiere ,mas uso de CPU que el costo de mantener en memoria 

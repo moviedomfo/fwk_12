@@ -40,13 +40,15 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.txtMsg = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.txtZipFileName = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtSourcePathToExtract = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.txtZipFileName = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.txtMsg = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.button7 = new System.Windows.Forms.Button();
+            this.btnZipObject = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -99,11 +101,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 102);
+            this.textBox1.Location = new System.Drawing.Point(15, 177);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(556, 390);
+            this.textBox1.Size = new System.Drawing.Size(556, 315);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
@@ -118,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 68);
+            this.label1.Location = new System.Drawing.Point(12, 146);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 17);
@@ -174,6 +176,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnZipObject);
+            this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label2);
@@ -208,52 +212,28 @@
             this.tabPage2.Text = "Using FwkZip";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // treeView1
+            // txtSourcePathToExtract
             // 
-            this.treeView1.Location = new System.Drawing.Point(25, 151);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(398, 342);
-            this.treeView1.TabIndex = 68;
+            this.txtSourcePathToExtract.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtSourcePathToExtract.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
+            this.txtSourcePathToExtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSourcePathToExtract.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSourcePathToExtract.Location = new System.Drawing.Point(453, 287);
+            this.txtSourcePathToExtract.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSourcePathToExtract.Name = "txtSourcePathToExtract";
+            this.txtSourcePathToExtract.Size = new System.Drawing.Size(653, 27);
+            this.txtSourcePathToExtract.TabIndex = 75;
             // 
-            // txtMsg
+            // label3
             // 
-            this.txtMsg.AutoSize = true;
-            this.txtMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMsg.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtMsg.Location = new System.Drawing.Point(21, 116);
-            this.txtMsg.Name = "txtMsg";
-            this.txtMsg.Size = new System.Drawing.Size(257, 20);
-            this.txtMsg.TabIndex = 70;
-            this.txtMsg.Text = "Archivos seleccionados para sbir";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button5.Location = new System.Drawing.Point(822, 64);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(249, 44);
-            this.button5.TabIndex = 71;
-            this.button5.Text = "Zip Files using  FwkZip.Compress";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // txtZipFileName
-            // 
-            this.txtZipFileName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtZipFileName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
-            this.txtZipFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtZipFileName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtZipFileName.Location = new System.Drawing.Point(25, 81);
-            this.txtZipFileName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtZipFileName.Name = "txtZipFileName";
-            this.txtZipFileName.Size = new System.Drawing.Size(772, 27);
-            this.txtZipFileName.TabIndex = 72;
-            this.txtZipFileName.Text = "zipFileName.zip";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label3.Location = new System.Drawing.Point(449, 263);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(203, 20);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "rura de extraccion destino";
             // 
             // button6
             // 
@@ -270,28 +250,82 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // label3
+            // txtZipFileName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(449, 263);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 20);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "rura de extraccion destino";
+            this.txtZipFileName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtZipFileName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
+            this.txtZipFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtZipFileName.ForeColor = System.Drawing.Color.DimGray;
+            this.txtZipFileName.Location = new System.Drawing.Point(25, 81);
+            this.txtZipFileName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtZipFileName.Name = "txtZipFileName";
+            this.txtZipFileName.Size = new System.Drawing.Size(772, 27);
+            this.txtZipFileName.TabIndex = 72;
+            this.txtZipFileName.Text = "zipFileName.zip";
             // 
-            // txtSourcePathToExtract
+            // button5
             // 
-            this.txtSourcePathToExtract.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtSourcePathToExtract.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
-            this.txtSourcePathToExtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSourcePathToExtract.ForeColor = System.Drawing.Color.DimGray;
-            this.txtSourcePathToExtract.Location = new System.Drawing.Point(453, 287);
-            this.txtSourcePathToExtract.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSourcePathToExtract.Name = "txtSourcePathToExtract";
-            this.txtSourcePathToExtract.Size = new System.Drawing.Size(653, 27);
-            this.txtSourcePathToExtract.TabIndex = 75;
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button5.Location = new System.Drawing.Point(822, 64);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(249, 44);
+            this.button5.TabIndex = 71;
+            this.button5.Text = "Zip Files using  FwkZip.Compress";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.AutoSize = true;
+            this.txtMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMsg.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.txtMsg.Location = new System.Drawing.Point(21, 116);
+            this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Size = new System.Drawing.Size(257, 20);
+            this.txtMsg.TabIndex = 70;
+            this.txtMsg.Text = "Archivos seleccionados para sbir";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(25, 151);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(398, 342);
+            this.treeView1.TabIndex = 68;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button7.Location = new System.Drawing.Point(297, 93);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(224, 44);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "UnZip object from base64 string";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // btnZipObject
+            // 
+            this.btnZipObject.BackColor = System.Drawing.Color.White;
+            this.btnZipObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZipObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZipObject.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnZipObject.Location = new System.Drawing.Point(29, 68);
+            this.btnZipObject.Margin = new System.Windows.Forms.Padding(4);
+            this.btnZipObject.Name = "btnZipObject";
+            this.btnZipObject.Size = new System.Drawing.Size(233, 44);
+            this.btnZipObject.TabIndex = 10;
+            this.btnZipObject.Text = "Zip Object";
+            this.btnZipObject.UseVisualStyleBackColor = false;
+            this.btnZipObject.Click += new System.EventHandler(this.btnZipObject_Click);
             // 
             // frmFwkZip
             // 
@@ -333,5 +367,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtSourcePathToExtract;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnZipObject;
     }
 }
