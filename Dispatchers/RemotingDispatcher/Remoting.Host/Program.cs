@@ -24,7 +24,7 @@ namespace Remoting.Host
             ev.Machine = Environment.MachineName;
             ev.User = Environment.UserName;
             WellKnownClientTypeEntry[] myEntries = RemotingConfiguration.GetRegisteredWellKnownClientTypes();
-            
+
             ev.Message.Text = "Servicio de Remoting consola iniciado.";
 
             StringBuilder str = new StringBuilder();
@@ -37,9 +37,10 @@ namespace Remoting.Host
                 StaticLogger.Log(TargetType.WindowsEvent, ev, null, null);
             }
             catch
-            {}
+            { }
             Console.ReadLine();
         }
+
         #region ---[Metodos Privados]---
         private static void Inicializar()
         {
@@ -82,4 +83,5 @@ namespace Remoting.Host
             //EventLog.WriteEntry("Fwk.RemotingListenerService", pLog, pType);
         }
     }
+   
 }

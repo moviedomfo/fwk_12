@@ -256,9 +256,9 @@ namespace Fwk.HelperFunctions
         /// 
         /// </code>
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">Tipo del objeto</typeparam>
+        /// <param name="obj">objet</param>
+        /// <returns>Retorna un string con el json del objeto.-</returns>
         public static string SerializeObjectToJson<T>(object obj)
         {
             //var json = new JavaScriptSerializer().Serialize(obj);
