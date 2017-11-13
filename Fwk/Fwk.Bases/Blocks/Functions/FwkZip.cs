@@ -925,11 +925,7 @@ namespace Fwk.HelperFunctions.Compression
             //Convierte el Objeto a bae64
             string base64string = ObjectToString(obj);
 
-            //retorno strBase64_zip
             return Zip_base64(base64string);
-             //var bytes = Zip(str);
-             //string strBase64 = Fwk.HelperFunctions.TypeFunctions.ConvertBytesToBase64String(bytes);
-             //return strBase64;
 
          }
 

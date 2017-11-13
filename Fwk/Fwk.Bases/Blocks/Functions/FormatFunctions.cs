@@ -249,6 +249,7 @@ namespace Fwk.HelperFunctions
 
             return strIn;
         }
+
         /// <summary>
         /// Retorna un array de string sobre T.ToString() de la lista en cuestion.-
         /// Realiza Convert.ToString(t) de cada uno de los elementos de la lista tipo T;
@@ -283,23 +284,10 @@ namespace Fwk.HelperFunctions
         /// <param name="list">lista de enumeraciones</param>
         /// <param name="separator">Caracter separadors</param>
         /// <returns>EJ "1,2,3"</returns>
+        [Obsolete("Utilizar GetStringBuilderWhitSeparator<T>(IList<T> list, char separator)")]
         public static StringBuilder GetStringBuilderWhitSeparatorFromEnum(IList<int> list, char separator)
         {
-            StringBuilder strIn = new StringBuilder();
-            if (list != null)
-            {
-
-                foreach (object t in list)
-                {
-                    int val = (int)t;
-                    strIn.Append(val);
-                    strIn.Append(separator);
-                }
-            }
-            if (strIn.Length > 0)
-                strIn.Remove(strIn.Length - 1, 1);
-
-            return strIn;
+            return GetStringBuilderWhitSeparator<int>(list, separator);
         }
 	}
 }
