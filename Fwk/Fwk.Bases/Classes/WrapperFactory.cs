@@ -8,6 +8,7 @@ using Fwk.Caching;
 using System.Configuration;
 using Fwk.ConfigSection;
 using System.Net;
+using System.Threading;
 
 namespace Fwk.Bases
 {
@@ -162,6 +163,9 @@ namespace Fwk.Bases
 
                 if (String.IsNullOrEmpty(req.ContextInformation.ProviderNameWithCultureInfo))
                     req.ContextInformation.ProviderNameWithCultureInfo = _WraperPepository[providerName].ConfigProviderNameWithCultureInfo;
+
+                if (String.IsNullOrEmpty(req.ContextInformation.Culture))
+                    req.ContextInformation.Culture = Thread.CurrentThread.CurrentCulture.Name;
 
                 #region Caching del servicio.
                 if (req.CacheSettings != null && req.CacheSettings.CacheOnClientSide) //--------------------------------------->>> Implement the cache factory
