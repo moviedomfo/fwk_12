@@ -22,8 +22,8 @@
 		
 		
 	</PropertyGroup>  
-	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
-	  
+	<!--<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>-->
+	  <Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;CleanRecursive"></Target>
 	
 	<!--<Target Name="All"  DependsOnTargets="dispatcher_wcf"></Target>-->  
 	<Target Name="Clean">

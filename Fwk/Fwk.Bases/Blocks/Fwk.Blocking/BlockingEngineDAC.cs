@@ -188,7 +188,6 @@ namespace Fwk.Blocking
         /// Verifica si existe marcas. Si exite alguna marca retorna el registro.
         /// </summary>
         /// <param name="pIBlockingMark">Marca</param>
-        /// <param name="pCustomParametersExist">Parametros personalizados</param>
         /// <param name="pBlockingTable">Nombre de la tabla de Blocking</param>
         /// <returns>Registro blocking</returns>
         internal static bool Exists(IBlockingMark pIBlockingMark, String pBlockingTable)

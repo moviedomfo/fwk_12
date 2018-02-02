@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data;
 using System.Data.Common;
 using Fwk.Security.Common;
@@ -334,7 +333,7 @@ namespace Fwk.Security
                     cnn.Open();
                     using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
                     {
-                        //cmd.CommandText = str.ToString();
+                  
                         cmd.CommandType = CommandType.Text;
 
                         cmd.ExecuteNonQuery();

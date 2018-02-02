@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data;
 using System.Data.Common;
 using Fwk.Security.Common;
 using System.Web.Security;
 using Fwk.Security.Properties;
 using Fwk.Exceptions;
+using System.Data.SqlClient;
 
 namespace Fwk.Security
 {
@@ -423,14 +424,11 @@ namespace Fwk.Security
                 throw te;
             }
 
-            Database wDataBase = null;
-            DbCommand wCmd = null;
-
             try
             {
                 Guid wApplicationId = GetApplication(applicationName, connectionStringName);
 
-                wDataBase = DatabaseFactory.CreateDatabase(connectionStringName);
+                
                 StringBuilder str = new StringBuilder(FwkMembershipScripts.Rule_i);
                 str.Replace("[ApplicationId]", wApplicationId.ToString());
                 str.Replace("[rulename]", rule.Name.Trim());
@@ -440,13 +438,14 @@ namespace Fwk.Security
                     str.Replace("[description]", rule.Description.Trim());
                 else
                     str.Replace("[description]", string.Empty);
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
 
-                wCmd = wDataBase.GetSqlStringCommand(str.ToString());
-                wCmd.CommandType = CommandType.Text;
-
-
-
-                wDataBase.ExecuteNonQuery(wCmd);
+                    cmd.ExecuteNonQuery();
+                }
+   
 
             }
             catch (TechnicalException tx)

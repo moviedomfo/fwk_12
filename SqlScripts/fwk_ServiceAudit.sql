@@ -22,6 +22,8 @@ CREATE TABLE [dbo].[fwk_ServiceAudit](
 	[ServiceError] [varbinary](max) NULL,
 	[Message] [varchar](max) NULL,
 	[Logtype] [varchar](10) NOT NULL,
+	[RequetsText] [varchar](max) NULL,
+	[ResponseText] [varchar](max) NULL,
  CONSTRAINT [PK_fwk_ServiceAudit] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

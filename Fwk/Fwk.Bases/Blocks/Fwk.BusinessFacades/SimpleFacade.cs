@@ -193,8 +193,8 @@ namespace Fwk.BusinessFacades
             wRequest.ContextInformation.HostIp = hostContext.HostIp;
 
             IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
-            Type resType = Type.GetType(serviceConfiguration.Response);
-            wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(resType, res);
+            //Type resType = Type.GetType(serviceConfiguration.Response);
+            wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft( res);
             return wResult;
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data.Common;
 using System.Web.Security;
 using Fwk.Security.Common;
@@ -10,6 +10,7 @@ using System.Data;
 using Fwk.Exceptions;
 using Fwk.Security.Properties;
 using Fwk.Security.Membership;
+using System.Data.SqlClient;
 
 namespace Fwk.Security
 {
@@ -234,22 +235,21 @@ namespace Fwk.Security
             #region actualizacion personalizada
 
             StringBuilder str = new StringBuilder(FwkMembershipScripts.User_u);
-
-            Database wDataBase = null;
-            DbCommand wCmd = null;
-
-
-            wDataBase = DatabaseFactory.CreateDatabase(GetProvider_ConnectionStringName(wProvider.Name));
+            
             str.Replace("[newUserName]", fwkUser.UserName);
             str.Replace("[loweredNewUserName]", fwkUser.UserName.ToLower());
             str.Replace("[userName]", userName.ToLower());
+            using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[GetProvider_ConnectionStringName(wProvider.Name)].ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+            {
+                cmd.CommandType = CommandType.Text;
 
-            wCmd = wDataBase.GetSqlStringCommand(str.ToString());
+                cmd.ExecuteNonQuery();
+            }
+            
 
 
-            wCmd.CommandType = CommandType.Text;
-
-            wDataBase.ExecuteNonQuery(wCmd);
+            
             str = null;
             #endregion
 

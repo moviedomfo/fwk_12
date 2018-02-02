@@ -14,9 +14,11 @@ using System.Reflection;
 using System.Runtime.ConstrainedExecution;
 using Microsoft.Win32.SafeHandles;
 using System.Security;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data.Common;
 using System.Data;
+using System.Data.SqlClient;
+
 namespace Fwk.Security.ActiveDirectory
 {
     /// <summary>
@@ -222,39 +224,41 @@ namespace Fwk.Security.ActiveDirectory
         public static List<DomainUrlInfo> DomainsUrl_Get_FromSp_all(string cnnStringName)
         {
             String wApplicationId = String.Empty;
-            Database dataBase = null;
-            DbCommand cmd = null;
+            
+            
             DomainUrlInfo wDomainUrlInfo = null;
             List<DomainUrlInfo> list = new List<DomainUrlInfo>();
             try
             {
-                dataBase = DatabaseFactory.CreateDatabase(cnnStringName);
-                cmd = dataBase.GetStoredProcCommand("dbo.usp_GetDomainsUrl_All");
-
-                
-
-
-                using (IDataReader dr = dataBase.ExecuteReader(cmd))
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_GetDomainsUrl_All", cnn))
                 {
-                    while (dr.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cnn.Open();
+
+
+                    using (IDataReader dr = cmd.ExecuteReader())
                     {
-                        wDomainUrlInfo = new DomainUrlInfo();
-                        wDomainUrlInfo.DomainDN = dr["DomainDN"].ToString();
-                        wDomainUrlInfo.DomainName = dr["DomainName"].ToString();
+                        while (dr.Read())
+                        {
+                            wDomainUrlInfo = new DomainUrlInfo();
+                            wDomainUrlInfo.DomainDN = dr["DomainDN"].ToString();
+                            wDomainUrlInfo.DomainName = dr["DomainName"].ToString();
 
-                        wDomainUrlInfo.LDAPPath = dr["LDAPPath"].ToString();
+                            wDomainUrlInfo.LDAPPath = dr["LDAPPath"].ToString();
 
-                        wDomainUrlInfo.Pwd = dr["Pwd"].ToString();
-                        wDomainUrlInfo.SiteName = dr["SiteName"].ToString();
-                        wDomainUrlInfo.Usr = dr["Usr"].ToString();
-                        list.Add(wDomainUrlInfo);
+                            wDomainUrlInfo.Pwd = dr["Pwd"].ToString();
+                            wDomainUrlInfo.SiteName = dr["SiteName"].ToString();
+                            wDomainUrlInfo.Usr = dr["Usr"].ToString();
+                            list.Add(wDomainUrlInfo);
+                        }
+
                     }
-                    
+
+                    return list;
+
+
                 }
-
-                return list;
-
-
             }
             catch (Exception ex)
             {
@@ -264,6 +268,7 @@ namespace Fwk.Security.ActiveDirectory
                 throw te;
             }
         }
+
         /// <summary>
         /// Retorna DolmainUrl por medio de un sp usp_GetDomainsUrl_ByDomainName que lee de bd encriptada
         /// </summary>
@@ -273,33 +278,36 @@ namespace Fwk.Security.ActiveDirectory
         public static DomainUrlInfo DomainsUrl_Get_FromSp(string cnnStringName, string domainName)
         {
             String wApplicationId = String.Empty;
-            Database dataBase = null;
-            DbCommand cmd = null;
+
             DomainUrlInfo wDomainUrlInfo = null;
             try
             {
-                dataBase = DatabaseFactory.CreateDatabase(cnnStringName);
-                 cmd = dataBase.GetStoredProcCommand("dbo.usp_GetDomainsUrl_ByDomainName");
-
-                // ApplicationName
-                 dataBase.AddInParameter(cmd, "pDomainName", System.Data.DbType.String, domainName);
-
-
-
-                using (IDataReader dr = dataBase.ExecuteReader(cmd))
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_GetDomainsUrl_ByDomainName", cnn))
                 {
-                    while (dr.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    cmd.Parameters.AddWithValue("@pDomainName", domainName);
+                    cnn.Open();
+
+                    using (IDataReader dr = cmd.ExecuteReader())
                     {
-                        wDomainUrlInfo = new DomainUrlInfo();
-                        wDomainUrlInfo.DomainDN = dr["DomainDN"].ToString();
-                        wDomainUrlInfo.DomainName = dr["DomainName"].ToString();
-              
-                        wDomainUrlInfo.LDAPPath = dr["LDAPPath"].ToString();
-                         
-                        wDomainUrlInfo.Pwd = dr["Pwd"].ToString();
-                        wDomainUrlInfo.SiteName = dr["SiteName"].ToString();
-                        wDomainUrlInfo.Usr = dr["Usr"].ToString();
+                        while (dr.Read())
+                        {
+                            wDomainUrlInfo = new DomainUrlInfo();
+                            wDomainUrlInfo.DomainDN = dr["DomainDN"].ToString();
+                            wDomainUrlInfo.DomainName = dr["DomainName"].ToString();
+
+                            wDomainUrlInfo.LDAPPath = dr["LDAPPath"].ToString();
+
+                            wDomainUrlInfo.Pwd = dr["Pwd"].ToString();
+                            wDomainUrlInfo.SiteName = dr["SiteName"].ToString();
+                            wDomainUrlInfo.Usr = dr["Usr"].ToString();
+
+                        }
+
                     }
+
                 }
 
                 return wDomainUrlInfo;
@@ -314,6 +322,7 @@ namespace Fwk.Security.ActiveDirectory
                 throw te;
             }
         }
+
         /// <summary>
         /// Establece los valores basicos de error producido en el componente ADWrapper
         /// </summary>

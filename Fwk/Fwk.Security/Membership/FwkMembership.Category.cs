@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data;
 using System.Data.Common;
 using System.Web.Security;
 using Fwk.Exceptions;
-
+using System.Data.SqlClient;
 
 namespace Fwk.Security
 {
@@ -33,15 +33,13 @@ namespace Fwk.Security
         /// <param name="applicationName">Nombre de la aplicacion. Coincide con CompanyId en la arquitectura</param>
         public static void CreateCategory(FwkCategory pFwkCategory, string applicationName, string connectionStringName)
         {
-            Database wDataBase = null;
-            DbCommand wCmd = null;
 
 
             try
             {
                 Guid wApplicationId = GetApplication(applicationName, connectionStringName);
 
-                wDataBase = DatabaseFactory.CreateDatabase(connectionStringName);
+                
                 StringBuilder str = new StringBuilder(FwkMembershipScripts.Category_i);
 
 
@@ -50,10 +48,17 @@ namespace Fwk.Security
                 str.Replace("[ParentCategoryId]", pFwkCategory.ParentId.ToString());
                 str.Replace("[CategoryName]", pFwkCategory.Name.ToLower());
 
-                wCmd = wDataBase.GetSqlStringCommand(str.ToString());
-                wCmd.CommandType = CommandType.Text;
 
-                pFwkCategory.CategoryId = Convert.ToInt32(wDataBase.ExecuteScalar(wCmd));
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
+
+                    pFwkCategory.CategoryId = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+
+        
 
                 if (pFwkCategory.FwkRulesInCategoryList != null)
                     if (pFwkCategory.FwkRulesInCategoryList.Count != 0)
@@ -202,13 +207,11 @@ namespace Fwk.Security
         /// <param name="connectionStringName">Nombre de cadena de coneccion del archivo de configuracion.-</param>
         static void CreateRuleInCategory(FwkCategory pFwkCategory, string applicationName, string connectionStringName)
         {
-            Database wDataBase = null;
-            DbCommand wCmd = null;
+        
             Guid id = GetApplication(applicationName, connectionStringName);
 
             try
             {
-                wDataBase = DatabaseFactory.CreateDatabase(connectionStringName);
                 StringBuilder str = new StringBuilder(FwkMembershipScripts.RulesInCategory_d);
 
                 foreach (FwkAuthorizationRule rule in pFwkCategory.FwkRulesInCategoryList)
@@ -218,10 +221,17 @@ namespace Fwk.Security
                 }
                 str.Replace("[CategoryId]", pFwkCategory.CategoryId.ToString());
                 str.Replace("[ApplicationId]", id.ToString());
-                wCmd = wDataBase.GetSqlStringCommand(str.ToString());
-                wCmd.CommandType = CommandType.Text;
 
-                wDataBase.ExecuteNonQuery(wCmd);
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+
+        
             }
             catch (Exception ex)
             {
@@ -328,12 +338,10 @@ namespace Fwk.Security
                 }
             }
 
-            DbCommand wCmd = null;
-            Database wDataBase = null;
+          
 
             try
             {
-                wDataBase = DatabaseFactory.CreateDatabase(connectionStringName);
                 //Elimina Rules in categoria (tabla nav entre categoria y reglas)
                 StringBuilder str = new StringBuilder(FwkMembershipScripts.RulesInCategory_d);
                 //Elimina la categoria en si
@@ -341,9 +349,15 @@ namespace Fwk.Security
 
                 str.Replace("[CategoryId]", parentFwkCategoryId.ToString());
 
-                wCmd = wDataBase.GetSqlStringCommand(str.ToString());
-                wCmd.CommandType = CommandType.Text;
-                wDataBase.ExecuteNonQuery(wCmd);
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    
+                    cmd.ExecuteNonQuery();
+
+                }
+                        
             }
             catch (Exception ex)
             {

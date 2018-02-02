@@ -45,9 +45,9 @@ namespace Fwk.BusinessFacades.Utils
             pServiceError.Machine = Environment.MachineName;
             try
             {
-                /// TODO: ver prefijo del log
+               
                 Event ev = new Event(EventType.Error,Fwk.Bases.ConfigurationsHelper.HostApplicationName, pServiceError.GetXml(), pServiceError.Machine, pServiceError.UserName);
-                Fwk.Logging.StaticLogger.Log(ev);
+                target_write(ev);
             }
             catch { }
            
@@ -62,37 +62,24 @@ namespace Fwk.BusinessFacades.Utils
             StringBuilder s = new StringBuilder("Se ha intentado levantar el despachador de servicios.");
             s.AppendLine("Verifique que esten correctamente configurados en el .config los AppSettings.");
             s.AppendLine("ServiceDispatcherName y ServiceDispatcherConnection");
-            var logType = EventType.Audit;
+           
             if (ex != null)
             {
                 s.AppendLine("..................................");
                 s.AppendLine("Error Interno:");
                 s.AppendLine(Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex));
-                logType = EventType.Error;
+              
             }
 
             TechnicalException te = new TechnicalException(s.ToString());
             te.ErrorId = "7007";
             Fwk.Exceptions.ExceptionHelper.SetTechnicalException<FacadeHelper>(te);
-            
-            
-            try
-            {
-                // TODO: ver prefijo del log
-                Fwk.Logging.Event ev = new Fwk.Logging.Event(logType, 
-                    Fwk.Bases.ConfigurationsHelper.HostApplicationName,
-                    s.ToString(), Environment.MachineName, Environment.UserName);
 
-                Fwk.Logging.Targets.XmlTarget target = new Logging.Targets.XmlTarget();
-                target.FileName = String.Concat(Fwk.HelperFunctions.DateFunctions.Get_Year_Mont_Day_String(DateTime.Now,'-') ,"_", "DispatcherErrorsLog.xml");
-
-                target.Write(ev);
-               
-
-            }
-            catch { }
+            LogDispatcherError(te);
+         
             return te;
         }
+
         /// <summary>
         /// Log error from dispatcher on xml File
         /// </summary>
@@ -107,19 +94,21 @@ namespace Fwk.BusinessFacades.Utils
                     Fwk.Bases.ConfigurationsHelper.HostApplicationName,
                     ex.Message, Environment.MachineName, Environment.UserName);
 
-                Fwk.Logging.Targets.XmlTarget target = new Logging.Targets.XmlTarget();
-                target.FileName = String.Concat(Fwk.HelperFunctions.DateFunctions.Get_Year_Mont_Day_String(DateTime.Now, '-'), "_", "DispatcherErrorsLog.xml");
-
-                //Fwk.Logging.StaticLogger.Log(
-                target.Write(ev);
+                target_write(ev);
 
 
             }
             catch { }
             
         }
-  
 
+        static void target_write(Event ev)
+        {
+            Fwk.Logging.Targets.XmlTarget target = new Logging.Targets.XmlTarget();
+            target.FileName = String.Concat(Fwk.HelperFunctions.DateFunctions.Get_Year_Mont_Day_String(DateTime.Now, '-'), "_", "DispatcherErrorsLog.xml");
+
+            target.Write(ev);
+        }
         /// <summary>
         /// Genera un log de tipo "Error" cuando se ha producido
         /// un error en la  ejecución del servicio.
@@ -147,16 +136,26 @@ namespace Fwk.BusinessFacades.Utils
 
             audit.Dispatcher_Instance_Name = FacadeHelper.ServiceDispatcherConfig.InstanseName;
             audit.ApplicationId = pRequest.ContextInformation.AppId;
+            
 
-            audit.Requets = TypeFunctions.ConvertStringToByteArray(pRequest.GetXml());
-            audit.ServiceError = TypeFunctions.ConvertStringToByteArray(wResult.Error.GetXml());
-            audit.Message = wResult.Error.Message;
+            try
+            {
+                audit.RequetsText = HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(pRequest);
+                audit.ResponseText = HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(wResult.Error);
+            }
+            catch
+            {
+                //Si existe error al serializar json almacena el xml
+                audit.RequetsText = pRequest.GetXml();
+                audit.ResponseText = wResult.Error.GetXml();
+            }
+            
             audit.Logtype = Enum.GetName(typeof(Fwk.Logging.EventType), Fwk.Logging.EventType.Error);
             try
             {
                 using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
                 {
-                    context.fwk_ServiceAudits.InsertOnSubmit(audit);
+                    context.fwk_ServiceAudit.InsertOnSubmit(audit);
                     context.SubmitChanges();
                 }
             }
@@ -184,7 +183,7 @@ namespace Fwk.BusinessFacades.Utils
             {
                 using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
                 {
-                    context.fwk_ServiceAudits.InsertOnSubmit(audit);
+                    context.fwk_ServiceAudit.InsertOnSubmit(audit);
                     
                     context.SubmitChanges();
                 }
@@ -226,8 +225,18 @@ namespace Fwk.BusinessFacades.Utils
             audit.Dispatcher_Instance_Name = FacadeHelper.ServiceDispatcherConfig.InstanseName;
             audit.ApplicationId = pRequest.ContextInformation.AppId;
 
-            audit.Requets = TypeFunctions.ConvertStringToByteArray(pRequest.GetXml());
-            audit.Response = TypeFunctions.ConvertStringToByteArray(wResult.GetXml());
+            try
+            {
+                audit.RequetsText = HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(pRequest);
+                audit.ResponseText = HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft(wResult.Error);
+            }
+            catch
+            {
+                //Si existe error al serializar json almacena el xml
+                audit.RequetsText = pRequest.GetXml();
+                audit.ResponseText = wResult.Error.GetXml();
+            }
+            
             audit.Logtype = Enum.GetName(typeof( Fwk.Logging.EventType), logType);
            
 
@@ -235,7 +244,7 @@ namespace Fwk.BusinessFacades.Utils
             {
                 using (FwkDatacontext context = new FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[ConfigurationsHelper.ServiceDispatcherConnection].ConnectionString))
                 {
-                    context.fwk_ServiceAudits.InsertOnSubmit(audit);
+                    context.fwk_ServiceAudit.InsertOnSubmit(audit);
                     context.SubmitChanges();
                 }
     
@@ -274,8 +283,7 @@ namespace Fwk.BusinessFacades.Utils
             {
                 ///TODO: Ver prefijos de logs
                 Event ev = new Event(EventType.Audit, Fwk.Bases.ConfigurationsHelper.HostApplicationName, s.ToString(), pRequest.ContextInformation.HostName, pRequest.ContextInformation.UserId);
-                Fwk.Logging.StaticLogger.Log(ev);
-                    
+                target_write(ev);    
             }
             catch { }
             finally

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Security;
 using Fwk.Security.Common;
-using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+
 using System.Data.Common;
 using System.Data;
 

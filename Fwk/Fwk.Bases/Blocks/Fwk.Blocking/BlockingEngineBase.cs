@@ -35,7 +35,7 @@ namespace Fwk.Blocking
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="pTableNamme">Nombre de la tabla en Bloqcking</param>
+        /// <param name="pBlockingTableNamme">Nombre de la tabla en Bloqcking</param>
         public BlockingEngineBase(String pBlockingTableNamme)
         {
             _Table_BlockingMarks_Name = pBlockingTableNamme;
@@ -51,7 +51,7 @@ namespace Fwk.Blocking
         /// BlockingMarks. Previamente verifica que no haya sido bloqueadas
         /// anteriormente ninguna de las instancias.
         /// </summary>
-        /// <param name="IBlockingMark"><see cref="IBlockingMark"/></param>
+        /// <param name="pIBlockingMark"><see cref="IBlockingMark"/></param>
         public int Create(IBlockingMark pIBlockingMark)
         {
             ///Llama a al metodo abstracto que es implementado por las clases hijas para obtener los
@@ -61,7 +61,10 @@ namespace Fwk.Blocking
             return BlockingEngineDAC.AddMark(pIBlockingMark, wSqlParameterlist,_Table_BlockingMarks_Name);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pUserName"></param>
         public void ClearBlockingMarksByUserName(string pUserName)
         {
             BlockingEngineDAC.ClearBlockingMarksByUserName(_Table_BlockingMarks_Name, pUserName);
@@ -95,27 +98,23 @@ namespace Fwk.Blocking
             BlockingEngineDAC.RemoveMark(wBlockingMark);
         }
 
+
         /// <summary>
         /// Limpia todas las marcas para las cuales se cumplió el TTL.
         /// Este método se ejecuta desde un servicio.
         /// </summary>
-        /// <param name="pBackupMarks">Le dice al método si hacer Backup
-        /// de las marcas que se borran.</param>
-        /// <returns>Retorna la cantidad de marcas borradas.</returns>
+        /// <returns></returns>
         public static int ClearBlockingMarks()
         {
-            /// Declaro conexión y comando
+
+            SqlParameter wParam;
             using (SqlConnection wCnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["BlockingModel"].ConnectionString))
             using (SqlCommand wCmd = new SqlCommand("BlockingMarks_d_clear", wCnn))
             {
                 try
                 {
                     wCmd.CommandType = CommandType.StoredProcedure;
-
-                    /// Se setean los parámetros.
-                    SqlParameter wParam;
-
-
+                              
                     wParam = wCmd.Parameters.Add("@Count", SqlDbType.Int);
                     wParam.Value = 0;
                     wParam.Direction = ParameterDirection.Output;
@@ -140,20 +139,43 @@ namespace Fwk.Blocking
                 }
             }
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pBlockingMark"></param>
+        /// <returns></returns>
         public DataTable GetByParam(IBlockingMark pBlockingMark)
         {
             return BlockingEngineDAC.GetByParam(pBlockingMark);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pBlockingMark"></param>
+        /// <returns></returns>
         public DataTable GetByParamCustom(IBlockingMark pBlockingMark)
         {
             List<SqlParameter> wSqlParameterlist = GetCustomParametersToGetByParams(pBlockingMark);
             return BlockingEngineDAC.GetByParam(pBlockingMark, wSqlParameterlist);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pBlockingMark"></param>
+        /// <returns></returns>
         protected abstract List<SqlParameter> GetCustomParametersToInsert(IBlockingMark pBlockingMark);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pBlockingMark"></param>
+        /// <returns></returns>
         protected abstract List<SqlParameter> GetCustomParametersToGetByParams(IBlockingMark pBlockingMark);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pBlockingMark"></param>
+        /// <returns></returns>
         protected abstract List<SqlParameter> GetCustomParametersUserExist(IBlockingMark pBlockingMark);
 
         /// <summary>
@@ -199,10 +221,13 @@ namespace Fwk.Blocking
 
         #region IBlockingEngine Members
 
+   
+
         /// <summary>
         /// Verifica si existe marcas. Si exite alguna marca retorna los usuarios.
         /// </summary>
-        /// <param name="pBlockingMark"></param>
+        /// <param name="pGUID"></param>
+        /// <param name="pBlockingId"></param>
         /// <returns></returns>
         public Boolean Exists(Guid? pGUID, int? pBlockingId)
         {

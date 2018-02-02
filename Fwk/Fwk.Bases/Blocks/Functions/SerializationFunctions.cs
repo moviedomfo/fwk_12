@@ -338,7 +338,7 @@ namespace Fwk.HelperFunctions
         /// <param name="objType">typeOf(type)</param>
         /// <param name="obj">Objetc</param>
         /// <returns></returns>
-        public static string SerializeObjectToJson_Newtonsoft(Type objType, object obj)
+        public static string SerializeObjectToJson_Newtonsoft(object obj)
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(obj, new JsonSerializerSettings());
 

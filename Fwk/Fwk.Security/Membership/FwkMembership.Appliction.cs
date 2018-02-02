@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using Fwk.Exceptions;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Fwk.Security
 {
@@ -22,25 +23,32 @@ namespace Fwk.Security
         {
 
             String wApplicationId = String.Empty;
-            Database wDataBase = null;
-            DbCommand wCmd = null;
+           
 
             try
             {
-                wDataBase = DatabaseFactory.CreateDatabase(GetProvider_ConnectionStringName(providerName));
-                wCmd = wDataBase.GetStoredProcCommand("[aspnet_Personalization_GetApplicationId]");
 
-                // ApplicationName
-                wDataBase.AddInParameter(wCmd, "ApplicationName", System.Data.DbType.String, pCompanyId);
+                using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[GetProvider_ConnectionStringName(providerName)].ConnectionString))
+                using (SqlCommand cmd = new SqlCommand("aspnet_Personalization_GetApplicationId", cnn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.AddWithValue("@ApplicationName", pCompanyId);
+                    SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@ApplicationId";
+                    param.SqlDbType = SqlDbType.UniqueIdentifier;
+                    param.Direction = ParameterDirection.Output;
 
-                wDataBase.AddOutParameter(wCmd, "ApplicationId", System.Data.DbType.Guid, 64);
+                    cmd.Parameters.Add(param);
+                    cnn.Open();
 
-                wDataBase.ExecuteScalar(wCmd);
+                    cmd.ExecuteNonQuery();
 
-                wApplicationId = Convert.ToString(wDataBase.GetParameterValue(wCmd, "ApplicationId"));
-
-                return wApplicationId;
+                    wApplicationId = cmd.Parameters["@ApplicationId"].ToString();
+                    return wApplicationId;
+                }
+            
+                  
             }
             catch (Exception ex)
             {
@@ -95,3 +103,4 @@ namespace Fwk.Security
 
     }
 }
+
