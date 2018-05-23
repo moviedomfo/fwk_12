@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfDispatcher.Service", "WcfDispatcher\WcfDispatcher.Service.csproj", "{01286891-AE8E-4A3A-B7EB-E22FCECC3F05}"
 EndProject
@@ -17,10 +17,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "..\Client_Wrapper\backend\backend.csproj", "{788CAB41-ADC2-4ECF-A044-EB86D4B4613D}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -63,9 +59,11 @@ Global
 		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|x64.Build.0 = Release|x64
 		{6E86955E-7756-4DF1-AE79-DC6D1B5AA5C1}.Release|x86.ActiveCfg = Release|Any CPU
 		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Any CPU.Build.0 = Debug|x86
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|Mixed Platforms.Build.0 = Debug|x64
 		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|x64.ActiveCfg = Debug|x64
+		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|x64.Build.0 = Debug|x64
 		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|x86.ActiveCfg = Debug|x86
 		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Debug|x86.Build.0 = Debug|x86
 		{E4C33F21-7B84-4DF6-8D7C-D546FACB3B16}.Release|Any CPU.ActiveCfg = Release|x86
@@ -94,5 +92,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D69E8833-163E-49DB-9034-CCCE24B0C9A7}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

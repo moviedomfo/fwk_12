@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bases", "Bases", "{08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}"
 EndProject
@@ -38,8 +38,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Blocking.Test", "Test\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Cryptography.Test", "Test\Fwk.Criptography.Test\Fwk.Cryptography.Test.csproj", "{6DE96512-F2C4-4285-8E77-56C2C7999A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.DataBase", "Fwk.DataBase\Fwk.DataBase.csproj", "{87C826E0-D87A-4C89-94ED-3B1044746A34}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Net.Ftp.Test", "Test\Fwk.Net.Ftp.Test\Fwk.Net.Ftp.Test.csproj", "{CF72C17F-60BC-425F-BAD4-9B3C5FBFA311}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.UnitTest", "Test\Fwk.UnitTest\Fwk.UnitTest.csproj", "{3F12C172-FC60-414D-A2B4-8578FD9B3837}"
@@ -49,10 +47,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Security.Cryptography.Test", "Test\Fwk.Security.Cryptography.Test\Fwk.Security.Cryptography.Test.csproj", "{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
 		Debug|Any CPU = Debug|Any CPU
@@ -114,7 +108,6 @@ Global
 		{A1F08B2F-7D75-4BD4-8BD3-B98C582013EC}.Release|x86.ActiveCfg = Release|Any CPU
 		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Debug|x64.ActiveCfg = Debug|x64
 		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -199,7 +192,6 @@ Global
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Debug|x64.ActiveCfg = Debug|x64
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Release|.NET.ActiveCfg = Release|Any CPU
@@ -208,21 +200,6 @@ Global
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Release|x64.ActiveCfg = Release|x64
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Release|x64.Build.0 = Release|x64
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C}.Release|x86.ActiveCfg = Release|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|x64.ActiveCfg = Debug|x64
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|.NET.ActiveCfg = Release|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|x64.ActiveCfg = Release|x64
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|x64.Build.0 = Release|x64
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|x86.ActiveCfg = Release|Any CPU
 		{CF72C17F-60BC-425F-BAD4-9B3C5FBFA311}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{CF72C17F-60BC-425F-BAD4-9B3C5FBFA311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF72C17F-60BC-425F-BAD4-9B3C5FBFA311}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -264,8 +241,7 @@ Global
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Debug|x86.ActiveCfg = Debug|x86
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Debug|x86.Build.0 = Debug|x86
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|.NET.ActiveCfg = Release|x86
-		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|Any CPU.ActiveCfg = Release|x86
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC}.Release|x64.ActiveCfg = Release|x86
@@ -289,11 +265,17 @@ Global
 		{F401AC83-7EF8-4036-A003-C5518F4084CB} = {5EA37F54-8BAE-4645-AA21-6CBE0B05BB09}
 		{D1E836A9-2E4C-4FBF-A88D-B70DD0663B5B} = {5EA37F54-8BAE-4645-AA21-6CBE0B05BB09}
 		{6DE96512-F2C4-4285-8E77-56C2C7999A7C} = {5EA37F54-8BAE-4645-AA21-6CBE0B05BB09}
-		{87C826E0-D87A-4C89-94ED-3B1044746A34} = {08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}
 		{CF72C17F-60BC-425F-BAD4-9B3C5FBFA311} = {5EA37F54-8BAE-4645-AA21-6CBE0B05BB09}
 		{3F12C172-FC60-414D-A2B4-8578FD9B3837} = {5EA37F54-8BAE-4645-AA21-6CBE0B05BB09}
 		{2BAD51BD-D7D0-4B1D-8915-4726B5B67264} = {7D2D5A69-0108-4921-A499-1E55BC2541D5}
 		{6269E42D-FA98-4B8F-9EA1-7D5D7F1653AC} = {5EA37F54-8BAE-4645-AA21-6CBE0B05BB09}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8057BE3-9932-426C-AD86-557A34A37A91}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fwk1.vsmdi

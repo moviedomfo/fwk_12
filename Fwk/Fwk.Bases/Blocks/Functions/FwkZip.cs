@@ -100,13 +100,13 @@ namespace Fwk.HelperFunctions.Compression
             }
 
             //crear binario con el zip
-            using (MemoryStream readme = new MemoryStream(
-                       System.Text.Encoding.UTF8.GetBytes(string.Format("{0}\r\nThis file has been {1} using the ZipStorer class, by Jaime Olivares.",
-                       DateTime.Now, "created"))))
-            {
-                // Stores a new file directly from the stream
-                zip.AddStream(FwkZip.Compression.Store, "readme.txt", readme, DateTime.Now, "Please read");
-            }
+            //using (MemoryStream readme = new MemoryStream(
+            //           System.Text.Encoding.UTF8.GetBytes(string.Format("{0}\r\nThis file has been {1} using the ZipStorer class, by @pelsoft :moviedosoft arch.",
+            //           DateTime.Now, "created"))))
+            //{
+            //    // Stores a new file directly from the stream
+            //    zip.AddStream(FwkZip.Compression.Store, "readme.txt", readme, DateTime.Now, "Please read");
+            //}
             zip.Close();
             FileInfo f = new FileInfo(zipFullName);
             return f;

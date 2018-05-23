@@ -15,7 +15,7 @@ namespace Fwk.Security.Cryptography.Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTest());
+            Application.Run(new frmPasswordSaltHashing());
         }
     }
 }

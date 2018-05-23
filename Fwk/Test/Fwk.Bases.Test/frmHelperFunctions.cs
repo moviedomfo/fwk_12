@@ -26,6 +26,11 @@ namespace Fwk.Bases.Test
             txtResult2.Text = ids.ToString();
         }
 
+        private void btnGet_logonserver_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(System.Environment.GetEnvironmentVariable("logonserver"));
+        }
+
        
     }
 }

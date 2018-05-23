@@ -85,8 +85,8 @@ namespace Fwk.Logging
         /// </summary>
         /// <param name="targetType">Objetivo de log.</param>
         /// <param name="eventLog"><see cref="Event"/></param>
-        /// <param name="fullFileName">Nombre completo del archivo</param>
-        /// <param name="cnnStringName">Prefijo del nombre de archivo</param>
+        /// <param name="fullFileName">Nombre completo del archivo para el caso de que  targetType= File o Xml </param>
+        /// <param name="cnnStringName">Cadena de conexion para el caso de que  targetType= Database </param>
         public static void Log(TargetType targetType, Event eventLog, string fullFileName, string cnnStringName)
         {
             WriteLogNoConfig(targetType, eventLog, fullFileName, cnnStringName);
@@ -127,8 +127,8 @@ namespace Fwk.Logging
         /// <param name="fileNamePrefix">Prefijo del nombre de archivo</param>
         private static void WriteLog(Event ev, string path, string fileNamePrefix)
         {
-            WriteLog(String.Empty,ev,path,fileNamePrefix);
-      
+            WriteLog(String.Empty, ev, path, fileNamePrefix);
+
         }
 
         /// <summary>
@@ -161,9 +161,9 @@ namespace Fwk.Logging
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="provider"></param>
-        /// <param name="path"></param>
-        /// <param name="fileNamePrefix"></param>
+        /// <param name="provider">Preveedor de logs</param>
+        /// <param name="path">ruta donde se almacenan los logs</param>
+        /// <param name="fileNamePrefix">Es concatenado delante del nombre de archivo por defecto, El nombre de archivo se obtiene de la configuracion</param>
         /// <returns></returns>
         private static Target GetTargetByProvider(LogProviderElement provider, string path, string fileNamePrefix)
         {

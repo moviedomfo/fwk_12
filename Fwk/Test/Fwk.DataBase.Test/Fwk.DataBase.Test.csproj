@@ -193,10 +193,6 @@
       <Project>{1654A893-0408-474E-873C-E79F00D7587C}</Project>
       <Name>Fwk.Bases</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Fwk.DataBase\Fwk.DataBase.csproj">
-      <Project>{87C826E0-D87A-4C89-94ED-3B1044746A34}</Project>
-      <Name>Fwk.DataBase</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
