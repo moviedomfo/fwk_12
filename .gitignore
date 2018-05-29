@@ -881,3 +881,15 @@ Fwk/Fwk.Bases/Fwk.Bases.csproj.user
 Fwk/Test/Fwk.Bases.Test/Fwk.Bases.Test.csproj.user
 Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v14/.suo
 .vs/FwkCompile/v14/.suo
+Fwk/.vs/Fwk/v15/Server/sqlite3/storage.ide-wal
+Fwk/.vs/Fwk/v15/Server/sqlite3/storage.ide-shm
+Fwk/.vs/Fwk/v15/Server/sqlite3/storage.ide
+Fwk/.vs/Fwk/v15/Server/sqlite3/db.lock
+Fwk/.vs/Fwk/DesignTimeBuild/.dtbcache
+.vs/FwkCompile/v15/Server/sqlite3/storage.ide
+.vs/FwkCompile/v15/Server/sqlite3/db.lock
+.vs/FwkCompile/DesignTimeBuild/.dtbcache
+Dispatchers/WcfDispatcher/.vs/WcfDispatcher/v15/Server/sqlite3/storage.ide
+Dispatchers/WcfDispatcher/.vs/WcfDispatcher/v15/Server/sqlite3/db.lock
+Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/Server/sqlite3/storage.ide
+Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/Server/sqlite3/db.lock

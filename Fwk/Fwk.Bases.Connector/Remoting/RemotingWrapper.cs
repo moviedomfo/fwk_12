@@ -9,6 +9,7 @@ using Fwk.BusinessFacades.Utils;
 using Fwk.ConfigSection;
 using Fwk.Bases.ISVC;
 using System.Xml;
+using System.Threading.Tasks;
 
 namespace Fwk.Bases.Connector
 {
@@ -84,7 +85,24 @@ namespace Fwk.Bases.Connector
         {
             throw new Exception("The method or operation is not implemented in remoting execution. It's obsolete");
         }
+        /// <summary>
+        /// Ejecuta un servicio de negocio de forma asincrona.
+        /// Si se produce el error:
+        /// The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+        /// Se debe a un error que lanza una llamada asincrona en modo debug  
+        /// </summary>
+        /// <param name="req">Clase que imlementa la interfaz IServiceContract datos de entrada para la  ejecución del servicio.</param>
+        /// <returns>Clase que imlementa la interfaz IServiceContract con datos de respuesta del servicio.</returns>
+        /// <returns>response</returns>
+        public async Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            TResponse response;
 
+            response = await Task.Run<TResponse>(() => ExecuteService<TRequest, TResponse>(req));
+
+            return response;
+        }
         /// <summary>
         /// Ejecuta un servicio de negocio.
         /// Si se produce el error:
@@ -387,9 +405,10 @@ namespace Fwk.Bases.Connector
             return wFwkRemoteObject.RetriveDispatcherInfo();
            
         }
+
         #endregion [ServiceConfiguration]
 
-        
+
     }
 
 //    <configuration>

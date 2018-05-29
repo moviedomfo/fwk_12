@@ -2,7 +2,6 @@ using System;
 using System.Xml;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
-using System.Web.Services.Protocols;
 using Fwk.Configuration;
 
 namespace Fwk.Exceptions
@@ -377,23 +376,6 @@ namespace Fwk.Exceptions
                 _ErrorId = errorId.ToString();
             _Message = pmessage;
             
-        }
-
-        /// <summary>
-        /// Excepcion funcional.
-        /// </summary>
-        /// <param name="psoapEx">SoapException.</param>
-        public FunctionalException(SoapException psoapEx)
-        {
-            XmlElement elem = psoapEx.Detail as XmlElement;
-            string message = String.Empty;
-
-            if (elem != null && elem.SelectSingleNode("Message") != null)
-            {
-                message = elem.SelectSingleNode("Message").InnerText;
-            }
-
-            _Message = message;
         }
 
         /// <summary>

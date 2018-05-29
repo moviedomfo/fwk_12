@@ -5,6 +5,7 @@ using Fwk.HelperFunctions;
 using Fwk.Caching;
 using Fwk.Exceptions;
 using System.Xml.Serialization;
+using System.Threading.Tasks;
 
 namespace Fwk.Bases
 {
@@ -191,7 +192,36 @@ namespace Fwk.Bases
 
 
         }
-       
+
+        /// <summary>
+        ///  Ejecuta un servicio de negocio. Utiliza el wrapper por defecto
+        /// Si se produce el error:
+        /// The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+        /// Se debe a un error que lanza una llamada asincrona en modo debug 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="providerName">Nombre del proveedor de la metadata de servicio</param>
+        /// <param name="pRequest">Request con datos de entrada para la  ejecución del servicio.</param>
+        /// <returns></returns>
+        public Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(string providerName, TRequest pRequest)
+         where TRequest : IServiceContract
+         where TResponse : IServiceContract, new()
+        {
+
+            return WrapperFactory.ExecuteServiceAsync<TRequest, TResponse>(providerName, pRequest);
+
+
+        }
+        public Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>( TRequest pRequest)
+        where TRequest : IServiceContract
+        where TResponse : IServiceContract, new()
+        {
+
+            return WrapperFactory.ExecuteServiceAsync<TRequest, TResponse>("", pRequest);
+
+
+        }
     }
 
     /// <summary>

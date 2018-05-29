@@ -11,8 +11,7 @@ using System.ServiceModel;
 using Fwk.Bases.Connector.WCFServiceReference;
 using System.ServiceModel.Channels;
 using Fwk.Bases.ISVC;
-
-
+using System.Threading.Tasks;
 
 namespace Fwk.Bases.Connector
 {
@@ -130,6 +129,7 @@ namespace Fwk.Bases.Connector
             {
 
                 client = channelFactory.CreateChannel();
+
                 wcfRes = client.ExecuteService(wcfReq);
                 ((ICommunicationObject)client).Close();
             }
@@ -158,6 +158,26 @@ namespace Fwk.Bases.Connector
             return response;
         }
 
+        /// <summary>
+        /// Ejecuta un servicio de negocio.
+        /// Si se produce el error:
+        /// The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+        /// Se debe a un error que lanza una llamada asincrona en modo debug  
+        /// </summary>
+        /// <param name="req">Clase que imlementa la interfaz IServiceContract datos de entrada para la  ejecución del servicio.</param>
+        /// <returns>Clase que imlementa la interfaz IServiceContract con datos de respuesta del servicio.</returns>
+        /// <returns>response</returns>
+        public virtual async Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+
+            TResponse response;
+
+            response = await Task.Run<TResponse>(() => ExecuteService<TRequest, TResponse>(req));
+
+            return response;
+        }
 
 
         #endregion
@@ -390,7 +410,9 @@ namespace Fwk.Bases.Connector
         #endregion [ServiceConfiguration]
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public abstract void InitilaizeBinding();
 
 
@@ -412,36 +434,11 @@ namespace Fwk.Bases.Connector
                 throw Fwk.Exceptions.ExceptionHelper.ProcessException(res.Error);
 
             }
-            //RetriveDispatcherInfoRequest wcfReq = new RetriveDispatcherInfoRequest();
-            //RetriveDispatcherInfoResponse wcfRes = null;
-
-            //var channelFactory = new ChannelFactory<IFwkService>(binding, address);
-            //IFwkService client = null;
-            //try
-            //{
-            //    client = channelFactory.CreateChannel();
-
-            //    wcfRes = client.RetriveDispatcherInfo(wcfReq);
-            //    ((ICommunicationObject)client).Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    if (client != null)
-            //    {
-            //        ((ICommunicationObject)client).Abort();
-            //    }
-            //    throw ex;
-            //}
-
-
 
             return res.BusinessData;
         }
 
-
-
-
-
+    
     }
 }
 

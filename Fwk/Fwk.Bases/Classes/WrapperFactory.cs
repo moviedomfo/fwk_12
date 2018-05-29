@@ -9,6 +9,7 @@ using System.Configuration;
 using Fwk.ConfigSection;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Fwk.Bases
 {
@@ -240,7 +241,101 @@ namespace Fwk.Bases
             return ExecuteService<TRequest, TResponse>(string.Empty, pRequest);
         }
 
+        /// <summary>
+        /// Ejecuta un servicio de negocio asincronamente
+        /// Si se produce el error:
+        /// The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+        /// Se debe a un error que lanza una llamada asincrona en modo debug  
+        /// </summary>
+        /// <typeparam name="TRequest">Tipo del Request</typeparam>
+        /// <typeparam name="TResponse">Tipo del Response</typeparam>
+        /// <param name="providerName">Proveedor del wrapper</param>
+        /// <param name="pRequest">Objeto request del tipo </param>
+        /// <returns></returns>
+        public async static Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(string providerName, TRequest pRequest)
+          where TRequest : IServiceContract
+          where TResponse : IServiceContract, new()
+        {
+            TResponse wResponse = new TResponse();
 
+
+            //no se utiliza mas este codigo debido q los wrappers se cargan en el constructor estatico
+            //InitWrapper(providerName);//Commented because every provider was loaded on static init constructor 
+            if (String.IsNullOrEmpty(providerName))
+                providerName = _DefaultProviderName;
+
+            CheckWrapperExist(providerName, wResponse);
+
+            Boolean wExecuteOndispatcher = true;
+            //Si no ocurrio algun error
+            if (wResponse.Error == null)
+            {
+                IServiceContract res = null;
+                IRequest req = (IRequest)pRequest;
+                if (string.IsNullOrEmpty(req.ContextInformation.AppId))
+                    req.ContextInformation.AppId = _WraperPepository[providerName].AppId;
+
+                if (String.IsNullOrEmpty(req.ContextInformation.ProviderNameWithCultureInfo))
+                    req.ContextInformation.ProviderNameWithCultureInfo = _WraperPepository[providerName].ConfigProviderNameWithCultureInfo;
+
+                if (String.IsNullOrEmpty(req.ContextInformation.Culture))
+                    req.ContextInformation.Culture = Thread.CurrentThread.CurrentCulture.Name;
+
+                #region Caching del servicio.
+                if (req.CacheSettings != null && req.CacheSettings.CacheOnClientSide) //--------------------------------------->>> Implement the cache factory
+                {
+                    try
+                    {
+                        res = ServiceCacheMannager.Get(req);
+
+                        wResponse = (TResponse)res;
+                        //Si estaba en la cache no es necesario llamar al despachador de servicio
+                        if (wResponse != null)
+                            wExecuteOndispatcher = false;
+                    }
+                    catch (System.Security.SecurityException)
+                    {
+
+                    }
+                }
+                #endregion
+
+                if (wExecuteOndispatcher)
+                {
+                    try
+                    {
+
+                        wResponse = await _WraperPepository[providerName].ExecuteServiceAsync<TRequest, TResponse>(pRequest);
+                    }
+                    catch (TechnicalException te)
+                    {
+                        if (te.ErrorId.Equals("7201"))
+                            wResponse.Error = ProcessConnectionsException.Process(
+                                new TechnicalException(
+                                    String.Format(Fwk.Bases.Properties.Resources.Wrapper_ServiceMetadataProviderName_NotExist,
+                                    _WraperPepository[providerName].ProviderName, te)));
+                        else
+                            wResponse.Error = ProcessConnectionsException.Process(te);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        wResponse.Error = ProcessConnectionsException.Process(ex);
+                    }
+
+                    //Si aplica cache y se llamo a la ejecucion se debe almacenar en cache para proxima llamada
+                    //if (req.CacheSettings != null && req.CacheSettings.CacheOnClientSide)
+                    //{
+                    //    //Es posible que la ejecucion produzca algun error y por lo tanto no se permitira 
+                    //    //su almacen en cache
+                    //    if (wResponse.Error == null)
+                    //        ServiceCacheMannager.Add(req, wResponse);
+                    //}
+                }
+            }
+
+            return wResponse;
+        }
 
 
         /// <summary>

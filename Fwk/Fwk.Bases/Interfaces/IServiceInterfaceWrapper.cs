@@ -3,6 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Text;
 using Fwk.Bases.ISVC;
+using System.Threading.Tasks;
 
 namespace Fwk.Bases
 {
@@ -68,6 +69,15 @@ namespace Fwk.Bases
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new();
 
+        /// <summary>
+        /// Ejecuta un servicio de negocio de forma asincrona
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+            where TResponse : IServiceContract, new();
         #region [ServiceConfiguration]
 
         /// <summary>

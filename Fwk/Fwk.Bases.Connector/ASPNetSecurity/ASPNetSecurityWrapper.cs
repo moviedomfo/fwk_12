@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Fwk.ConfigSection;
 using System.Net;
 using Fwk.Bases.ISVC;
+using System.Threading.Tasks;
 
 namespace Fwk.Bases.Connector
 {
@@ -356,6 +357,12 @@ namespace Fwk.Bases.Connector
 
 
         public DispatcherInfo RetriveDispatcherInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public  Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
         {
             throw new NotImplementedException();
         }

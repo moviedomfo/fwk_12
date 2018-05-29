@@ -6,6 +6,7 @@ using Fwk.BusinessFacades;
 using Fwk.Exceptions;
 using Fwk.ConfigSection;
 using Fwk.Bases.ISVC;
+using System.Threading.Tasks;
 
 namespace Fwk.Bases.Connector
 {
@@ -91,21 +92,40 @@ namespace Fwk.Bases.Connector
         }
 
         /// <summary>
+        /// Ejecuta un servicio de negocio de forma asincrona .-
+        /// Si se produce el error:
+        /// The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
+        /// Se debe a un error que lanza una llamada asincrona en modo debug  
+        /// </summary>
+        /// <param name="req">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
+        /// <returns>Clase que implementa IServiceContract con datos de respuesta del servicio.</returns>
+        /// <date>2007-06-23T00:00:00</date>
+        /// <author>moviedo</author>
+        public async Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            TResponse response;
+
+            response = await Task.Run<TResponse>(() => ExecuteService<TRequest, TResponse>(req));
+
+            return response;
+        }
+        /// <summary>
         /// Ejecuta un servicio de negocio.
         /// Si se produce el error:
         /// The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))
         /// Se debe a un error que lanza una llamada asincrona en modo debug  
         /// </summary>
-        /// <param name="pReq">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
+        /// <param name="req">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
         /// <returns>Clase que implementa IServiceContract con datos de respuesta del servicio.</returns>
         /// <date>2007-06-23T00:00:00</date>
         /// <author>moviedo</author>
-        public TResponse ExecuteService<TRequest, TResponse>( TRequest pReq)
+        public TResponse ExecuteService<TRequest, TResponse>( TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
 
-            TResponse wResponse = (TResponse)this.ExecuteService(pReq);
+            TResponse wResponse = (TResponse)this.ExecuteService(req);
             return wResponse;
         }
 
@@ -283,6 +303,8 @@ namespace Fwk.Bases.Connector
                 _SimpleFacade = CreateSimpleFacade();
             return _SimpleFacade.RetriveDispatcherInfo();
         }
+
+        
 
         #endregion
     }
