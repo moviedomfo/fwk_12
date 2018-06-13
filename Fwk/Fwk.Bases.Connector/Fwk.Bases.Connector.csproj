@@ -146,6 +146,9 @@
     <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.GetAllApplicationsIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

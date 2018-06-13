@@ -28,6 +28,8 @@ namespace Fwk.Security.SVC
 
             wUserBC.Create(pServiceRequest.BusinessData.User);
 
+
+
             //TODO: Ver por que se retorna la entidad completa
             wRes.BusinessData.UserId = pServiceRequest.BusinessData.User.UserId.Value;
             

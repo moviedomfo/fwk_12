@@ -3,12 +3,29 @@
   <xs:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfDispatcher.Service" />
   <xs:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Fwk.ConfigSection" />
   <xs:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="ExecuteService_allowedAuth_Async">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="providerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="jsonRequets" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteService_allowedAuth_AsyncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExecuteService_allowedAuth_AsyncResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ExecuteService">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="providerName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="jsonRequets" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

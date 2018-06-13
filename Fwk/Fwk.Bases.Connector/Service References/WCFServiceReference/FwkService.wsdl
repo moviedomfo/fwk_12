@@ -41,6 +41,12 @@
       <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IFwkService_ExecuteService_allowedAuth_Async_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteService_allowedAuth_Async" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_ExecuteService_allowedAuth_Async_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteService_allowedAuth_AsyncResponse" />
+  </wsdl:message>
   <wsdl:message name="IFwkService_ExecuteService_InputMessage">
     <wsdl:part name="parameters" element="tns:ExecuteService" />
   </wsdl:message>
@@ -84,6 +90,10 @@
     <wsdl:part name="parameters" element="tns:GetProviderInfoResponse" />
   </wsdl:message>
   <wsdl:portType name="IFwkService">
+    <wsdl:operation name="ExecuteService_allowedAuth_Async">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async" message="tns:IFwkService_ExecuteService_allowedAuth_Async_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_AsyncResponse" message="tns:IFwkService_ExecuteService_allowedAuth_Async_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ExecuteService">
       <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteService" message="tns:IFwkService_ExecuteService_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceResponse" message="tns:IFwkService_ExecuteService_OutputMessage" />
@@ -116,6 +126,15 @@
   <wsdl:binding name="tcp" type="tns:IFwkService">
     <wsp:PolicyReference URI="#tcp_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ExecuteService_allowedAuth_Async">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ExecuteService">
       <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService" style="document" />
       <wsdl:input>
@@ -186,7 +205,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8001/FwkService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>santana\moviedo</Upn>
+          <Upn>socrates\moviedo</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fwk.Security.Identity</RootNamespace>
+    <AssemblyName>Fwk.Security.Identity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.2.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.2.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.1\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Thinktecture.IdentityModel.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thinktecture.IdentityModel.Core.1.4.0\lib\net45\Thinktecture.IdentityModel.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ProductConfiguration\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="app_identity\ASP CustomIdentity\IdentityConfig.cs" />
+    <Compile Include="app_identity\Providers\SecurityauthRuleProvider.cs" />
+    <Compile Include="Database\SecurityManager.cs" />
+    <Compile Include="MappingHelper.cs" />
+    <Compile Include="SecurityEntities\SecurityClient.cs" />
+    <Compile Include="SecurityEntities\SecurityModel.cs" />
+    <Compile Include="SecurityEntities\SecurityRefreshToken.cs" />
+    <Compile Include="SecurityEntities\SecurityRole.cs" />
+    <Compile Include="SecurityEntities\SecurityRule.cs" />
+    <Compile Include="SecurityEntities\SecurityRulesCategory.cs" />
+    <Compile Include="SecurityEntities\SecuritytUserLogin.cs" />
+    <Compile Include="SecurityEntities\SecurityUser.cs" />
+    <Compile Include="SecurityEntities\SecurityUserClaim.cs" />
+    <Compile Include="SecurityEntities\be\SecurityCategory.cs" />
+    <Compile Include="SecurityEntities\SecurityRol.cs" />
+    <Compile Include="SecurityEntities\be\SecurityUserBE.cs" />
+    <Compile Include="app_identity\helper.cs" />
+    <Compile Include="app_identity\Models\AccountBindingModels.cs" />
+    <Compile Include="app_identity\Models\AccountViewModels.cs" />
+    <Compile Include="app_identity\Providers\CustomJwtFormat.cs" />
+    <Compile Include="app_identity\Providers\CustomOAuthProvider.cs" />
+    <Compile Include="app_identity\Providers\GoogleAuthProvider.cs" />
+    <Compile Include="app_identity\Providers\RefreshTokenProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\Category\CreateRulesCategory.cs" />
+    <Compile Include="services\Category\CreateRulesCategoryService.cs" />
+    <Compile Include="services\Category\DeleteRulesCategory.cs" />
+    <Compile Include="services\Category\DeleteRulesCategoryService.cs" />
+    <Compile Include="services\Category\SearchAllRuleCategory.cs" />
+    <Compile Include="services\Category\SearchAllRuleCategoryService.cs" />
+    <Compile Include="services\Category\SearchRulesCategoryByParam.cs" />
+    <Compile Include="services\Category\SearchRulesCategoryByParamService.cs" />
+    <Compile Include="services\Category\UpdateRulesCategory.cs" />
+    <Compile Include="services\Category\UpdateRulesCategoryService.cs" />
+    <Compile Include="services\Roles\AssignRolesToUser.cs" />
+    <Compile Include="services\Roles\AssignRolesToUserService.cs" />
+    <Compile Include="services\Roles\CreateRoles.cs" />
+    <Compile Include="services\Roles\CreateRoleService.cs" />
+    <Compile Include="services\Roles\DeleteRole.cs" />
+    <Compile Include="services\Roles\DeleteRolService.cs" />
+    <Compile Include="services\Roles\SearchAllRoles.cs" />
+    <Compile Include="services\Roles\SearchAllRolesService.cs" />
+    <Compile Include="services\Roles\SearchRolesForUser.cs" />
+    <Compile Include="services\Roles\SearchRolesForUserService.cs" />
+    <Compile Include="services\Rules\CreateRules.cs" />
+    <Compile Include="services\Rules\CreateRuleService.cs" />
+    <Compile Include="services\Rules\CheckAuthRule.cs" />
+    <Compile Include="services\Rules\SearchAllRules.cs" />
+    <Compile Include="services\Rules\CheckAuthRuleService.cs" />
+    <Compile Include="services\Rules\SearchAllRulesService.cs" />
+    <Compile Include="services\Rules\UpdateRules.cs" />
+    <Compile Include="services\Rules\UpdateRulesService.cs" />
+    <Compile Include="services\users\AuthenticateUser.cs" />
+    <Compile Include="services\users\AuthenticateUserService.cs" />
+    <Compile Include="services\users\CreateUsers.cs" />
+    <Compile Include="services\users\CreateUserService.cs" />
+    <Compile Include="services\users\GetUserInfoByName.cs" />
+    <Compile Include="services\users\GetUserInfoByParamsService.cs" />
+    <Compile Include="services\users\RemoveUserFromRoleService.cs" />
+    <Compile Include="services\users\RemoveUsersFromRol.cs" />
+    <Compile Include="services\users\ResetUserPassword.cs" />
+    <Compile Include="services\users\SearchAllUsers.cs" />
+    <Compile Include="services\users\SearchAllUsersService.cs" />
+    <Compile Include="services\users\SearchUsersByParam.cs" />
+    <Compile Include="services\users\UpdateUser.cs" />
+    <Compile Include="services\users\UpdateUserService.cs" />
+    <Compile Include="services\users\ValidateUserExistIsvc.cs" />
+    <Compile Include="services\users\ValidateUserExistService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Metasvc.xml">
+      <Link>Metasvc.xml</Link>
+    </Content>
+    <Content Include="app_identity\ASP CustomIdentity\create.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="SecurityEntities\SecurityModelContext.partial.cs" />
+    <None Include="securityConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fwk.Bases\Fwk.Bases.csproj">
+      <Project>{1654a893-0408-474e-873c-e79f00d7587c}</Project>
+      <Name>Fwk.Bases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fwk.Security\Fwk.Security.csproj">
+      <Project>{adba9438-d15d-4f34-aa76-05cd0a193fde}</Project>
+      <Name>Fwk.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*"  "$(ProjectDir)..\..\Libraries\Framework\$(TargetName).*"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

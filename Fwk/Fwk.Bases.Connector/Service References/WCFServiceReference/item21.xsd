@@ -2,7 +2,7 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Fwk.Bases" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Fwk.Bases" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="ContextInformation">
     <xs:sequence>
-      <xs:element name="_AppId" nillable="true" type="xs:string" />
+      <xs:element name="_Culture" nillable="true" type="xs:string" />
       <xs:element name="_HostIp" nillable="true" type="xs:string" />
       <xs:element name="_HostName" nillable="true" type="xs:string" />
       <xs:element name="_HostTime" type="xs:dateTime" />
@@ -12,11 +12,24 @@
       <xs:element name="_UserId" nillable="true" type="xs:string" />
       <xs:element name="_x003C_AppId_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_ProviderNameWithCultureInfo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_RefreshToken_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Token_x003E_k__BackingField" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ContextInformation" nillable="true" type="tns:ContextInformation" />
   <xs:complexType name="BaseEntity">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element name="_EntityState" type="tns:EntityState" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
+  <xs:simpleType name="EntityState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unchanged" />
+      <xs:enumeration value="Added" />
+      <xs:enumeration value="Changed" />
+      <xs:enumeration value="Deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntityState" nillable="true" type="tns:EntityState" />
 </xs:schema>

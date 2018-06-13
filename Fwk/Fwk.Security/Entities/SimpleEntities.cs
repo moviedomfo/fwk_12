@@ -212,7 +212,7 @@ namespace Fwk.Security.Common
     public class UserList : List<User>
     {
         /// <summary>
-        /// 
+        /// Retorna una string[] con nombres de usuario separados por coma:
         /// </summary>
         /// <returns></returns>
         public String[] GetArraNames()
@@ -256,6 +256,10 @@ namespace Fwk.Security.Common
             _RolName = name;
             _Description = description;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid RolId { get; set; }
         String _RolName;
         /// <summary>
         /// 

@@ -20,6 +20,16 @@ namespace Fwk.Bases
         DateTime _ServerTime = new DateTime();
         DateTime _HostTime = new DateTime();
         /// <summary>
+        /// JWT or any other token type
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { get; set; }
+
+        /// <summary>
         /// Indica la cultura, en texto, del cliente q realizo la peticion del REQ .- 
         /// </summary>
         public string Culture

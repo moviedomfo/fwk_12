@@ -19,6 +19,16 @@ namespace Fwk.Bases.Connector
     [Serializable]
     public class RemotingWrapper :IServiceWrapper
     {
+        /// <summary>
+        /// JWT or any other token type
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { get; set; }
+
         string remotingUrl;
         internal string RemotingUrl { get {return  remotingUrl; } }
         string _ProviderName;
@@ -122,6 +132,10 @@ namespace Fwk.Bases.Connector
             try
             {
                 req.InitializeHostContextInformation();
+
+                req.ContextInformation.Token = this.Token;
+                req.ContextInformation.RefreshToken = this.RefreshToken;
+
                 response = (TResponse)wFwkRemoteObject.ExecuteService(_ServiceMetadataProviderName, req);
                 response.InitializeHostContextInformation();
             }
@@ -138,25 +152,37 @@ namespace Fwk.Bases.Connector
 
         }
 
-        ///// <summary>
-        ///// Ejecucion del servicio
-        ///// </summary>
-        ///// <typeparam name="TRequest"></typeparam>
-        ///// <typeparam name="TResponse"></typeparam>
-        ///// <param name="pReq"></param>
-        ///// <returns></returns>
-        //public TResponse ExecuteService<TRequest, TResponse>(TRequest pReq)
-        //    where TRequest : IServiceContract
-        //    where TResponse : IServiceContract, new()
-        //{
-        //    FwkRemoteObject wFwkRemoteObject = CreateRemoteObject();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public async Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+          where TRequest : IServiceContract
+          where TResponse : IServiceContract, new()
+        {
+            TResponse response;
 
-        //    pReq.InitializeHostContextInformation();
-        //    TResponse response = (TResponse)wFwkRemoteObject.ExecuteService(_ProviderName, pReq);
-        //    response.InitializeHostContextInformation();
+            response = await Task.Run<TResponse>(() => ExecuteService_allowedAuth<TRequest, TResponse>(req));
 
-        //    return response;
-        //}
+            return response;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            return ExecuteService < TRequest, TResponse > (req);
+        }
 
 
 
@@ -405,6 +431,8 @@ namespace Fwk.Bases.Connector
             return wFwkRemoteObject.RetriveDispatcherInfo();
            
         }
+
+     
 
         #endregion [ServiceConfiguration]
 

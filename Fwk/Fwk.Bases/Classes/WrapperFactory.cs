@@ -224,6 +224,8 @@ namespace Fwk.Bases
             return wResponse;
         }
 
+        
+
         /// <summary>
         /// Ejecuta un servicio de negocio con el proveedor de wrapper por defecto
         /// Si se produce el error:
@@ -266,11 +268,10 @@ namespace Fwk.Bases
 
             CheckWrapperExist(providerName, wResponse);
 
-            Boolean wExecuteOndispatcher = true;
             //Si no ocurrio algun error
             if (wResponse.Error == null)
             {
-                IServiceContract res = null;
+                
                 IRequest req = (IRequest)pRequest;
                 if (string.IsNullOrEmpty(req.ContextInformation.AppId))
                     req.ContextInformation.AppId = _WraperPepository[providerName].AppId;
@@ -281,27 +282,7 @@ namespace Fwk.Bases
                 if (String.IsNullOrEmpty(req.ContextInformation.Culture))
                     req.ContextInformation.Culture = Thread.CurrentThread.CurrentCulture.Name;
 
-                #region Caching del servicio.
-                if (req.CacheSettings != null && req.CacheSettings.CacheOnClientSide) //--------------------------------------->>> Implement the cache factory
-                {
-                    try
-                    {
-                        res = ServiceCacheMannager.Get(req);
 
-                        wResponse = (TResponse)res;
-                        //Si estaba en la cache no es necesario llamar al despachador de servicio
-                        if (wResponse != null)
-                            wExecuteOndispatcher = false;
-                    }
-                    catch (System.Security.SecurityException)
-                    {
-
-                    }
-                }
-                #endregion
-
-                if (wExecuteOndispatcher)
-                {
                     try
                     {
 
@@ -323,20 +304,73 @@ namespace Fwk.Bases
                         wResponse.Error = ProcessConnectionsException.Process(ex);
                     }
 
-                    //Si aplica cache y se llamo a la ejecucion se debe almacenar en cache para proxima llamada
-                    //if (req.CacheSettings != null && req.CacheSettings.CacheOnClientSide)
-                    //{
-                    //    //Es posible que la ejecucion produzca algun error y por lo tanto no se permitira 
-                    //    //su almacen en cache
-                    //    if (wResponse.Error == null)
-                    //        ServiceCacheMannager.Add(req, wResponse);
-                    //}
-                }
+                
             }
 
             return wResponse;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="providerName"></param>
+        /// <param name="pRequest"></param>
+        /// <returns></returns>
+        public async static Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(string providerName, TRequest pRequest)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            TResponse wResponse = new TResponse();
+
+
+
+            if (String.IsNullOrEmpty(providerName))
+                providerName = _DefaultProviderName;
+
+            CheckWrapperExist(providerName, wResponse);
+
+            //Si no ocurrio algun error
+            if (wResponse.Error == null)
+            {
+
+                IRequest req = (IRequest)pRequest;
+                if (string.IsNullOrEmpty(req.ContextInformation.AppId))
+                    req.ContextInformation.AppId = _WraperPepository[providerName].AppId;
+
+                if (String.IsNullOrEmpty(req.ContextInformation.ProviderNameWithCultureInfo))
+                    req.ContextInformation.ProviderNameWithCultureInfo = _WraperPepository[providerName].ConfigProviderNameWithCultureInfo;
+
+                if (String.IsNullOrEmpty(req.ContextInformation.Culture))
+                    req.ContextInformation.Culture = Thread.CurrentThread.CurrentCulture.Name;
+
+                try
+                {
+
+                    wResponse = await _WraperPepository[providerName].ExecuteService_allowedAuth_Async<TRequest, TResponse>(pRequest);
+                }
+                catch (TechnicalException te)
+                {
+                    if (te.ErrorId.Equals("7201"))
+                        wResponse.Error = ProcessConnectionsException.Process(
+                            new TechnicalException(
+                                String.Format(Fwk.Bases.Properties.Resources.Wrapper_ServiceMetadataProviderName_NotExist,
+                                _WraperPepository[providerName].ProviderName, te)));
+                    else
+                        wResponse.Error = ProcessConnectionsException.Process(te);
+
+                }
+                catch (Exception ex)
+                {
+                    wResponse.Error = ProcessConnectionsException.Process(ex);
+                }
+
+
+            }
+
+            return wResponse;
+        }
 
         /// <summary>
         /// Inicializa un wrapper deacuerdo el nombre del proveedor

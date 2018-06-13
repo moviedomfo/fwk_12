@@ -12,6 +12,7 @@
           <xs:element name="_Source" nillable="true" type="xs:string" />
           <xs:element name="_StackTrace" nillable="true" type="xs:string" />
           <xs:element name="_Type" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_ServiceName_x003E_k__BackingField" nillable="true" type="xs:string" />
           <xs:element name="m_Assembly" nillable="true" type="xs:string" />
           <xs:element name="m_Class" nillable="true" type="xs:string" />
           <xs:element name="m_Machine" nillable="true" type="xs:string" />

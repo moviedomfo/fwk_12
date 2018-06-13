@@ -18,7 +18,16 @@ namespace Fwk.Bases
     /// <author>moviedo</author>
 	public interface IServiceWrapper
 	{
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        string Token { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        string RefreshToken { get; set; }
+
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
         /// </summary>
@@ -42,6 +51,7 @@ namespace Fwk.Bases
         /// identificador de aplicacion
         /// </summary>
         string AppId { get; set; }
+
 		/// <summary>
 		/// Ejecuta un servicio de negocio.
 		/// </summary>
@@ -78,6 +88,29 @@ namespace Fwk.Bases
         /// <returns></returns>
         Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
             where TResponse : IServiceContract, new();
+
+        /// <summary>
+        ///  Ejecuta un servicio de negocio de forma asincrona y no pasa por la validacion de seguridad basada en jwt
+        ///  Este método puede no estar implementado en el Dispatcher y puede que por defecto el ExecuteServiceAsync esté libre de autorizacion
+        ///  Pero en caso de que se chequee la autorizacion en ExecuteServiceAsync el método ExecuteServiceAllowedAuth_Async puede ser necesartio 
+        ///  que permita ciertos SVC libres : Estos SVC deberian estar en uan white-list de servicios sin control
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+            where TResponse : IServiceContract, new();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+         where TResponse : IServiceContract, new();
         #region [ServiceConfiguration]
 
         /// <summary>

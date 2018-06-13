@@ -18,6 +18,15 @@ namespace Fwk.Bases.Connector
 	/// <author>moviedo</author>
 	public class WebServiceWrapper : IServiceWrapper
 	{
+        /// <summary>
+        /// JWT or any other token type
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { get; set; }
         string _ProviderName = string.Empty;
 
         /// <summary>
@@ -90,14 +99,33 @@ namespace Fwk.Bases.Connector
             get { return _Proxy; }
             set { _Proxy = value; }
         }
-		/// <summary>
-		/// Ejecuta un servicio de negocio.
-		/// </summary>
+
+        /// <summary>
+        ///  Ejecuta un servicio de negocio de forma asincrona .-
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public async Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req)
+         where TRequest : IServiceContract
+         where TResponse : IServiceContract, new()
+        {
+            TResponse response;
+
+            response = await Task.Run<TResponse>(() => ExecuteService<TRequest, TResponse>(req));
+
+            return response;
+        }
+
+        /// <summary>
+        /// Ejecuta un servicio de negocio.
+        /// </summary>
         /// <param name="pServiceName">Nombre del servicio.</param> 
-		/// <param name="pData">XML con datos de entrada para la  ejecución del servicio.</param>
-		/// <returns>XML con datos de salida del servicio.</returns>
-		/// <date>2007-08-23T00:00:00</date>
-		/// <author>moviedo</author>
+        /// <param name="pData">XML con datos de entrada para la  ejecución del servicio.</param>
+        /// <returns>XML con datos de salida del servicio.</returns>
+        /// <date>2007-08-23T00:00:00</date>
+        /// <author>moviedo</author>
         public string ExecuteService( string pServiceName, string pData)
         {
             string wResult = null;
@@ -178,6 +206,9 @@ namespace Fwk.Bases.Connector
             try
             {
                 pReq.InitializeHostContextInformation();
+
+                pReq.ContextInformation.Token = this.Token;
+                pReq.ContextInformation.RefreshToken = this.RefreshToken;
                 string wResult = ExecuteService( pReq.ServiceName, pReq.GetXml());
                 //wResponse.SetXml(wResult);
                 //16/05/2012 Se deja esta serializacion se comenta la anterior
@@ -481,11 +512,21 @@ namespace Fwk.Bases.Connector
             return wServiceConfigurationProxy;
         }
 
-        public Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+        public Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
             throw new NotImplementedException();
         }
+
+        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            throw new NotImplementedException();
+        }
+
+
         #endregion [ServiceConfiguration]
 
 

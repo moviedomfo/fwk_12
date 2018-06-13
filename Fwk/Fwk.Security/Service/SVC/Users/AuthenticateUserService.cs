@@ -33,6 +33,16 @@ namespace Fwk.Security.SVC
                        
                         break;
                     }
+                case AuthenticationModeEnum.ASPNETIdentity_2_0:
+                    {
+                        wUserBC.AuthenticateUser(pServiceRequest.BusinessData.UserName,
+                                             pServiceRequest.BusinessData.Password,
+                                             out wUser);
+
+                        wRolList = FwkMembership.GetRolesForUser(pServiceRequest.BusinessData.UserName, pServiceRequest.SecurityProviderName);
+
+                        break;
+                    }
                 case AuthenticationModeEnum.LDAP:
                 case AuthenticationModeEnum.FingerPrint:
                 case AuthenticationModeEnum.Mixed:

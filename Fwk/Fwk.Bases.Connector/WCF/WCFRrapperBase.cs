@@ -31,6 +31,19 @@ namespace Fwk.Bases.Connector
         {
 
         }
+
+
+        /// <summary>
+        /// JWT or any other token type
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { get; set; }
+
+
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher
         /// </summary>
@@ -113,13 +126,15 @@ namespace Fwk.Bases.Connector
             TResponse response;
             req.InitializeHostContextInformation();
 
+            req.ContextInformation.Token = this.Token;
+            req.ContextInformation.RefreshToken = this.RefreshToken;
+
             ExecuteServiceRequest wcfReq = new ExecuteServiceRequest();
             ExecuteServiceResponse wcfRes = null;
 
             wcfReq.serviceName = req.ServiceName;
             wcfReq.providerName = _ServiceMetadataProviderName;
             wcfReq.jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson<TRequest>(req);
-            //wcfReq.xmlRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(req);
 
 
             var channelFactory = new ChannelFactory<IFwkService>(binding, address);
@@ -158,6 +173,71 @@ namespace Fwk.Bases.Connector
             return response;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public virtual TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+         where TRequest : IServiceContract
+         where TResponse : IServiceContract, new()
+        {
+
+            InitilaizeBinding();
+            TResponse response;
+            req.InitializeHostContextInformation();
+
+           
+        
+
+            ExecuteService_allowedAuth_AsyncRequest wcfReq = new ExecuteService_allowedAuth_AsyncRequest();
+            ExecuteService_allowedAuth_AsyncResponse wcfRes = null;
+            
+            wcfReq.serviceName = req.ServiceName;
+            wcfReq.providerName = _ServiceMetadataProviderName;
+            wcfReq.jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson<TRequest>(req);
+            //wcfReq.xmlRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(req);
+
+
+            var channelFactory = new ChannelFactory<IFwkService>(binding, address);
+
+            IFwkService client = null;
+            try
+            {
+
+                client = channelFactory.CreateChannel();
+
+                wcfRes = client.ExecuteService_allowedAuth_Async(wcfReq);
+                ((ICommunicationObject)client).Close();
+            }
+            catch (Exception ex)
+            {
+                if (client != null)
+                {
+                    ((ICommunicationObject)client).Abort();
+                }
+
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
+
+                response.Error = new ServiceError();
+                response.Error.Class = "WCFRrapperBase";
+                response.Error.Message = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
+                response.InitializeHostContextInformation();
+
+                return response;
+            }
+
+
+
+            response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteService_allowedAuth_AsyncResult);
+            //TResponse response = (TResponse)Fwk.HelperFunction    s.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wcfRes.ExecuteServiceResult);
+            response.InitializeHostContextInformation();
+            return response;
+        }
+
         /// <summary>
         /// Ejecuta un servicio de negocio.
         /// Si se produce el error:
@@ -179,6 +259,24 @@ namespace Fwk.Bases.Connector
             return response;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public virtual async Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+        where TRequest : IServiceContract
+        where TResponse : IServiceContract, new()
+        {
+
+            TResponse response;
+
+            response = await Task.Run<TResponse>(() => ExecuteService_allowedAuth<TRequest, TResponse>(req));
+
+            return response;
+        }
 
         #endregion
 

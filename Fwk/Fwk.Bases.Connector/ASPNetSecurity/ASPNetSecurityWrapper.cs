@@ -17,6 +17,16 @@ namespace Fwk.Bases.Connector
 	/// <author>moviedo</author>
     public class ASPNetSecurityWrapper : IServiceWrapper
 	{
+        /// <summary>
+        /// JWT or any other token type
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { get; set; }
+
         string _ProviderName = string.Empty;
 
         /// <summary>
@@ -168,6 +178,10 @@ namespace Fwk.Bases.Connector
             try
             {
                 pReq.InitializeHostContextInformation();
+
+                pReq.ContextInformation.Token = this.Token;
+                pReq.ContextInformation.RefreshToken = this.RefreshToken;
+
                 string wResult = ExecuteService( pReq.ServiceName, pReq.GetXml());
                 //wResponse.SetXml(wResult);
                 wResponse = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wResult);
@@ -362,6 +376,20 @@ namespace Fwk.Bases.Connector
         }
 
         public  Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
             throw new NotImplementedException();

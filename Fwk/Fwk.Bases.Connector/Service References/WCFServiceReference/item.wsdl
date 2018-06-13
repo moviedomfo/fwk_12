@@ -12,6 +12,15 @@
   <wsdl:binding name="web" type="i0:IFwkService">
     <wsp:PolicyReference URI="#web_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteService_allowedAuth_Async">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ExecuteService">
       <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService" style="document" />
       <wsdl:input>

@@ -213,6 +213,13 @@ namespace Fwk.Bases
 
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="pRequest"></param>
+        /// <returns></returns>
         public Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>( TRequest pRequest)
         where TRequest : IServiceContract
         where TResponse : IServiceContract, new()
@@ -222,6 +229,27 @@ namespace Fwk.Bases
 
 
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="providerName"></param>
+        /// <param name="pRequest"></param>
+        /// <returns></returns>
+
+        public Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(string providerName, TRequest pRequest)
+        where TRequest : IServiceContract
+        where TResponse : IServiceContract, new()
+        {
+
+            return WrapperFactory.ExecuteService_allowedAuth_Async<TRequest, TResponse>(providerName, pRequest);
+
+
+        }
+        
     }
 
     /// <summary>

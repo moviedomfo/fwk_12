@@ -16,6 +16,15 @@ namespace Fwk.Bases.Connector
     public class LocalWrapper : IServiceWrapper
     {
         #region properties
+        /// <summary>
+        /// JWT or any other token type
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { get; set; }
         SimpleFacade _SimpleFacade;
 
         string _ProviderName;
@@ -85,6 +94,10 @@ namespace Fwk.Bases.Connector
                 _SimpleFacade = CreateSimpleFacade();
 
             pReq.InitializeHostContextInformation();
+
+            pReq.ContextInformation.Token = this.Token;
+            pReq.ContextInformation.RefreshToken = this.RefreshToken;
+
             IServiceContract wResponse = _SimpleFacade.ExecuteService(_ServiceMetadataProviderName, pReq);
             //wResponse.InitializeHostContextInformation();
 
@@ -129,19 +142,6 @@ namespace Fwk.Bases.Connector
             return wResponse;
         }
 
-        /// <summary>
-        /// Ejecuta un servicio de negocio.
-        /// </summary>
-        /// <param name="pReq">Clase que implementa IServiceContract con datos de entrada para la  ejecución del servicio.</param>
-        /// <returns>Clase que implementa IServiceContract con datos de respuesta del servicio.</returns>
-        /// <date>2007-06-23T00:00:00</date>
-        /// <author>moviedo</author>
-        ////////public TResponse ExecuteService<TRequest, TResponse>(TRequest pReq)
-        ////////    where TRequest : IServiceContract
-        ////////    where TResponse : IServiceContract, new()
-        ////////{
-        ////////   return (TResponse)this.ExecuteService(pReq);
-        ////////}
 
         /// <summary>
         /// Este metodo no esta implementado para un wrapper local.-
@@ -304,7 +304,25 @@ namespace Fwk.Bases.Connector
             return _SimpleFacade.RetriveDispatcherInfo();
         }
 
-        
+        public async  Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            TResponse response;
+
+            response = await Task.Run<TResponse>(() => ExecuteService<TRequest, TResponse>(req));
+
+            return response;
+        }
+
+        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+            where TRequest : IServiceContract
+            where TResponse : IServiceContract, new()
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         #endregion
     }

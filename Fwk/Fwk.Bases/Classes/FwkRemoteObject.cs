@@ -6,6 +6,7 @@ using Fwk.Bases;
 using System.Diagnostics;
 using Fwk.BusinessFacades.Utils;
 using System.Web;
+using System.Configuration;
 
 namespace Fwk.Remoting
 {
@@ -33,17 +34,21 @@ namespace Fwk.Remoting
         }
 
         /// <summary>
-        /// Ejecuta un servicio 
+        /// 
         /// </summary>
-        /// <param name="providerName">Proveedor de metadata</param>
-        /// <param name="pServiceName">Nombre del servicio</param>
-        /// <param name="pReq">Interfaz de contrato de servicio.- interfaz que implementan todos los request y responsees</param>
-        /// <returns><see cref="IServiceContract"/></returns>
-        public IServiceContract ExecuteService(string providerName, string pServiceName, IServiceContract pReq)
+        /// <param name="providerName"></param>
+        /// <param name="pReq"></param>
+        /// <returns></returns>
+        public IServiceContract ExecuteService_AutnToken(string providerName,  IServiceContract pReq)
         {
-            pReq.ServiceName = pServiceName;
+            Console.WriteLine("Executing " + pReq.ServiceName + " " + DateTime.Now.ToString());
+            Console.WriteLine("--------Client IP  " + pReq.ContextInformation.HostIp + " Client Name" + pReq.ContextInformation.HostName);
+            
+
+             SimpleFacade wSimpleFacade = CreateSimpleFacade();
             return this.ExecuteService(providerName, pReq);
         }
+   
 
         /// <summary>
         /// Chequea la disponibilidad del despachador de servicio
