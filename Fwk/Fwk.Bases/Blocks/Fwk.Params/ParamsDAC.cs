@@ -28,7 +28,7 @@ namespace Fwk.Params.Back
           
             try
             {
-                using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+                using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(getCnnString(cnnStringName)))
                 {
                     bool exist =  dc.fwk_Params.Any(s=>
 
@@ -63,7 +63,7 @@ namespace Fwk.Params.Back
 
             try
             {
-                using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+                using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(getCnnString(cnnStringName)))
                 {
                     var param_db = dc.fwk_Params.Where(s =>
                                         
@@ -93,6 +93,16 @@ namespace Fwk.Params.Back
 
         }
 
+        static string getCnnString(string cnnStringName)
+        {
+            if (String.IsNullOrEmpty(cnnStringName))
+                throw new Fwk.Exceptions.TechnicalException("Debe proporcionar un nombre de cadena de conexión ");
+            if (System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName]==null)
+                throw  new Fwk.Exceptions.TechnicalException("Debe proporcionar un nombre de cadena de conexión valido ");
+
+            return System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ToString();
+        }
+
         /// <summary>
         /// Retorna parametros por id, id padre, y filtra x vigentes o no vigentes La cultura puede se String.Empty
         /// en cuyo caso no la tendra en cuenta para el filtro
@@ -110,7 +120,7 @@ namespace Fwk.Params.Back
             ParamBE wParamBE = null;
             try
             {
-                using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+                using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(getCnnString(cnnStringName)))
                 {
                     var rulesinCat = from s in dc.fwk_Params where 
                                         
@@ -161,7 +171,7 @@ namespace Fwk.Params.Back
         /// <param name="cnnStringName"></param>
         public static void Create(ParamBE paramBE, Guid? userId, string cnnStringName)
         {
-            using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+            using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(getCnnString(cnnStringName)))
             {
                 Fwk.ConfigData.fwk_Param param = new ConfigData.fwk_Param();
                 param.Culture = paramBE.Culture;
@@ -188,7 +198,7 @@ namespace Fwk.Params.Back
         /// <param name="cnnStringName"></param>
         public static void Update(ParamBE paramBE, Guid? userUpdateId, string cnnStringName)
         {
-            using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+            using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(getCnnString(cnnStringName)))
             {
                 Fwk.ConfigData.fwk_Param param = dc.fwk_Params.Where(p => p.Id.Equals(paramBE.Id)).FirstOrDefault();
                 if (param != null)
@@ -220,7 +230,7 @@ namespace Fwk.Params.Back
             //no permite que ambos sean Null
             if (paramId.HasValue == false || parentId.HasValue == false)
                 throw new Fwk.Exceptions.TechnicalException("Debe proporcinar almeno uno de los dos parametros");
-            using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(System.Configuration.ConfigurationManager.ConnectionStrings[cnnStringName].ConnectionString))
+            using (Fwk.ConfigData.FwkDatacontext dc = new Fwk.ConfigData.FwkDatacontext(getCnnString(cnnStringName)))
             {
                 var paramsList = dc.fwk_Params.Where(p => (paramId.HasValue == false || p.ParamId.Equals(paramId.Value)) &&
                        (parentId.HasValue == false || p.ParentId.Equals(parentId.Value)));

@@ -203,6 +203,18 @@ o
 ErrorId = 4402
 "Clave de encriptacion no es la correcta " Seguramente cambio el archivo .key de encriptaion
 
+--------------------------------   Fwk.Security.Identity -----------------------------------
+ErrorId = 4500
+
+No se encuentra configurado el proveedor el proveedor de configuracion por defecto
+o
+"Fwk.Security.Identity error : No se puede obtener el proveedor de seguridad " + providerName
+
+ErrorId = 4501
+
+te = new TechnicalException("Fwk.Security.Identity error : el proveedor " +  providerName + " no tiene un nombre de cadena de conexión configurada");
+
+
 --------------------------------   Fwk.HelperFunctions -----------------------------------
 Helper de reflection
 ErrorId = 3000

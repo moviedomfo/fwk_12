@@ -79,7 +79,6 @@ namespace Fwk.Security.Identity.SVC
                 default:
                     {
                         throw new Fwk.Exceptions.FunctionalException(loginResult.Message);
-                        //                        context.SetError(res.Status, res.Message);
 
                     }
 

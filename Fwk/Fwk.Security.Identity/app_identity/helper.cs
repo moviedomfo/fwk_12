@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using Fwk.HelperFunctions;
 using System.Collections.Generic;
+using Fwk.Exceptions;
 
 namespace Fwk.Security.Identity
 {
@@ -193,7 +194,29 @@ namespace Fwk.Security.Identity
         /// <returns></returns>
         public string Getcnnstring(string providerName)
         {
+            TechnicalException te = null;
             var prov = GetByName(providerName);
+            if(prov==null)
+            {
+                
+                if (string.IsNullOrEmpty(providerName))
+                    te = new TechnicalException("Fwk.Security.Identity error : No se puede obtener el proveedor de seguridad por defecto");
+                else
+                 te = new TechnicalException("Fwk.Security.Identity error : No se puede obtener el proveedor de seguridad " + providerName);
+
+                ExceptionHelper.SetTechnicalException<SecurityManager>(te);
+                te.ErrorId = "4500";
+                throw te;
+            }
+
+            if (string.IsNullOrEmpty(prov.securityModelContext))
+            {
+                te = new TechnicalException("Fwk.Security.Identity error : el proveedor " +  providerName + " no tiene un nombre de cadena de conexión configurada");
+
+                ExceptionHelper.SetTechnicalException<SecurityManager>(te);
+                te.ErrorId = "4501";
+                throw te;
+            }
             return prov.securityModelContext;
         }
     }
@@ -208,6 +231,7 @@ namespace Fwk.Security.Identity
         public string securityModelContext { get; set; }
 
     }
+
     //public static class JwtManager
     //{
 
