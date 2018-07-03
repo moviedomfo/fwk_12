@@ -417,6 +417,7 @@ namespace Fwk.Net.Ftp
         }
 
 
+
         /// <summary>
         /// Descarga el archivo remoto, el archivo sera creado o sobreescrito
         /// <summary>
@@ -427,6 +428,9 @@ namespace Fwk.Net.Ftp
         /// Las descargas se pueden reiniciar emitiendo primero un comando rest con el desplazamiento deseado y, 
         /// a continuación, emitiendo el comando retr.
         /// </summary>
+        /// <param name="remFileName"></param>
+        /// <param name="fullLocalFileName"></param>
+        /// <param name="resume"></param>
         public void Download(string remFileName, string fullLocalFileName, Boolean resume)
         {
 

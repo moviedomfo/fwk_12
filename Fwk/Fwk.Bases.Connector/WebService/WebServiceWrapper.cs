@@ -144,48 +144,7 @@ namespace Fwk.Bases.Connector
             return wResult;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pServiceName"></param>
-        /// <param name="pData"></param>
-        public void ExecuteService_OneWay(string pServiceName, string pData)
-        {
-            using (Singleservice.SingleService wService = new Singleservice.SingleService())
-            {
-                if (_Proxy != null)
-                    wService.Proxy = _Proxy;
-                if (_Credentials != null)
-                    wService.Credentials = _Credentials;
-                wService.Url = _URL;
-                wService.ExecuteService_OneWay(_ServiceMetadataProviderName, pServiceName, pData);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pServiceName"></param>
-        /// <param name="pData"></param>
-        /// <param name="callback"></param>
-        public void ExecuteServiceAsynk(string pServiceName, string pData,Delegate callback)
-        {
-            using (Singleservice.SingleService wService = new Singleservice.SingleService())
-            {
-                if (_Proxy != null)
-                    wService.Proxy = _Proxy;
-                if (_Credentials != null)
-                    wService.Credentials = _Credentials;
-                
-                wService.Url = _URL;
-                wService.ExecuteServiceCompleted += new Fwk.Bases.Connector.Singleservice.ExecuteServiceCompletedEventHandler(wService_ExecuteServiceCompleted);
-            }
-        }
-
-        void wService_ExecuteServiceCompleted(object sender, Fwk.Bases.Connector.Singleservice.ExecuteServiceCompletedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         /// <summary>
         /// Ejecuta un servicio de negocio. (Metodo vigente solo por compatibilidad con versiones anteriores donde se pasaba el 
@@ -512,14 +471,26 @@ namespace Fwk.Bases.Connector
             return wServiceConfigurationProxy;
         }
 
-        public Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+        public async Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
-            throw new NotImplementedException();
+            TResponse response;
+
+            response = await Task.Run<TResponse>(() => ExecuteServiceAuthToken<TRequest, TResponse>(req));
+
+            return response;
         }
 
-        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+
+        public TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {

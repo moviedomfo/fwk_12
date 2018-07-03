@@ -240,12 +240,12 @@ namespace Fwk.Bases
         /// <param name="pRequest"></param>
         /// <returns></returns>
 
-        public Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(string providerName, TRequest pRequest)
+        public Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(string providerName, TRequest pRequest)
         where TRequest : IServiceContract
         where TResponse : IServiceContract, new()
         {
 
-            return WrapperFactory.ExecuteService_allowedAuth_Async<TRequest, TResponse>(providerName, pRequest);
+            return WrapperFactory.ExecuteServiceAuthTokenAsync<TRequest, TResponse>(providerName, pRequest);
 
 
         }

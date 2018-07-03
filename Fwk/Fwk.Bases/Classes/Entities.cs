@@ -77,6 +77,7 @@ namespace Fwk.Bases
         /// Rellena la clase con los valores del XML 
         /// <param name="pXmlData">Xml con el que se crea el objeto</param>
         /// <summary>
+        /// <param name="pXmlData"></param>
         public void SetXml(string pXmlData)
         {
             helper.SerializationFunctions.DeserializeFromXml(this.GetType(), pXmlData);
@@ -147,11 +148,11 @@ namespace Fwk.Bases
         {
             return helper.SerializationFunctions.SerializeToXml(this);
         }
-
+       
         /// <summary>
-        /// Rellena la clase con los valores del XML 
+        ///  Rellena la clase con los valores del XML 
+        /// </summary>
         /// <param name="pXmlData">Xml con el que se crea el objeto</param>
-        /// <summary>
         public void SetXml(string pXmlData)
         {
             helper.SerializationFunctions.DeserializeFromXml(this.GetType(), pXmlData);

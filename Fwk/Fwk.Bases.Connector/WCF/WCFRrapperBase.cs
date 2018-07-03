@@ -181,7 +181,7 @@ namespace Fwk.Bases.Connector
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        public virtual TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+        public virtual TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
          where TRequest : IServiceContract
          where TResponse : IServiceContract, new()
         {
@@ -190,11 +190,11 @@ namespace Fwk.Bases.Connector
             TResponse response;
             req.InitializeHostContextInformation();
 
-           
-        
 
-            ExecuteService_allowedAuth_AsyncRequest wcfReq = new ExecuteService_allowedAuth_AsyncRequest();
-            ExecuteService_allowedAuth_AsyncResponse wcfRes = null;
+
+            
+            ExecuteServiceAuthTokenRequest wcfReq = new ExecuteServiceAuthTokenRequest();
+            ExecuteServiceAuthTokenResponse wcfRes = null;
             
             wcfReq.serviceName = req.ServiceName;
             wcfReq.providerName = _ServiceMetadataProviderName;
@@ -210,7 +210,7 @@ namespace Fwk.Bases.Connector
 
                 client = channelFactory.CreateChannel();
 
-                wcfRes = client.ExecuteService_allowedAuth_Async(wcfReq);
+                wcfRes = client.ExecuteServiceAuthToken(wcfReq);
                 ((ICommunicationObject)client).Close();
             }
             catch (Exception ex)
@@ -232,7 +232,7 @@ namespace Fwk.Bases.Connector
 
 
 
-            response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteService_allowedAuth_AsyncResult);
+            response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceAuthTokenResult);
             //TResponse response = (TResponse)Fwk.HelperFunction    s.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wcfRes.ExecuteServiceResult);
             response.InitializeHostContextInformation();
             return response;
@@ -266,14 +266,14 @@ namespace Fwk.Bases.Connector
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        public virtual async Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+        public virtual async Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
         where TRequest : IServiceContract
         where TResponse : IServiceContract, new()
         {
 
             TResponse response;
 
-            response = await Task.Run<TResponse>(() => ExecuteService_allowedAuth<TRequest, TResponse>(req));
+            response = await Task.Run<TResponse>(() => ExecuteServiceAuthToken<TRequest, TResponse>(req));
 
             return response;
         }

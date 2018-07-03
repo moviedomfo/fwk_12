@@ -99,7 +99,7 @@ namespace Fwk.Bases
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+        Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
             where TResponse : IServiceContract, new();
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Fwk.Bases
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+        TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
          where TResponse : IServiceContract, new();
         #region [ServiceConfiguration]
 

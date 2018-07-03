@@ -159,13 +159,13 @@ namespace Fwk.Bases.Connector
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        public async Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+        public async Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
           where TRequest : IServiceContract
           where TResponse : IServiceContract, new()
         {
             TResponse response;
 
-            response = await Task.Run<TResponse>(() => ExecuteService_allowedAuth<TRequest, TResponse>(req));
+            response = await Task.Run<TResponse>(() => ExecuteServiceAuthToken<TRequest, TResponse>(req));
 
             return response;
         }
@@ -177,11 +177,11 @@ namespace Fwk.Bases.Connector
         /// <typeparam name="TResponse"></typeparam>
         /// <param name="req"></param>
         /// <returns></returns>
-        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+        public TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
-            return ExecuteService < TRequest, TResponse > (req);
+            return ExecuteServiceAuthToken< TRequest, TResponse > (req);
         }
 
 

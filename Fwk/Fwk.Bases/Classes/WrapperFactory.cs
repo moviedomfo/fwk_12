@@ -318,7 +318,7 @@ namespace Fwk.Bases
         /// <param name="providerName"></param>
         /// <param name="pRequest"></param>
         /// <returns></returns>
-        public async static Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(string providerName, TRequest pRequest)
+        public async static Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(string providerName, TRequest pRequest)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
@@ -348,7 +348,7 @@ namespace Fwk.Bases
                 try
                 {
 
-                    wResponse = await _WraperPepository[providerName].ExecuteService_allowedAuth_Async<TRequest, TResponse>(pRequest);
+                    wResponse = await _WraperPepository[providerName].ExecuteServiceAuthTokenAsync<TRequest, TResponse>(pRequest);
                 }
                 catch (TechnicalException te)
                 {

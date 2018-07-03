@@ -304,7 +304,7 @@ namespace Fwk.Bases.Connector
             return _SimpleFacade.RetriveDispatcherInfo();
         }
 
-        public async  Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+        public async  Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
@@ -315,7 +315,7 @@ namespace Fwk.Bases.Connector
             return response;
         }
 
-        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+        public TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {

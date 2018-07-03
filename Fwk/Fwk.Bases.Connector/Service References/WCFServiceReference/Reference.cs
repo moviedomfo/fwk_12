@@ -193,11 +193,11 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFServiceReference.IFwkService")]
     public interface IFwkService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async", ReplyAction="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_AsyncResponse")]
-        Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncResponse ExecuteService_allowedAuth_Async(Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse")]
+        Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse ExecuteServiceAuthToken(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async", ReplyAction="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_AsyncResponse")]
-        System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncResponse> ExecuteService_allowedAuth_AsyncAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse")]
+        System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse> ExecuteServiceAuthTokenAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteService", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceResponse")]
         Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse ExecuteService(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceRequest request);
@@ -244,8 +244,8 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteService_allowedAuth_Async", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ExecuteService_allowedAuth_AsyncRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteServiceAuthToken", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ExecuteServiceAuthTokenRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         public string providerName;
@@ -256,10 +256,10 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string jsonRequets;
         
-        public ExecuteService_allowedAuth_AsyncRequest() {
+        public ExecuteServiceAuthTokenRequest() {
         }
         
-        public ExecuteService_allowedAuth_AsyncRequest(string providerName, string serviceName, string jsonRequets) {
+        public ExecuteServiceAuthTokenRequest(string providerName, string serviceName, string jsonRequets) {
             this.providerName = providerName;
             this.serviceName = serviceName;
             this.jsonRequets = jsonRequets;
@@ -268,17 +268,17 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteService_allowedAuth_AsyncResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ExecuteService_allowedAuth_AsyncResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteServiceAuthTokenResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ExecuteServiceAuthTokenResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string ExecuteService_allowedAuth_AsyncResult;
+        public string ExecuteServiceAuthTokenResult;
         
-        public ExecuteService_allowedAuth_AsyncResponse() {
+        public ExecuteServiceAuthTokenResponse() {
         }
         
-        public ExecuteService_allowedAuth_AsyncResponse(string ExecuteService_allowedAuth_AsyncResult) {
-            this.ExecuteService_allowedAuth_AsyncResult = ExecuteService_allowedAuth_AsyncResult;
+        public ExecuteServiceAuthTokenResponse(string ExecuteServiceAuthTokenResult) {
+            this.ExecuteServiceAuthTokenResult = ExecuteServiceAuthTokenResult;
         }
     }
     
@@ -546,12 +546,12 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncResponse ExecuteService_allowedAuth_Async(Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncRequest request) {
-            return base.Channel.ExecuteService_allowedAuth_Async(request);
+        public Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse ExecuteServiceAuthToken(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request) {
+            return base.Channel.ExecuteServiceAuthToken(request);
         }
         
-        public System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncResponse> ExecuteService_allowedAuth_AsyncAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncRequest request) {
-            return base.Channel.ExecuteService_allowedAuth_AsyncAsync(request);
+        public System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse> ExecuteServiceAuthTokenAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request) {
+            return base.Channel.ExecuteServiceAuthTokenAsync(request);
         }
         
         public Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse ExecuteService(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceRequest request) {

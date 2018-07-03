@@ -381,14 +381,14 @@ namespace Fwk.Bases.Connector
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> ExecuteService_allowedAuth_Async<TRequest, TResponse>(TRequest req)
+        public Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
             throw new NotImplementedException();
         }
 
-        public TResponse ExecuteService_allowedAuth<TRequest, TResponse>(TRequest req)
+        public TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {

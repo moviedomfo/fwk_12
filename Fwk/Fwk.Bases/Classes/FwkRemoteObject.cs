@@ -34,7 +34,7 @@ namespace Fwk.Remoting
         }
 
         /// <summary>
-        /// 
+        /// Ejecuta un servicio 
         /// </summary>
         /// <param name="providerName"></param>
         /// <param name="pReq"></param>

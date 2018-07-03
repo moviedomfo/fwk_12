@@ -72,9 +72,6 @@ namespace Fwk.BusinessFacades
 
             // Validación de disponibilidad del servicio.
             FacadeHelper.ValidateAvailability(wServiceConfiguration, out wResult);
-
-            
-
             if (wResult != null)
                 if (wResult.Error != null) return wResult;
 
