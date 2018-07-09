@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bases", "Bases", "{08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}"
 EndProject
@@ -18,11 +18,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Blocking.BlockingServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.DataBase", "Fwk.DataBase\Fwk.DataBase.csproj", "{87C826E0-D87A-4C89-94ED-3B1044746A34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fwk.Security.Identity", "Fwk.Security.Identity\Fwk.Security.Identity.csproj", "{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}"
+EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +37,8 @@ Global
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.Build.0 = Release|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|x64.ActiveCfg = Debug|x64
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|x64.Build.0 = Debug|x64
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -109,8 +107,8 @@ Global
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|Mixed Platforms.Build.0 = Release|Any CPU
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|x64.ActiveCfg = Debug|x64
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|x64.Build.0 = Debug|x64
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -124,6 +122,26 @@ Global
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|x64.Build.0 = Release|x64
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|x86.ActiveCfg = Release|Any CPU
 		{87C826E0-D87A-4C89-94ED-3B1044746A34}.Release|x86.Build.0 = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|.NET.Build.0 = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|Mixed Platforms.Build.0 = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|x64.Build.0 = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Debug|x86.Build.0 = Debug|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|.NET.ActiveCfg = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|.NET.Build.0 = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|x64.ActiveCfg = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|x64.Build.0 = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|x86.ActiveCfg = Release|Any CPU
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -134,6 +152,14 @@ Global
 		{A1F08B2F-7D75-4BD4-8BD3-B98C582013EC} = {08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A} = {9CB84A9F-53FA-4801-BC82-1DE70BFAA42F}
 		{87C826E0-D87A-4C89-94ED-3B1044746A34} = {08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}
+		{A66A926C-3AE5-4E6A-83D9-EC64B18BC9E0} = {7D2D5A69-0108-4921-A499-1E55BC2541D5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A2AF4D8-E9B9-4DBB-9189-EF1B74763787}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fwk1.vsmdi

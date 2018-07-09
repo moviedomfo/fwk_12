@@ -240,10 +240,9 @@ namespace Fwk.Security
             str.Replace("[loweredNewUserName]", fwkUser.UserName.ToLower());
             str.Replace("[userName]", userName.ToLower());
             using (SqlConnection cnn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[GetProvider_ConnectionStringName(wProvider.Name)].ConnectionString))
-            using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn))
+            using (SqlCommand cmd = new SqlCommand(str.ToString(), cnn) { CommandType = System.Data.CommandType.Text })
             {
-                cmd.CommandType = CommandType.Text;
-
+                cnn.Open();
                 cmd.ExecuteNonQuery();
             }
             

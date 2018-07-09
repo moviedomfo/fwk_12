@@ -148,6 +148,32 @@ namespace Fwk.Bases.Connector
                 wcfRes = client.ExecuteService(wcfReq);
                 ((ICommunicationObject)client).Close();
             }
+            catch (System.ServiceModel.FaultException smEx)
+            {
+                if (client != null)
+                {
+                    ((ICommunicationObject)client).Abort();
+                }
+
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
+
+                response.Error = new ServiceError();
+                response.Error.Class = "WCFRrapperBase";
+                response.Error.Message = smEx.Message;
+               
+                var detail = ((FaultException<System.ServiceModel.ExceptionDetail>)smEx).Detail;
+                if (detail != null)
+                {
+                    if (detail.InnerException != null)
+                        response.Error.InnerMessageException = detail.InnerException.Message;
+                }
+                response.Error.StackTrace = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(smEx);
+
+
+                response.InitializeHostContextInformation();
+
+                return response;
+            }
             catch (Exception ex)
             {
                 if (client != null)
@@ -212,6 +238,32 @@ namespace Fwk.Bases.Connector
 
                 wcfRes = client.ExecuteServiceAuthToken(wcfReq);
                 ((ICommunicationObject)client).Close();
+            }
+            catch (System.ServiceModel.FaultException smEx)
+            {
+                if (client != null)
+                {
+                    ((ICommunicationObject)client).Abort();
+                }
+
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
+
+                response.Error = new ServiceError();
+                response.Error.Class = "WCFRrapperBase";
+                response.Error.Message = smEx.Message;
+
+                var detail = ((FaultException<System.ServiceModel.ExceptionDetail>)smEx).Detail;
+                if (detail != null)
+                {
+                    if(detail.InnerException!=null)
+                    response.Error.InnerMessageException = detail.InnerException.Message;
+                }
+                response.Error.StackTrace = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(smEx);
+
+
+                response.InitializeHostContextInformation();
+
+                return response;
             }
             catch (Exception ex)
             {
