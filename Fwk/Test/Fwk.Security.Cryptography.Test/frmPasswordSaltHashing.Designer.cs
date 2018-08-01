@@ -40,10 +40,9 @@
             // 
             // btnGenHashedPassword
             // 
-            this.btnGenHashedPassword.Location = new System.Drawing.Point(542, 54);
-            this.btnGenHashedPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenHashedPassword.Location = new System.Drawing.Point(406, 44);
             this.btnGenHashedPassword.Name = "btnGenHashedPassword";
-            this.btnGenHashedPassword.Size = new System.Drawing.Size(155, 27);
+            this.btnGenHashedPassword.Size = new System.Drawing.Size(116, 22);
             this.btnGenHashedPassword.TabIndex = 26;
             this.btnGenHashedPassword.Text = "Generate";
             this.btnGenHashedPassword.UseVisualStyleBackColor = true;
@@ -55,20 +54,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
-            this.txtPassword.Location = new System.Drawing.Point(39, 77);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Location = new System.Drawing.Point(29, 63);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(441, 22);
+            this.txtPassword.Size = new System.Drawing.Size(332, 20);
             this.txtPassword.TabIndex = 27;
             this.txtPassword.Text = "cataqlina";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(27, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 28;
             this.label2.Text = "Password";
             // 
@@ -76,20 +73,18 @@
             // 
             this.txtPasswordHased.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPasswordHased.Location = new System.Drawing.Point(39, 326);
-            this.txtPasswordHased.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPasswordHased.Location = new System.Drawing.Point(30, 203);
             this.txtPasswordHased.Multiline = true;
             this.txtPasswordHased.Name = "txtPasswordHased";
-            this.txtPasswordHased.Size = new System.Drawing.Size(777, 53);
+            this.txtPasswordHased.Size = new System.Drawing.Size(584, 44);
             this.txtPasswordHased.TabIndex = 29;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 305);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(28, 186);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 17);
+            this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 30;
             this.label1.Text = "Generated Has";
             // 
@@ -99,19 +94,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGeneratedSalt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtGeneratedSalt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
-            this.txtGeneratedSalt.Location = new System.Drawing.Point(39, 172);
-            this.txtGeneratedSalt.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGeneratedSalt.Location = new System.Drawing.Point(29, 125);
             this.txtGeneratedSalt.Multiline = true;
             this.txtGeneratedSalt.Name = "txtGeneratedSalt";
-            this.txtGeneratedSalt.Size = new System.Drawing.Size(777, 50);
+            this.txtGeneratedSalt.Size = new System.Drawing.Size(584, 41);
             this.txtGeneratedSalt.TabIndex = 31;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 399);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(31, 286);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 27);
+            this.button1.Size = new System.Drawing.Size(116, 22);
             this.button1.TabIndex = 33;
             this.button1.Text = "Virify";
             this.button1.UseVisualStyleBackColor = true;
@@ -120,18 +113,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 133);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(27, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 17);
+            this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 35;
             this.label4.Text = "salt";
             // 
             // frmPasswordSaltHashing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 511);
+            this.ClientSize = new System.Drawing.Size(769, 415);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtGeneratedSalt);
@@ -140,6 +132,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnGenHashedPassword);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmPasswordSaltHashing";
             this.Text = "frmPasswordSaltHashing";
             this.Load += new System.EventHandler(this.frmPasswordSaltHashing_Load);

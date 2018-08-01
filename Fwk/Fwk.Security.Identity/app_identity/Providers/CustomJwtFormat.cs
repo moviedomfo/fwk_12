@@ -34,11 +34,11 @@ namespace Fwk.Security.Identity.Providers
             string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
 
             var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
-
+          
             var signingKey = new HmacSigningCredentials(keyByteArray);
             //var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
             //var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
-
+          
             var issuedAt = data.Properties.IssuedUtc;
             var expires = data.Properties.ExpiresUtc;
 

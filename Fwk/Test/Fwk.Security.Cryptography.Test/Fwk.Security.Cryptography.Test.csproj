@@ -37,6 +37,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +50,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Thinktecture.IdentityModel.Core">
+      <HintPath>..\..\packages\Thinktecture.IdentityModel.Core.1.4.0\lib\net45\Thinktecture.IdentityModel.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -61,6 +67,12 @@
     <Compile Include="FormTest.Designer.cs">
       <DependentUpon>FormTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmJWT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJWT.Designer.cs">
+      <DependentUpon>frmJWT.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPasswordSaltHashing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTest.resx">
       <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJWT.resx">
+      <DependentUpon>frmJWT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPasswordSaltHashing.resx">
       <DependentUpon>frmPasswordSaltHashing.cs</DependentUpon>
