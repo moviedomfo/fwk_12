@@ -8,6 +8,9 @@ using System.IdentityModel.Tokens;
 using Thinktecture.IdentityModel.Tokens;
 using System.ServiceModel.Security.Tokens;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Fwk.Security.Identity.Providers
 {
@@ -35,9 +38,9 @@ namespace Fwk.Security.Identity.Providers
 
             var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
 
-            var signingKey = new HmacSigningCredentials(keyByteArray);
-            //var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
-            //var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+            
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
+            var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
 
             var issuedAt = data.Properties.IssuedUtc;
             var expires = data.Properties.ExpiresUtc;
@@ -63,7 +66,7 @@ namespace Fwk.Security.Identity.Providers
         public AuthenticationTicket Unprotect(string protectedText)
         {
 
-
+            Microsoft.IdentityModel.Tokens.SecurityToken validatedToken;
             if (string.IsNullOrWhiteSpace(protectedText))
             {
                 throw new ArgumentNullException("protectedText");
@@ -72,15 +75,19 @@ namespace Fwk.Security.Identity.Providers
             string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
             var tokenHandler = new JwtSecurityTokenHandler();
           
-            SecurityToken validatedToken;
-            
+          
 
-            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+
+          
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(sec_provider.audienceSecret));
+            var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
 
             //TODO : CustomJwtFormat Esta lista de issuers debe ser flexible
             ///Establezco los issuers validos
             var issuers = new List<string>()
                 {
+                    "pelsoft",
                     "issuerA",
                     "issuerB",
                      "http://localhost:63251"
@@ -97,7 +104,7 @@ namespace Fwk.Security.Identity.Providers
                 RequireSignedTokens = true,
                 RequireExpirationTime = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningToken = new BinarySecretSecurityToken(keyByteArray)
+                IssuerSigningKey = signingCredentials.Key
             };
             try
             {

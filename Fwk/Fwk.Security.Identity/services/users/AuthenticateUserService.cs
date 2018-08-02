@@ -12,6 +12,7 @@ using System.IdentityModel.Tokens;
 using Fwk.HelperFunctions;
 using Fwk.Security.Identity.ISVC.AuthenticateUser;
 using Fwk.Security.Identity;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Fwk.Security.Identity.SVC
 {
@@ -129,10 +130,13 @@ namespace Fwk.Security.Identity.SVC
             string audienceId = sec_provider.audienceId;// ConfigurationManager.AppSettings["audienceId"];
             string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
 
-            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
-            var signingKey = new HmacSigningCredentials(keyByteArray);
+          
+            
             var issued = ticket.Properties.IssuedUtc = System.DateTime.Now;
             var expires = ticket.Properties.ExpiresUtc= System.DateTime.Now.AddHours(1);
+            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
+            var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
 
             var token = new JwtSecurityToken(_issuer, audienceId, ticket.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingKey);
 

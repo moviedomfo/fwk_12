@@ -1,0 +1,289 @@
+﻿using Microsoft.Owin.Security.DataHandler.Encoder;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Security.Claims;
+
+using Microsoft.Owin.Security;
+using Fwk.Security.Identity.Providers;
+using System.IdentityModel.Tokens;
+using Newtonsoft.Json;
+
+using System.IdentityModel.Tokens.Jwt;
+using System.ServiceModel.Security.Tokens;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography.X509Certificates;
+
+namespace Fwk.Security.Identity.Test
+{
+    public partial class frmSecurityJWT : Form
+    {
+        provider sec_provider;
+        Guid userId;
+        public frmSecurityJWT()
+        {
+            InitializeComponent();
+            sec_provider = helper.secConfig.GetByName("test");
+             userId = Guid.NewGuid();
+        }
+
+        private void btnKey_Click(object sender, EventArgs e)
+        {
+            var key = new byte[32];
+            RNGCryptoServiceProvider.Create().GetBytes(key);
+
+            txtAudienseHased.Text = TextEncodings.Base64Url.Encode(key);
+
+
+
+
+
+        }
+
+        private void btnGenerateToken1_Click(object sender, EventArgs e)
+        {
+           
+
+          
+
+            #region create claims & AuthenticationTicket
+            ClaimsIdentity claims = GenerateClaims();
+
+            //var props = new AuthenticationProperties(new Dictionary<string, string>
+            //    {
+            //        {
+            //            "company", "CELAM"
+            //        }
+            //    });
+            //props.Dictionary.Add("userName", userName);
+            //props.Dictionary.Add("userId", userId.ToString());
+            //props.Dictionary.Add("lastLogInDate", res.User.LastLogInDate.ToString());
+            //if (!string.IsNullOrEmpty(email))
+            //    props.Dictionary.Add("email", email);
+            //var ticket = new AuthenticationTicket(claims, props);
+            //ticket.Properties.ExpiresUtc = expires;
+            //ticket.Properties.IssuedUtc = issuedAt;
+            #endregion
+
+
+
+
+            //Fwk.Security.Identity.Providers.CustomJwtFormat c = new Fwk.Security.Identity.Providers.CustomJwtFormat("test");
+            #region create token
+
+
+
+            string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
+
+            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
+            var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
+            //var token = new JwtSecurityToken(sec_provider.issuer, audienceId, ticket.Identity.Claims, issuedAt.Value.UtcDateTime, expires.Value.UtcDateTime, signingKey);
+            // Generamos el Token
+            var token = new JwtSecurityToken
+            (
+                issuer: sec_provider.issuer,
+                audience: sec_provider.audienceId,
+                claims: claims.Claims,
+                expires: DateTime.UtcNow.AddDays(60),
+                notBefore: DateTime.UtcNow,
+                signingCredentials: signingKey
+            );
+
+            #endregion
+
+
+            var handler = new JwtSecurityTokenHandler();
+
+            var jwt = handler.WriteToken(token);
+
+
+            //var jwt = c.Protect(ticket);
+
+            txtToken.Text = jwt;
+        }
+
+       
+
+        string generateJWT_2()
+
+        {
+        
+
+            ClaimsIdentity claims = GenerateClaims();
+    
+
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(sec_provider.audienceSecret));
+            var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
+
+
+            // Generamos el Token
+            var token = new JwtSecurityToken
+            (
+                issuer: sec_provider.issuer,
+                audience: sec_provider.audienceId,
+                claims: claims.Claims,
+                expires: DateTime.UtcNow.AddDays(60),
+                notBefore: DateTime.UtcNow,
+                signingCredentials: signingCredentials
+            );
+
+       
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+        
+
+            return jwt;
+        }
+
+        private void btnGenerateToken_Click(object sender, EventArgs e)
+        {
+
+            txtToken2.Text = generateJWT_2();
+
+        }
+
+      
+
+        private void btnValidateToken_Click(object sender, EventArgs e)
+        {
+            Microsoft.IdentityModel.Tokens.SecurityToken validatedToken;
+            var sec_provider = helper.secConfig.GetByName("test");
+            var issuers = new List<string>()
+                {
+                    "pelsoft",
+                    "issuerA",
+                    "issuerB",
+                     "http://localhost:63251"
+                };
+
+            // Generamos el Token
+            var handler = new JwtSecurityTokenHandler();
+            string symmetricKeyAsBase64 = sec_provider.audienceSecret;
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(sec_provider.audienceSecret));
+            var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
+
+
+            var validationParams = new TokenValidationParameters()
+            {
+
+                ValidAudience = sec_provider.audienceId,
+                ValidIssuers = issuers,
+                ValidateLifetime = true,
+                ValidateAudience = true,
+                ValidateIssuer = true,
+                RequireSignedTokens = true,
+                RequireExpirationTime = true,
+                ValidateIssuerSigningKey = true,
+                //IssuerSigningKeys = DefaultX509Key_Public_2048
+                IssuerSigningKey = signingCredentials.Key
+            };
+            StringBuilder s = new StringBuilder();
+            ClaimsPrincipal principal;
+            try
+            {
+                 principal = handler.ValidateToken(txtToken2.Text, validationParams, out validatedToken);
+                s.AppendLine(" ----------------Claims--------------------- ");
+                foreach (var item in principal.Claims)
+                {
+                    s.AppendLine("Issuer " + item.Issuer);
+                    s.AppendLine("Subject " + item.Subject);
+                    foreach (var p in item.Properties)
+                    {
+                        s.AppendLine(p.Key + " :" + p.Value);
+                    }
+                }
+                s.AppendLine(" ------------------------------------- ");
+                s.AppendLine("Identity IsAuthenticated " + principal.Identity.IsAuthenticated);
+                s.AppendLine("Identity Name " + principal.Identity.Name);
+            }
+            catch(Exception ex)
+            {
+                if(ex.Message.Contains("Base64"))
+                    s.AppendLine("Token con formato no válido");
+
+                s.AppendLine(ex.Message);
+            }
+
+           
+           
+            txtAutenticatedValues2.Text = s.ToString();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CustomJwtFormat jwtFormat = new CustomJwtFormat("test");
+            AuthenticationTicket ticket = jwtFormat.Unprotect(txtToken.Text);
+            var jwt = jwtFormat.Protect(ticket);
+            txtAutenticatedValues.Text = jwt;
+
+
+            StringBuilder s = new StringBuilder();
+            s.AppendLine(" ----------------Claims--------------------- ");
+            foreach (var item in ticket.Identity.Claims)
+            {
+                s.AppendLine("Issuer " + item.Issuer);
+                s.AppendLine("Subject " + item.Subject);
+                foreach (var p in item.Properties)
+                {
+                    s.AppendLine(p.Key + " :" + p.Value);
+                }
+            }
+
+
+            s.AppendLine(" ----------------Claims--------------------- ");
+
+
+            s.AppendLine("IssuedUtc: " + ticket.Properties.IssuedUtc.ToString());
+            s.AppendLine("ExpiresUtc: " + ticket.Properties.ExpiresUtc.ToString());
+
+            s.AppendLine(" ----------------jwt--------------------- ");
+            foreach (var item in ticket.Properties.Dictionary)
+            {
+                s.AppendLine(item.Key + " " + item.Value);
+
+            }
+
+            s.AppendLine(jwt);
+            s.AppendLine(" ----------------jwt--------------------- ");
+            txtAutenticatedValues.Text = s.ToString();
+
+        }
+        private void frmSecurityJWT_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        ClaimsIdentity GenerateClaims()
+        {
+            var email = "moviedo@gmail.com";
+            var userName = "moviedo";
+          
+
+
+            ClaimsIdentity claims = new ClaimsIdentity("ExternalBearer");
+            claims.AddClaim(new Claim(ClaimTypes.Name, userName));
+            if (!String.IsNullOrEmpty(email))
+                claims.AddClaim(new Claim(ClaimTypes.Email, email));
+
+
+            //    var claims = new[]
+            //{
+            //    new Claims("userName", JsonConvert.SerializeObject(userName)),
+            //    new Claims("email", JsonConvert.SerializeObject(email)),
+            //    new Claims("userId", JsonConvert.SerializeObject(userId))
+            //};
+            //}
+            return claims;
+        }
+    }
+}

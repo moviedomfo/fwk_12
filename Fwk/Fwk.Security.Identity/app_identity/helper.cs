@@ -27,7 +27,10 @@ namespace Fwk.Security.Identity
                 string settingName = System.Configuration.ConfigurationManager.AppSettings["secConfig"];  
                 //"secConfig.json";//string.Format("apiConfig.{0}.json", env);
 
-
+                if(settingName==null)
+                {
+                    throw new TechnicalException("No se encontro configurada la appSetting secConfig ");
+                }
                 string apiConfigString = FileFunctions.OpenTextFile( settingName);
                 secConfig = (secConfig)SerializationFunctions.DeSerializeObjectFromJson(typeof(secConfig), apiConfigString);
 
