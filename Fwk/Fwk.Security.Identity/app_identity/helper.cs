@@ -13,40 +13,53 @@ namespace Fwk.Security.Identity
 {
     public class helper
     {
-        public static secConfig secConfig = null;
+        static secConfig secConfig = null;
+
+        public static secConfig get_secConfig()
+        {
+            intialize();
+
+            return secConfig;
+        }
         static helper()
         {
             //return;
             //var currentDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            try
-            {
-
-                
-
-                //"secConfig.json"
-                string settingName = System.Configuration.ConfigurationManager.AppSettings["secConfig"];  
-                //"secConfig.json";//string.Format("apiConfig.{0}.json", env);
-
-                if(settingName==null)
-                {
-                    throw new TechnicalException("No se encontro configurada la appSetting secConfig ");
-                }
-                string apiConfigString = FileFunctions.OpenTextFile( settingName);
-                secConfig = (secConfig)SerializationFunctions.DeSerializeObjectFromJson(typeof(secConfig), apiConfigString);
-
-         
-            }
-            catch (Exception ex)
-            {
-                
-            }
-
 
             Fwk.HelperFunctions.DateFunctions.BeginningOfTimes = new DateTime(1753, 1, 1);
 
         }
-        
 
+        static void intialize()
+        {
+            if (secConfig != null) return;
+
+            //"secConfig.json"
+            string settingName = System.Configuration.ConfigurationManager.AppSettings["secConfig"];
+            //"secConfig.json";//string.Format("apiConfig.{0}.json", env);
+
+            if (settingName == null)
+            {
+                throw new TechnicalException("No se encontro configurada la appSetting secConfig ");
+            }
+            if (!System.IO.File.Exists(settingName))
+            {
+                throw new TechnicalException("No se encontro el archivo " + settingName);
+            }
+
+            string apiConfigString = FileFunctions.OpenTextFile(settingName);
+
+
+            try
+            {
+                secConfig = (secConfig)SerializationFunctions.DeSerializeObjectFromJson(typeof(secConfig), apiConfigString);
+            }
+            catch (Exception ex)
+            {
+                throw new TechnicalException("El archivo " + settingName + "No tiene un formato correcto");
+            }
+
+        }
         /// <summary>
         /// Envia mail de acuerdo a las direcciones configuradas.
         /// </summary>

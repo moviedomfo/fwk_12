@@ -124,8 +124,10 @@ namespace Fwk.Security.Identity.SVC
             //Aqui por ahora coinciden el nombre del proveedor de Metadata con el nombre del proveedor de seguridad
             //bajo este esquema se hace mapeo uno a uno entre MetadataDeservicios y --> porveedor de seguridad 
             //req.BusinessData.SecurityProviderName
-            var sec_provider = helper.secConfig.GetByName(req.ContextInformation.ProviderName);
-
+            var sec_provider = helper.get_secConfig().GetByName(req.ContextInformation.ProviderName);
+            if(sec_provider==null)
+            { throw new Fwk.Exceptions.TechnicalException("El proveedor de seguridad en el servidor" +
+                " no existe, porveedor solicitado = " + req.ContextInformation.ProviderName); }
             string _issuer = sec_provider.issuer;
             string audienceId = sec_provider.audienceId;// ConfigurationManager.AppSettings["audienceId"];
             string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];

@@ -27,11 +27,20 @@ namespace Fwk.Security.Identity.Test
     {
         provider sec_provider;
         Guid userId;
+        List<string> issuers;
         public frmSecurityJWT()
         {
             InitializeComponent();
-            sec_provider = helper.secConfig.GetByName("test");
+            sec_provider = helper.get_secConfig().GetByName("test");
              userId = Guid.NewGuid();
+             issuers = new List<string>()
+                {
+                    "pelsoft",
+                    "issuerA",
+                    "issuerB",
+                     "http://localhost:63251"
+                };
+
         }
 
         private void btnKey_Click(object sender, EventArgs e)
@@ -56,57 +65,32 @@ namespace Fwk.Security.Identity.Test
             #region create claims & AuthenticationTicket
             ClaimsIdentity claims = GenerateClaims();
 
-            //var props = new AuthenticationProperties(new Dictionary<string, string>
-            //    {
-            //        {
-            //            "company", "CELAM"
-            //        }
-            //    });
+            var props = new AuthenticationProperties(new Dictionary<string, string>
+                {
+                    {
+                        "company", "CELAM"
+                    }
+                });
             //props.Dictionary.Add("userName", userName);
             //props.Dictionary.Add("userId", userId.ToString());
             //props.Dictionary.Add("lastLogInDate", res.User.LastLogInDate.ToString());
             //if (!string.IsNullOrEmpty(email))
             //    props.Dictionary.Add("email", email);
-            //var ticket = new AuthenticationTicket(claims, props);
-            //ticket.Properties.ExpiresUtc = expires;
-            //ticket.Properties.IssuedUtc = issuedAt;
+           var ticket = new AuthenticationTicket(claims, null);
+            ticket.Properties.ExpiresUtc = System.DateTime.UtcNow.AddDays(10);  
+            ticket.Properties.IssuedUtc = System.DateTime.UtcNow;
             #endregion
 
 
 
 
-            //Fwk.Security.Identity.Providers.CustomJwtFormat c = new Fwk.Security.Identity.Providers.CustomJwtFormat("test");
-            #region create token
+
+
+            CustomJwtFormat c = new CustomJwtFormat("test");
 
 
 
-            string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
-
-            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
-            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
-            var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
-
-            //var token = new JwtSecurityToken(sec_provider.issuer, audienceId, ticket.Identity.Claims, issuedAt.Value.UtcDateTime, expires.Value.UtcDateTime, signingKey);
-            // Generamos el Token
-            var token = new JwtSecurityToken
-            (
-                issuer: sec_provider.issuer,
-                audience: sec_provider.audienceId,
-                claims: claims.Claims,
-                expires: DateTime.UtcNow.AddDays(60),
-                notBefore: DateTime.UtcNow,
-                signingCredentials: signingKey
-            );
-
-            #endregion
-
-
-            var handler = new JwtSecurityTokenHandler();
-
-            var jwt = handler.WriteToken(token);
-
-
-            //var jwt = c.Protect(ticket);
+            var jwt = c.Protect(ticket);
 
             txtToken.Text = jwt;
         }
@@ -116,15 +100,11 @@ namespace Fwk.Security.Identity.Test
         string generateJWT_2()
 
         {
-        
 
             ClaimsIdentity claims = GenerateClaims();
-    
 
             var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(sec_provider.audienceSecret));
             var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
-
-
 
             // Generamos el Token
             var token = new JwtSecurityToken
@@ -132,7 +112,7 @@ namespace Fwk.Security.Identity.Test
                 issuer: sec_provider.issuer,
                 audience: sec_provider.audienceId,
                 claims: claims.Claims,
-                expires: DateTime.UtcNow.AddDays(60),
+                expires: DateTime.UtcNow.AddSeconds(10),
                 notBefore: DateTime.UtcNow,
                 signingCredentials: signingCredentials
             );
@@ -156,15 +136,9 @@ namespace Fwk.Security.Identity.Test
         private void btnValidateToken_Click(object sender, EventArgs e)
         {
             Microsoft.IdentityModel.Tokens.SecurityToken validatedToken;
-            var sec_provider = helper.secConfig.GetByName("test");
-            var issuers = new List<string>()
-                {
-                    "pelsoft",
-                    "issuerA",
-                    "issuerB",
-                     "http://localhost:63251"
-                };
-
+        
+            StringBuilder s = new StringBuilder();
+            ClaimsPrincipal principal;
             // Generamos el Token
             var handler = new JwtSecurityTokenHandler();
             string symmetricKeyAsBase64 = sec_provider.audienceSecret;
@@ -184,32 +158,27 @@ namespace Fwk.Security.Identity.Test
                 RequireSignedTokens = true,
                 RequireExpirationTime = true,
                 ValidateIssuerSigningKey = true,
+                ClockSkew = TimeSpan.Zero,
                 //IssuerSigningKeys = DefaultX509Key_Public_2048
                 IssuerSigningKey = signingCredentials.Key
             };
-            StringBuilder s = new StringBuilder();
-            ClaimsPrincipal principal;
+    
             try
             {
                  principal = handler.ValidateToken(txtToken2.Text, validationParams, out validatedToken);
-                s.AppendLine(" ----------------Claims--------------------- ");
-                foreach (var item in principal.Claims)
-                {
-                    s.AppendLine("Issuer " + item.Issuer);
-                    s.AppendLine("Subject " + item.Subject);
-                    foreach (var p in item.Properties)
-                    {
-                        s.AppendLine(p.Key + " :" + p.Value);
-                    }
-                }
-                s.AppendLine(" ------------------------------------- ");
-                s.AppendLine("Identity IsAuthenticated " + principal.Identity.IsAuthenticated);
-                s.AppendLine("Identity Name " + principal.Identity.Name);
+
+                #region print claims
+                s.Append(GetAuthenticationTicketString(principal));
+
+                #endregion
+
             }
             catch(Exception ex)
             {
                 if(ex.Message.Contains("Base64"))
                     s.AppendLine("Token con formato no válido");
+                if(ex.Message.Contains("IDX10223"))
+                    s.AppendLine("Token Expiro");
 
                 s.AppendLine(ex.Message);
             }
@@ -222,39 +191,14 @@ namespace Fwk.Security.Identity.Test
         {
             CustomJwtFormat jwtFormat = new CustomJwtFormat("test");
             AuthenticationTicket ticket = jwtFormat.Unprotect(txtToken.Text);
+
+
             var jwt = jwtFormat.Protect(ticket);
-            txtAutenticatedValues.Text = jwt;
+        
 
-
-            StringBuilder s = new StringBuilder();
-            s.AppendLine(" ----------------Claims--------------------- ");
-            foreach (var item in ticket.Identity.Claims)
-            {
-                s.AppendLine("Issuer " + item.Issuer);
-                s.AppendLine("Subject " + item.Subject);
-                foreach (var p in item.Properties)
-                {
-                    s.AppendLine(p.Key + " :" + p.Value);
-                }
-            }
-
-
-            s.AppendLine(" ----------------Claims--------------------- ");
-
-
-            s.AppendLine("IssuedUtc: " + ticket.Properties.IssuedUtc.ToString());
-            s.AppendLine("ExpiresUtc: " + ticket.Properties.ExpiresUtc.ToString());
-
-            s.AppendLine(" ----------------jwt--------------------- ");
-            foreach (var item in ticket.Properties.Dictionary)
-            {
-                s.AppendLine(item.Key + " " + item.Value);
-
-            }
-
-            s.AppendLine(jwt);
-            s.AppendLine(" ----------------jwt--------------------- ");
-            txtAutenticatedValues.Text = s.ToString();
+           
+        
+            txtAutenticatedValues.Text = GetAuthenticationTicketString(ticket);
 
         }
         private void frmSecurityJWT_Load(object sender, EventArgs e)
@@ -267,14 +211,12 @@ namespace Fwk.Security.Identity.Test
         {
             var email = "moviedo@gmail.com";
             var userName = "moviedo";
-          
-
-
+            var userId = Guid.NewGuid().ToString();
             ClaimsIdentity claims = new ClaimsIdentity("ExternalBearer");
             claims.AddClaim(new Claim(ClaimTypes.Name, userName));
             if (!String.IsNullOrEmpty(email))
                 claims.AddClaim(new Claim(ClaimTypes.Email, email));
-
+            claims.AddClaim(new Claim("userId", userId));
 
             //    var claims = new[]
             //{
@@ -285,5 +227,44 @@ namespace Fwk.Security.Identity.Test
             //}
             return claims;
         }
+
+
+        string GetAuthenticationTicketString(AuthenticationTicket ticket)
+        {
+            StringBuilder s = new StringBuilder();
+
+            var principal = ticket.Identity;
+            s.AppendLine(" ----------------Claims--------------------- ");
+            foreach (var item in principal.Claims)
+            {
+                s.AppendLine(item.Type + " " + item.Value);
+
+            }
+            s.AppendLine(" ------------------------------------- ");
+            s.AppendLine("Identity IsAuthenticated " + principal.IsAuthenticated);
+            s.AppendLine("Identity Name " + principal.Name);
+
+            return s.ToString();
+        }
+
+        string GetAuthenticationTicketString(ClaimsPrincipal principal)
+        {
+            StringBuilder s = new StringBuilder();
+
+         
+            s.AppendLine(" ----------------Claims--------------------- ");
+            foreach (var item in principal.Claims)
+            {
+                s.AppendLine(item.Type + " " + item.Value);
+
+            }
+            s.AppendLine(" ------------------------------------- ");
+            s.AppendLine("Identity IsAuthenticated " + principal.Identity.IsAuthenticated);
+            s.AppendLine("Identity Name " + principal.Identity.Name);
+
+            return s.ToString();
+        }
+
+
     }
 }

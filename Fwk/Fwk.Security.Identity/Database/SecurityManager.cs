@@ -20,7 +20,7 @@ namespace Fwk.Security.Identity
         {
             //TODO: Mejora a aplicar : poder pasar el proveedor a c/funcion
             // por e momento se usa el default
-            cnnStringName = helper.secConfig.Getcnnstring("");
+            cnnStringName = helper.get_secConfig().Getcnnstring("");
         }
 
 
