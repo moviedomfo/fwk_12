@@ -193,17 +193,17 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFServiceReference.IFwkService")]
     public interface IFwkService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse")]
-        Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse ExecuteServiceAuthToken(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse")]
-        System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse> ExecuteServiceAuthTokenAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteService", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceResponse")]
         Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse ExecuteService(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteService", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceResponse")]
         System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse> ExecuteServiceAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse")]
+        Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse ExecuteServiceAuthToken(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse")]
+        System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse> ExecuteServiceAuthTokenAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFwkService/ExecuteServiceBin", ReplyAction="http://tempuri.org/IFwkService/ExecuteServiceBinResponse")]
         Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceBinResponse ExecuteServiceBin(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceBinRequest request);
@@ -244,46 +244,6 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteServiceAuthToken", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ExecuteServiceAuthTokenRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string providerName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string serviceName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string jsonRequets;
-        
-        public ExecuteServiceAuthTokenRequest() {
-        }
-        
-        public ExecuteServiceAuthTokenRequest(string providerName, string serviceName, string jsonRequets) {
-            this.providerName = providerName;
-            this.serviceName = serviceName;
-            this.jsonRequets = jsonRequets;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteServiceAuthTokenResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ExecuteServiceAuthTokenResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string ExecuteServiceAuthTokenResult;
-        
-        public ExecuteServiceAuthTokenResponse() {
-        }
-        
-        public ExecuteServiceAuthTokenResponse(string ExecuteServiceAuthTokenResult) {
-            this.ExecuteServiceAuthTokenResult = ExecuteServiceAuthTokenResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteService", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class ExecuteServiceRequest {
         
@@ -296,17 +256,13 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string jsonRequets;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string token;
-        
         public ExecuteServiceRequest() {
         }
         
-        public ExecuteServiceRequest(string providerName, string serviceName, string jsonRequets, string token) {
+        public ExecuteServiceRequest(string providerName, string serviceName, string jsonRequets) {
             this.providerName = providerName;
             this.serviceName = serviceName;
             this.jsonRequets = jsonRequets;
-            this.token = token;
         }
     }
     
@@ -323,6 +279,50 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
         
         public ExecuteServiceResponse(string ExecuteServiceResult) {
             this.ExecuteServiceResult = ExecuteServiceResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteServiceAuthToken", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ExecuteServiceAuthTokenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string providerName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string serviceName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string jsonRequets;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string token;
+        
+        public ExecuteServiceAuthTokenRequest() {
+        }
+        
+        public ExecuteServiceAuthTokenRequest(string providerName, string serviceName, string jsonRequets, string token) {
+            this.providerName = providerName;
+            this.serviceName = serviceName;
+            this.jsonRequets = jsonRequets;
+            this.token = token;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ExecuteServiceAuthTokenResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ExecuteServiceAuthTokenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string ExecuteServiceAuthTokenResult;
+        
+        public ExecuteServiceAuthTokenResponse() {
+        }
+        
+        public ExecuteServiceAuthTokenResponse(string ExecuteServiceAuthTokenResult) {
+            this.ExecuteServiceAuthTokenResult = ExecuteServiceAuthTokenResult;
         }
     }
     
@@ -546,20 +546,20 @@ namespace Fwk.Bases.Connector.WCFServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse ExecuteServiceAuthToken(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request) {
-            return base.Channel.ExecuteServiceAuthToken(request);
-        }
-        
-        public System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse> ExecuteServiceAuthTokenAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request) {
-            return base.Channel.ExecuteServiceAuthTokenAsync(request);
-        }
-        
         public Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse ExecuteService(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceRequest request) {
             return base.Channel.ExecuteService(request);
         }
         
         public System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse> ExecuteServiceAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceRequest request) {
             return base.Channel.ExecuteServiceAsync(request);
+        }
+        
+        public Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse ExecuteServiceAuthToken(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request) {
+            return base.Channel.ExecuteServiceAuthToken(request);
+        }
+        
+        public System.Threading.Tasks.Task<Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse> ExecuteServiceAuthTokenAsync(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenRequest request) {
+            return base.Channel.ExecuteServiceAuthTokenAsync(request);
         }
         
         public Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceBinResponse ExecuteServiceBin(Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceBinRequest request) {

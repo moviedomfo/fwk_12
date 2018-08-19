@@ -41,17 +41,17 @@
       <xsd:import schemaLocation="http://localhost:8732/WcfDispatcher/FwkService/?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IFwkService_ExecuteService_allowedAuth_Async_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExecuteService_allowedAuth_Async" />
-  </wsdl:message>
-  <wsdl:message name="IFwkService_ExecuteService_allowedAuth_Async_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExecuteService_allowedAuth_AsyncResponse" />
-  </wsdl:message>
   <wsdl:message name="IFwkService_ExecuteService_InputMessage">
     <wsdl:part name="parameters" element="tns:ExecuteService" />
   </wsdl:message>
   <wsdl:message name="IFwkService_ExecuteService_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExecuteServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_ExecuteServiceAuthToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceAuthToken" />
+  </wsdl:message>
+  <wsdl:message name="IFwkService_ExecuteServiceAuthToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteServiceAuthTokenResponse" />
   </wsdl:message>
   <wsdl:message name="IFwkService_ExecuteServiceBin_InputMessage">
     <wsdl:part name="parameters" element="tns:ExecuteServiceBin" />
@@ -90,13 +90,13 @@
     <wsdl:part name="parameters" element="tns:GetProviderInfoResponse" />
   </wsdl:message>
   <wsdl:portType name="IFwkService">
-    <wsdl:operation name="ExecuteService_allowedAuth_Async">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async" message="tns:IFwkService_ExecuteService_allowedAuth_Async_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_AsyncResponse" message="tns:IFwkService_ExecuteService_allowedAuth_Async_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ExecuteService">
       <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteService" message="tns:IFwkService_ExecuteService_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceResponse" message="tns:IFwkService_ExecuteService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteServiceAuthToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceAuthToken" message="tns:IFwkService_ExecuteServiceAuthToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceAuthTokenResponse" message="tns:IFwkService_ExecuteServiceAuthToken_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ExecuteServiceBin">
       <wsdl:input wsaw:Action="http://tempuri.org/IFwkService/ExecuteServiceBin" message="tns:IFwkService_ExecuteServiceBin_InputMessage" />
@@ -126,8 +126,8 @@
   <wsdl:binding name="tcp" type="tns:IFwkService">
     <wsp:PolicyReference URI="#tcp_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="ExecuteService_allowedAuth_Async">
-      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService_allowedAuth_Async" style="document" />
+    <wsdl:operation name="ExecuteService">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -135,8 +135,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExecuteService">
-      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteService" style="document" />
+    <wsdl:operation name="ExecuteServiceAuthToken">
+      <soap12:operation soapAction="http://tempuri.org/IFwkService/ExecuteServiceAuthToken" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

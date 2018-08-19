@@ -140,13 +140,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceAuthTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceBinResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.ExecuteServiceResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.ExecuteService_allowedAuth_AsyncResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WCFServiceReference\Fwk.Bases.Connector.WCFServiceReference.GetAllApplicationsIdResponse.datasource">
