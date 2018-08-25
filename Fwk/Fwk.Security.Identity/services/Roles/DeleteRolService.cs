@@ -18,7 +18,7 @@ namespace Fwk.Security.Identity.SVC
         {
             Rol wRol;
             DeleteRoleRes wRes = new DeleteRoleRes();
-       
+            throw new FunctionalException("Este servicio no esta implementado para  Fwk.Security.Identity");
             //Elimina el rol: Este componente si el rol tiene o no asociado usuarios
             //FwkMembership.DeleteRole(pServiceRequest.BusinessData.RolName, pServiceRequest.SecurityProviderName);
 
@@ -35,7 +35,7 @@ namespace Fwk.Security.Identity.SVC
             {
                 wRol = new Rol(pServiceRequest.BusinessData.RolName);
                 FwkMembership.RemoveRol_From_Rule(wRol, rule);
-
+                
                 FwkMembership.UpdateRule(rule, pServiceRequest.SecurityProviderName);
             }
 

@@ -19,7 +19,7 @@ namespace Fwk.Security.Identity.SVC
         public override GetUserInfoByParamsRes Execute(GetUserInfoByParamsReq pServiceRequest)
         {
             GetUserInfoByParamsRes wRes = new GetUserInfoByParamsRes();
-            SecurityUser secUser = SecurityManager.User_FindByName(pServiceRequest.BusinessData.UserName, true);
+            SecurityUser secUser = SecurityManager.User_FindByName(pServiceRequest.BusinessData.UserName, true, pServiceRequest.SecurityProviderName);
 
             wRes.BusinessData.UserInfo = MappingHelper.Map_SecurityUser_to_UserInfo(secUser);
 

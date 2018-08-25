@@ -32,13 +32,13 @@ namespace Fwk.Security.Identity.ISVC.DeleteRulesCategory
     {
 
 
-       
-        int _CategoryId;
+
+        Guid _CategoryId;
 
         /// <summary>
         /// 
         /// </summary>
-        public int CategoryId
+        public Guid CategoryId
         {
             get
             {

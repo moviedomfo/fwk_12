@@ -28,7 +28,7 @@ namespace Fwk.Security.Identity.SVC
             ruleCategory.Name = pServiceRequest.BusinessData.Name;
             ruleCategory.ParentCategoryId = pServiceRequest.BusinessData.ParentCategoryId;
 
-            SecurityManager.RuleCategory_Create(ruleCategory);
+            SecurityManager.RuleCategory_Create(ruleCategory, pServiceRequest.SecurityProviderName);
             wRes.BusinessData.Id=  pServiceRequest.BusinessData.CategoryId;
             return wRes;
         }

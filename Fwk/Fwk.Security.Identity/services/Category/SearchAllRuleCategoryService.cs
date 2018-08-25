@@ -17,9 +17,11 @@ namespace Fwk.Security.Identity.SVC
     {
         public override SearchAllRulesCategoryRes Execute(SearchAllRulesCategoryReq pServiceRequest)
         {
+            //TODO: Security.Identity gregar proveedor
+            
             SearchAllRulesCategoryRes wRes = new SearchAllRulesCategoryRes();
         
-            wRes.BusinessData = SecurityManager.RulesCategory_getAll();
+            wRes.BusinessData = SecurityManager.RulesCategory_getAll(pServiceRequest.SecurityProviderName);
         
             return wRes;
         }

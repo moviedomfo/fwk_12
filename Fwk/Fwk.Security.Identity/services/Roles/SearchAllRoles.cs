@@ -44,13 +44,10 @@ namespace Fwk.Security.Identity.ISVC.SearchAllRoles
     [XmlInclude(typeof(Result)), Serializable]
     public class Result : Entity
     {
-        Fwk.Security.Common.RolList _RolList;
+      
 
-        public Fwk.Security.Common.RolList RolList
-        {
-            get { return _RolList; }
-            set { _RolList = value; }
-        }
+        public SecurityRoleBEList RolList { get; set; }
+      
 
     }
 }

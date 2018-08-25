@@ -16,7 +16,7 @@ namespace Fwk.Security.Identity.ISVC.SearchRolesForUser
         }
     }
     [Serializable]
-    public class SearchRolesForUserRes : Response<Result>
+    public class SearchRolesForUserRes : Response<SecurityRoleBEList>
     {
 
     }
@@ -51,36 +51,7 @@ namespace Fwk.Security.Identity.ISVC.SearchRolesForUser
         #endregion
 
     }
-    [XmlInclude(typeof(Param)), Serializable]
-    public class Result : Entity
-    {
-        #region [Private Members]
-      
-        private RolList _RolList = new RolList();
-
-        
-
-
-        #endregion
-
-        #region [Properties]
-
-       
-
-
-        public RolList RolList
-        {
-            get { return _RolList; }
-            set { _RolList = value; }
-        }
-
-       
-
-        #endregion
-
-
-
-    }
+ 
 
     #endregion
 

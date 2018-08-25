@@ -30,7 +30,7 @@ namespace Fwk.Security.Identity.SVC
             //ChangePassword != null indica la intencion de cambio de clave
             if (req.BusinessData.ChangePassword != null)
             {
-                SecurityManager.User_ChangePassword(req.BusinessData.UsersBE.UserName, req.BusinessData.ChangePassword.Old, req.BusinessData.ChangePassword.New);
+                SecurityManager.User_ChangePassword(req.BusinessData.UsersBE.UserName, req.BusinessData.ChangePassword.Old, req.BusinessData.ChangePassword.New, req.SecurityProviderName);
             }
             SecurityUser usersBE = null;
             //Si PasswordOnly = true pasa por alto la actuaizacion del usuario
@@ -62,7 +62,7 @@ namespace Fwk.Security.Identity.SVC
 
                     });
 
-                    SecurityManager.User_AsignRoles(model);
+                    SecurityManager.User_AsignRoles(model, req.SecurityProviderName);
                 }
 
             }

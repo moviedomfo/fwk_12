@@ -24,7 +24,7 @@ namespace Fwk.Security.Identity.SVC
 
             // FwkAuthorizationRuleList rules = FwkMembership.GetRulesAuxList(pServiceRequest.SecurityProviderName);
 
-            var rules = SecurityManager.Rule_getAll();
+            var rules = SecurityManager.Rule_getAll( pServiceRequest.SecurityProviderName);
             
             wRes.BusinessData = rules;
          

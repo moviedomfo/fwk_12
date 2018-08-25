@@ -22,7 +22,7 @@ namespace Fwk.Security.Identity.SVC
 
             // FwkAuthorizationRuleList rules = FwkMembership.GetRulesAuxList(pServiceRequest.SecurityProviderName);
             res.BusinessData = new Result();
-            res.BusinessData.IsAuthorized = SecurityManager.Rule_check(req.BusinessData.ruleName, req.BusinessData.UserName);
+            res.BusinessData.IsAuthorized = SecurityManager.Rule_check(req.BusinessData.ruleName, req.BusinessData.UserName, req.SecurityProviderName);
            
             return res;
         }

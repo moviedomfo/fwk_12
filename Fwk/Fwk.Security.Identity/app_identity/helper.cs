@@ -54,7 +54,7 @@ namespace Fwk.Security.Identity
             {
                 secConfig = (secConfig)SerializationFunctions.DeSerializeObjectFromJson(typeof(secConfig), apiConfigString);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new TechnicalException("El archivo " + settingName + "No tiene un formato correcto");
             }

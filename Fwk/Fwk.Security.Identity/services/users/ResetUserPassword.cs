@@ -29,7 +29,7 @@ namespace Fwk.Security.Identity.SVC
             //UserBC wUserBC = new UserBC(pServiceRequest.ContextInformation.AppId, pServiceRequest.SecurityProviderName);
             //wUserBC.ResetPassword(pServiceRequest.BusinessData.UserName, pServiceRequest.BusinessData.NewPassword);
 
-            SecurityManager.User_RessetPassword(pServiceRequest.BusinessData.UserName, pServiceRequest.BusinessData.NewPassword);
+            SecurityManager.User_RessetPassword(pServiceRequest.BusinessData.UserName, pServiceRequest.BusinessData.NewPassword, pServiceRequest.SecurityProviderName);
             return wRes;
         }
     }

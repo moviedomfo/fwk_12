@@ -14,13 +14,11 @@ namespace Fwk.Security.Identity
 {
     public class SecurityManager
     {
-        private static string cnnStringName = "";
+        
 
         static SecurityManager()
         {
-            //TODO: Mejora a aplicar : poder pasar el proveedor a c/funcion
-            // por e momento se usa el default
-            cnnStringName = helper.get_secConfig().Getcnnstring("");
+        
         }
 
 
@@ -30,7 +28,7 @@ namespace Fwk.Security.Identity
 
 
         #region Security Users 
-        public static ClaimsIdentity GenerateClaimsIdentity(SecurityUser user)
+        public static ClaimsIdentity GenerateClaimsIdentity(SecurityUser user, string sec_provider = "")
         {
             // Note the authenticationType must match the one 
             // defined in CookieAuthenticationOptions.AuthenticationType
@@ -53,13 +51,41 @@ namespace Fwk.Security.Identity
             return oAuthIdentity;
         }
 
-       
+    
 
-        internal static void User_RemoveRoles(Guid id)
+        internal static SecurityRoleBEList Roles_get_byUserNAme(string username, string sec_provider)
+        {
+            SecurityRoleBEList list = new SecurityRoleBEList();
+            SecurityRoleBE r = new SecurityRoleBE();
+            try
+            {
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
+                {
+                    var user = db.SecurityUsers.Where(item => item.UserName.Equals(username)).FirstOrDefault();
+
+                    user.SecurityRoles.ToList().ForEach(rol => {
+                        r = new SecurityRoleBE();
+                        r.Id = rol.Id;
+                        r.Name = rol.Name;
+                        r.Description = rol.Description;
+                        list.Add(r);
+                    });
+
+
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        internal static void User_RemoveRoles(Guid id, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(item => item.Id== id).FirstOrDefault();
 
@@ -77,11 +103,11 @@ namespace Fwk.Security.Identity
             }
         }
 
-        internal static void User_Update(SecurityUser usersBE, string userName)
+        internal static void User_Update(SecurityUser usersBE, string userName, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(item => item.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
                     usersBE.UserName = user.UserName;
@@ -103,11 +129,11 @@ namespace Fwk.Security.Identity
             }
         }
 
-        internal static void User_RemoveFromRole(string userName, string rolName)
+        internal static void User_RemoveFromRole(string userName, string rolName, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(item => item.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
 
@@ -126,11 +152,11 @@ namespace Fwk.Security.Identity
             }
         }
 
-        public static async Task<IdentityResult> User_CreateAsync(SecurityUser user, string password)
+        public static async Task<IdentityResult> User_CreateAsync(SecurityUser user, string password, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     user.PasswordHash = helper.GetHash(password);
                     if (user.Id == null || user.Id.Equals(emptyGuid))
@@ -146,11 +172,11 @@ namespace Fwk.Security.Identity
                 return new IdentityResult(new string[] { Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex) });
             }
         }
-        public static IdentityResult User_Create(SecurityUser user, string password,bool asignRoles=false)
+        public static IdentityResult User_Create(SecurityUser user, string password,bool asignRoles=false, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     user.PasswordHash = helper.GetHash(password);
                     if (user.Id == null || user.Id.Equals(emptyGuid))
@@ -172,11 +198,11 @@ namespace Fwk.Security.Identity
                 return new IdentityResult(new string[] { Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex) });
             }
         }
-        internal static bool User_Exist(string userName)
+        internal static bool User_Exist(string userName, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var u = db.SecurityUsers.Where(p => p.UserName.Equals(userName.TrimEnd(),StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
                     if(u!=null)
@@ -193,11 +219,11 @@ namespace Fwk.Security.Identity
             }
         }
 
-        public static void User_Aprove(string userName)
+        public static void User_Aprove(string userName, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
                     user.EmailConfirmed = true;
@@ -213,11 +239,11 @@ namespace Fwk.Security.Identity
 
         }
 
-        public static void User_Dislook(string userName)
+        public static void User_Dislook(string userName, string sec_provider = "")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
                     user.LockoutEnabled = false;
@@ -234,11 +260,11 @@ namespace Fwk.Security.Identity
         }
 
 
-        public static void User_Lockout(string userName, DateTime lockoutEndDate)
+        public static void User_Lockout(string userName, DateTime lockoutEndDate,string sec_provider="")
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
                     user.LockoutEnabled = true;
@@ -254,12 +280,12 @@ namespace Fwk.Security.Identity
 
         }
 
-        public static LoginResult User_CheckStatus(string userName)
+        public static LoginResult User_CheckStatus(string userName, string sec_provider )
         {
             LoginResult result = new LoginResult();
             try
             {
-                var user = User_FindByName(userName);
+                var user = User_FindByName(userName,false, sec_provider);
 
                 if (user != null)
                 {
@@ -333,12 +359,13 @@ namespace Fwk.Security.Identity
             return userBe;
         }
 
-        public static SecurityUser User_FindByName(string userName, bool includeRoles = false)
+        public static SecurityUser User_FindByName(string userName, bool includeRoles = false,string sec_provider="")
         {
             try
             {
+                
                 ICollection<SecurityRole> r;
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
                     if (user != null && includeRoles)
@@ -356,13 +383,13 @@ namespace Fwk.Security.Identity
             }
 
         }
-        public static List<SecurityUser> User_getAll()
+        public static List<SecurityUser> User_getAll(string sec_provider )
         {
             
             //ICollection<SecurityRole> r;
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     return db.SecurityUsers.ToList();
                     //if (includeRoles)
@@ -380,12 +407,12 @@ namespace Fwk.Security.Identity
             }
 
         }
-        public static SecurityUser User_FindById(Guid usderId, bool includeRoles = false)
+        public static SecurityUser User_FindById(Guid usderId, bool includeRoles = false, string sec_provider = "")
         {
             ICollection<SecurityRole> r;
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.Id == usderId).FirstOrDefault();
                     if (includeRoles)
@@ -404,7 +431,7 @@ namespace Fwk.Security.Identity
 
         }
 
-        public static IdentityResult User_AsignRoles(AssignRolesToUserModel model)
+        public static IdentityResult User_AsignRoles(AssignRolesToUserModel model, string sec_provider )
         {
 
             IdentityResult result = null;
@@ -412,7 +439,7 @@ namespace Fwk.Security.Identity
 
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
 
                     var userFromBD = db.SecurityUsers.Where(p => p.UserName.ToLower() == model.userName.ToLower()).FirstOrDefault();
@@ -459,16 +486,16 @@ namespace Fwk.Security.Identity
             throw new NotImplementedException();
         }
 
-        public static Task<IdentityResult> User_RemovePasswordAsync(Guid userId)
+        public static Task<IdentityResult> User_RemovePasswordAsync(Guid userId, string sec_provider )
         {
             throw new NotImplementedException();
         }
 
-        public async static Task<IdentityResult> User_AddLoginAsync(Guid userId, UserLoginInfo userLoginInfo)
+        public async static Task<IdentityResult> User_AddLoginAsync(Guid userId, UserLoginInfo userLoginInfo, string sec_provider )
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = User_FindById(userId);
 
@@ -490,7 +517,7 @@ namespace Fwk.Security.Identity
             }
         }
 
-        public static LoginResult User_Authenticate(string userName, string password)
+        public static LoginResult User_Authenticate(string userName, string password, string sec_provider)
         {
             LoginResult result = new LoginResult();
 
@@ -554,11 +581,11 @@ namespace Fwk.Security.Identity
         /// <param name="userName"></param>
         /// <param name="newPassword"></param>
         /// <returns></returns>
-        public static IdentityResult User_RessetPassword(string userName, string newPassword)
+        public static IdentityResult User_RessetPassword(string userName, string newPassword, string sec_provider )
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
 
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
@@ -575,13 +602,13 @@ namespace Fwk.Security.Identity
             }
         }
 
-            public static IdentityResult User_ChangePassword(string userName, string oldPassword, string newPassword)
+            public static IdentityResult User_ChangePassword(string userName, string oldPassword, string newPassword, string sec_provider )
         {
            
-                var result = User_Authenticate(userName, oldPassword);
+                var result = User_Authenticate(userName, oldPassword, sec_provider);
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
 
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
@@ -604,13 +631,13 @@ namespace Fwk.Security.Identity
         #endregion
 
         #region -- roles -- 
-        public static SecurityRole Role_FindById(Guid roleId, bool includeRules = false, bool includeUsers = false)
+        public static SecurityRole Role_FindById(Guid roleId, bool includeRules = false, bool includeUsers = false, string sec_provider = "")
         {
             ICollection<SecurityRule> r;
             ICollection<SecurityUser> u;
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var role = db.SecurityRoles.Where(p => p.Id == roleId).FirstOrDefault();
                     if (includeRules)
@@ -633,13 +660,15 @@ namespace Fwk.Security.Identity
             }
 
         }
-        public static SecurityRole Role_FindByName(String roleName, bool includeRules = false, bool includeUsers = false)
+
+
+        public static SecurityRole Role_FindByName(String roleName, bool includeRules = false, bool includeUsers = false, string sec_provider = "")
         {
             ICollection<SecurityRule> r;
             ICollection<SecurityUser> u;
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var role = db.SecurityRoles.Where(p => p.Name.ToLower() == roleName.ToLower()).FirstOrDefault();
                     if (includeRules)
@@ -662,9 +691,37 @@ namespace Fwk.Security.Identity
             }
 
         }
+        public static SecurityRoleBEList Role_getAll(string sec_provider )
+        {
+            SecurityRoleBEList listBE = new SecurityRoleBEList();
+            SecurityRoleBE be = new SecurityRoleBE();
+            try
+            {
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
+                {
+                    var list = db.SecurityRules;
+                    list.ToList().ForEach(rc => {
+                        be = new SecurityRoleBE();
+
+                        be.Id = rc.Id;
+                        be.Name = rc.Name;
+                        be.Description = rc.Description;
+                        listBE.Add(be);
+                    });
+                    return listBE;
 
 
-        public static IdentityResult Role_AsignRules(AssignRulesToRoleModel model)
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static IdentityResult Role_AsignRules(AssignRulesToRoleModel model, string sec_provider )
         {
 
             IdentityResult result = null;
@@ -672,7 +729,7 @@ namespace Fwk.Security.Identity
 
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var role = db.SecurityRoles.Where(p => p.Name == model.roleName).FirstOrDefault();
 
@@ -720,11 +777,11 @@ namespace Fwk.Security.Identity
             throw new NotImplementedException();
         }
 
-        public static void Role_Create(SecurityRole rol)
+        public static void Role_Create(SecurityRole rol, string sec_provider )
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var exist = db.SecurityRoles.Any(p => p.Name == rol.Name);
                     if (exist)
@@ -752,13 +809,13 @@ namespace Fwk.Security.Identity
 
         #region -- rules -- 
 
-        public static SecurityRuleBEList Rule_getAll()
+        public static SecurityRuleBEList Rule_getAll( string sec_provider )
         {
             SecurityRuleBEList listBE = new SecurityRuleBEList();
             SecurityRuleBE be = new SecurityRuleBE();
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var list = db.SecurityRules;
                     list.ToList().ForEach(rc => {
@@ -781,12 +838,12 @@ namespace Fwk.Security.Identity
                 throw ex;
             }
         }
-        internal static bool Rule_check(string ruleName,string userName)
+        internal static bool Rule_check(string ruleName,string userName, string sec_provider )
         {
             
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = User_FindByName(userName,true);
 
@@ -809,11 +866,11 @@ namespace Fwk.Security.Identity
                 throw ex;
             }
         }
-        public static SecurityRule Rule_getByName(string name)
+        public static SecurityRule Rule_getByName(string name, string sec_provider )
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var rule = db.SecurityRules.Where(p => p.Name == name).FirstOrDefault();
                     if (rule == null)
@@ -834,11 +891,11 @@ namespace Fwk.Security.Identity
 
         }
         static Guid emptyGuid = new Guid("00000000-0000-0000-0000-000000000000");
-        public static void Rule_Create(SecurityRule rule)
+        public static void Rule_Create(SecurityRule rule, string sec_provider )
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var exist = db.SecurityRules.Any(p => p.Name == rule.Name);
                     if (exist)
@@ -861,11 +918,11 @@ namespace Fwk.Security.Identity
 
         }
 
-        internal static void Rule_Update(SecurityRuleBE rule, string securityProviderName)
+        internal static void Rule_Update(SecurityRuleBE rule, string sec_provider)
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var ruleDB = db.SecurityRules.Where(p => p.Id == rule.Id).FirstOrDefault();
                     if (ruleDB == null)
@@ -887,7 +944,7 @@ namespace Fwk.Security.Identity
                 throw ex;
             }
         }
-            public static IdentityResult Rule_AsignRoles(AssignRolesToRuleModel model)
+            public static IdentityResult Rule_AsignRoles(AssignRolesToRuleModel model, string sec_provider)
         {
 
             IdentityResult result = null;
@@ -895,7 +952,7 @@ namespace Fwk.Security.Identity
 
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var rule = db.SecurityRules.Where(p => p.Name == model.ruleName).FirstOrDefault();
 
@@ -941,13 +998,14 @@ namespace Fwk.Security.Identity
 
 
         #region -- Category -- 
-        public static SecurityRulesCategoryBEList RulesCategory_getAll()
+        public static SecurityRulesCategoryBEList RulesCategory_getAll(string sec_provider)
         {
             SecurityRulesCategoryBEList listBE = new SecurityRulesCategoryBEList();
             SecurityRulesCategoryBE be = new SecurityRulesCategoryBE();
+            
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var list = db.SecurityRulesCategories;
                     list.ToList().ForEach(rc=> {
@@ -970,11 +1028,11 @@ namespace Fwk.Security.Identity
                 throw ex;
             }
         }
-        public static void RuleCategory_Create(SecurityRulesCategory ruleCategory)
+        public static void RuleCategory_Create(SecurityRulesCategory ruleCategory, string sec_provider)
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var exist = db.SecurityRoles.Any(p => p.Name == ruleCategory.Name);
                     if (exist)
@@ -995,11 +1053,11 @@ namespace Fwk.Security.Identity
             }
 
         }
-        public static SecurityRulesCategory Category_getByName(string name)
+        public static SecurityRulesCategory Category_getByName(string name, string sec_provider)
         {
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var item = db.SecurityRulesCategories.Where(p => p.Name == name).FirstOrDefault();
                     if (item == null)
@@ -1019,8 +1077,17 @@ namespace Fwk.Security.Identity
             }
 
         }
+        public static void Category_Removee(Guid categoryId, string sec_provider)
+        {
 
-        public static IdentityResult Category_AsignRules(AssignRulesToCategoryModel model)
+           
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
+            {
+                var category = db.SecurityRulesCategories.Where(p => p.CategoryId == categoryId).FirstOrDefault();
+                db.SecurityRulesCategories.Remove(category);
+            }
+        }
+        public static IdentityResult Category_AsignRules(AssignRulesToCategoryModel model, string sec_provider)
         {
 
             IdentityResult result = null;
@@ -1028,7 +1095,7 @@ namespace Fwk.Security.Identity
 
             try
             {
-                using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var category = db.SecurityRulesCategories.Where(p => p.CategoryId == model.categoryId).FirstOrDefault();
 
@@ -1075,9 +1142,9 @@ namespace Fwk.Security.Identity
 
         #region Security Refresh Tokens
 
-        public static SecurityClient ClientFind(string clientId)
+        public static SecurityClient ClientFind(string clientId, string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 var client = db.SecurityClients.Find(clientId);
 
@@ -1092,14 +1159,14 @@ namespace Fwk.Security.Identity
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
-        public static async Task<bool> AddRefreshToken(SecurityRefreshToken token)
+        public static async Task<bool> AddRefreshToken(SecurityRefreshToken token, string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 var existingToken = db.SecurityRefreshTokens.Where(r => r.Subject == token.Subject && r.ClientId == token.ClientId).FirstOrDefault();
                 if (existingToken != null)
                 {
-                    var result = await RemoveRefreshToken(existingToken);
+                    var result = await RemoveRefreshToken(existingToken, sec_provider);
                 }
 
                 db.SecurityRefreshTokens.Add(token);
@@ -1111,9 +1178,9 @@ namespace Fwk.Security.Identity
 
         }
 
-        public static async Task<bool> RemoveRefreshToken(string refreshTokenId)
+        public static async Task<bool> RemoveRefreshToken(string refreshTokenId, string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 var refreshToken = await db.SecurityRefreshTokens.FindAsync(refreshTokenId);
 
@@ -1126,9 +1193,9 @@ namespace Fwk.Security.Identity
             return false;
         }
 
-        public static async Task<bool> RemoveRefreshToken(SecurityRefreshToken refreshToken)
+        public static async Task<bool> RemoveRefreshToken(SecurityRefreshToken refreshToken, string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 var refreshTokenToRemove = db.SecurityRefreshTokens.Where(p => refreshToken.Id == p.Id).FirstOrDefault();
                 db.SecurityRefreshTokens.Remove(refreshTokenToRemove);
@@ -1137,9 +1204,9 @@ namespace Fwk.Security.Identity
             }
         }
 
-        public static async Task<SecurityRefreshToken> FindRefreshToken(string refreshTokenId)
+        public static async Task<SecurityRefreshToken> FindRefreshToken(string refreshTokenId, string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 var refreshToken = await db.SecurityRefreshTokens.FindAsync(refreshTokenId);
 
@@ -1147,16 +1214,16 @@ namespace Fwk.Security.Identity
             }
         }
 
-        public static List<SecurityRefreshToken> GetAllRefreshTokens()
+        public static List<SecurityRefreshToken> GetAllRefreshTokens( string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 return db.SecurityRefreshTokens.ToList();
             }
         }
-        public static void ClientCreate(SecurityClient client)
+        public static void ClientCreate(SecurityClient client, string sec_provider)
         {
-            using (SecurityModelContext db = new SecurityModelContext(cnnStringName))
+            using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
             {
                 db.SecurityClients.Add(client); ;
                 db.SaveChanges();

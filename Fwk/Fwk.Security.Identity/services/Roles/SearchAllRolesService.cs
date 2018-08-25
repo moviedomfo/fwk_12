@@ -7,9 +7,7 @@ using Fwk.Bases;
 using Fwk.Security;
 using Fwk.Security.BE;
 using Fwk.Security.Identity.ISVC.SearchAllRoles;
-
-
-
+using Fwk.Security.Common;
 
 namespace Fwk.Security.Identity.SVC
 {
@@ -19,17 +17,12 @@ namespace Fwk.Security.Identity.SVC
         {
             SearchAllRolesRes wRes = new SearchAllRolesRes();
 
-       
-
              wRes.BusinessData = new Result();
+            
+            wRes.BusinessData.RolList = SecurityManager.Role_getAll(pServiceRequest.SecurityProviderName);
+           
 
-            if(string.IsNullOrEmpty( pServiceRequest.BusinessData.UserName))
-                wRes.BusinessData.RolList = FwkMembership.GetAllRoles_FullInfo(pServiceRequest.SecurityProviderName);
-            else
-                wRes.BusinessData.RolList = FwkMembership.GetAllRoles_FullInfo(pServiceRequest.BusinessData.UserName, pServiceRequest.SecurityProviderName);
-
-
-
+                
             return wRes;
         }
     }

@@ -281,8 +281,22 @@ namespace Fwk.Bases.Connector
             }
 
 
+            try
+            {
+                response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceAuthTokenResult);
+            }
+            catch
+            {
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
 
-            response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceAuthTokenResult);
+                response.Error = new ServiceError();
+           
+                response.Error.Message = wcfRes.ExecuteServiceAuthTokenResult;
+                response.InitializeHostContextInformation();
+                response.Error.Type = "TechnicalException";
+                return response;
+            }
+            
             //TResponse response = (TResponse)Fwk.HelperFunction    s.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wcfRes.ExecuteServiceResult);
             response.InitializeHostContextInformation();
             return response;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fwk.Bases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace Fwk.Security.Identity
 {
-    public class SecurityRoleBE
+    public class SecurityRoleBEList : BaseEntities<SecurityRoleBE>
+    {
+
+    }
+
+
+    public class SecurityRoleBE : BaseEntity
     {
         public Guid Id { get; set; }
         public String Description { get; set; }
