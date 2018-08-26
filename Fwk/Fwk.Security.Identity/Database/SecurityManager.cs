@@ -699,7 +699,7 @@ namespace Fwk.Security.Identity
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
-                    var list = db.SecurityRules;
+                    var list = db.SecurityRoles;
                     list.ToList().ForEach(rc => {
                         be = new SecurityRoleBE();
 
