@@ -38,8 +38,9 @@ namespace Fwk.Security.Identity.Providers
                 context.SetError("invalid_clientId", "Debe enviar el client_id");
                 return Task.FromResult<object>(null);
             }
-           
-                client = SecurityManager.ClientFind(context.ClientId);
+
+            //TODO: Fwk.Security.Identity revisar sec_prvider  OAuthAuthorizationServerProvider 
+            client = SecurityManager.ClientFind(context.ClientId, "");
             
            
 
@@ -106,8 +107,8 @@ namespace Fwk.Security.Identity.Providers
             // This dosn't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
             //var result = signInManager.PasswordSignIn<ApplicationUser, Guid>(context.UserName, context.Password, false, shouldLockout: false);
-
-            LoginResult res = SecurityManager.User_Authenticate(context.UserName, context.Password);
+            //TODO: Fwk.Security.Identity revisar sec_prvider  OAuthAuthorizationServerProvider 
+            LoginResult res = SecurityManager.User_Authenticate(context.UserName, context.Password, "");
             //context.SetError("invalid_grant", "LockedOut");
 
             SignInStatus s = (SignInStatus)Enum.Parse(typeof(SignInStatus), res.Status) ;

@@ -25,12 +25,12 @@ namespace Fwk.Security.Identity.SVC
     {
         public override SearchRolesForUserRes Execute(SearchRolesForUserReq pServiceRequest)
         {
-            SearchRolesForUserRes wRes = new SearchRolesForUserRes();
+            SearchRolesForUserRes res = new SearchRolesForUserRes();
      
 
-            wRes.BusinessData.RolList = FwkMembership.GetRolesForUser(pServiceRequest.BusinessData.Username, pServiceRequest.SecurityProviderName); 
+            res.BusinessData = SecurityManager.Roles_get_byUserNAme(pServiceRequest.BusinessData.Username, pServiceRequest.SecurityProviderName); 
             //Implement your code here
-            return wRes;
+            return res;
         }
     }
 }

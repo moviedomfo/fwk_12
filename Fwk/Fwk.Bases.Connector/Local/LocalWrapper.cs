@@ -303,7 +303,13 @@ namespace Fwk.Bases.Connector
                 _SimpleFacade = CreateSimpleFacade();
             return _SimpleFacade.RetriveDispatcherInfo();
         }
-
+        /// <summary>
+        /// Por el momento solo ejecura la misma ExecuteService
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public async  Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
@@ -314,12 +320,45 @@ namespace Fwk.Bases.Connector
 
             return response;
         }
-
+        /// <summary>
+        /// Por el momento solo ejecura la misma ExecuteService
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
-            throw new NotImplementedException();
+            
+            return ExecuteService<TRequest, TResponse>(req);
+            
+            //if (string.IsNullOrEmpty(req.ContextInformation.Token))
+            //{
+            //    throw new Fwk.Exceptions.TechnicalException("Se intento ejecutar un servicio que requiere autorización. El token de autorización no puede ser nulo., el nombre del servicio es [ExecuteServiceAuthToken]");
+            //}
+            //try
+            //{
+            //    //Aqui por ahora coinciden el nombre del proveedor de Metadata con el nombre del proveedor de seguridad
+            //    //bajo este esquema se hace mapeo uno a uno entre MetadataDeservicios y --> porveedor de seguridad 
+            //    //req.BusinessData.SecurityProviderName
+            //    //var sec_provider = Fwk.Security.Identity.helper.secConfig.GetByName(providerName);
+            //    //var issuer = sec_provider.issuer; 
+
+            //    CustomJwtFormat jwtFormat = new CustomJwtFormat(providerName);
+            //    AuthenticationTicket ticket = jwtFormat.Unprotect(token);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Excecuting svc " + serviceName + " auth_error :" + ex.Message);
+            //    return ex.Message;
+            //}
+
+            //Console.WriteLine("Excecuting svc " + serviceName + "  " + DateTime.Now.ToString());
+
+            //createSimpleFacade();
+            //return simpleFacade.ExecuteServiceJson(providerName, serviceName, jsonRequets, hostContext);
         }
 
 

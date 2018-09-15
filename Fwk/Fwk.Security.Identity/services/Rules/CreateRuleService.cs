@@ -30,7 +30,7 @@ namespace Fwk.Security.Identity.SVC
             secTule.Name = pServiceRequest.BusinessData.Name;
             secTule.Description = pServiceRequest.BusinessData.Description;
             
-            SecurityManager.Rule_Create (secTule);  
+            SecurityManager.Rule_Create (secTule, pServiceRequest.SecurityProviderName);  
             return wRes;
         }
     }

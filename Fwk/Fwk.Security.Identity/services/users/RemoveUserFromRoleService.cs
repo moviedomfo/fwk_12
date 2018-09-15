@@ -20,7 +20,7 @@ namespace Fwk.Security.Identity.SVC
 
 
             //FwkMembership.RemoveUserFromRole(pServiceRequest.BusinessData.UserName, pServiceRequest.BusinessData.RolName, pServiceRequest.SecurityProviderName);
-            SecurityManager.User_RemoveFromRole(pServiceRequest.BusinessData.UserName, pServiceRequest.BusinessData.RolName);
+            SecurityManager.User_RemoveFromRole(pServiceRequest.BusinessData.UserName, pServiceRequest.BusinessData.RolName,pServiceRequest.SecurityProviderName);
             return wRes;
         }
     }

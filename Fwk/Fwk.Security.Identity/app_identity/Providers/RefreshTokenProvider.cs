@@ -1,5 +1,4 @@
 ﻿using Fwk.Security.Identity;
-using Fwk.Security.Identity;
 using Microsoft.Owin.Security.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -40,7 +39,7 @@ namespace Fwk.Security.Identity.Providers
             token.ProtectedTicket = context.SerializeTicket();
 
 
-            var result = await SecurityManager.AddRefreshToken(token);
+            var result = await SecurityManager.AddRefreshToken(token,"");
 
             if (result)
             {
@@ -65,13 +64,13 @@ namespace Fwk.Security.Identity.Providers
             string hashedTokenId = helper.GetHash(context.Token);
 
 
-            var refreshToken = await SecurityManager.FindRefreshToken(hashedTokenId);
+            var refreshToken = await SecurityManager.FindRefreshToken(hashedTokenId,"");
 
             if (refreshToken != null)
             {
                 //Get protectedTicket from refreshToken class
                 context.DeserializeTicket(refreshToken.ProtectedTicket);
-                var result = await SecurityManager.RemoveRefreshToken(hashedTokenId);
+                var result = await SecurityManager.RemoveRefreshToken(hashedTokenId,"");
             }
 
         }

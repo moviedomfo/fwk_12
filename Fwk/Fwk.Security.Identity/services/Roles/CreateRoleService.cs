@@ -17,9 +17,13 @@ namespace Fwk.Security.Identity.SVC
             //if (string.IsNullOrEmpty(pServiceRequest.BusinessData.ApplicationName))
             //    pServiceRequest.BusinessData.ApplicationName = Membership.ApplicationName;
 
-            FwkMembership.CreateRole(pServiceRequest.BusinessData.Rol.RolName,
-                pServiceRequest.BusinessData.Rol.Description, 
-                pServiceRequest.SecurityProviderName);
+            SecurityRole secRole = new SecurityRole();
+
+            secRole.Description = pServiceRequest.BusinessData.Rol.Description;
+            secRole.Name = pServiceRequest.BusinessData.Rol.RolName;
+            secRole.Description = pServiceRequest.BusinessData.Rol.Description;
+            SecurityManager.Role_Create(secRole, pServiceRequest.SecurityProviderName);
+           
             return wRes;
         }
     }

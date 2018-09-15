@@ -5,7 +5,7 @@ using Fwk.Bases;
 using Fwk.Security.BE;
 using Fwk.Security;
 using Fwk.Security.Identity.ISVC.SearchRulesCategoryByParam;
-
+using Fwk.Exceptions;
 
 namespace Fwk.Security.Identity.SVC
 {
@@ -19,10 +19,10 @@ namespace Fwk.Security.Identity.SVC
         public override SearchRulesCategoryByParamRes Execute(SearchRulesCategoryByParamReq pServiceRequest)
         {
             SearchRulesCategoryByParamRes wRes = new SearchRulesCategoryByParamRes();
-        
+
             //wRes.BusinessData = FwkMembership.GetAllCategories(pServiceRequest.SecurityProviderName);
-            
-        
+            throw new FunctionalException("Este servicio no esta implementado para  Fwk.Security.Identity");
+
             return wRes;
         }
     }

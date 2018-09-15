@@ -512,7 +512,7 @@ namespace Fwk.BusinessFacades.Utils
             {
                 System.Text.StringBuilder wMessage = new StringBuilder();
 
-                wMessage.Append("Verifique que este assemblie se encuentra en el host del despachador de servicios");
+                wMessage.Append("Verifique que este assembly se encuentra en el host del despachador de servicios");
                 wMessage.Append("El servicio " + pServiceConfiguration.Handler);
                 wMessage.AppendLine(" no se puede ejecutar debido a que esta faltando el assembly ");
                 wMessage.Append(pServiceConfiguration.Request);

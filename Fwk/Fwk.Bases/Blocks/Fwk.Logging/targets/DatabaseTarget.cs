@@ -3,7 +3,6 @@ using System.Text;
 using System.Data.Common;
 using System.Globalization;
 using System.Collections.Generic;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using Fwk.Exceptions;
 using System.Data;
 using System.Data.SqlClient;

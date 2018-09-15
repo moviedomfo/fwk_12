@@ -126,8 +126,8 @@ namespace Fwk.Bases.Connector
             TResponse response;
             req.InitializeHostContextInformation();
 
-            req.ContextInformation.Token = this.Token;
-            req.ContextInformation.RefreshToken = this.RefreshToken;
+            req.ContextInformation.Token = req.ContextInformation.Token;
+            req.ContextInformation.RefreshToken = req.ContextInformation.RefreshToken;
 
             ExecuteServiceRequest wcfReq = new ExecuteServiceRequest();
             ExecuteServiceResponse wcfRes = null;
@@ -159,6 +159,7 @@ namespace Fwk.Bases.Connector
 
                 response.Error = new ServiceError();
                 response.Error.Class = "WCFRrapperBase";
+                response.Error.Type = "TechnicalException";
                 response.Error.Message = smEx.Message;
                
                 var detail = ((FaultException<System.ServiceModel.ExceptionDetail>)smEx).Detail;
@@ -185,6 +186,7 @@ namespace Fwk.Bases.Connector
 
                 response.Error = new ServiceError();
                 response.Error.Class = "WCFRrapperBase";
+                response.Error.Type = "TechnicalException";
                 response.Error.Message = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
                 response.InitializeHostContextInformation();
 
@@ -215,25 +217,21 @@ namespace Fwk.Bases.Connector
             InitilaizeBinding();
             TResponse response;
             req.InitializeHostContextInformation();
-
-
-
             
             ExecuteServiceAuthTokenRequest wcfReq = new ExecuteServiceAuthTokenRequest();
             ExecuteServiceAuthTokenResponse wcfRes = null;
             
             wcfReq.serviceName = req.ServiceName;
             wcfReq.providerName = _ServiceMetadataProviderName;
+            wcfReq.token = req.ContextInformation.Token;
+            //wcfReq.RefreshToken = req.ContextInformation.RefreshToken;
             wcfReq.jsonRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson<TRequest>(req);
-            //wcfReq.xmlRequets = Fwk.HelperFunctions.SerializationFunctions.SerializeToXml(req);
-
 
             var channelFactory = new ChannelFactory<IFwkService>(binding, address);
 
             IFwkService client = null;
             try
             {
-
                 client = channelFactory.CreateChannel();
 
                 wcfRes = client.ExecuteServiceAuthToken(wcfReq);
@@ -251,7 +249,7 @@ namespace Fwk.Bases.Connector
                 response.Error = new ServiceError();
                 response.Error.Class = "WCFRrapperBase";
                 response.Error.Message = smEx.Message;
-
+                response.Error.Type = "TechnicalException";
                 var detail = ((FaultException<System.ServiceModel.ExceptionDetail>)smEx).Detail;
                 if (detail != null)
                 {
@@ -278,13 +276,27 @@ namespace Fwk.Bases.Connector
                 response.Error.Class = "WCFRrapperBase";
                 response.Error.Message = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex);
                 response.InitializeHostContextInformation();
-
+                response.Error.Type = "TechnicalException";
                 return response;
             }
 
 
+            try
+            {
+                response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceAuthTokenResult);
+            }
+            catch
+            {
+                response = (TResponse)Fwk.HelperFunctions.ReflectionFunctions.CreateInstance<TResponse>();
 
-            response = (TResponse)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson<TResponse>(wcfRes.ExecuteServiceAuthTokenResult);
+                response.Error = new ServiceError();
+           
+                response.Error.Message = wcfRes.ExecuteServiceAuthTokenResult;
+                response.InitializeHostContextInformation();
+                response.Error.Type = "TechnicalException";
+                return response;
+            }
+            
             //TResponse response = (TResponse)Fwk.HelperFunction    s.SerializationFunctions.DeserializeFromXml(typeof(TResponse), wcfRes.ExecuteServiceResult);
             response.InitializeHostContextInformation();
             return response;

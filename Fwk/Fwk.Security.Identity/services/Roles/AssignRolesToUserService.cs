@@ -26,7 +26,7 @@ namespace Fwk.Security.Identity.SVC
 
             });
 
-            SecurityManager.User_AsignRoles(model);
+            SecurityManager.User_AsignRoles(model,req.SecurityProviderName);
             //Implement your code here
             return wRes;
         }

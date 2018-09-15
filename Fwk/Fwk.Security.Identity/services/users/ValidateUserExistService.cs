@@ -17,7 +17,7 @@ namespace Fwk.Security.Identity.SVC
             
             //solo para case AuthenticationModeEnum.ASPNETMemberShips:
   
-            wRes.BusinessData.Exist = SecurityManager.User_Exist(pServiceRequest.BusinessData.UserName);
+            wRes.BusinessData.Exist = SecurityManager.User_Exist(pServiceRequest.BusinessData.UserName, pServiceRequest.SecurityProviderName);
             return wRes;
         }
     }

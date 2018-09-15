@@ -8,6 +8,9 @@ using System.IdentityModel.Tokens;
 using Thinktecture.IdentityModel.Tokens;
 using System.ServiceModel.Security.Tokens;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Fwk.Security.Identity.Providers
 {
@@ -18,8 +21,16 @@ namespace Fwk.Security.Identity.Providers
         private readonly provider sec_provider = null;
         public CustomJwtFormat(string providerName)
         {
-            
-            sec_provider = helper.secConfig.GetByName(providerName);
+            try
+            {
+                sec_provider = helper.get_secConfig().GetByName(providerName);
+            }
+            catch(Exception ex)
+            {
+                throw new Fwk.Exceptions.TechnicalException(ex.Message);
+            }
+            if (sec_provider == null)
+                throw new Fwk.Exceptions.TechnicalException("No existe el proveedor de seguridad " + providerName);
             _issuer = sec_provider.issuer;
         }
 
@@ -30,15 +41,13 @@ namespace Fwk.Security.Identity.Providers
 
             
             string audienceId = sec_provider.audienceId;//ConfigurationManager.AppSettings["audienceId"];
-
             string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
-
             var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
-          
-            var signingKey = new HmacSigningCredentials(keyByteArray);
-            //var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
-            //var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
-          
+
+            
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
+            var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
             var issuedAt = data.Properties.IssuedUtc;
             var expires = data.Properties.ExpiresUtc;
 
@@ -63,24 +72,30 @@ namespace Fwk.Security.Identity.Providers
         public AuthenticationTicket Unprotect(string protectedText)
         {
 
-
+            Microsoft.IdentityModel.Tokens.SecurityToken validatedToken;
             if (string.IsNullOrWhiteSpace(protectedText))
             {
                 throw new ArgumentNullException("protectedText");
             }
-            string audienceId = sec_provider.audienceId;// ConfigurationManager.AppSettings["audienceId"];
-            string symmetricKeyAsBase64 = sec_provider.audienceSecret;// ConfigurationManager.AppSettings["audienceSecret"];
+            string audienceId = sec_provider.audienceId;
+            string symmetricKeyAsBase64 = sec_provider.audienceSecret;
             var tokenHandler = new JwtSecurityTokenHandler();
-          
-            SecurityToken validatedToken;
-            
+
+
+
 
             var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+            var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(keyByteArray);
+            var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
+            //var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(sec_provider.audienceSecret));
+            //var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
 
             //TODO : CustomJwtFormat Esta lista de issuers debe ser flexible
             ///Establezco los issuers validos
             var issuers = new List<string>()
                 {
+                    "pelsoft",
                     "issuerA",
                     "issuerB",
                      "http://localhost:63251"
@@ -89,7 +104,7 @@ namespace Fwk.Security.Identity.Providers
             var validationParams = new TokenValidationParameters()
             {
 
-                ValidAudience = audienceId,
+                ValidAudience = sec_provider.audienceId,
                 ValidIssuers = issuers,
                 ValidateLifetime = true,
                 ValidateAudience = true,
@@ -97,14 +112,16 @@ namespace Fwk.Security.Identity.Providers
                 RequireSignedTokens = true,
                 RequireExpirationTime = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningToken = new BinarySecretSecurityToken(keyByteArray)
+                ClockSkew = TimeSpan.Zero,
+                //IssuerSigningKeys = DefaultX509Key_Public_2048
+                IssuerSigningKey = signingCredentials.Key
             };
             try
             {
                 var principal = tokenHandler.ValidateToken(protectedText, validationParams, out validatedToken);
 
 
-                var identity = principal.Identities;
+                var identity = principal.Identities.First();
 
                 // Fill out the authenticationProperties issued and expires times if the equivalent claims are in the JWT
                 var authenticationProperties = new AuthenticationProperties();
@@ -120,7 +137,7 @@ namespace Fwk.Security.Identity.Providers
                     authenticationProperties.ExpiresUtc = validatedToken.ValidTo.ToUniversalTime();
                 }
 
-                return new AuthenticationTicket(identity.First(), authenticationProperties);
+                return new AuthenticationTicket(identity, authenticationProperties);
             }
             catch (Exception ex)
             {
