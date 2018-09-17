@@ -18,15 +18,7 @@ namespace Fwk.Bases.Connector
 	/// <author>moviedo</author>
 	public class WebServiceWrapper : IServiceWrapper
 	{
-        /// <summary>
-        /// JWT or any other token type
-        /// </summary>
-        public string Token { get; set; }
-
-        /// <summary>
-        /// RefreshToken
-        /// </summary>
-        public string RefreshToken { get; set; }
+       
         string _ProviderName = string.Empty;
 
         /// <summary>
@@ -166,8 +158,7 @@ namespace Fwk.Bases.Connector
             {
                 pReq.InitializeHostContextInformation();
 
-                pReq.ContextInformation.Token = this.Token;
-                pReq.ContextInformation.RefreshToken = this.RefreshToken;
+                
                 string wResult = ExecuteService( pReq.ServiceName, pReq.GetXml());
                 //wResponse.SetXml(wResult);
                 //16/05/2012 Se deja esta serializacion se comenta la anterior

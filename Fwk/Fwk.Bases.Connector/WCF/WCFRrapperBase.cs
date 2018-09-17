@@ -33,15 +33,7 @@ namespace Fwk.Bases.Connector
         }
 
 
-        /// <summary>
-        /// JWT or any other token type
-        /// </summary>
-        public string Token { get; set; }
-
-        /// <summary>
-        /// RefreshToken
-        /// </summary>
-        public string RefreshToken { get; set; }
+     
 
 
         /// <summary>

@@ -16,15 +16,7 @@ namespace Fwk.Bases.Connector
     public class LocalWrapper : IServiceWrapper
     {
         #region properties
-        /// <summary>
-        /// JWT or any other token type
-        /// </summary>
-        public string Token { get; set; }
-
-        /// <summary>
-        /// RefreshToken
-        /// </summary>
-        public string RefreshToken { get; set; }
+       
         SimpleFacade _SimpleFacade;
 
         string _ProviderName;
@@ -95,8 +87,7 @@ namespace Fwk.Bases.Connector
 
             pReq.InitializeHostContextInformation();
 
-            pReq.ContextInformation.Token = this.Token;
-            pReq.ContextInformation.RefreshToken = this.RefreshToken;
+     
 
             IServiceContract wResponse = _SimpleFacade.ExecuteService(_ServiceMetadataProviderName, pReq);
             //wResponse.InitializeHostContextInformation();

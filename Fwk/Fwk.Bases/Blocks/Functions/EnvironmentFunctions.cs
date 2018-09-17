@@ -70,6 +70,11 @@ namespace Fwk.HelperFunctions
         {
             return (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime ) ? true:false;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static string GetMachineIp()
         {
             IPHostEntry ipEntry = Dns.GetHostEntry(Dns.GetHostName());

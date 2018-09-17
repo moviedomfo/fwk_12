@@ -14,13 +14,12 @@ namespace Fwk.HelperFunctions
     /// </summary>
     public class ExportFunctions
     {
-        //<summary>
-        //Crea un archivo xml q pueda abrirse con excel
-        //''' </summary>
-        //''' <history>
-        //''' 	Author:moviedo
-        //''' 	Date:14/03/2007(Created)
-        //''' </history>
+        /// <summary>
+        /// Crea un archivo xml q pueda abrirse con excel
+        /// </summary>
+        /// <param name="pdt_Origen"></param>
+        /// <param name="psz_NombreTab"></param>
+        /// <returns></returns>
         public static bool ExportToExcel(DataTable pdt_Origen, string psz_NombreTab)
         {
             try

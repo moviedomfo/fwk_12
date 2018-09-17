@@ -598,7 +598,7 @@ namespace Fwk.HelperFunctions
 
         /// <summary>
         /// Toma los elementos de entityCollection y los agrega a la coleccion IEnumerable
-        /// Toma una colección Ienumerable y retorna una colección Entities<TEntity>
+        /// Toma una colección Ienumerable y retorna una colección Entities
         ///
         /// 
         /// </summary>

@@ -18,15 +18,9 @@ namespace Fwk.Bases
     /// <author>moviedo</author>
 	public interface IServiceWrapper
 	{
-        /// <summary>
-        /// 
-        /// </summary>
-        string Token { get; set; }
+      
 
-        /// <summary>
-        /// 
-        /// </summary>
-        string RefreshToken { get; set; }
+   
 
         /// <summary>
         /// Proveedor del wrapper. Este valor debe coincidir con un proveedor de metadata en el dispatcher

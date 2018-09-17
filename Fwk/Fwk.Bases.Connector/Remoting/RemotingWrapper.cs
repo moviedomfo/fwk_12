@@ -19,15 +19,8 @@ namespace Fwk.Bases.Connector
     [Serializable]
     public class RemotingWrapper :IServiceWrapper
     {
-        /// <summary>
-        /// JWT or any other token type
-        /// </summary>
-        public string Token { get; set; }
-
-        /// <summary>
-        /// RefreshToken
-        /// </summary>
-        public string RefreshToken { get; set; }
+     
+      
 
         string remotingUrl;
         internal string RemotingUrl { get {return  remotingUrl; } }
@@ -132,9 +125,6 @@ namespace Fwk.Bases.Connector
             try
             {
                 req.InitializeHostContextInformation();
-
-                req.ContextInformation.Token = this.Token;
-                req.ContextInformation.RefreshToken = this.RefreshToken;
 
                 response = (TResponse)wFwkRemoteObject.ExecuteService(_ServiceMetadataProviderName, req);
                 response.InitializeHostContextInformation();

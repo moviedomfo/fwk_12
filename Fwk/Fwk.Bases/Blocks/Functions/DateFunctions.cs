@@ -279,7 +279,7 @@ namespace Fwk.HelperFunctions
         /// Convierte UnixTimeStamp a DateTime Retorna la fecha correspondiente de un 
         /// acumulado en segundos desde desde 1-ENE-1970 a su fecha correspondiente
         /// </summary>
-        /// <param name="unixtimestamp">Total acumulado en segundo desde 1-ENE-1970 (intervalo en segundos)</param>
+        /// <param name="unixTimeStamp">Total acumulado en segundo desde 1-ENE-1970 (intervalo en segundos)</param>
         /// <returns>Fecha</returns>
         public static DateTime UnixTimeStampToDateTime(Int64 unixTimeStamp)
         {

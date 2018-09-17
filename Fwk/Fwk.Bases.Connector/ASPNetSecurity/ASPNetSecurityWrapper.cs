@@ -17,15 +17,7 @@ namespace Fwk.Bases.Connector
 	/// <author>moviedo</author>
     public class ASPNetSecurityWrapper : IServiceWrapper
 	{
-        /// <summary>
-        /// JWT or any other token type
-        /// </summary>
-        public string Token { get; set; }
-
-        /// <summary>
-        /// RefreshToken
-        /// </summary>
-        public string RefreshToken { get; set; }
+      
 
         string _ProviderName = string.Empty;
 
@@ -179,8 +171,7 @@ namespace Fwk.Bases.Connector
             {
                 pReq.InitializeHostContextInformation();
 
-                pReq.ContextInformation.Token = this.Token;
-                pReq.ContextInformation.RefreshToken = this.RefreshToken;
+       
 
                 string wResult = ExecuteService( pReq.ServiceName, pReq.GetXml());
                 //wResponse.SetXml(wResult);
@@ -369,25 +360,47 @@ namespace Fwk.Bases.Connector
 
         #region IServiceWrapper Members
 
-
+        /// <summary>
+        /// NotImplementedException
+        /// </summary>
+        /// <returns></returns>
         public DispatcherInfo RetriveDispatcherInfo()
         {
             throw new NotImplementedException();
         }
 
-        public  Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
+        /// <summary>
+        /// NotImplementedException
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public Task<TResponse> ExecuteServiceAsync<TRequest, TResponse>(TRequest req) where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public Task<TResponse> ExecuteServiceAuthTokenAsync<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// NotImplementedException
+        /// </summary>
+        /// <typeparam name="TRequest"></typeparam>
+        /// <typeparam name="TResponse"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public TResponse ExecuteServiceAuthToken<TRequest, TResponse>(TRequest req)
             where TRequest : IServiceContract
             where TResponse : IServiceContract, new()
