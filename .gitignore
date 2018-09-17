@@ -893,9 +893,13 @@ Dispatchers/WcfDispatcher/.vs/WcfDispatcher/v15/Server/sqlite3/storage.ide
 Dispatchers/WcfDispatcher/.vs/WcfDispatcher/v15/Server/sqlite3/db.lock
 Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/Server/sqlite3/storage.ide
 Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/Server/sqlite3/db.lock
+<<<<<<< HEAD
 Fwk/Fwk.Bases.Connector/Fwk.Bases.Connector.csproj.user
 Fwk/.vs/FwkRelease/v15/.suo
 Fwk/.vs/Fwk/v15/.suo
 Dispatchers/WcfDispatcher/.vs/WcfDispatcher/v15/.suo
 Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/.suo
 .vs/FwkCompile/v15/.suo
+=======
+Fwk/.vs/Fwk/v15/.suo
+>>>>>>> dd44ed2d43b38f6fb55d746f1bdfe12b6d9f7eb8
