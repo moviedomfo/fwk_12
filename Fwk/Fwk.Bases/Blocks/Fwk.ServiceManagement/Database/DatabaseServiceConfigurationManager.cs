@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 
 using Fwk.Transaction;
-using Microsoft.Practices.EnterpriseLibrary.Data;
 using Fwk.Bases;
 using System.Data;
 using Fwk.Exceptions;
@@ -35,31 +34,30 @@ namespace Fwk.ServiceManagement
         internal static ServiceConfiguration GetServiceConfiguration(string serviceName, string applicationId, string cnnString)
         {
             ServiceConfiguration wServiceConfiguration = null; ;
-
-          
             try
             {
-                Database wBPConfig = DatabaseFactory.CreateDatabase(cnnString);
-                System.Data.Common.DbCommand dbCommand = wBPConfig.GetStoredProcCommand("fwk_Service_g_Name");
-                wBPConfig.AddInParameter(dbCommand, "Name", System.Data.DbType.String, serviceName);
-                if (!string.IsNullOrEmpty(applicationId))
-                    wBPConfig.AddInParameter(dbCommand, "ApplicationId", System.Data.DbType.String, applicationId);
-
-
-                using (IDataReader dataReader = wBPConfig.ExecuteReader(dbCommand))
+                using (SqlConnection cnn = new SqlConnection(cnnString))
+                using (SqlCommand cmd = new SqlCommand("[fwk_Service_g_Name]", cnn))
                 {
-                    while (dataReader.Read())
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    if (!string.IsNullOrEmpty(applicationId))
+                        cmd.Parameters.AddWithValue("@ApplicationId", applicationId);
+
+                    cnn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        wServiceConfiguration = GetServiceConfigurationFromRow(dataReader);
+                        while (reader.Read())
+                        {
+                            wServiceConfiguration = GetServiceConfigurationFromRow(reader);
+                        }
                     }
-
-
                     if (wServiceConfiguration == null)
-                    {
-                        throw new Fwk.Exceptions.TechnicalException(string.Concat("El servicio " , serviceName , " no se encuentra configurado."));
-                    }
-
+                       throw new Fwk.Exceptions.TechnicalException(string.Concat("El servicio ", serviceName, " no se encuentra configurado."));
+                    
                 }
+
+  
             }
             catch (Exception ex)
             {
@@ -79,26 +77,30 @@ namespace Fwk.ServiceManagement
         /// <param name="cnnString">Nombre de cadena de conexion</param>
 		/// <returns>Lista de configuraciones de servicios de negocio.</returns>
         internal static ServiceConfigurationCollection GetAllServices(string applicationId, string cnnString)
-		{
-          
-         
-			ServiceConfigurationCollection wServiceConfigurationCollection = new ServiceConfigurationCollection();
-            
+        {
+            ServiceConfigurationCollection wServiceConfigurationCollection = new ServiceConfigurationCollection();
+
             try
             {
-                Database wBPConfig = DatabaseFactory.CreateDatabase(cnnString);
-                System.Data.Common.DbCommand dbCommand = wBPConfig.GetStoredProcCommand("fwk_Service_s_All");
-                if (!string.IsNullOrEmpty(applicationId))
-                    wBPConfig.AddInParameter(dbCommand, "ApplicationId", System.Data.DbType.String, applicationId);
-
-                using (IDataReader dataReader = wBPConfig.ExecuteReader(dbCommand))
+                using (SqlConnection cnn = new SqlConnection(cnnString))
+                using (SqlCommand cmd = new SqlCommand("[fwk_Service_s_All]", cnn))
                 {
-                    while (dataReader.Read())
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    if (!string.IsNullOrEmpty(applicationId))
+                        cmd.Parameters.AddWithValue("@ApplicationId", applicationId);
+
+                    cnn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        ServiceConfiguration wServiceConfiguration = GetServiceConfigurationFromRow(dataReader);
-                        wServiceConfigurationCollection.Add(wServiceConfiguration);
+                        while (reader.Read())
+                        {
+                            ServiceConfiguration wServiceConfiguration = GetServiceConfigurationFromRow(reader);
+                            wServiceConfigurationCollection.Add(wServiceConfiguration);
+                        }
                     }
+
                 }
+
             }
             catch (Exception ex)
             {
@@ -108,8 +110,8 @@ namespace Fwk.ServiceManagement
                 throw te;
 
             }
-			return wServiceConfigurationCollection;
-		}
+            return wServiceConfigurationCollection;
+        }
 
        
 		/// <summary>
@@ -131,31 +133,28 @@ namespace Fwk.ServiceManagement
             }
             try
             {
-                Database wBPConfig = DatabaseFactory.CreateDatabase(cnnString);
-
-                using (System.Data.Common.DbCommand wCmd = wBPConfig.GetStoredProcCommand("fwk_Service_u"))
+                 using (SqlConnection cnn = new SqlConnection(cnnString))
+                 using (SqlCommand cmd = new SqlCommand("[fwk_Service_u]", cnn))
                 {
-
-                    wBPConfig.AddInParameter(wCmd, "UpdateServiceName", System.Data.DbType.String, serviceName);
-                    wBPConfig.AddInParameter(wCmd, "Name", System.Data.DbType.String, pServiceConfiguration.Name);
-                    wBPConfig.AddInParameter(wCmd, "Description", System.Data.DbType.String, pServiceConfiguration.Description);
-                    wBPConfig.AddInParameter(wCmd, "Handler", System.Data.DbType.String, pServiceConfiguration.Handler);
-                    wBPConfig.AddInParameter(wCmd, "Request", System.Data.DbType.String, pServiceConfiguration.Request);
-                    wBPConfig.AddInParameter(wCmd, "Response", System.Data.DbType.String, pServiceConfiguration.Response);
-                    wBPConfig.AddInParameter(wCmd, "Available", System.Data.DbType.String, pServiceConfiguration.Available);
-                    wBPConfig.AddInParameter(wCmd, "Audit", System.Data.DbType.String, pServiceConfiguration.Audit);
-                    wBPConfig.AddInParameter(wCmd, "TransactionalBehaviour", System.Data.DbType.String, Enum.GetName(typeof(TransactionalBehaviour), pServiceConfiguration.TransactionalBehaviour));
-                    wBPConfig.AddInParameter(wCmd, "IsolationLevel", System.Data.DbType.String, Enum.GetName(typeof(Fwk.Transaction.IsolationLevel), pServiceConfiguration.IsolationLevel));
-                    wBPConfig.AddInParameter(wCmd, "ApplicationId", System.Data.DbType.String, pServiceConfiguration.ApplicationId);
-                    wBPConfig.AddInParameter(wCmd, "CreatedUserName", System.Data.DbType.String, pServiceConfiguration.CreatedUserName);
-
-
-             
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UpdateServiceName", serviceName);
+                    cmd.Parameters.AddWithValue("@Name", pServiceConfiguration.Name);
+                    cmd.Parameters.AddWithValue("@Description", pServiceConfiguration.Description);
+                    cmd.Parameters.AddWithValue("@Handler", pServiceConfiguration.Handler);
+                    cmd.Parameters.AddWithValue("@Request", pServiceConfiguration.Request);
+                    cmd.Parameters.AddWithValue("@Response", pServiceConfiguration.Response);
+                    cmd.Parameters.AddWithValue("@Available", pServiceConfiguration.Available);
+                    cmd.Parameters.AddWithValue("@Audit", pServiceConfiguration.Audit);
+                    cmd.Parameters.AddWithValue("@TransactionalBehaviour", pServiceConfiguration.TransactionalBehaviour);
+                    cmd.Parameters.AddWithValue("@IsolationLevel", pServiceConfiguration.IsolationLevel);
+                    cmd.Parameters.AddWithValue("@Name", pServiceConfiguration.Name);
+                    cmd.Parameters.AddWithValue("@ApplicationId", pServiceConfiguration.ApplicationId);
+                    cmd.Parameters.AddWithValue("@CreatedUserName", pServiceConfiguration.CreatedUserName);
 
                     if (Fwk.HelperFunctions.DateFunctions.IsSqlDateTimeOutOverflow(pServiceConfiguration.CreatedDateTime) == false)
-                        wBPConfig.AddInParameter(wCmd, "CreatedDateTime", System.Data.DbType.DateTime, pServiceConfiguration.CreatedDateTime);
-
-                    int wAffected = wBPConfig.ExecuteNonQuery(wCmd);
+                        cmd.Parameters.AddWithValue("@CreatedDateTime", pServiceConfiguration.CreatedDateTime);
+                    cnn.Open();
+                    int wAffected = cmd.ExecuteNonQuery();
 
                     if (wAffected == 0)
                     {
@@ -190,29 +189,27 @@ namespace Fwk.ServiceManagement
 
             try
             {
-                Database wBPConfig = DatabaseFactory.CreateDatabase(cnnString);
-
-                using (System.Data.Common.DbCommand wCmd = wBPConfig.GetStoredProcCommand("fwk_Service_i"))
+                 using (SqlConnection cnn = new SqlConnection(cnnString))
+                 using (SqlCommand cmd = new SqlCommand("[fwk_Service_i]", cnn))
                 {
-                    wBPConfig.AddInParameter(wCmd, "Name", System.Data.DbType.String, pServiceConfiguration.Name);
-                    wBPConfig.AddInParameter(wCmd, "Description", System.Data.DbType.String, pServiceConfiguration.Description);
-                    wBPConfig.AddInParameter(wCmd, "Handler", System.Data.DbType.String, pServiceConfiguration.Handler);
-                    wBPConfig.AddInParameter(wCmd, "Request", System.Data.DbType.String, pServiceConfiguration.Request);
-                    wBPConfig.AddInParameter(wCmd, "Response", System.Data.DbType.String, pServiceConfiguration.Response);
-                    wBPConfig.AddInParameter(wCmd, "Available", System.Data.DbType.String, pServiceConfiguration.Available);
-                    wBPConfig.AddInParameter(wCmd, "Audit", System.Data.DbType.String, pServiceConfiguration.Audit);
-                    wBPConfig.AddInParameter(wCmd, "TransactionalBehaviour", System.Data.DbType.String, Enum.GetName(typeof(TransactionalBehaviour), pServiceConfiguration.TransactionalBehaviour));
-                    wBPConfig.AddInParameter(wCmd, "IsolationLevel", System.Data.DbType.String, Enum.GetName(typeof(Fwk.Transaction.IsolationLevel), pServiceConfiguration.IsolationLevel));
-
-                    wBPConfig.AddInParameter(wCmd, "ApplicationId", System.Data.DbType.String, pServiceConfiguration.ApplicationId);
-                    wBPConfig.AddInParameter(wCmd, "CreatedUserName", System.Data.DbType.String, pServiceConfiguration.CreatedUserName);
-
-                   
-
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+   
+                    cmd.Parameters.AddWithValue("@Name", pServiceConfiguration.Name);
+                    cmd.Parameters.AddWithValue("@Description", pServiceConfiguration.Description);
+                    cmd.Parameters.AddWithValue("@Handler", pServiceConfiguration.Handler);
+                    cmd.Parameters.AddWithValue("@Request", pServiceConfiguration.Request);
+                    cmd.Parameters.AddWithValue("@Response", pServiceConfiguration.Response);
+                    cmd.Parameters.AddWithValue("@Available", pServiceConfiguration.Available);
+                    cmd.Parameters.AddWithValue("@Audit", pServiceConfiguration.Audit);
+                    cmd.Parameters.AddWithValue("@TransactionalBehaviour", pServiceConfiguration.TransactionalBehaviour);
+                    cmd.Parameters.AddWithValue("@IsolationLevel", pServiceConfiguration.IsolationLevel);
+                    cmd.Parameters.AddWithValue("@ApplicationId", pServiceConfiguration.ApplicationId);
+                    cmd.Parameters.AddWithValue("@CreatedUserName", pServiceConfiguration.CreatedUserName);
                     if (Fwk.HelperFunctions.DateFunctions.IsSqlDateTimeOutOverflow(pServiceConfiguration.CreatedDateTime) == false)
-                        wBPConfig.AddInParameter(wCmd, "CreatedDateTime", System.Data.DbType.DateTime, pServiceConfiguration.CreatedDateTime);
+                        cmd.Parameters.AddWithValue("@CreatedDateTime", pServiceConfiguration.CreatedDateTime);
 
-                    wBPConfig.ExecuteNonQuery(wCmd);
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
@@ -244,23 +241,26 @@ namespace Fwk.ServiceManagement
 
             try
             {
-                Database wBPConfig = DatabaseFactory.CreateDatabase(cnnString);
-
-                using (System.Data.Common.DbCommand wCmd = wBPConfig.GetStoredProcCommand("fwk_Service_d"))
+                using (SqlConnection cnn = new SqlConnection(cnnString))
+                using (SqlCommand cmd = new SqlCommand("[fwk_Service_d]", cnn))
                 {
-                    wBPConfig.AddInParameter(wCmd, "Name", System.Data.DbType.String, serviceName);
-
-                    int wAffected = wBPConfig.ExecuteNonQuery(wCmd);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    SqlParameter param = new SqlParameter("@Name", System.Data.SqlDbType.VarChar);
+                    param.Value = serviceName;
+                    cmd.Parameters.Add(param);
+                    cnn.Open();
+                    var wAffected = cmd.ExecuteNonQuery();
 
                     if (wAffected == 0)
                     {
-                      
-                        TechnicalException te = new TechnicalException(string.Concat("El servicio " , serviceName , " no se eliminó por no encontrarse configurado."));
+
+                        TechnicalException te = new TechnicalException(string.Concat("El servicio ", serviceName, " no se eliminó por no encontrarse configurado."));
                         ExceptionHelper.SetTechnicalException<DatabaseServiceConfigurationManager>(te);
                         te.ErrorId = "7002";
                         throw te;
                     }
                 }
+
             }
             catch (Exception ex)
             {

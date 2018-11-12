@@ -20,11 +20,11 @@ namespace Fwk.Security.ActiveDirectory.Test
         void Connect()
         {
             ///172.22.12.110
-            ADWrapper _ADHelper = new ADWrapper("LDAP://PC1.Pelsoft.es/DC=Pelsoft,DC=ar", "moviedo", "xxxxxx");
+            ADWrapper _ADWrapper = new ADWrapper("LDAP://PC1.Pelsoft.es/DC=Pelsoft,DC=ar", "moviedo", "xxxxxx");
 
-            _ADHelper.User_Get_ByName("moviedo");
+            _ADWrapper.User_Get_ByName("moviedo");
 
-            _ADHelper.User_ChangeEmail("moviedo","marcelo.oviedo@gmail.com.ar");
+            _ADWrapper.User_ChangeEmail("moviedo","marcelo.oviedo@gmail.com.ar");
 
         }
 

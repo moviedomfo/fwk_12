@@ -7,26 +7,26 @@ namespace Fwk.Security.ActiveDirectory.Test
 {
     internal class StaticAD
     {
-        //static Fwk.Bases.SingletonFactory<ADHelper> factory = null;
+        //static Fwk.Bases.SingletonFactory<ADWrapper> factory = null;
 
-        static ADWrapper _ADHelper;
+        static ADWrapper _ADWrapper;
 
-        internal static ADWrapper ADHelper
+        internal static ADWrapper ADWrapper
         {
             get
             {
-                return _ADHelper;
+                return _ADWrapper;
             }
             set
             {
-                 _ADHelper = value;
+                 _ADWrapper = value;
             }
         }
 
         internal static void LoadDomain(string domainName)
         {
 
-            _ADHelper = new ADWrapper(domainName, "SqlServices");
+            _ADWrapper = new ADWrapper(domainName, "SqlServices");
 
         }
     }

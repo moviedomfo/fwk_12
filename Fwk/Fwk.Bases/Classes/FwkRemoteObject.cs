@@ -36,9 +36,10 @@ namespace Fwk.Remoting
         /// <summary>
         /// Ejecuta un servicio 
         /// </summary>
-        /// <param name="providerName"></param>
-        /// <param name="pReq"></param>
-        /// <returns></returns>
+        /// <param name="providerName">Proveedor de metadata</param>
+        /// <param name="pServiceName">Nombre del servicio</param>
+        /// <param name="pReq">Interfaz de contrato de servicio.- interfaz que implementan todos los request y responsees</param>
+        /// <returns><see cref="IServiceContract"/></returns>
         public IServiceContract ExecuteService_AutnToken(string providerName,  IServiceContract pReq)
         {
             Console.WriteLine("Executing " + pReq.ServiceName + " " + DateTime.Now.ToString());

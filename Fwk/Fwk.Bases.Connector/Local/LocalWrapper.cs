@@ -16,7 +16,6 @@ namespace Fwk.Bases.Connector
     public class LocalWrapper : IServiceWrapper
     {
         #region properties
-       
         SimpleFacade _SimpleFacade;
 
         string _ProviderName;
@@ -86,9 +85,6 @@ namespace Fwk.Bases.Connector
                 _SimpleFacade = CreateSimpleFacade();
 
             pReq.InitializeHostContextInformation();
-
-     
-
             IServiceContract wResponse = _SimpleFacade.ExecuteService(_ServiceMetadataProviderName, pReq);
             //wResponse.InitializeHostContextInformation();
 

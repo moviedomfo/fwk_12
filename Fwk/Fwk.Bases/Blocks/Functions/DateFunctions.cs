@@ -209,7 +209,9 @@ namespace Fwk.HelperFunctions
         /// <Author>Andres Aguirre</Author>
         public static DateTime GetLastDayOfMonth(Int16 pMonth, Int16 pYear)
         {
-            return GetFirstDayOfMonth(pYear, pMonth).AddMonths(1).AddTicks(-1);
+            DateTime firstDayOfMonth = GetFirstDayOfMonth(pMonth, pYear);
+
+            return firstDayOfMonth.AddMonths(1).AddDays(-1);
         }
 
         /// <summary>

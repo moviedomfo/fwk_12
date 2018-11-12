@@ -29,6 +29,12 @@ namespace Fwk.Bases.Test
         private void btnGet_logonserver_Click(object sender, EventArgs e)
         {
             MessageBox.Show(System.Environment.GetEnvironmentVariable("logonserver"));
+            string file = @"%logonserver%\netlogon\aplicaciones\Navegadores\GoogleChromePortablenew\";
+            file = file.Replace("%logonserver%", System.Environment.GetEnvironmentVariable("logonserver"));
+            if (System.IO.Directory.Exists(file))
+                MessageBox.Show("Existe");
+            else
+                MessageBox.Show("no Existe");
         }
 
        

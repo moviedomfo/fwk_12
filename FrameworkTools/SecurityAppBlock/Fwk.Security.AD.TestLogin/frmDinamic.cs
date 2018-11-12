@@ -16,9 +16,9 @@ namespace Fwk.Security.AD.TestLogin
 {
     public partial class frmDinamic : Form
     {
-        LDAPHelper _ADHelper;
+        LDAPHelper _ADWrapper;
         ADWrapper _ADWrapper;
-        //IDirectoryService _ADHelperSecure;
+        //IDirectoryService _ADWrapperSecure;
         List<DomainUrlInfo> urls = new List<DomainUrlInfo> ();
 
         public frmDinamic()
@@ -55,11 +55,11 @@ namespace Fwk.Security.AD.TestLogin
                 {
                     TechnicalException logError = null;
                     
-                    lblCheckResult.Text = _ADHelper.User_Logon(txtLoginName.Text, txtPassword.Text, out logError).ToString();
+                    lblCheckResult.Text = _ADWrapper.User_Logon(txtLoginName.Text, txtPassword.Text, out logError).ToString();
 
                     if (logError != null)
                         txtError.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(logError);
-                    //_ADHelper.User_CheckLogin2(txtLoginName.Text, txtPassword.Text);
+                    //_ADWrapper.User_CheckLogin2(txtLoginName.Text, txtPassword.Text);
 
                 }
             }
@@ -78,9 +78,9 @@ namespace Fwk.Security.AD.TestLogin
                 lblCheckResult.Text = "Nombre de dominio incorrecto";
                 return false;
             }
-            //_ADHelper = new ADHelper(wDomainUrlInfo.LDAPPath, wDomainUrlInfo.Usr, wDomainUrlInfo.Pwd);
-            _ADHelper = new LDAPHelper(_DomainUrlInfo);
-            //_ADHelper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
+            //_ADWrapper = new ADWrapper(wDomainUrlInfo.LDAPPath, wDomainUrlInfo.Usr, wDomainUrlInfo.Pwd);
+            _ADWrapper = new LDAPHelper(_DomainUrlInfo);
+            //_ADWrapper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
 
             return true;
         }
@@ -133,7 +133,7 @@ namespace Fwk.Security.AD.TestLogin
                     String Pwd = null;
                     if (!String.IsNullOrEmpty(txtPassword.Text))
                         Pwd = txtPassword.Text;
-                    //_ADHelper.ResetPwd(txtLoginName.Text, Pwd, ForceChange.Checked, UnLock.Checked);
+                    //_ADWrapper.ResetPwd(txtLoginName.Text, Pwd, ForceChange.Checked, UnLock.Checked);
                     lblCheckResult.Text = "Clave Reseteada";
                 }
             }

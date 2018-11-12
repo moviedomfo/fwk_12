@@ -16,7 +16,7 @@ namespace Fwk.Security.ActiveDirectory.Test
     public partial class DomainGoups : UserControl
     {
         //FwkActyveDirectory _FwkActyveDirectory;
-        //ADHelper _ADHelper;
+        //ADWrapper _ADWrapper;
         public event DomainGroupChangeHandler DomainGroupChangeEvent;
 
         void OnObjectDomainChange()
@@ -30,7 +30,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         public DomainGoups()
         {
             InitializeComponent();
-            //_ADHelper = StaticAD.ADHelper;
+            //_ADWrapper = StaticAD.ADWrapper;
           
         }
 
@@ -39,7 +39,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         {
          
             StaticAD.LoadDomain(domainName);
-            //_ADHelper = StaticAD.ADHelper;
+            //_ADWrapper = StaticAD.ADWrapper;
         }
 
         public void Populate()
@@ -50,7 +50,7 @@ namespace Fwk.Security.ActiveDirectory.Test
             }
 
             //_DomainGoups = _FwkActyveDirectory.GetAllGroups();
-            _DomainGoups = StaticAD.ADHelper.Groups_GetAll();
+            _DomainGoups = StaticAD.ADWrapper.Groups_GetAll();
             objectDomainGroupBindingSource.DataSource = _DomainGoups;
 
         }
@@ -93,7 +93,7 @@ namespace Fwk.Security.ActiveDirectory.Test
         internal void Initialize(string path, string user, string pwd)
         {
 
-            StaticAD.ADHelper = new ADWrapper(path, user, pwd);
+            StaticAD.ADWrapper = new ADWrapper(path, user, pwd);
 
         }
     }
