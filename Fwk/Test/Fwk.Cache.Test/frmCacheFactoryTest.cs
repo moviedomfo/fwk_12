@@ -220,5 +220,10 @@ namespace Fwk.Cache.Test
                 textBox2.Text = res.GetXml();
             }
         }
+
+        private void proactiveButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

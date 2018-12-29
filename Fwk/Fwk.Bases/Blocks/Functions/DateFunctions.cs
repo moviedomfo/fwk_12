@@ -300,6 +300,29 @@ namespace Fwk.HelperFunctions
             return start.AddMilliseconds(unixDate).ToLocalTime();
         }
 
+        /// <summary>
+        /// Converts a DateTime to the long representation which is the number of seconds since the unix epoch.
+        /// Epoch (UNIX Epoch time) : It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970,[2] Coordinated Universal Time (UTC), minus leap seconds. 
+        /// </summary>
+        /// <param name="dateTime">A DateTime to convert to epoch time.</param>
+        /// <returns>The long number of seconds since the unix epoch.</returns>
+        public static long ToEpoch(DateTime dateTime)
+        {
+            return (long)(dateTime - new DateTime(1970, 1, 1)).TotalSeconds;
+        }
+
+
+        /// <summary>
+        /// Converts a long representation of time since the unix epoch to a DateTime.
+        /// </summary>
+        /// <param name="epoch">The number of seconds since Jan 1, 1970.
+        /// Epoch (UNIX Epoch time) : It is the number of seconds that have elapsed since 00:00:00 Thursday, 1 January 1970,[2] Coordinated Universal Time (UTC), minus leap seconds. </param>
+        /// <returns>A DateTime representing the time since the epoch.</returns>
+        public static DateTime FromEpoch(long epoch)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddSeconds(epoch);
+        }
+
 
         /// <summary>
         /// Obtiene la edad

@@ -62,6 +62,14 @@ namespace Fwk.HelperFunctions
                 else return String.Empty;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pFilter"></param>
+        /// <param name="pTitle"></param>
+        /// <param name="pInitialDirectory"></param>
+        /// <returns></returns>
         public static String[] OpenFileDialog_Open_multiselect(string pFilter, string pTitle, string pInitialDirectory)
         {
             using (OpenFileDialog wDialog = new OpenFileDialog())
@@ -154,6 +162,14 @@ namespace Fwk.HelperFunctions
             return OpenFileDialog_New(String.Empty, pContent, pFilter, pIsXml,string .Empty);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pFileName"></param>
+        /// <param name="pContent"></param>
+        /// <param name="pFilter"></param>
+        /// <param name="pIsXml"></param>
+        /// <returns></returns>
         public static String OpenFileDialog_New(String pFileName,String pContent, string pFilter, bool pIsXml)
         {
             return OpenFileDialog_New(String.Empty, pContent, pFilter, pIsXml,string.Empty);

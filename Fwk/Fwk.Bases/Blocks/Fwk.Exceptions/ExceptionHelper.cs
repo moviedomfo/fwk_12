@@ -260,13 +260,13 @@ namespace Fwk.Exceptions
             }
             return false;
         }
-
         /// <summary>
         /// Genera un string con el contenido del InnerException .-
         /// </summary>
         /// <param name="ex"></param>
+        /// <param name="includeStackTrace"></param>
         /// <returns></returns>
-        public static String GetAllMessageException(Exception ex)
+        public static String GetAllMessageException(Exception ex, bool includeStackTrace = true)
         {
             StringBuilder wMessage = new StringBuilder();
             wMessage.Append(ex.Message);

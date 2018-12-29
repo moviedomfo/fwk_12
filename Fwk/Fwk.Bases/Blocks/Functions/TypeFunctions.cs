@@ -46,7 +46,8 @@ namespace Fwk.HelperFunctions
         /// <returns></returns>
         public static bool IsNumeric(string pValue)
         {
-            return Information.IsNumeric(pValue);
+            var isNumeric = int.TryParse(pValue, out int n);
+            return isNumeric;
         }
 
         /// <summary>

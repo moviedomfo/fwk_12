@@ -65,7 +65,7 @@ namespace Fwk.Bases.Test
             selectedFilesToZip = null;
             try
             {
-                selectedFilesToZip = Fwk.HelperFunctions.FileFunctions.OpenFileDialog_Open_multiselect(String.Empty, "Milonguita release uploader", txtInitialPath.Text);
+                selectedFilesToZip = Fwk.HelperFunctions.FileFunctions.OpenFileDialog_Open_multiselect("Files (*.rar)|*.rar|All Files (*.*)|*.*", "Buscar zips", txtInitialPath.Text);
                 if (selectedFilesToZip == null)
                     return;
                 if (selectedFilesToZip.Count() == 0)
