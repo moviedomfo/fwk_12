@@ -53,6 +53,7 @@ Libraries/Framework/Fwk.Bases.dll
 *.dll
 *.pdb
 *.bak
+*/.vs
 
 
 Fwk/packages/EntityFramework.6.1.0/tools/migrate.exe
@@ -903,3 +904,9 @@ Dispatchers/RemotingDispatcher/.vs/RemotingDispatcher/v15/.suo
 =======
 Fwk/.vs/Fwk/v15/.suo
 >>>>>>> dd44ed2d43b38f6fb55d746f1bdfe12b6d9f7eb8
+FrameworkTools/Fwk.CodeGenerator/.vs/Fwk.CodeGenerator/v15/.suo
+Fwk/Fwk.DataBase/Fwk.DataBase.csproj.user
+FrameworkTools/Fwk.CodeGenerator/.vs/Fwk.CodeGenerator/v15/Server/sqlite3/storage.ide-wal
+FrameworkTools/Fwk.CodeGenerator/.vs/Fwk.CodeGenerator/v15/Server/sqlite3/storage.ide-shm
+FrameworkTools/Fwk.CodeGenerator/.vs/Fwk.CodeGenerator/v15/Server/sqlite3/storage.ide
+FrameworkTools/Fwk.CodeGenerator/.vs/Fwk.CodeGenerator/v15/Server/sqlite3/db.lock
