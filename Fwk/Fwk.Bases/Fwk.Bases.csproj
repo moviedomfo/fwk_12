@@ -212,7 +212,6 @@
     <Compile Include="DialogDebuggerVisualizer\IEntityVisualizerForm.designer.cs">
       <DependentUpon>IEntityVisualizerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Blocks\Functions\CryptographyFunctions.cs" />
     <Compile Include="Blocks\Functions\DataFunctions.cs" />
     <Compile Include="Blocks\Functions\DateFunctions.cs" />
     <Compile Include="Blocks\Functions\EMailFunctions.cs" />

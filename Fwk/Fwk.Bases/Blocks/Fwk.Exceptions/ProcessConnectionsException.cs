@@ -37,23 +37,6 @@ namespace Fwk.Exceptions
                         wServiceError.ErrorId = "1000";
                         break;
                     }
-                case "System.Configuration.ConfigurationErrorsException":
-                    {
-                        wServiceError = ProcessConfigurationException((System.Configuration.ConfigurationException)pEx);
-                        wServiceError.Assembly = "Fwk.Bases.dll";
-                        wServiceError.Namespace = "";
-                        wServiceError.Class = "";
-                        break;
-                    }
-                case "System.Web.Services.Protocols.SoapException":
-                    {
-                        wServiceError = ProcessSoapException((System.Web.Services.Protocols.SoapException)pEx);
-                        wServiceError.Assembly = "Fwk.ServiceManagement.dll";
-                        wServiceError.Namespace = "Fwk.ServiceManagement";
-                        wServiceError.Class = "ServiceManagement : Despachador de servicios ";
-
-                        break;
-                    }
                 case "Fwk.Exceptions.TechnicalException":
                     {
                         TechnicalException te = (TechnicalException)pEx;
@@ -132,57 +115,10 @@ namespace Fwk.Exceptions
             return wServiceError;
         }
 
-        /// <summary>
-        /// Procesa las exepciones tipo SoapException <see cref="System.Web.Services.Protocols.SoapException"/>
-        /// </summary>
-        /// <param name="soapException">SoapException <see cref="System.Web.Services.Protocols.SoapException"/></param>
-        /// <returns>ServiceError <see cref="ServiceError"/></returns>
-        private static ServiceError ProcessSoapException(System.Web.Services.Protocols.SoapException soapException)
-        {
-            ServiceError wServiceError = new ServiceError();
-            StringBuilder wMessage = new StringBuilder();
+     
+ 
 
-            
-            wMessage.AppendLine("Ocurrio un problema al intentar ejecutar un servicio.");
-            wMessage.AppendLine("Verifique que el despachador de servicio se encuentre actualizado con las ultimas librerias del Framework .");
-            wMessage.AppendLine();
-            wMessage.AppendLine("Mensaje SOAP: ");
-            wMessage.AppendLine(soapException.Message);
-            wServiceError.StackTrace= soapException.StackTrace;
-            wServiceError.Message = wMessage.ToString();
-            if (soapException.InnerException != null)
-                wServiceError.InnerMessageException = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(soapException.InnerException); 
-
-            wMessage = null;
-
-            return wServiceError;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="configurationErrorsException"></param>
-        /// <returns>ServiceError <see cref="ServiceError"/></returns>
-        private static ServiceError ProcessConfigurationException(System.Configuration.ConfigurationException configurationErrorsException)
-        {
-            ServiceError wServiceError = new ServiceError();
-            StringBuilder wMessage = new StringBuilder();
-
-            
-            wMessage.AppendLine("Ocurrio un problema al intentar obtener la confuguracion del cliente al conectarce al Servicio Web. ");
-            wMessage.AppendLine("Verifique  si esta bien formado el archivo de configuracion AppConfig y si contiene la seccion que configura el Wrapper");
-            wMessage.AppendLine();
-            wMessage.AppendLine("Mensaje Web: ");
-            wMessage.AppendLine(configurationErrorsException.Message);
-            wServiceError.StackTrace = configurationErrorsException.StackTrace;
-            wServiceError.Message = wMessage.ToString();
-            if (configurationErrorsException.InnerException != null)
-                wServiceError.InnerMessageException = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(configurationErrorsException.InnerException); 
-
-            wMessage = null;
-
-            return wServiceError;
-        }
+  
 
         /// <summary>
         /// 

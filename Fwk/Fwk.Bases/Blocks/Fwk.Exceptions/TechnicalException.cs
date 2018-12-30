@@ -144,21 +144,7 @@ namespace Fwk.Exceptions
         {
         }
 
-        /// <summary>
-        /// Excepcion tecnica.
-        /// </summary>
-        /// <param name="pinfo">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
-        /// <param name="pcontext">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
-        protected TechnicalException(SerializationInfo pinfo, StreamingContext pcontext): base(pinfo, pcontext)
-        {
-            mMsg = pinfo.GetString("mMsg");
-            mAssembly = pinfo.GetString("mAssembly");
-            mNamespace = pinfo.GetString("mNamespace");
-            mClass = pinfo.GetString("mClass");
-            mMachine = pinfo.GetString("mMachine");
-            mUserName = pinfo.GetString("mUserName");
-            this.Source = ConfigurationsHelper.HostApplicationName;
-        }
+       
 
         /// <summary>
         /// Excepcion tecnica.
@@ -268,23 +254,7 @@ namespace Fwk.Exceptions
         {
             mMsg = string.Concat(mMsg, Environment.NewLine, pmsg);
         }
-        /// <summary>
-        /// Sets the System.Runtime.Serialization.SerializationInfo with information about the exception.
-        /// </summary>
-        /// <param name="pinfo">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
-        /// <param name="pcontext">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
-        public override void GetObjectData(SerializationInfo pinfo, StreamingContext pcontext)
-        {
-            base.GetObjectData(pinfo, pcontext);
-            pinfo.AddValue("mMsg", mMsg);
-            pinfo.AddValue("mAssembly", mAssembly);
-            pinfo.AddValue("mMachine", mMachine);
-            pinfo.AddValue("mClass", mClass);
-            pinfo.AddValue("mUserName", mUserName);
-            pinfo.AddValue("mNamespace", mNamespace);
-            pinfo.AddValue("_ErrorId", _ErrorId);
-            
-        }
+     
         #endregion
 
 

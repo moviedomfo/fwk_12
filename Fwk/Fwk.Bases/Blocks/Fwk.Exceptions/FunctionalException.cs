@@ -297,6 +297,7 @@ namespace Fwk.Exceptions
         /// throw new FunctionalException(70008,"SaldoInsuficiente",ex,new String["Alan Parker","50098,65"])
         /// </summary>
         /// 
+        /// <param name="configProviderName">proveedor de configuracion</param>
         /// <param name="errorId">Id del error funcional</param>
         /// <param name="keyExceptionName">Id. del mensaje.</param>
         /// <param name="innerExcepcion">Excepcion original.</param>
