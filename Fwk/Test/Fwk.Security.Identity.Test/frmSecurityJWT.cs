@@ -25,7 +25,7 @@ namespace Fwk.Security.Identity.Test
 {
     public partial class frmSecurityJWT : Form
     {
-        provider sec_provider;
+        jwtSecurityProvider sec_provider;
         Guid userId;
         List<string> issuers;
         public frmSecurityJWT()
@@ -58,10 +58,6 @@ namespace Fwk.Security.Identity.Test
 
         private void btnGenerateToken1_Click(object sender, EventArgs e)
         {
-           
-
-          
-
             #region create claims & AuthenticationTicket
             ClaimsIdentity claims = GenerateClaims();
 
@@ -82,13 +78,7 @@ namespace Fwk.Security.Identity.Test
             #endregion
 
 
-
-
-
-
             CustomJwtFormat c = new CustomJwtFormat("test");
-
-
 
             var jwt = c.Protect(ticket);
 

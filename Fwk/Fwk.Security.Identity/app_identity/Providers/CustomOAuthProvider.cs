@@ -14,7 +14,7 @@ namespace Fwk.Security.Identity.Providers
 {
 
     /// <summary>
-    /// Meddleware que autentica
+    /// Middleware que autentica 
     /// </summary>
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {

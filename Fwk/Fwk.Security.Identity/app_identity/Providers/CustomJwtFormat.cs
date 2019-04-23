@@ -18,7 +18,7 @@ namespace Fwk.Security.Identity.Providers
     {
 
         private readonly string _issuer = string.Empty;
-        private readonly provider sec_provider = null;
+        private readonly jwtSecurityProvider sec_provider = null;
         public CustomJwtFormat(string providerName)
         {
             try

@@ -187,14 +187,14 @@ namespace Fwk.Security.Identity
 
     public class secConfig
     {
-        public List<provider> providers { get; set; }
+        public List<jwtSecurityProvider> providers { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="providerName"></param>
         /// <returns></returns>
-        public provider GetByName(string providerName)
+        public jwtSecurityProvider GetByName(string providerName)
         {
             if (string.IsNullOrEmpty(providerName))
                 return this.providers.First();
@@ -237,13 +237,34 @@ namespace Fwk.Security.Identity
         }
     }
 
-
-    public class provider
+    /// <summary>
+    /// Define un objeto con las configuraciones requeridas por el standar JWT
+    /// </summary>
+    public class jwtSecurityProvider
     {
+        /// <summary>
+        /// Nombre dek proveedor de seguridad 
+        /// </summary>
         public string name { get; set; }
+
+        /// <summary>
+        /// Nombre del Resourse Server : Puede ser del dispatcher que ejecuta los servicios .-
+        /// </summary>
         public string audienceId { get; set; }
+        /// <summary>
+        /// Nombre que identifica el Authorization Server en el que se confia 
+        /// </summary>
         public string issuer { get; set; }
+
+        /// <summary>
+        /// Texto symmetricKeyAsBase64 
+        /// </summary>
         public string audienceSecret { get; set; }
+
+        /// <summary>
+        /// Nombre de cadena de conección donde se encuentra el contexto de seguridad de Security Mannager.-
+        /// si no se utiliza el modelo de seguridad propuesto por Fwk.Security.Identity no es necesaria esta configuracion
+        /// </summary>
         public string securityModelContext { get; set; }
 
     }

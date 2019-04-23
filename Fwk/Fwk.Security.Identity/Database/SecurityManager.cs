@@ -522,7 +522,7 @@ namespace Fwk.Security.Identity
             LoginResult result = new LoginResult();
 
 
-            var user = User_FindByName(userName, true);
+            var user = User_FindByName(userName, true, sec_provider);
 
 
             if (user != null)
