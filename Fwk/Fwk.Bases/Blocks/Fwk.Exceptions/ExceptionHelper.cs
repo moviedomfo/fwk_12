@@ -278,7 +278,7 @@ namespace Fwk.Exceptions
                 wMessage.AppendLine("Message: ");
                 wMessage.AppendLine(ex.Message);
             }
-            if (!String.IsNullOrEmpty(ex.StackTrace))
+            if (includeStackTrace && !String.IsNullOrEmpty(ex.StackTrace))
             {
                 wMessage.AppendLine("\r\n-----------StackTrace------------------\r\n");
                 wMessage.AppendLine(ex.StackTrace);
