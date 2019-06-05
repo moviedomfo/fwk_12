@@ -101,7 +101,6 @@ namespace Fwk.DataBase
         /// Deserializa: Convierte el stream a una lista de coneciones
         /// </summary>
         /// <param name="fs"></param>
-        /// <param name="dict"></param>
         CnnStringList DeSerializeDictionary(FileStream fs)
         {
 

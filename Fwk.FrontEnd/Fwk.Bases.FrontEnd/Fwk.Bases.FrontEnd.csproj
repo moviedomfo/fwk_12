@@ -68,10 +68,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fwk.Bases, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\fwk_releases\FWK-12.0\libs\Fwk_12_x64_debug\Fwk.Bases.dll</HintPath>
-    </Reference>
     <Reference Include="Fwk.Bases.Connector, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Framework\Fwk.Bases.Connector.dll</HintPath>
@@ -428,6 +424,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Control_ComboBox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Fwk\Fwk.Bases\Fwk.Bases.csproj">
+      <Project>{1654a893-0408-474e-873c-e79f00d7587c}</Project>
+      <Name>Fwk.Bases</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

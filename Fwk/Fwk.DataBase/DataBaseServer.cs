@@ -262,7 +262,6 @@ namespace Fwk.DataBase
         /// Almacena la configuracion con los datos que se pasan como parametros.-
         /// </summary>
         /// <param name="pCnnString">Coneccion</param>
-        ///<param name="pAppend">Agrega nuevo elemento</param>
         public bool SaveSetting(CnnString pCnnString)
 		{
             bool isNew = false;
