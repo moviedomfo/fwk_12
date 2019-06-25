@@ -16,7 +16,7 @@ namespace Fwk.Security.AD.TestLogin
 {
     public partial class frmDinamic : Form
     {
-        LDAPHelper _ADWrapper;
+        LDAPHelper _LDAPHelper;
         ADWrapper _ADWrapper;
         //IDirectoryService _ADWrapperSecure;
         List<DomainUrlInfo> urls = new List<DomainUrlInfo> ();
@@ -55,7 +55,7 @@ namespace Fwk.Security.AD.TestLogin
                 {
                     TechnicalException logError = null;
                     
-                    lblCheckResult.Text = _ADWrapper.User_Logon(txtLoginName.Text, txtPassword.Text, out logError).ToString();
+                    lblCheckResult.Text = _LDAPHelper.User_Logon(txtLoginName.Text, txtPassword.Text, out logError).ToString();
 
                     if (logError != null)
                         txtError.Text = Fwk.Exceptions.ExceptionHelper.GetAllMessageException(logError);
@@ -79,7 +79,7 @@ namespace Fwk.Security.AD.TestLogin
                 return false;
             }
             //_ADWrapper = new ADWrapper(wDomainUrlInfo.LDAPPath, wDomainUrlInfo.Usr, wDomainUrlInfo.Pwd);
-            _ADWrapper = new LDAPHelper(_DomainUrlInfo);
+            _LDAPHelper = new LDAPHelper(_DomainUrlInfo);
             //_ADWrapper = new LDAPHelper(wDomainUrlInfo.DomainName, "testActiveDirectory", pSecure);
 
             return true;

@@ -177,7 +177,7 @@ namespace Fwk.HelperFunctions
         #endregion
 
         /// <summary>
-        /// Abre un archivo de texto
+        /// Abre un archivo de texto con UTF8
         /// </summary>
         /// <param name="pFileName">Nombre completo del archivo</param>
         /// <returns></returns>
@@ -193,6 +193,57 @@ namespace Fwk.HelperFunctions
 
         }
 
+        /// <summary>
+        /// abre un archivo de texto con ASCII
+        /// </summary>
+        /// <param name="pFileName"></param>
+        /// <returns></returns>
+        public static string OpenTextFile_ASCII(string pFileName)
+        {
+            using (StreamReader sr = new StreamReader(pFileName,ASCIIEncoding.ASCII))
+            {
+                string retString = sr.ReadToEnd();
+                sr.Close();
+
+                return retString;
+            }
+
+        }
+
+
+        /// <summary>
+        /// abre un archivo de texto con Unicode
+        /// </summary>
+        /// <param name="pFileName"></param>
+        /// <returns></returns>
+        public static string OpenTextFile_Unicode(string pFileName)
+        {
+            using (StreamReader sr = new StreamReader(pFileName, ASCIIEncoding.Unicode))
+            {
+                string retString = sr.ReadToEnd();
+                sr.Close();
+
+                return retString;
+            }
+
+        }
+
+        /// <summary>
+        /// Encoding.GetEncoding(1252)
+        /// </summary>
+        /// <param name="pFileName"></param>
+        /// <returns></returns>
+        public static string OpenTextFile_ansi(string pFileName)
+        {
+            using (StreamReader sr = new StreamReader(pFileName, Encoding.GetEncoding(1252)))
+            {
+                string retString = sr.ReadToEnd();
+                sr.Close();
+
+                return retString;
+            }
+
+        }
         /// <summary>
         /// 
         /// </summary>

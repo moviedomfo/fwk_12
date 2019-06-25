@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Fwk.Bases.FrontEnd;
 using System.Security.Principal;
-using Microsoft.Practices.EnterpriseLibrary.Caching;
 using System.Windows.Forms;
 using System.Web.Security;
 using Fwk.Bases.FrontEnd.Controls;
@@ -49,7 +48,7 @@ namespace Fwk.Security.Test
                 //String app_name = Membership.Provider.ApplicationName;
                 //MembershipUser wMembershipUser = Membership.GetUser(userName);
 
-                Membership.CreateUser(userName, password);
+                //Membership.CreateUser(userName, password);
 
 
             }
@@ -66,11 +65,11 @@ namespace Fwk.Security.Test
             try
             {
 
-                foreach (MembershipUser wMembershipUser in Membership.GetAllUsers())
-                {
-                    wUserByApp = new UserByApp(wMembershipUser);
-                    wUsersList.Add(wUserByApp);
-                }
+                //foreach (MembershipUser wMembershipUser in Membership.GetAllUsers())
+                //{
+                //    wUserByApp = new UserByApp(wMembershipUser);
+                //    wUsersList.Add(wUserByApp);
+                //}
              
             }
             catch (Exception ex)

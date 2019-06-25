@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Web.Security;
-using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Fwk.Security;
 using System.Security.Principal;
 
