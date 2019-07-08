@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bases", "Bases", "{08CFB3CE-4AC8-4F86-BF35-65BB41EE7CD8}"
 EndProject
@@ -66,6 +66,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{ADBA9438-D15D-4F34-AA76-05CD0A193FDE}.Debug|x64.ActiveCfg = Debug|x64
@@ -123,7 +124,6 @@ Global
 		{B863D366-F197-49EB-8FA8-3CE53FD359B7}.Release|x86.ActiveCfg = Release|Any CPU
 		{DD53E4BC-B685-44E9-B0F9-47EDE56A6AFC}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{DD53E4BC-B685-44E9-B0F9-47EDE56A6AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD53E4BC-B685-44E9-B0F9-47EDE56A6AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD53E4BC-B685-44E9-B0F9-47EDE56A6AFC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{DD53E4BC-B685-44E9-B0F9-47EDE56A6AFC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{DD53E4BC-B685-44E9-B0F9-47EDE56A6AFC}.Debug|x64.ActiveCfg = Debug|x64
@@ -161,6 +161,7 @@ Global
 		{9B89C4A1-E964-4E59-99BE-6218B592982E}.Release|x86.ActiveCfg = Release|Any CPU
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E21FA6-5162-41B4-9FF0-6244DD01991A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A}.Debug|x64.ActiveCfg = Debug|x64
 		{28E21FA6-5162-41B4-9FF0-6244DD01991A}.Debug|x64.Build.0 = Debug|x64

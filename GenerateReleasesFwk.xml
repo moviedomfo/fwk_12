@@ -24,7 +24,7 @@
 	</PropertyGroup>  
 	<!--<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_debug;Compile_x64_release;CleanRecursive"></Target>
 	  <Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;CleanRecursive"></Target>-->
-	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_debug;Compile_AnyCPU_release;Compile_x64_release;CleanRecursive"></Target>
+	<Target Name="All"  DependsOnTargets="Compile_AnyCPU_release;CleanRecursive"></Target>
 	<!--<Target Name="All"  DependsOnTargets="dispatcher_wcf"></Target>-->  
 	<Target Name="Clean">
 			<Message Text ="cleaning ..." />
@@ -32,21 +32,22 @@
 			<MakeDir Directories="$(OutputPath_root_fwk)"/>
 		  </Target>
 		  
-	<Target Name="dispatcher_wcf" >
+	<!--<Target Name="dispatcher_wcf" >
 		<MSBuild Properties = "Configuration=Release; Platform=x64; OutputPath=$(OutputPath_x64_release_wcfdispatcher)" 
              Projects= "$(SolutionPathDispatcher)" />
-	</Target>  
+	</Target>   
 
 	<Target Name="Compile_AnyCPU_debug" >
 		<Message Text ="Realizando la compilacion AnyCPU_debug  del fwk" />
 		<MSBuild Properties = "Configuration=Debug; Platform=Any CPU; OutputPath=$(OutputPath_AnyCPU_debug)" 
              Projects= "$(SolutionPath)" />
-	</Target>  
+	</Target>  -->
 	<Target Name="Compile_AnyCPU_release" >
 		<Message Text ="Realizando la compilacion AnyCPU_release  del fwk" />
 		<MSBuild Properties = "Configuration=Release; Platform=Any CPU; OutputPath=$(OutputPath_AnyCPU_release)" 
              Projects= "$(SolutionPath)" />
 	</Target>  
+	<!--
     <Target Name="Compile_x64_debug" >
 		<Message Text ="Realizando la compilacion Compile_x64_debug del fwk" />
 		<MSBuild Properties = "Configuration=Debug; Platform=x64;OutputPath=$(OutputPath_x64_debug)" Projects= "$(SolutionPath)" />
@@ -56,7 +57,7 @@
 		<Message Text ="Realizando la compilacion Compile_x64_release del fwk" />
 		<MSBuild Properties = "Configuration=Release; Platform=x64;OutputPath=$(OutputPath_x64_release)" Projects= "$(SolutionPath)" />
 	</Target> 
-	
+	 -->
 	<Target Name="CleanRecursive" >
 	
 
