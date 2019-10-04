@@ -267,6 +267,11 @@ namespace Fwk.Security.Identity
         /// </summary>
         public string securityModelContext { get; set; }
 
+        /// <summary>
+        /// TTL del token en segundos
+        /// </summary>
+        public int expires { get; set; }
+
     }
 
     //public static class JwtManager
