@@ -54,6 +54,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.dll</HintPath>
     </Reference>
+    <Reference Include="Fwk.Bases.Connector">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.Connector.dll</HintPath>
+    </Reference>
     <Reference Include="Fwk.Bases.FrontEnd, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libraries\Framework\Fwk.Bases.FrontEnd.dll</HintPath>
@@ -64,6 +67,12 @@
     </Reference>
     <Reference Include="Fwk.DataBase">
       <HintPath>..\..\..\Libraries\Framework\Fwk.DataBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Security">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Fwk.Security.Identity">
+      <HintPath>..\..\..\Libraries\Framework\Fwk.Security.Identity.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.AvalonEdit">
       <HintPath>..\..\..\Libraries\ICSharpCode.AvalonEdit.dll</HintPath>
