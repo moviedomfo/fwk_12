@@ -553,7 +553,7 @@ namespace Fwk.Security.ActiveDirectory
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="mustChange"></param>
-        private void User_MustChangePasswordNextLogon(string userName,bool mustChange)
+        public            void User_MustChangePasswordNextLogon(string userName,bool mustChange)
         {
             DirectoryEntry userDirectoryEntry = null;
             
