@@ -34,7 +34,7 @@ namespace Fwk.Security.ActiveDirectory
         /// </summary>
          ~ADWrapper()
         {
-            UnImpersonateWindowsContext();
+            //UnImpersonateWindowsContext();
         }
 
          /// <summary>
@@ -569,9 +569,9 @@ namespace Fwk.Security.ActiveDirectory
                 int val = (int)userDirectoryEntry.Properties["userAccountControl"].Value;
 
                 if (mustChange)
-                    userDirectoryEntry.Properties["pwdLastSet"].Value = -1;//must be changed at the next logon.
+                    userDirectoryEntry.Properties["pwdLastSet"].Value = 0;//must be changed at the next logon.
                 else
-                    userDirectoryEntry.Properties["pwdLastSet"].Value = 0;
+                    userDirectoryEntry.Properties["pwdLastSet"].Value = 1;
 
 
                 userDirectoryEntry.CommitChanges();
@@ -590,7 +590,8 @@ namespace Fwk.Security.ActiveDirectory
         /// <param name="userName">user name</param>
         /// <param name="password">new passsword</param>
         /// <param name="unlockAccount">Lock or unlock flag</param>
-        public void User_ResetPwd(string userName, string password, bool unlockAccount)
+        /// <param name="pwdLastSet">must be changed at the next logon = 0 </param>
+        public void User_ResetPwd(string userName, string password, bool unlockAccount,int? pwdLastSet = -1)
         {
             DirectoryEntry userDirectoryEntry = null;
             try
@@ -610,7 +611,7 @@ namespace Fwk.Security.ActiveDirectory
                 
                 if (unlockAccount) userDirectoryEntry.Properties["LockOutTime"].Value = 0;
 
-                userDirectoryEntry.Properties["pwdLastSet"].Value = 0;// -1;//must be changed at the next logon.
+                userDirectoryEntry.Properties["pwdLastSet"].Value = pwdLastSet;//0;// -1;//must be changed at the next logon.
 
                 userDirectoryEntry.CommitChanges();
                 userDirectoryEntry.Close();
@@ -1382,13 +1383,13 @@ namespace Fwk.Security.ActiveDirectory
 
          void ImpersonateWindowsContext()
         {
-            objImp = new Impersonation(_LDAPUser, _LDAPPassword, _LDAPDomainName);
-            objImp.Impersonate();
+            //objImp = new Impersonation(_LDAPUser, _LDAPPassword, _LDAPDomainName);
+            //objImp.Impersonate();
         }
          void UnImpersonateWindowsContext()
         {
-            if (objImp != null)
-                objImp.UnImpersonate();
+        //    if (objImp != null)
+        //        objImp.UnImpersonate();
         }
         #region IDisposable Members
         /// <summary>

@@ -24,6 +24,8 @@ namespace Fwk.Security.Cryptography.Test
 
             var key = new byte[32];
             RNGCryptoServiceProvider.Create().GetBytes(key);
+            //System.Security.Cryptography.RSACryptoServiceProvider.Create("PS256");
+            //            System.Security.Cryptography.RSACryptoServiceProvider.Create(Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
             //var base64Secret = TextEncodings.Base64Url.Encode(key);
             //txtAudienseHased.Text = base64Secret;
 

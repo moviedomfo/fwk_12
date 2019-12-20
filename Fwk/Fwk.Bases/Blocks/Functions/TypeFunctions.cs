@@ -574,10 +574,14 @@ namespace Fwk.HelperFunctions
         /// <author>Marcelo F. Oviedo</author>
         public static Byte[] ConvertFromBase64StringToFile(String pBase64String, String pFullFileName)
         {
-            FileStream fw = new FileStream(pFullFileName, FileMode.Create, FileAccess.Write);
-            Byte[] arrWrite = Convert.FromBase64String(pBase64String);
-            fw.Write(arrWrite, 0, arrWrite.Length);
-            fw.Close();
+            Byte[] arrWrite;
+            using (FileStream fw = new FileStream(pFullFileName, FileMode.Create, FileAccess.Write))
+            {
+                arrWrite = Convert.FromBase64String(pBase64String);
+                fw.Write(arrWrite, 0, arrWrite.Length);
+                fw.Close();
+            }
+                
             return arrWrite;
         }
 
