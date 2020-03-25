@@ -486,9 +486,15 @@ namespace Fwk.Security.Identity
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// debe utilizar User_RessetPassword
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
         public static Task<IdentityResult> User_RemovePasswordAsync(Guid userId, string sec_provider )
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("usar User_RessetPassword");
         }
 
         public async static Task<IdentityResult> User_AddLoginAsync(Guid userId, UserLoginInfo userLoginInfo, string sec_provider )
