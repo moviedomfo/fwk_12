@@ -48,7 +48,7 @@ namespace  Fwk.Security.Identity
         public Guid userId { get; set; }
         public string email { get; set; }
         
-        public DateTime LastLogInDate { get; set; }
+        public DateTime? LastLogInDate { get; set; }
         
 
         public DateTime issued { get; set; }

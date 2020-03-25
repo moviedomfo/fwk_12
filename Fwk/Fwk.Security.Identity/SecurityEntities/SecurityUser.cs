@@ -42,7 +42,7 @@ namespace Fwk.Security.Identity
 
 
         public DateTime CreatedDate { get; set; }
-        public DateTime LastLogInDate { get; set; }
+        public DateTime? LastLogInDate { get; set; }
 
         [Required]
         [StringLength(256)]

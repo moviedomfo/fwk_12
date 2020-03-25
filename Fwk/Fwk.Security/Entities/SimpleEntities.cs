@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
-using System.Security.Principal;
-
-using System.Windows.Forms;
 using System.Web.Security;
 using System.Xml.Serialization;
 using Fwk.Bases;
@@ -13,10 +8,7 @@ using Fwk.Bases;
 
 namespace Fwk.Security.Common
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    [XmlInclude(typeof(User)), Serializable]
+    
     public class User
     {
 
@@ -114,7 +106,7 @@ namespace Fwk.Security.Common
         /// <summary>
         /// Last user activity
         /// </summary>
-        public DateTime LastActivityDate { get; set; }
+        public DateTime? LastActivityDate { get; set; }
 
         /// <summary>
         /// Get User Lock
