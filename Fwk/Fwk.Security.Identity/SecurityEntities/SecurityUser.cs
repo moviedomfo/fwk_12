@@ -44,6 +44,8 @@ namespace Fwk.Security.Identity
         public DateTime CreatedDate { get; set; }
         public DateTime? LastLogInDate { get; set; }
 
+        public Guid? InstitutionId { get; set; }
+
         [Required]
         [StringLength(256)]
         public string UserName { get; set; }

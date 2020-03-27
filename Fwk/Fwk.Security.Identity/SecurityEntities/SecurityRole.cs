@@ -16,7 +16,8 @@ namespace Fwk.Security.Identity
         }
 
         public Guid Id { get; set; }
-
+        public Guid? InstitutionId { get; set; }
+        
         public string Description { get; set; }
 
         [Required]

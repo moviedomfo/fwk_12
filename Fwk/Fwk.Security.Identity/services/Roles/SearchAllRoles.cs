@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Fwk.Security.Identity.ISVC.SearchAllRoles
 {
-    [Serializable]
+    
     public class SearchAllRolesReq : Request<Param>
     {
         public SearchAllRolesReq()
@@ -17,20 +17,21 @@ namespace Fwk.Security.Identity.ISVC.SearchAllRoles
 
     #region [BussinesData]
 
-    [XmlInclude(typeof(Param)), Serializable]
+
     public class Param : Entity
     {
-        
-    private System.String _UserName;
 
-    public System.String UserName
+        private System.String _UserName;
+
+        public System.String UserName
         {
             get { return _UserName; }
             set { _UserName = value; }
         }
-       
-        
-                
+
+        public Guid? InstitutionId { get; set; }
+
+
 
     }
 

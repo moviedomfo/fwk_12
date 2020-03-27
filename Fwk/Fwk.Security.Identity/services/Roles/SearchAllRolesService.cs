@@ -19,7 +19,7 @@ namespace Fwk.Security.Identity.SVC
 
              wRes.BusinessData = new Result();
             
-            wRes.BusinessData.RolList = SecurityManager.Role_getAll(pServiceRequest.SecurityProviderName);
+            wRes.BusinessData.RolList = SecurityManager.Role_getAll(pServiceRequest.BusinessData.InstitutionId, pServiceRequest.SecurityProviderName);
            
 
                 

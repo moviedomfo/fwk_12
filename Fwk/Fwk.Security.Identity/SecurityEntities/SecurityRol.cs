@@ -18,6 +18,7 @@ namespace Fwk.Security.Identity
         public Guid Id { get; set; }
         public String Description { get; set; }
         public String Name { get; set; }
+        public Guid? InstitutionId { get; set; }
     }
     public class SecurityUserRoleBE
     {
@@ -29,6 +30,6 @@ namespace Fwk.Security.Identity
     {
         public Guid RolId { get; set; }
         public Guid RuleId { get; set; }
-        //public Guid InstitutionId { get; set; }
+        
     }
 }

@@ -431,6 +431,44 @@ namespace Fwk.Security.Identity
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
+        public static void User_RemoveRoles(string userName, string sec_provider)
+        {
+
+
+
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
+                {
+
+                    var userFromBD = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
+                    if (userFromBD != null)
+                    {
+
+                        foreach (SecurityRole r in userFromBD.SecurityRoles)
+                        {
+
+                            //var rol = db.SecurityRoles.Where(p => p.Id == r.Id).FirstOrDefault();
+                            userFromBD.SecurityRoles.Remove(r);
+
+                        }
+
+                        db.SaveChanges();
+
+
+                        
+
+                    }
+                  
+                }
+           
+        }
+
+
         public static IdentityResult User_AsignRoles(AssignRolesToUserModel model, string sec_provider )
         {
 
@@ -594,7 +632,9 @@ namespace Fwk.Security.Identity
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
 
-                    var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
+                    var user = db.SecurityUsers.Where(p => 
+                    p.UserName.ToLower() == userName.ToLower() 
+                    ).FirstOrDefault();
                     user.PasswordHash = helper.GetHash(newPassword);
 
                     var res = db.SaveChanges();
@@ -608,6 +648,14 @@ namespace Fwk.Security.Identity
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="oldPassword"></param>
+        /// <param name="newPassword"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
             public static IdentityResult User_ChangePassword(string userName, string oldPassword, string newPassword, string sec_provider )
         {
            
@@ -637,6 +685,15 @@ namespace Fwk.Security.Identity
         #endregion
 
         #region -- roles -- 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="includeRules"></param>
+        /// <param name="includeUsers"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
         public static SecurityRole Role_FindById(Guid roleId, bool includeRules = false, bool includeUsers = false, string sec_provider = "")
         {
             ICollection<SecurityRule> r;
@@ -667,8 +724,16 @@ namespace Fwk.Security.Identity
 
         }
 
-
-        public static SecurityRole Role_FindByName(String roleName, bool includeRules = false, bool includeUsers = false, string sec_provider = "")
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <param name="includeRules"></param>
+        /// <param name="institutionId"></param>
+        /// <param name="includeUsers"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
+        public static SecurityRole Role_FindByName(String roleName, bool includeRules = false, Guid? institutionId =null, bool includeUsers = false, string sec_provider = "")
         {
             ICollection<SecurityRule> r;
             ICollection<SecurityUser> u;
@@ -676,7 +741,10 @@ namespace Fwk.Security.Identity
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
-                    var role = db.SecurityRoles.Where(p => p.Name.ToLower() == roleName.ToLower()).FirstOrDefault();
+                    var role = db.SecurityRoles.Where(p => 
+                        p.Name.ToLower() == roleName.ToLower() &&
+                        (!institutionId.HasValue || p.InstitutionId == institutionId)
+                    ).FirstOrDefault();
                     if (includeRules)
                     {
                         //al consultarlo se incluye la busqueda
@@ -697,7 +765,14 @@ namespace Fwk.Security.Identity
             }
 
         }
-        public static SecurityRoleBEList Role_getAll(string sec_provider )
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="institutionId"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
+        public static SecurityRoleBEList Role_getAll(Guid? institutionId, string sec_provider)
         {
             SecurityRoleBEList listBE = new SecurityRoleBEList();
             SecurityRoleBE be = new SecurityRoleBE();
@@ -705,13 +780,16 @@ namespace Fwk.Security.Identity
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
-                    var list = db.SecurityRoles;
+                    var list = db.SecurityRoles.Where(r=> !institutionId.HasValue || r.InstitutionId==  institutionId);
+
+
                     list.ToList().ForEach(rc => {
                         be = new SecurityRoleBE();
 
                         be.Id = rc.Id;
                         be.Name = rc.Name;
                         be.Description = rc.Description;
+                        be.InstitutionId = institutionId;
                         listBE.Add(be);
                     });
                     return listBE;
