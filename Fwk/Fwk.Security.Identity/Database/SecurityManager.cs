@@ -383,21 +383,55 @@ namespace Fwk.Security.Identity
             }
 
         }
-        public static List<SecurityUser> User_getAll(string sec_provider )
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="institutionId"></param>
+        /// <param name="includeRoles"></param>
+        /// <param name="sec_provider"></param>
+        /// <returns></returns>
+        public static List<SecurityUserBE> User_getAll(Guid? institutionId, bool includeRoles = false, string sec_provider = "")
         {
-            
+            SecurityUserBE userBE;
+            List<SecurityUserBE> listBE = new List<SecurityUserBE>();
             //ICollection<SecurityRole> r;
             try
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
-                    return db.SecurityUsers.ToList();
-                    //if (includeRoles)
-                    //{
-                    //    //al consultarlo se incluye la busqueda
-                    //    r = user.SecurityRoles;
-                    //}
-                    //return user; 
+                    var users = db.SecurityUsers.Where(p =>
+                      !institutionId.HasValue || p.InstitutionId == institutionId
+                    );
+                    users.ToList().ForEach(u => {
+
+                        userBE = new SecurityUserBE();
+
+                        userBE.Id = u.Id;
+                        userBE.UserName = u.UserName;
+                        userBE.Email = u.Email;
+                        userBE.LastLogInDate = u.LastLogInDate;
+                        userBE.CreatedDate = u.CreatedDate;
+                        userBE.InstitutionId = institutionId;
+
+                        if (includeRoles)
+                        {
+                            userBE.Roles = new List<string>();
+                            //al consultarlo se incluye la busqueda
+                            var roles = u.SecurityRoles;
+
+                            roles.ToList().ForEach(r =>
+                            {
+                                userBE.Roles.Add(r.Name);
+                            });
+                        }
+
+
+                        listBE.Add(userBE);
+                    });
+
+                   
+                    return listBE; 
 
                 }
             }
@@ -407,6 +441,8 @@ namespace Fwk.Security.Identity
             }
 
         }
+
+
         public static SecurityUser User_FindById(Guid usderId, bool includeRoles = false, string sec_provider = "")
         {
             ICollection<SecurityRole> r;

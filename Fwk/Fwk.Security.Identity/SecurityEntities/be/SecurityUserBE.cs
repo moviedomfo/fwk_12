@@ -63,6 +63,10 @@ namespace Fwk.Security.Identity
         // Resumen:
         //     Navigation property for user roles
         public List<String> Roles { get; set; }
+
+        public Guid? InstitutionId { get; set; }
+        public DateTime CreatedDate { get; internal set; }
+
         ////
         //// Resumen:
         ////     Navigation property for user claims

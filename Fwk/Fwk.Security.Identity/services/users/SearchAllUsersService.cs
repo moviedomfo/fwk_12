@@ -28,7 +28,7 @@ namespace Fwk.Security.Identity.SVC
             //wRes.BusinessData.UserList = wBC.GetAllUser();
             wRes.BusinessData.UserList = new UserList();
             User wUser = new User();
-            var users = SecurityManager.User_getAll(pServiceRequest.SecurityProviderName);
+            var users = SecurityManager.User_getAll(null,false, pServiceRequest.SecurityProviderName);
             users.ToList().ForEach(u=>{
 
                 wUser.ProviderId = u.Id;
