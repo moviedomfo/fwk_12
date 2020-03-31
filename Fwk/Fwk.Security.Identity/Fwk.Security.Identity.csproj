@@ -119,7 +119,7 @@
     <Compile Include="SecurityEntities\SecurityUser.cs" />
     <Compile Include="SecurityEntities\SecurityUserClaim.cs" />
     <Compile Include="SecurityEntities\be\SecurityCategory.cs" />
-    <Compile Include="SecurityEntities\SecurityRol.cs" />
+    <Compile Include="SecurityEntities\be\SecurityRol.cs" />
     <Compile Include="SecurityEntities\be\SecurityUserBE.cs" />
     <Compile Include="app_identity\helper.cs" />
     <Compile Include="app_identity\Models\AccountBindingModels.cs" />

@@ -79,4 +79,15 @@ namespace Fwk.Security.Identity
             return roles;
         }
     }
+
+
+
+    public class SecurityUserRoles
+    {
+        public Guid UserId { get; set; }
+        
+        public Guid RoleId { get; set; }
+
+        public Guid? InstitutionId { get; set; }
+    }
 }

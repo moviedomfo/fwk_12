@@ -453,6 +453,7 @@ namespace Fwk.Security.Identity
                     var user = db.SecurityUsers.Where(p => p.Id == usderId).FirstOrDefault();
                     if (includeRoles)
                     {
+                        
                         //al consultarlo se incluye la busqueda
                         r = user.SecurityRoles;
                     }
