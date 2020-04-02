@@ -103,7 +103,7 @@ namespace Fwk.Security.Identity
             }
         }
 
-        internal static void User_Update(SecurityUser usersBE, string userName, string sec_provider = "")
+        public  static void User_Update(SecurityUser usersBE, string userName, string sec_provider = "")
         {
             try
             {
