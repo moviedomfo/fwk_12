@@ -103,6 +103,12 @@ namespace Fwk.Security.Identity
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usersBE">Usuario con nu7evos datos</param>
+        /// <param name="userName">Nombre anterior</param>
+        /// <param name="sec_provider"></param>
         public  static void User_Update(SecurityUser usersBE, string userName, string sec_provider = "")
         {
             try
@@ -110,7 +116,7 @@ namespace Fwk.Security.Identity
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(item => item.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
-                    usersBE.UserName = user.UserName;
+                    //usersBE.UserName = user.UserName;
                     usersBE.Email = user.Email;
                     usersBE.PhoneNumber = user.PhoneNumber;
                     //usersBE.UserName = user.UserName;
