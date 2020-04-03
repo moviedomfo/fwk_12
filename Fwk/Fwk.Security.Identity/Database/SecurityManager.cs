@@ -116,10 +116,10 @@ namespace Fwk.Security.Identity
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(item => item.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
-                    //usersBE.UserName = user.UserName;
-                    usersBE.Email = user.Email;
-                    usersBE.PhoneNumber = user.PhoneNumber;
-                    //usersBE.UserName = user.UserName;
+                    user.UserName = usersBE.UserName;
+                    user.Email = usersBE.Email ;
+                    user.PhoneNumber = usersBE.PhoneNumber;
+                    
                     //var rol = user.SecurityRoles.Where(r => r.Name.ToLower() == rolName.ToLower()).FirstOrDefault();
                     //if (rol != null)
                     //{
