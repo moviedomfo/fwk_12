@@ -38,12 +38,20 @@ namespace Fwk.Security.Identity
 
         public bool LockoutEnabled { get; set; }
 
+        /// <summary>
+        /// Está bloqueado
+        /// </summary>
+        public bool? IsLockedOut { get; set; }
+        public bool? IsApproved { get; set; }
+        public Int16? FailedPasswordAttemptCount { get; set; }
+
         public int AccessFailedCount { get; set; }
 
 
         public DateTime CreatedDate { get; set; }
         public DateTime? LastLogInDate { get; set; }
-
+        
+        
         public Guid? InstitutionId { get; set; }
 
         [Required]

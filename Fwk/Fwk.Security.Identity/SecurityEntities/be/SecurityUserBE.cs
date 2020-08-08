@@ -67,6 +67,11 @@ namespace Fwk.Security.Identity
         public Guid? InstitutionId { get; set; }
         public DateTime CreatedDate { get; internal set; }
 
+        public bool? IsApproved { get; set; }
+        public Int16? FailedPasswordAttemptCount { get; set; }
+
+        public bool? IsLockedOut { get; set; }
+        
         ////
         //// Resumen:
         ////     Navigation property for user claims

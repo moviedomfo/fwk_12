@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Fwk.Security;
 using Fwk.Security.Common;
+using Fwk.Security.Identity.Database;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
@@ -14,17 +15,12 @@ namespace Fwk.Security.Identity
 {
     public class SecurityManager
     {
-        
+        private static SQLPasswordHasher PasswordHasher;
 
         static SecurityManager()
         {
-        
+            PasswordHasher = new SQLPasswordHasher();
         }
-
-
-
-
-
 
 
         #region Security Users 
@@ -164,7 +160,8 @@ namespace Fwk.Security.Identity
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
-                    user.PasswordHash = helper.GetHash(password);
+                    //user.PasswordHash = helper.GetHash(password);
+                    user.PasswordHash = PasswordHasher.HashPassword(password);
                     if (user.Id == null || user.Id.Equals(emptyGuid))
                         user.Id = Guid.NewGuid();
                     db.SecurityUsers.Add(user);
@@ -184,7 +181,8 @@ namespace Fwk.Security.Identity
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
-                    user.PasswordHash = helper.GetHash(password);
+                    //user.PasswordHash = helper.GetHash(password);
+                    user.PasswordHash = PasswordHasher.HashPassword(password);
                     if (user.Id == null || user.Id.Equals(emptyGuid))
                         user.Id = Guid.NewGuid();
                     if(asignRoles==false)
@@ -252,7 +250,7 @@ namespace Fwk.Security.Identity
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
-                    user.LockoutEnabled = false;
+                    user.IsLockedOut = false;
                     user.LockoutEndDateUtc = null;
 
                     db.SaveChangesAsync();
@@ -273,7 +271,7 @@ namespace Fwk.Security.Identity
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
-                    user.LockoutEnabled = true;
+                    user.IsLockedOut = true;
                     user.LockoutEndDateUtc = lockoutEndDate;
 
                     db.SaveChangesAsync();
@@ -295,12 +293,12 @@ namespace Fwk.Security.Identity
 
                 if (user != null)
                 {
-                    if (user.LockoutEnabled)
+                    if (user.IsLockedOut.Value)
                     {
                         result.Status = SignInStatus.LockedOut.ToString();
                         result.Message = "Usuario bloqueado";
                     }
-                    if (user.EmailConfirmed == false)
+                    if ( user.EmailConfirmed == false)
                     {
                         result.Status = SignInStatus.RequiresVerification.ToString();
                         result.Message = "Usuario Require verificaciión";
@@ -322,12 +320,18 @@ namespace Fwk.Security.Identity
             return result;
         }
 
-        private async Task<bool> GetLockoutEnabled(SecurityUser user)
+        /// <summary>
+        /// Retorna si un usuario esta desbloqueado o no y si deberia desbloquerce se lo desbloquea
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private async Task<bool> GetisLockedOut(SecurityUser user)
         {
-            var isLockoutEnabled = user.LockoutEnabled;
+            
 
-            if (isLockoutEnabled == false) return false;
+            if (user.IsLockedOut.Value == false) return false;
 
+            //verifica si deberia desbloquear
             var shouldRemoveLockout = DateTime.Now >= user.LockoutEndDateUtc;
 
             if (shouldRemoveLockout)
@@ -352,7 +356,7 @@ namespace Fwk.Security.Identity
             userBe.EmailConfirmed = user.EmailConfirmed;
             userBe.UserName = user.UserName;
             userBe.TwoFactorEnabled = user.TwoFactorEnabled;
-
+            userBe.IsLockedOut = user.IsLockedOut;
             if (user.SecurityRoles.Count != 0)
             {
 
@@ -419,7 +423,8 @@ namespace Fwk.Security.Identity
                         userBE.LastLogInDate = u.LastLogInDate;
                         userBE.CreatedDate = u.CreatedDate;
                         userBE.InstitutionId = institutionId;
-
+                        userBE.IsLockedOut = u.IsLockedOut;
+                        userBE.IsApproved = u.IsApproved;
                         if (includeRoles)
                         {
                             userBE.Roles = new List<string>();
@@ -614,7 +619,7 @@ namespace Fwk.Security.Identity
 
             if (user != null)
             {
-                if (user.LockoutEnabled)
+                if (user.IsLockedOut.Value)
                 {
                     result.Status = SignInStatus.LockedOut.ToString();
                     result.Message = "Usuario bloqueado";
@@ -655,12 +660,24 @@ namespace Fwk.Security.Identity
             return result;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="storedHash"></param>
+        /// <returns></returns>
         public static bool VerifyHashedPassword(string password, string storedHash)
         {
-            var hash = helper.GetHash(password);
-            return hash == storedHash;
+            //var hash = helper.GetHash(password);
+            //return hash == storedHash;
+
+
+            var res = PasswordHasher.VerifyHashedPassword(password, storedHash);
+            return PasswordVerificationResult.Success == res;
         }
+
+      
+
 
         /// <summary>
         /// 
@@ -678,7 +695,9 @@ namespace Fwk.Security.Identity
                     var user = db.SecurityUsers.Where(p => 
                     p.UserName.ToLower() == userName.ToLower() 
                     ).FirstOrDefault();
-                    user.PasswordHash = helper.GetHash(newPassword);
+                    //user.PasswordHash =  helper.GetHash(newPassword);
+                    user.PasswordHash = PasswordHasher.HashPassword(newPassword);
+                    
 
                     var res = db.SaveChanges();
                     return IdentityResult.Success;
@@ -699,17 +718,24 @@ namespace Fwk.Security.Identity
         /// <param name="newPassword"></param>
         /// <param name="sec_provider"></param>
         /// <returns></returns>
-            public static IdentityResult User_ChangePassword(string userName, string oldPassword, string newPassword, string sec_provider )
+        public static IdentityResult User_ChangePassword(string userName, string oldPassword, string newPassword, string sec_provider)
         {
-           
-                var result = User_Authenticate(userName, oldPassword, sec_provider);
+
+            var result = User_Authenticate(userName, oldPassword, sec_provider);
+            SignInStatus resSetatus =(SignInStatus) Enum.Parse(typeof(SignInStatus), result.Status);
+            if (resSetatus  != SignInStatus.Success)
+            {
+                return new IdentityResult(new string[] { result.Message });
+            }
+
             try
             {
                 using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
                 {
 
                     var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
-                    user.PasswordHash = helper.GetHash(newPassword);
+                    //user.PasswordHash = helper.GetHash(newPassword);
+                    user.PasswordHash = PasswordHasher.HashPassword(newPassword);
 
                     var res = db.SaveChanges();
                     return IdentityResult.Success;

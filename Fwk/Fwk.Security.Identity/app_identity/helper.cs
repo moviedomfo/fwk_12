@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using Fwk.HelperFunctions;
 using System.Collections.Generic;
 using Fwk.Exceptions;
+using Fwk.Bases;
 
 namespace Fwk.Security.Identity
 {
@@ -107,7 +108,7 @@ namespace Fwk.Security.Identity
             //}
             //catch (Exception) { }
         }
-
+        [Obsolete("Utilizar  user.PasswordHash = PasswordHasher.HashPassword(newPassword);")]
         public static string GetHash(string input)
         {
             HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
@@ -175,13 +176,7 @@ namespace Fwk.Security.Identity
             return (time < DateTime.UtcNow.AddMinutes(-expirationTime) || tokenUserData.CompareTo(userData) != 0);
 
         }
-        public enum ExpirationFormat
-        {
-            DAY,
-            MINUTES,
-            SECONDS,
-            HOURS
-        }
+      
     }
 
 

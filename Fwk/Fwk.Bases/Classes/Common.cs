@@ -244,4 +244,11 @@ namespace Fwk.Bases
         ASPNETIdentity_2_0 = 5,
 
     }
+    public enum ExpirationFormat
+    {
+        DAY,
+        MINUTES,
+        SECONDS,
+        HOURS
+    }
 }
