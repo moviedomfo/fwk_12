@@ -4,12 +4,11 @@ namespace Fwk.Security.Identity
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using Fwk.Security.Identity;
 
     public partial class SecurityModelContext : DbContext
     {
         public SecurityModelContext()
-            : base("name=defaultCnnString")
+            : base("name=celam")
         {
         }
 

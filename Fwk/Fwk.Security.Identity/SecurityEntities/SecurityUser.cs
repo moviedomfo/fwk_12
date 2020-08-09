@@ -5,7 +5,6 @@ namespace Fwk.Security.Identity
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Linq;
 
     public partial class SecurityUser
     {
@@ -38,25 +37,23 @@ namespace Fwk.Security.Identity
 
         public bool LockoutEnabled { get; set; }
 
-        /// <summary>
-        /// Está bloqueado
-        /// </summary>
-        public bool? IsLockedOut { get; set; }
-        public bool? IsApproved { get; set; }
-        public Int16? FailedPasswordAttemptCount { get; set; }
-
         public int AccessFailedCount { get; set; }
 
-
         public DateTime CreatedDate { get; set; }
+
         public DateTime? LastLogInDate { get; set; }
-        
-        
-        public Guid? InstitutionId { get; set; }
 
         [Required]
         [StringLength(256)]
         public string UserName { get; set; }
+
+        public bool? IsLockedOut { get; set; }
+
+        public short? FailedPasswordAttemptCount { get; set; }
+
+        public bool? IsApproved { get; set; }
+
+        public Guid? InstitutionId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SecuritytUserLogin> SecuritytUserLogins { get; set; }
@@ -66,36 +63,5 @@ namespace Fwk.Security.Identity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SecurityRole> SecurityRoles { get; set; }
-
-
-
-        public List<String> GetRolesArray()
-        {
-            List<String> roles = new List<String>();
-            if (this.SecurityRoles != null)
-            {
-                if (this.SecurityRoles.Count != 0)
-                {
-                    roles = new List<String>();
-                    SecurityRoles.ToList().ForEach(r =>
-                    {
-                        roles.Add(r.Name);
-                    });
-                }
-            }
-           
-            return roles;
-        }
-    }
-
-
-
-    public class SecurityUserRoles
-    {
-        public Guid UserId { get; set; }
-        
-        public Guid RoleId { get; set; }
-
-        public Guid? InstitutionId { get; set; }
     }
 }

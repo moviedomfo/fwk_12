@@ -1,4 +1,4 @@
-namespace  Fwk.Security.Identity
+namespace Fwk.Security.Identity
 {
     using System;
     using System.Collections.Generic;
