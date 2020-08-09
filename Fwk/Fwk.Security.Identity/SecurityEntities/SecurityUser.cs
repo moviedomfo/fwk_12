@@ -5,6 +5,7 @@ namespace Fwk.Security.Identity
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     public partial class SecurityUser
     {
@@ -63,5 +64,23 @@ namespace Fwk.Security.Identity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SecurityRole> SecurityRoles { get; set; }
+
+        public List<String> GetRolesArray()
+        {
+            List<String> roles = new List<String>();
+            if (this.SecurityRoles != null)
+            {
+                if (this.SecurityRoles.Count != 0)
+                {
+                    roles = new List<String>();
+                    SecurityRoles.ToList().ForEach(r =>
+                    {
+                        roles.Add(r.Name);
+                    });
+                }
+            }
+
+            return roles;
+        }
     }
 }
