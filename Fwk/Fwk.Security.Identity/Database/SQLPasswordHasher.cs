@@ -15,6 +15,12 @@ namespace Fwk.Security.Identity.Database
             return base.HashPassword(password);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hashedPassword"></param>
+        /// <param name="providedPassword"></param>
+        /// <returns></returns>
         public override PasswordVerificationResult VerifyHashedPassword(string hashedPassword, string providedPassword)
         {
             string[] passwordProperties = hashedPassword.Split('|');

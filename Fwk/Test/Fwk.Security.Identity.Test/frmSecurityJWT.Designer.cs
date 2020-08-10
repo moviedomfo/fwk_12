@@ -41,6 +41,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.txtToken2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -194,11 +195,23 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnGenerateToken_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(932, 55);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(138, 27);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "User get";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // frmSecurityJWT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 675);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnKey);
             this.Controls.Add(this.txtAudienseHased);
@@ -230,6 +243,7 @@
         private System.Windows.Forms.TextBox txtToken2;
         private System.Windows.Forms.TextBox txtAutenticatedValues2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -20,6 +20,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.ServiceModel.Security.Tokens;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
+
+
 
 namespace Fwk.Security.Identity.Test
 {
@@ -255,6 +257,18 @@ namespace Fwk.Security.Identity.Test
             return s.ToString();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            using (SecurityModelContext s = new SecurityModelContext())
+            {
+                var r = s.SecurityRoles.Where(p=> !string.IsNullOrEmpty(p.Name));
 
+                r.ToList().ForEach(i =>
+                {
+                    string rn = i.Name;
+                });
+            }
+        }
     }
 }

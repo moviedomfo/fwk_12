@@ -65,6 +65,7 @@ namespace Fwk.Security.Identity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SecurityRole> SecurityRoles { get; set; }
 
+
         public List<String> GetRolesArray()
         {
             List<String> roles = new List<String>();

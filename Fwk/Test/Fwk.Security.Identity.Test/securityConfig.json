@@ -9,12 +9,12 @@
       "securityModelContext": "fwk"
     },
     {
-      "name": "health_wcf",
+      "name": "SecContext",
       "description": "Proveedor health wcf",
       "audienceId": "pelsoft",
       "issuer": "pelsoft",
       "audienceSecret": "qMCdFDQuF23RV1Y-1Gq9L3cF3VmuFwVbam4fMTdAfpo",
-      "securityModelContext": "health"
+      "securityModelContext": "SecContext"
     }
   ]
   

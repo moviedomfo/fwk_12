@@ -8,7 +8,7 @@ namespace Fwk.Security.Identity
     public partial class SecurityModelContext : DbContext
     {
         public SecurityModelContext()
-            : base("name=celam")
+            : base("name=secModel")
         {
         }
 

@@ -632,9 +632,15 @@ namespace Fwk.Security.Identity
                     return result;
                 }
 
-                bool isValid = VerifyHashedPassword(password, user.PasswordHash);
+                PasswordVerificationResult verifyRes = VerifyHashedPassword(user.PasswordHash, password);
 
-                if (!isValid)
+                if(verifyRes== PasswordVerificationResult.SuccessRehashNeeded)
+                {
+                    //si fue muigrado requiere actualizar hash
+                    User_ChangePasswordForce(user.UserName, password, password, sec_provider);
+                }
+
+                if (verifyRes != PasswordVerificationResult.Success)
                 {
                     result.Status = SignInStatus.Failure.ToString();
                     result.Message = "Password es incorrecto";
@@ -660,20 +666,50 @@ namespace Fwk.Security.Identity
             return result;
         }
 
+
+        static IdentityResult User_ChangePasswordForce(string userName, string oldPassword, string newPassword, string sec_provider)
+        {
+
+          
+
+            try
+            {
+                using (SecurityModelContext db = new SecurityModelContext(helper.get_secConfig().Getcnnstring(sec_provider)))
+                {
+
+                    var user = db.SecurityUsers.Where(p => p.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
+                    //user.PasswordHash = helper.GetHash(newPassword);
+                    user.PasswordHash = PasswordHasher.HashPassword(newPassword);
+
+                    var res = db.SaveChanges();
+                    return IdentityResult.Success;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return new IdentityResult(new string[] { Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex) });
+            }
+
+
+        }
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="password"></param>
         /// <param name="storedHash"></param>
+        /// <param name="password"></param>
         /// <returns></returns>
-        public static bool VerifyHashedPassword(string password, string storedHash)
+        public static PasswordVerificationResult VerifyHashedPassword(string storedHash, string password)
         {
             //var hash = helper.GetHash(password);
             //return hash == storedHash;
 
 
-            var res = PasswordHasher.VerifyHashedPassword(password, storedHash);
-            return PasswordVerificationResult.Success == res;
+            var res = PasswordHasher.VerifyHashedPassword(storedHash, password);
+
+            
+            
+            return  res;
         }
 
       
