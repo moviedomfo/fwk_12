@@ -108,6 +108,8 @@ namespace Fwk.Security.Identity
             //}
             //catch (Exception) { }
         }
+
+
         [Obsolete("Utilizar  user.PasswordHash = PasswordHasher.HashPassword(newPassword);")]
         public static string GetHash(string input)
         {

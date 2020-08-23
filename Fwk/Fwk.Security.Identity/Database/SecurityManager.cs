@@ -202,7 +202,7 @@ namespace Fwk.Security.Identity
                 return new IdentityResult(new string[] { Fwk.Exceptions.ExceptionHelper.GetAllMessageException(ex) });
             }
         }
-        internal static bool User_Exist(string userName, string sec_provider = "")
+        public static bool User_Exist(string userName, string sec_provider = "")
         {
             try
             {
@@ -516,7 +516,7 @@ namespace Fwk.Security.Identity
            
         }
 
-
+        ///
         public static IdentityResult User_AsignRoles(AssignRolesToUserModel model, string sec_provider )
         {
 
