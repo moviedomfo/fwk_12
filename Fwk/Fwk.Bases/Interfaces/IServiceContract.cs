@@ -20,11 +20,11 @@ namespace Fwk.Bases
         /// <summary>
         /// Interfaz de entidad 
         /// </summary>
-        IBaseEntity IEntity
-        {
-            get;
+        //IBaseEntity IEntity
+        //{
+        //    get;
            
-        }
+        //}
         /// <summary>
         /// Indica el nombre del servicio. Este nombre debe ser igual a como esta registrado
         /// </summary>
