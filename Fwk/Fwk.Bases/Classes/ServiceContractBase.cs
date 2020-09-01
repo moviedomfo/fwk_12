@@ -15,7 +15,6 @@ namespace Fwk.Bases
     /// Clase base con el comportamiento general de los Request y Responses
     /// </summary>
     /// <typeparam name="T"> <see cref="IEntity"/> </typeparam>
-    [Serializable]
     public class ServiceContractBase<T>:IServiceContract where T : IBaseEntity , new()
     {
         
@@ -290,14 +289,14 @@ namespace Fwk.Bases
         /// <summary>
         /// GetBusinessDataObject
         /// </summary>
-        public IBaseEntity IEntity
-        {
-            get
-            {
-                return m_Data;
-            }
+        //public IBaseEntity IEntity
+        //{
+        //    get
+        //    {
+        //        return m_Data;
+        //    }
            
-        }
+        //}
 
         #endregion
 

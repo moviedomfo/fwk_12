@@ -112,7 +112,24 @@ namespace Fwk.BusinessFacades
         /// <author>moviedo</author>
         public string ExecuteService(string providerName, string serviceName, string pXmlRequest)
         {
-            string wResult;
+
+            var res  = ExecuteServiceBase(providerName, serviceName, pXmlRequest);
+            
+            return res.GetXml();
+
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="providerName"></param>
+        /// <param name="serviceName"></param>
+        /// <param name="pXmlRequest"></param>
+        /// <returns></returns>
+        IServiceContract ExecuteServiceBase(string providerName, string serviceName, string pXmlRequest)
+        {
+            
             if (string.IsNullOrEmpty(serviceName))
             {
                 throw get_TechnicalException_error_serviceName_null();
@@ -123,9 +140,7 @@ namespace Fwk.BusinessFacades
 
             wRequest.SetXml(pXmlRequest);
 
-            wResult = ExecuteService(providerName, wRequest).GetXml();
-
-            return wResult;
+            return  ExecuteService(providerName, wRequest);
 
 
         }
@@ -142,7 +157,8 @@ namespace Fwk.BusinessFacades
         /// <author>moviedo</author>
         public string ExecuteServiceJson(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
         {
-            string wResult;
+
+
             if (string.IsNullOrEmpty(serviceName))
             {
                 throw get_TechnicalException_error_serviceName_null();
@@ -161,12 +177,12 @@ namespace Fwk.BusinessFacades
             {
                 throw new TechnicalException(string.Concat("El servicio ", serviceName, " no se encuentra configurado verifique el Response: ", serviceConfiguration.Response));
             }
-            
-            wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson(resType, res);
-            return wResult;
+
+            string jsonRes = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson(resType, res);
+            return jsonRes;
         }
 
-
+   
 
         /// <summary>
         /// usa internamente Newtonsoft para serializar json
@@ -196,6 +212,35 @@ namespace Fwk.BusinessFacades
             //Type resType = Type.GetType(serviceConfiguration.Response);
             wResult = Fwk.HelperFunctions.SerializationFunctions.SerializeObjectToJson_Newtonsoft( res);
             return wResult;
+        }
+
+
+        /// <summary>
+        /// Retorna IServiceContract
+        /// </summary>
+        /// <param name="providerName"></param>
+        /// <param name="serviceName"></param>
+        /// <param name="jsonRequest"></param>
+        /// <param name="hostContext"></param>
+        /// <returns></returns>
+        public IServiceContract ExecuteServiceJsonBase(string providerName, string serviceName, string jsonRequest, HostContext hostContext)
+        {
+
+            if (string.IsNullOrEmpty(serviceName))
+            {
+                throw get_TechnicalException_error_serviceName_null();
+            }
+            ServiceConfiguration serviceConfiguration = FacadeHelper.GetServiceConfiguration(providerName, serviceName);
+            Type reqType = Try_get_reqType(providerName, serviceConfiguration);
+
+
+            var wRequest = (IServiceContract)Fwk.HelperFunctions.SerializationFunctions.DeSerializeObjectFromJson_Newtonsoft(reqType, jsonRequest);
+
+            wRequest.ContextInformation.HostName = hostContext.HostName;
+            wRequest.ContextInformation.HostIp = hostContext.HostIp;
+
+            IServiceContract res = ExecuteService(providerName, (IServiceContract)wRequest);
+            return res;
         }
 
         Type Try_get_reqType(string providerName, ServiceConfiguration serviceConfiguration)
