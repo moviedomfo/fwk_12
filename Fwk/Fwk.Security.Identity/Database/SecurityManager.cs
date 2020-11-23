@@ -628,7 +628,7 @@ namespace Fwk.Security.Identity
                 if (user.EmailConfirmed == false)
                 {
                     result.Status = SignInStatus.RequiresVerification.ToString();
-                    result.Message = "Usuario require verificaciión";
+                    result.Message = "Usuario require verificación";
                     return result;
                 }
 

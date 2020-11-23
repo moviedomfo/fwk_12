@@ -20,8 +20,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.ServiceModel.Security.Tokens;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
-
-
+using Fwk.Security.Identity.Database;
 
 namespace Fwk.Security.Identity.Test
 {
@@ -269,6 +268,29 @@ namespace Fwk.Security.Identity.Test
                     string rn = i.Name;
                 });
             }
+        }
+
+        private void btnHashhPwd_Click(object sender, EventArgs e)
+        {
+            SQLPasswordHasher h = new SQLPasswordHasher();
+            txtPasswordHashwd.Text= h.HashPassword(txtPassword.Text);
+
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SQLPasswordHasher h = new SQLPasswordHasher();
+
+            if(h.VerifyHashedPassword(txtPasswordHashwd.Text, txtPassword.Text)== Microsoft.AspNet.Identity.PasswordVerificationResult.Success)
+            {
+                MessageBox.Show("CORRECTO");
+            }
+            else
+            {
+                MessageBox.Show("INCORRECTO");
+            }
+
         }
     }
 }

@@ -179,7 +179,7 @@ namespace Fwk.Security.ActiveDirectory
         }
 
        /// <summary>
-            ///  Este metoo autentica elusuario pero no espesifica el error. Tal como lo hace User_Logon retornando LoginResult
+       ///  Este metoo autentica elusuario pero no espesifica el error. Tal como lo hace User_Logon retornando LoginResult
        /// </summary>
        /// <param name="LDAPPath">url ldap o coneccion ldap perteneciente al dominio</param>
        /// <param name="domainName">Nombre de dominio</param>
