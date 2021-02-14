@@ -41,12 +41,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.txtToken2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnHashhPwd = new System.Windows.Forms.Button();
-            this.txtPasswordHashwd = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.txtPasswordHashwd = new System.Windows.Forms.TextBox();
+            this.btnHashhPwd = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -121,9 +122,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(22, 112);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -202,19 +203,9 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnGenerateToken_Click);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(932, 55);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(138, 27);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "User get";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.txtPasswordHashwd);
             this.tabPage3.Controls.Add(this.btnHashhPwd);
@@ -224,30 +215,19 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1087, 487);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Hash Password";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // txtPassword
+            // button6
             // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(195, 76);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPassword.Multiline = true;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(561, 38);
-            this.txtPassword.TabIndex = 16;
-            // 
-            // btnHashhPwd
-            // 
-            this.btnHashhPwd.Location = new System.Drawing.Point(786, 87);
-            this.btnHashhPwd.Margin = new System.Windows.Forms.Padding(4);
-            this.btnHashhPwd.Name = "btnHashhPwd";
-            this.btnHashhPwd.Size = new System.Drawing.Size(138, 27);
-            this.btnHashhPwd.TabIndex = 23;
-            this.btnHashhPwd.Text = "Hassh Password";
-            this.btnHashhPwd.UseVisualStyleBackColor = true;
-            this.btnHashhPwd.Click += new System.EventHandler(this.btnHashhPwd_Click);
+            this.button6.Location = new System.Drawing.Point(786, 145);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(138, 27);
+            this.button6.TabIndex = 25;
+            this.button6.Text = "Verify Password";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // txtPasswordHashwd
             // 
@@ -260,16 +240,46 @@
             this.txtPasswordHashwd.Size = new System.Drawing.Size(561, 38);
             this.txtPasswordHashwd.TabIndex = 24;
             // 
-            // button6
+            // btnHashhPwd
             // 
-            this.button6.Location = new System.Drawing.Point(786, 145);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(138, 27);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "Verify Password";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnHashhPwd.Location = new System.Drawing.Point(786, 87);
+            this.btnHashhPwd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHashhPwd.Name = "btnHashhPwd";
+            this.btnHashhPwd.Size = new System.Drawing.Size(138, 27);
+            this.btnHashhPwd.TabIndex = 23;
+            this.btnHashhPwd.Text = "Hassh Password";
+            this.btnHashhPwd.UseVisualStyleBackColor = true;
+            this.btnHashhPwd.Click += new System.EventHandler(this.btnHashhPwd_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(195, 76);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Multiline = true;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(561, 38);
+            this.txtPassword.TabIndex = 16;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(932, 55);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(138, 27);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "User get";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(39, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(465, 41);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Llama a SQLPasswordHasher y permite hashear  password basado ";
             // 
             // frmSecurityJWT
             // 
@@ -316,6 +326,7 @@
         private System.Windows.Forms.Button btnHashhPwd;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label1;
     }
 }
 
